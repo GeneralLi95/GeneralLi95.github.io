@@ -166,6 +166,8 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                        
                     </div>
                     <h1>Hexo博客搭建（三）上线与个性化域名设置</h1>
                     <h2 class="subheading"></h2>
@@ -211,6 +213,8 @@
 <p><font color="red">DNSPod</font>已经被腾讯云收购，所以用微信可以直接登录。<br>登录DNSPod之后按照提示，再到Godaddy里面把DNS修改一下。<br><img src="http://p6atp7tts.bkt.clouddn.com/15223260769551.jpg" alt=""></p>
 <p>然后为了使GitHub接收这个域名，还需要博客的根目录下添加一个名为CNAME的文件（不要加.txt）。<br>这个文件放到主题文件夹的source里面，文件里面放你的域名（去掉www），比如我的网站，文件里面就放一句话：liyaolife.com<br>然后在如上图所示界面里面，添加两条记录，一个主机记录写@，另一个写www，这样无论用户输入<a href="http://www.liyaolife.com">www.liyaolife.com</a> 还是只输入 liyaolife.com 都可以直接定位到我的网站了，记录值放自己的GitHub Pages地址。</p>
 <p>OK，现在可以把这个URL转到微信群里面跟爸爸妈妈还有小伙伴们炫耀一番了。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>。</p>
 
 
                 <hr>
@@ -248,6 +252,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                        
                     </div>
                 </section>
                 
@@ -393,6 +399,22 @@
 
 
 <!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-116714676-1';
+    var _gaDomain = 'liyaolife.com';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
 
 
 

@@ -216,6 +216,9 @@
 <p>这时候图床就派上用场了，拖进去，上传，复制Markdown，这时候你的文档里面是一个<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="selector-attr">[]</span>(<span class="attribute">http</span>:<span class="comment">//p6atp7tts.bkt.clouddn.com/15222405680070.jpg)</span></span><br></pre></td></tr></table></figure></p>
 <p>这样的东西，相当于图片变成了一个源。</p>
 <p>Hexo博客其实本身不存在这个问题，因为拖进去的图片会被保存下来，一起上传到GitHub repo里面，相当于自动完成了这个过程。但是这样博客的迁移性就不太好，如果要随便迁移，比如要迁移到微信公众号或CSDN，这个方法就比较有用了。关于MWeb和七牛的配置具体可见下面两个资源。<br><a href="https://blog.csdn.net/crazy1235/article/details/78570367" target="_blank" rel="noopener">MWeb</a> ，<a href="https://www.cnblogs.com/colder219/p/6266296.html" target="_blank" rel="noopener">七牛云图床</a></p>
+<p>还有一篇文章，介绍的比较详细，可以看出MWeb+七牛到底有什么好处。<br><a href="https://www.jianshu.com/p/c859ead1b493" target="_blank" rel="noopener">一个码子工作者的正确书写发文姿势</a></p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>。</p>
 
 
                 <hr>
@@ -404,6 +407,22 @@
 
 
 <!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-116714676-1';
+    var _gaDomain = 'liyaolife.com';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
 
 
 
