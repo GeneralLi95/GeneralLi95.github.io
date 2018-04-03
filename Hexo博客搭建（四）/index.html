@@ -14,11 +14,11 @@
 
     <title>
         
-          Archives - 李尧的博客 | Yao Blog
+          Hexo博客搭建（四） 主题设置 - 李尧的博客 | Yao Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liyaolife.com/archives/">
+    <link rel="canonical" href="http://www.liyaolife.com/Hexo博客搭建（四）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -150,124 +150,132 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.liyaolife.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg-o.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Archives</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Archives.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                        
+                    </div>
+                    <h1>Hexo博客搭建（四） 主题设置</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Li Yao on
+                        2018-04-02
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <p>Hexo支持大家自定义主题样式，所以不甘寂寞的高手们为此做了大量的工作，创作出了大量优秀的主题供我们选择。本文主要写一下如何选择，设置主题。不涉及如何自定义一个主题。</p>
+<h2 id="从哪里找主题"><a href="#从哪里找主题" class="headerlink" title="从哪里找主题"></a>从哪里找主题</h2><ul>
+<li><a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官网主题页面</a></li>
+<li><a href="https://github.com/search?utf8=✓&amp;q=hexo+theme&amp;type=" target="_blank" rel="noopener">GitHub搜索 hexo theme</a></li>
+</ul>
+<p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a>的作者曾说过，她的主题设计原则是</p>
+<blockquote>
+<p>崇尚简约<br>追求移动端体验<br>希望把加载速度做到极致（努力中）<br>让大家把注意力放到内容上。这是本主题设计初衷<br>主题不支持IE6，7，8。以后也不会</p>
+</blockquote>
+<p>深得我心，作为文艺又浪漫的技术人员，我们的博客不是QQ空间，不需要那么多花里胡哨的装扮，真正重要的是内容。</p>
+<p>所以在建议大家不要花太多的时间用在选主题上。<br>选主题时，注意下面一些问题:</p>
+<ul>
+<li>主题尽量选通用的，想要个性的话，下下来自己改，尽量避免太小众的主题，除非你有很强的技术能力。因为一些用的比较多的主题已经成为一个开源项目，有很多人维护，并且不断开发新功能。</li>
+<li>接口是否全面，在后续的设置中，有SEO优化，社交账号快捷入口，流量统计，评论功能等等一系列可以做的事情，一些好的主题会集成这些功能，接口很全面，直接在博客设置文件里面配置一下就好了。</li>
+<li>语言支持，至少支持中英文吧。大部分主题现在还支持emoji，真的十分优秀（相比之下，CSDN就不能显示emoji，不忍直视）</li>
+</ul>
+<h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><p>我们以用的最多的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NEXT主题</a>为例。</p>
+<p>写了半天，发现<a href="https://github.com/iissnan/hexo-theme-next/blob/master/README.cn.md" target="_blank" rel="noopener">NEXT主题的官方中文文档</a>，珠玉在前，不再多言。其他主题的设置大同小异。</p>
+<p>向这些优秀主题的贡献者们敬礼👍👍。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>。</p>
 
 
+                <hr>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
-                    <span class="tag-text">2018</span>
-                </span>
-                <ul>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-02
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo博客搭建（五）/" style="color: #0085a1">
-                        <span>
-                            hexo博客搭建（五）SEO优化
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-02
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/Hexo博客搭建（四）/" style="color: #0085a1">
-                        <span>
-                            Hexo博客搭建（四） 主题设置
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    03-28
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/Hexo博客搭建（三)/" style="color: #0085a1">
-                        <span>
-                            Hexo博客搭建（三）上线与个性化域名设置
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    03-27
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/Hexo博客搭建（二）从最简单的开始/" style="color: #0085a1">
-                        <span>
-                            Hexo博客搭建（二）从最简单的开始
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    03-24
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/Hexo博客搭建（一）前期准备/" style="color: #0085a1">
-                        <span>
-                            Hexo博客搭建（一）前期准备
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
                 
 
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/hexo博客搭建（五）/" data-toggle="tooltip" data-placement="top" title="hexo博客搭建（五）SEO优化">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/Hexo博客搭建（三)/" data-toggle="tooltip" data-placement="top" title="Hexo博客搭建（三）上线与个性化域名设置">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
 
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
 
         </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
 
 
     <!-- Footer -->
