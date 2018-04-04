@@ -93,14 +93,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -194,7 +194,43 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p><a href="https://www.zhihu.com/question/30898326" target="_blank" rel="noopener">知乎：如何解决百度爬虫无法爬取搭建在Github上的个人博客的问题？</a></p>
+                <h1 id="何为SEO优化"><a href="#何为SEO优化" class="headerlink" title="何为SEO优化"></a>何为SEO优化</h1><blockquote>
+<p>搜索引擎优化（英语：search engine optimization，缩写为SEO），是一种通过了解搜索引擎的运作规则来调整网站，以及提高目的网站在有关搜索引擎内排名的方式。由于不少研究发现，搜索引擎的用户往往只会留意搜索结果最前面的几个条目，所以不少网站都希望通过各种形式来影响搜索引擎的排序，让自己的网站可以有优秀的搜索排名。当中尤以各种依靠广告维生的网站为甚。<br>所谓“针对搜索引擎作最优化的处理”，是指为了要让网站更容易被搜索引擎接受。搜索引擎会将网站彼此间的内容做一些相关性的数据比对，然后再由浏览器将这些内容以最快速且接近最完整的方式，呈现给搜索者。搜索引擎优化就是通过搜索引擎的规则进行优化，为用户打造更好的用户体验，最终的目的就是做好用户体验。<br>对于任何一个网站来说，要想在网站推广中获取成功，搜索引擎优化都是至为关键的一项任务。同时，随着搜索引擎不断变换它们的搜索排名算法规则，每次算法上的改变都会让一些排名很好的网站在一夜之间名落孙山，而失去排名的直接后果就是失去了网站固有的可观访问流量。所以每次搜索引擎算演法的改变都会在网站之中引起不小的骚动和焦虑。可以说，搜索引擎优化是一个愈来愈复杂的任务。</p>
+</blockquote>
+<p align="right">——<a href="https://zh.wikipedia.org/wiki/搜尋引擎最佳化" target="_blank" rel="noopener">维基百科</a></p>
+
+<p>看起来还蛮高大上的。<br>当我们的网站设置好之后，能不能在搜索引擎搜索到呢？<br>试一下。</p>
+<p>百度搜索：<br>site: liyaolife.com<br>返回结果<br><img src="http://p6atp7tts.bkt.clouddn.com/15228101944822.jpg" alt=""><br>Amazing！搜不到，所以怎么办？SEO优化。</p>
+<p>#Google SEO优化</p>
+<p>下面以Google为例，讲一下SEO优化的过程。</p>
+<h3 id="注册Google-Search-Console"><a href="#注册Google-Search-Console" class="headerlink" title="注册Google Search Console"></a>注册Google Search Console</h3><p>使用Google账号直接登录即可，没有的，注册一个，不需要实名认证，非常方便。<br>添加博客域名，验证域名所属权，这里当然不会给我们手机发送一个验证码了，而是通过其他方式验证。<br><img src="http://p6atp7tts.bkt.clouddn.com/15228105715750.jpg" alt=""><br>点击添加属性。<br><img src="http://p6atp7tts.bkt.clouddn.com/15228106053501.jpg" alt=""><br>然后在后面输入自己的网址。<br><img src="http://p6atp7tts.bkt.clouddn.com/15228107503952.jpg" alt=""><br>验证方式有很多种，我选择的是通过HTML标记验证，只需要添加一行代码放到首页即可。<br>把那行代码复制下来，放到，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">![](http://p6atp7tts.bkt.clouddn.com/15228110763096.jpg)</span><br><span class="line"></span><br><span class="line">这行代码，Google正式通过这种方式来验证我们对网站的所有权，下面一行baidu-site-verification就是百度的验证。方法是一样的。</span><br><span class="line"></span><br><span class="line">### 添加站点地图 sitemap</span><br><span class="line"></span><br><span class="line">首先，在本地安装站点地图自动生成的插件</span><br></pre></td></tr></table></figure></p>
+<p>npm install hexo-generator-sitemap –save<br>npm install hexo-generator-baidu-sitemap –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在blog的配置文件中增加：</span><br></pre></td></tr></table></figure></p>
+<p>sitemap:<br>    path: sitemap.xml<br>baidusitemap:<br>    path: baidusitemap.xml<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">注意格式一定要正确，这里建议使用带高亮的编辑器（比如Atom)打开配置文件，因为带高亮的情况下，可以很容易看出格式正不正确。</span><br><span class="line"></span><br><span class="line">添加好之后hexo g即可在本地生成sitemap.xml文件了，deploy之后在线</span><br><span class="line">http:<span class="comment">//liyaolife.com/sitemap.xml也可以看见我的sitemap。</span></span><br><span class="line"></span><br><span class="line">然后在Google search console里添加sitemap即可。</span><br><span class="line">![](http:<span class="comment">//p6atp7tts.bkt.clouddn.com/15228124673076.jpg)</span></span><br><span class="line"></span><br><span class="line">![](http:<span class="comment">//p6atp7tts.bkt.clouddn.com/15228125041671.jpg)</span></span><br><span class="line"></span><br><span class="line">###添加robots.txt测试工具</span><br><span class="line">在博客的source文件下面新建robots.txt</span><br><span class="line">内容</span><br></pre></td></tr></table></figure></p>
+<h1 id="hexo-robots-txt"><a href="#hexo-robots-txt" class="headerlink" title="hexo robots.txt"></a>hexo robots.txt</h1><p>User-agent: *<br>Allow: /<br>Allow: /archives/</p>
+<p>Disallow: /vendors/<br>Disallow: /js/<br>Disallow: /css/<br>Disallow: /fonts/<br>Disallow: /vendors/<br>Disallow: /fancybox/</p>
+<p>Sitemap: <a href="http://liyaolife.com/sitemap.xml" target="_blank" rel="noopener">http://liyaolife.com/sitemap.xml</a><br>Sitemap: <a href="http://liyaolife.com/baidusitemap.xml" target="_blank" rel="noopener">http://liyaolife.com/baidusitemap.xml</a></p>
+<p><code>`</code></p>
+<font color="red">注意将网址换成自己的!</font>
+
+<p>部署，然后同样提交到google search console里面<br><img src="http://p6atp7tts.bkt.clouddn.com/15228127249334.jpg" alt=""></p>
+<p>大功告成，很快Google就可以搜索到我们啦。<br><img src="http://p6atp7tts.bkt.clouddn.com/15228127769526.jpg" alt=""></p>
+<p>排在第一位，很棒。</p>
+<p>#百度SEO<br>过程与Google基本一致，但是由于GitHub Pages屏蔽了百度的爬虫请求，所以baidusitemap.xml总是提交失败。</p>
+<p>解决这个问题，过程非常麻烦，知乎有一个讨论帖。</p>
+<p><a href="https://www.zhihu.com/question/30898326" target="_blank" rel="noopener">知乎：如何解决百度爬虫无法爬取搭建在Github上的个人博客的问题？</a></p>
+<p>我总结了一下，基本上可以分为两个方案。</p>
+<ul>
+<li><p>在国内的gitcafe或者coding这样的类GitHub平台再做一个页面，也解析到我们的网址，国内的请求访问这个源，国外的访问GitHub的源。</p>
+<p>  但是这个方案最近似乎不行了，因为国内的一些服务方如果不买会员，就会强制加几秒广告！！！</p>
+</li>
+<li><p>第二种方法，CDN服务，设置一个缓存区，百度爬的是缓存区的内容，技术上可行，但是国内的CDN服务方，腾讯云，七牛云，要求网站必须备案，备案过程非常繁琐……</p>
+</li>
+</ul>
+<p>所以这个问题就很难解决，要么就自己买VPS（租服务器），把网站部署到VPS上，这样就不会受到GitHub的限制了。</p>
+<p>总之很多博客都没有解决这个问题，这也是为什么一些技术问题在百度搜索的时候找不到答案，用Google可以，因为很多个人博客百度检索不到啊！另外，这个锅，似乎不该百度来背……</p>
+<p>抽空给必应和搜狗也做一个SEO吧。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>。</p>
 
 
                 <hr>
