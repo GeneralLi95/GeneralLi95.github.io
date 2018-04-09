@@ -251,7 +251,21 @@
                 
 
                 
-
+                <div id="container"></div>
+                <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+                <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+                <script>
+                var gitment = new Gitment({
+                  //id: '页面 ID', // 可选。默认为 location.href
+                  owner: 'GeneralLi95',
+                  repo: 'GeneralLi95.github.io',
+                  oauth: {
+                    client_id: '762d494d87bbf57b5c83',
+                    client_secret: '0093ecdf5bca9250182d1c46bae1255c1e2ffb6a',
+                  },
+                })
+                gitment.render('container')
+                </script>
             </div>
     <!-- Side Catalog Container -->
         

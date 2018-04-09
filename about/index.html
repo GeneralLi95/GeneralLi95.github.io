@@ -181,13 +181,27 @@
                 col-xs-12
                 post-container
             ">
-            
+
                 <blockquote>
 <p>写写代码，做做设计，看看产品。<br>世界那么大，多玩玩看看。</p>
 </blockquote>
 <p style="text-align:right;"><br>    —— <a href="http://www.zhihu.com/question/19687065" target="_blank" rel="noopener">李书航 － 什么是「共产中文腔调」？ </a><br></p>
 
-
+                <div id="container"></div>
+                <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+                <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+                <script>
+                var gitment = new Gitment({
+                  //id: '页面 ID', // 可选。默认为 location.href
+                  owner: 'GeneralLi95',
+                  repo: 'GeneralLi95.github.io',
+                  oauth: {
+                    client_id: '762d494d87bbf57b5c83',
+                    client_secret: '0093ecdf5bca9250182d1c46bae1255c1e2ffb6a',
+                  },
+                })
+                gitment.render('container')
+                </script>
                 <!-- 如果开启评论功能 -->
                 
                     <hr>
@@ -271,13 +285,13 @@
                                     </a>
                                 </li>
                             
-                            
-                            
+
+
                             
                         </ul>
                     </div>
                 </section>
-                
+
                 <!-- Friends Blog -->
                 
             </div>
