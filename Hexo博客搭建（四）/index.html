@@ -221,8 +221,8 @@
 
                 <hr>
 
-                
 
+                <!--prev and next  -->
                 <ul class="pager">
                     
                         <li class="previous">
@@ -236,28 +236,35 @@
                     
                 </ul>
 
-                
+
 
                 
 
-                <div id="container"></div>
-                <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-                <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-                <script>
-                var gitment = new Gitment({
-                  id: 'Mon Apr 02 2018 20:29:06 GMT+0800', // 可选。默认为 location.href
-                  owner: 'GeneralLi95',
-                  repo: 'GeneralLi95.github.io',
-                  oauth: {
-                    client_id: '762d494d87bbf57b5c83',
-                    client_secret: '115fcdc4f8d29af64236bc1cb958ac410574ebf6',
-                  },
-                })
-                gitment.render('container')
-                </script>
+                <!--gitment -->
+
+                
+                  <div id="gitment"></div>
+                  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+                  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+                  <script>
+                  var gitment = new Gitment({
+                    id: 'Mon Apr 02 2018 20:29:06 GMT+0800', // 可选。默认为 location.href
+                    owner: "{{site.gitment_username}}",
+                    repo: "{{site.gitment_repo}}",
+                    oauth: {
+                      client_id: "{{site.gitment_client_id}}",
+                      client_secret: "{{site.gitment_client_secret}}",
+                    },
+                  })
+                  gitment.render('gitment')
+                  </script>
+                
+
 
 
             </div>
+
+
     <!-- Side Catalog Container -->
         
             <div class="
