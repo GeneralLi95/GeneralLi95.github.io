@@ -14,11 +14,11 @@
 
     <title>
         
-          Archives - 李尧的博客 | Yao Blog
+          data mining翻译前期准备 - 李尧的博客 | Yao Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liyaolife.com/archives/">
+    <link rel="canonical" href="http://www.liyaolife.com/data-mining翻译前期准备/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -150,139 +150,154 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.liyaolife.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg-o.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Archives</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Archives.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#《数据挖掘》翻译" title="《数据挖掘》翻译">《数据挖掘》翻译</a>
+                        
+                    </div>
+                    <h1>data mining翻译前期准备</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Li Yao on
+                        2018-04-22
+                        | view <span id="busuanzi_value_page_pv"></span> times
+                    </span>
+
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <h1 id="全书概览"><a href="#全书概览" class="headerlink" title="全书概览"></a>全书概览</h1><p>《Data Mining》一书由Charu C.Aggarwal所著，出版于2015年4月14日，目前没有引进中国，亚马逊原版教材售价约为350元（会员价，非会员1000+）。豆瓣无评分，亚马逊评分4星（5星满分），从CSDN社区一些讨论情况来看，普遍认为本书质量较高。故我们选取本书进行翻译，旨在帮助更多中国学习者阅读优秀教材。</p>
+<p>全书共有20章，743页，内容详细，逻辑严谨，其中包含大量图表与公式。</p>
+<h1 id="协作方案"><a href="#协作方案" class="headerlink" title="协作方案"></a>协作方案</h1><p>Markdown是当前比较流行的轻量级标记语言，适合快速简便的编辑出高质量的文本。</p>
+<p>本团队采用Markdown进行写作。目前有30左右加入团队。<br>初步分工</p>
+<ul>
+<li>20-23人进行专职翻译</li>
+<li>将全书分为3个部分，由3人担任小组长，负责督促本组的进度</li>
+<li>3人负责翻译过程中的技术支持</li>
+<li>3人负责最终成书的统稿校对</li>
+</ul>
+<p>按照自愿报名原则，鼓励能者多劳，即一人可以参加全部上述四个流程。</p>
+<h1 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h1><ol>
+<li>Markdown使用，考虑到本团队所有成员均为985院校硕（博）士，初步认为即使没有Markdown基础，也可以快速上手</li>
+<li>英语水平，提倡采用Google翻译，毕竟是人类智慧的精华，但是要求机翻之后必须有检查。</li>
+<li>公式编辑，Markdown支持LaTeX的公式书写，所以本书公式全部采用LaTeX语法进行书写，部分同学可能不太熟悉，由技术团队提供支持</li>
+<li>图、表插入，为了节省时间，本书不再对原书图表进行重绘，图表以及其编号保持与原书一致。但是Markdown中的图表与Word不一样，不是嵌在文件中的，而是一个路径指向一个图片文件，这种做法在生成PDF之后倒看不出来，但是直接分享.md源文件时就会出现问题（比如，写一个Python或者C程序中读取了一个文件，是通过一个路径指向这个文件，那么分享的时候需要把这个文件也带上）。目前在互联网博客中，主流的解决方案是采用图床（相当于一个云盘，把图片存里面）然后在Markdown文件中放该图片对应的url地址。这部分解决起来稍麻烦，在前期工作中可以先跳过，主要翻译文字和公式。</li>
+</ol>
+<h1 id="进度安排"><a href="#进度安排" class="headerlink" title="进度安排"></a>进度安排</h1><p>全书翻译计划时间为4周。2018.4.23-2018.5.20</p>
+<ul>
+<li>4.23-5.6，主要进行翻译核心工作，文字和公式部分的翻译。</li>
+<li>5.7-5.13，主要进行统稿工作。汇总各人的工作，帮助部分同学解决图片插入问题。形成初稿。</li>
+<li>5.14-5.20，主要进行校对工作。检查翻译质量，校对公式正误，最终成书。</li>
+</ul>
 
 
+                <hr>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
-                    <span class="tag-text">2018</span>
-                </span>
-                <ul>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-22
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/data-mining翻译前期准备/" style="color: #0085a1">
-                        <span>
-                            data mining翻译前期准备
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-02
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo博客搭建（五）/" style="color: #0085a1">
-                        <span>
-                            hexo博客搭建（五）SEO优化
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-02
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/Hexo博客搭建（四）/" style="color: #0085a1">
-                        <span>
-                            Hexo博客搭建（四） 主题设置
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    03-28
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/Hexo博客搭建（三)/" style="color: #0085a1">
-                        <span>
-                            Hexo博客搭建（三）上线与个性化域名设置
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    03-27
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/Hexo博客搭建（二）从最简单的开始/" style="color: #0085a1">
-                        <span>
-                            Hexo博客搭建（二）从最简单的开始
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    03-24
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/Hexo博客搭建（一）前期准备/" style="color: #0085a1">
-                        <span>
-                            Hexo博客搭建（一）前期准备
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
 
+                <!--prev and next  -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/hexo博客搭建（五）/" data-toggle="tooltip" data-placement="top" title="hexo博客搭建（五）SEO优化">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
 
+
+
+                
+
+                <!--gitment -->
+
+                
+
+
+
+            </div>
+
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#《数据挖掘》翻译" title="《数据挖掘》翻译">《数据挖掘》翻译</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
 
         </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
 
 
     <!-- Footer -->
@@ -445,6 +460,50 @@
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 
