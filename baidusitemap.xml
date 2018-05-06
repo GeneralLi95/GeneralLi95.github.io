@@ -4,11 +4,45 @@
 
     
   <url>
-    <loc>http://liyaolife.comdata-mining%E7%BF%BB%E8%AF%91%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/</loc>
-    <lastmod>2018-04-22T13:13:14.826Z</lastmod>
+    <loc>http://liyaolife.comDMtrans2/</loc>
+    <lastmod>2018-05-06T13:37:28.192Z</lastmod>
     <data>
         <display>
-        <title>data mining翻译前期准备</title>
+        <title>《Data Mining》第2章翻译</title>
+        <pubTime>2018-04-22T10:12:30.000Z</pubTime>
+        
+        <tag>《数据挖掘》翻译</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comDMtrans1/</loc>
+    <lastmod>2018-05-06T13:37:15.873Z</lastmod>
+    <data>
+        <display>
+        <title>《Data Mining》第1章翻译</title>
+        <pubTime>2018-04-22T10:12:30.000Z</pubTime>
+        
+        <tag>《数据挖掘》翻译</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comdata-mining%E7%BF%BB%E8%AF%91%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/</loc>
+    <lastmod>2018-05-06T13:37:08.081Z</lastmod>
+    <data>
+        <display>
+        <title>《Data Mining》翻译前期准备</title>
         <pubTime>2018-04-22T10:12:30.000Z</pubTime>
         
         <tag>《数据挖掘》翻译</tag>
