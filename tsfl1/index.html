@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="9qoov3_TfJJpNB8lTPmTyQIFty7THrrcKf5gynDis6c" />
+    <meta name="baidu-site-verification" content="xbGWXltpq1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序员的成长之路| 前端设计&amp;GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    <meta name="keyword"  content="李尧, liyao李尧, liyao, nudtliyao, xiaoyaoyao, 李尧的博客, Yao Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          tensorflow安装CPU指令集（AVX2）警告解决方案 - 李尧的博客 | Yao Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.liyaolife.com/tsfl1/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script>
+
+      </script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Yao Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.liyaolife.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg-o.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#机器学习" title="机器学习">机器学习</a>
+                        
+                          <a class="tag" href="/tags/#tensorflow" title="tensorflow">tensorflow</a>
+                        
+                    </div>
+                    <h1>tensorflow安装CPU指令集（AVX2）警告解决方案</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Li Yao on
+                        2018-05-25
+                        | view <span id="busuanzi_value_page_pv"></span> times
+                    </span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>在macOS通过pip3 install 安装tensorflow(CPU版)后，运行示例代码</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow <span class="keyword">as</span> <span class="keyword">tf</span></span><br><span class="line">hello = <span class="keyword">tf</span>.constant(<span class="string">'Hello, TensorFlow!'</span>)</span><br><span class="line">sess = <span class="keyword">tf</span>.Session()</span><br><span class="line"><span class="keyword">print</span>(sess.run(hello).decode())</span><br></pre></td></tr></table></figure>
+<p>运行之后可以正常输出<figure class="highlight plain"><figcaption><span>TensorFlow!"```。但是有一个警告警告提示：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p> I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在Stack Overflow上面关于这个问题有[一个详细的解答](<span class="keyword">https</span>://stackoverflow.com/questions/<span class="number">47068709</span>/your-cpu-supports-instructions-that-this-tensorflow-binary-was-<span class="keyword">not</span>-compiled-<span class="built_in">to</span>-u)</span><br><span class="line"></span><br><span class="line">大致翻译一下高赞答案：</span><br><span class="line">&gt;Modern CPUs provide <span class="keyword">a</span> lot <span class="keyword">of</span> low-level instructions, besides <span class="keyword">the</span> usual arithmetic <span class="keyword">and</span> logic, known <span class="keyword">as</span> extensions, e.g. SSE2, SSE4, AVX, etc. From <span class="keyword">the</span> Wikipedia:</span><br><span class="line"></span><br><span class="line">&gt; Advanced Vector Extensions (AVX) are extensions <span class="built_in">to</span> <span class="keyword">the</span> x86 instruction <span class="built_in">set</span> architecture <span class="keyword">for</span> microprocessors <span class="built_in">from</span> Intel <span class="keyword">and</span> AMD proposed <span class="keyword">by</span> Intel <span class="keyword">in</span> March <span class="number">2008</span> <span class="keyword">and</span> <span class="keyword">first</span> supported <span class="keyword">by</span> Intel <span class="keyword">with</span> <span class="keyword">the</span> Sandy Bridge processor shipping <span class="keyword">in</span> Q1 <span class="number">2011</span> <span class="keyword">and</span> later <span class="keyword">on</span> <span class="title">by</span> <span class="title">AMD</span> <span class="title">with</span> <span class="title">the</span> <span class="title">Bulldozer</span> <span class="title">processor</span> <span class="title">shipping</span> <span class="title">in</span> <span class="title">Q3</span> <span class="title">2011</span>. <span class="title">AVX</span> <span class="title">provides</span> <span class="title">new</span> <span class="title">features</span>, <span class="title">new</span> <span class="title">instructions</span> <span class="title">and</span> <span class="title">a</span> <span class="title">new</span> <span class="title">coding</span> <span class="title">scheme</span>.</span><br><span class="line">In particular, AVX introduces fused <span class="built_in">multiply</span>-accumulate (FMA) operations, which speed up linear algebra computation, namely dot-product, matrix <span class="built_in">multiply</span>, convolution, etc. Almost every machine-learning training involves <span class="keyword">a</span> great deal <span class="keyword">of</span> these operations, hence will be faster <span class="keyword">on</span> <span class="title">a</span> <span class="title">CPU</span> <span class="title">that</span> <span class="title">supports</span> <span class="title">AVX</span> <span class="title">and</span> <span class="title">FMA</span> (<span class="title">up</span> <span class="title">to</span> <span class="title">300</span>%). <span class="title">The</span> <span class="title">warning</span> <span class="title">states</span> <span class="title">that</span> <span class="title">your</span> <span class="title">CPU</span> <span class="title">does</span> <span class="title">support</span> <span class="title">AVX</span> (<span class="title">hooray</span>!).</span><br><span class="line">&gt;I<span class="string">'d like to stress here: it'</span>s all about CPU only.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">现代CPU提供了一系列低级别的指令集，除了通常的算术和逻辑之外，被称为扩展，例如， SSE2，SSE4，AVX等。</span><br><span class="line">维基百科有描述：</span><br><span class="line">&gt; 高级矢量扩展（AVX）是英特尔在<span class="number">2008</span>年<span class="number">3</span>月提出的英特尔和AMD微处理器的x86指令集体系结构的扩展，英特尔首先通过Sandy Bridge处理器在<span class="number">2011</span>年第一季度推出，随后由AMD推出Bulldozer处理器 在<span class="number">2011</span>年第三季度.AVX提供了新功能，新指令和新编码方案。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">特别是，AVX引入了融合乘法累加（FMA）操作，加速了线性代数计算，即点积，矩阵乘法，卷积等。几乎所有机器学习训练都涉及大量这些操作，因此将会 支持AVX和FMA的CPU（最高达<span class="number">300</span>％）更快。 该警告指出您的CPU确实支持AVX（hooray！）。</span><br><span class="line"></span><br><span class="line">**那为什么没有使用呢？**</span><br><span class="line"></span><br><span class="line">由于tensorflow默认是在没有CPU扩展的情况下构建的，例如SSE4<span class="number">.1</span>，SSE4<span class="number">.2</span>，AVX，AVX2，FMA等。默认版本（来自pip install tensorflow的版本）旨在与尽可能多的CPU兼容。 另一个观点是，即使使用这些扩展名，CPU的速度也要比GPU低很多，所以它预计中大型机器学习任务应该在GPU上执行。</span><br><span class="line"></span><br><span class="line">**那我们应该怎么办**</span><br><span class="line"></span><br><span class="line">如果你有GPU的话，直接忽略这一项即可，因为大部分的高消耗操作都会被分配到GPU上执行（除非你设置了不这么做）。在这种情况下，你可以通过下面这个方式直接忽略这个警告：</span><br></pre></td></tr></table></figure></p>
+<h1 id="Just-disables-the-warning-doesn’t-enable-AVX-FMA"><a href="#Just-disables-the-warning-doesn’t-enable-AVX-FMA" class="headerlink" title="Just disables the warning, doesn’t enable AVX/FMA"></a>Just disables the warning, doesn’t enable AVX/FMA</h1><p>import os<br>os.environ[‘TF_CPP_MIN_LOG_LEVEL’] = ‘2’<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果你没有GPU，你想最大化使用CPU，你应该启动你的CPU的AVX，AVX2以及FMA拓展。在[<span class="string">这个问题</span>](<span class="link">https://stackoverflow.com/questions/41293077/how-to-compile-tensorflow-with-sse4-2-and-avx-instructions</span>)以及这个[<span class="string">GitHub issue</span>](<span class="link">https://github.com/tensorflow/tensorflow/issues/8037</span>)里面都有详细的讨论。Tensorflow使用称为bazel的ad-hoc构建系统，构建它并不是那么简单，但肯定是可行的。 在此之后，不仅警告消失，张量流性能也应该改善。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## 解决方法</span></span><br><span class="line"><span class="strong">**什么是SSE4.2和AVX？**</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**SIMD**</span> (Single Instruction Multiple Data)单指令流多数据流，是一种采用一个控制器来控制多个处理器，同时对一组数据（又称“数据向量”）中的每一个分别执行相同的操作从而实现空间上的并行性技术。</span><br><span class="line"></span><br><span class="line">在微处理器中，SIMD则是一个控制器控制多个并行的处理微元，例如Intel的MMX或SSE，以及AMD的3D NOW指令集。</span><br><span class="line"> </span><br><span class="line">所以说SSE4.2和AVX都是一种SIMD指令集。</span><br><span class="line"></span><br><span class="line">对于TF tasks。SSE4.2和AVX使向量和矩阵计算更加高效。具体可以看这个[<span class="string">课件</span>](<span class="link">https://www.polyhedron.com/web_images/intel/productbriefs/3a_SIMD.pdf</span>)。</span><br><span class="line"></span><br><span class="line">所以该怎么做，大概只能重装一遍tensorflow了。注意这次重装时候要从源码安装，从在源码安装的时候进行相关的设置。</span><br><span class="line"></span><br><span class="line">[<span class="string">从源码安装的官方教程</span>](<span class="link">https://tensorflow.google.cn/install/install_sources</span>)总体来说还是非常麻烦的，需要很多依赖，安装一些其他的东西。</span><br><span class="line"></span><br><span class="line">基本过程可以概括为三步：</span><br><span class="line"><span class="bullet">1. </span>下载TensorFlow源码</span><br><span class="line"><span class="bullet">2. </span>准备安装环境 （此处需要安装很多东西）</span><br><span class="line"><span class="bullet">3. </span>构建pip软件包（一个.whl后缀文件）</span><br><span class="line"><span class="bullet">4. </span>使用pip命令进行本地安装</span><br><span class="line"></span><br><span class="line">其中2，3步骤都非常负责，及其容易出错。</span><br><span class="line"></span><br><span class="line">最终采用的是另外一种方法。</span><br><span class="line">到这个[<span class="string">GitHub repo</span>](<span class="link">https://github.com/lakshayg/tensorflow-build</span>)下载自己对应版本的pip软件包。</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span> =<span class="string">red</span>&gt;</span></span>一定要对应版本!<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">版本查看方式</span><br></pre></td></tr></table></figure></p>
+<p>$ python3</p>
+<p>Python 3.6.5 (default, Apr 25 2018, 14:23:58)<br>[GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin<br>Type “help”, “copyright”, “credits” or “license” for more information.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">从中可以得出我们的版本  Python 3.6.5 clang-902.0.29.1，又这两个版本号加上自己的系统名在上面的GitHub repo里面选择对应的软件包。下载下来相当于直接完成了官网教材的前3步。</span><br><span class="line"></span><br><span class="line">所以只需要执行第4步。</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<p>pip install –ignore-installed –upgrade /path/to/binary.whl<br><code>`</code></p>
+<p>注意 Python3的pip命令是pip3  这条语句可以忽略我们已经安装好的tf包，不休要卸载，会直接升级过去。很方便。</p>
+
+
+                <hr>
+
+
+                <!--prev and next  -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/java3/" data-toggle="tooltip" data-placement="top" title="Java基础题目(温度转换、时间换算、信号报告）">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+
+
+                
+
+                <!--gitment -->
+
+                
+
+
+
+            </div>
+
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#机器学习" title="机器学习">机器学习</a>
+                        
+                          <a class="tag" href="/tags/#tensorflow" title="tensorflow">tensorflow</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/li-yao-89-61">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/GeneralLi95">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Yao Blog 2018
+                    <br>
+                    Theme by <a href="http://huangxuan.me" rel="external nofollow">Hux</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+
+                    <span id="busuanzi_container_site_uv">
+                      欢迎你！第<span id="busuanzi_value_site_uv"></span>位小伙伴！
+                    </span>
+                    <!--
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                  -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- busuanzi counter-->
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.liyaolife.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-116714676-1';
+    var _gaDomain = 'liyaolife.com';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://www.liyaolife.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
