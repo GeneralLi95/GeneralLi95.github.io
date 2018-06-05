@@ -14,11 +14,11 @@
 
     <title>
         
-          李尧的博客 | Yao Blog
+          MySQL安装与初始化 - 李尧的博客 | Yao Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liyaolife.com/page/2/">
+    <link rel="canonical" href="http://www.liyaolife.com/mysql1/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -150,280 +150,157 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg-o.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.liyaolife.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg-o.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Yao Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">图书馆里的清洁工 少林寺里的扫地僧</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
+                        
+                    </div>
+                    <h1>MySQL安装与初始化</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Li Yao on
+                        2018-06-05
+                        | view <span id="busuanzi_value_page_pv"></span> times
+                    </span>
+
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-                <!-- Main Content -->
-
-
-<div class="post-preview">
-
-    <a href="/hexo博客搭建（五）/">
-        <h2 class="post-title">
-            hexo博客搭建（五）SEO优化
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            何为SEO优化
-搜索引擎优化（英语：search engine optimization，缩写为SEO），是一种通过了解搜索引擎的运作规则来调整网站，以及提高目的网站在有关搜索引擎内排名的方式。由于不少研究发现，搜索引擎的用户往往只会留意搜索结果最前面的几个条目，所以不少网站都希望通过各种形式来影响搜索引擎的排序，让自己的网站可以有优秀的搜索排名。当中尤以各种依靠广告维生的网站为甚。所谓“针......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-04-02
-    </p>
-
-</div>
+                <h1 id="MySQL安装与初始化"><a href="#MySQL安装与初始化" class="headerlink" title="MySQL安装与初始化"></a>MySQL安装与初始化</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用brew进行安装</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>mysql</span><br></pre></td></tr></table></figure>
+<p>安装好之后通常会没有linked<br>然后</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> R ‘usrname’ usr/<span class="keyword">local</span></span><br></pre></td></tr></table></figure>
+<p>通常会执行成功，但是macOS比较新的版本里面会没有拒绝这一操作。即Operation not permitted。这是由于Mac的rootless机制。</p>
+<p>解决方案：</p>
+<ol>
+<li>重启Mac，重启时按住command + R 进入恢复模式。（话说还是第一次知道Mac还有这个模式）</li>
+<li><p>选择终端，在左上角，输入指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再重启让机器正常启动，可以在终端查看rootless状态：<figure class="highlight plain"><figcaption><span>status```正常情况下rootless已经关闭了</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">4. 要想重新开启，参照步骤1，2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 设置root密码</span><br><span class="line"></span><br><span class="line">终端输入</span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<p>mysqladmin -u root password 123456<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">就已经把密码设置成<span class="number">123456</span>了。</span><br><span class="line">然后登陆</span><br></pre></td></tr></table></figure></p>
+<p>mysql -u root -p<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入 123456.即可</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 启动和关闭MySQL服务器</span></span></span><br><span class="line"></span><br><span class="line">通过命令来检查MySQL服务器是否启动：</span><br></pre></td></tr></table></figure></p>
+<p>ps -ef | grep mysqld<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果MySQL启动的情况下，将输出MySQL的进程列表。</span><br><span class="line"></span><br><span class="line">如果要关闭目前运行的MySQL服务器，可以执行下面命令来关闭服务器：</span><br></pre></td></tr></table></figure></p>
+<p>mysqladmin -u root -p shutdown<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">启动MySQL服务器</span><br></pre></td></tr></table></figure></p>
+<p>mysql.server start<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 管理MySQL的命令</span><br><span class="line">列出数据库列表:</span><br></pre></td></tr></table></figure></p>
+<p>mysql &gt; SHOW DATABASES;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">会显示当前的已有的数据库列表：</span><br><span class="line"></span><br><span class="line">默认的数据库Database有</span><br><span class="line">information_schema</span><br><span class="line">mysql</span><br><span class="line">performance_schema</span><br><span class="line">sys</span><br><span class="line">这四个</span><br><span class="line">然后从 databese列表里面挑一个</span><br></pre></td></tr></table></figure></p>
+<p>mysql &gt; use mysql;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这时候切换到database mysql里面。然后可以用</span><br></pre></td></tr></table></figure></p>
+<p>mysql &gt; SHOW TABLES;<br><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">看一下这个数据库里面有哪几个表</span><br><span class="line"></span><br><span class="line">然后可以看一下一个表中有那几个列（比如从表<span class="built_in">db</span>中查看）</span><br></pre></td></tr></table></figure></p>
+<p>mysql &gt; SHOW COLUMNS FROM db;<br><code>`</code></p>
+<p>从这几行中我们可以搞清楚这几个概念的从属关系。 DATABASE -&gt; TABLES -&gt; COLUMNS</p>
 <hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>。</p>
 
-<div class="post-preview">
 
-    <a href="/Hexo博客搭建（四）/">
-        <h2 class="post-title">
-            Hexo博客搭建（四） 主题设置
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Hexo支持大家自定义主题样式，所以不甘寂寞的高手们为此做了大量的工作，创作出了大量优秀的主题供我们选择。本文主要写一下如何选择，设置主题。不涉及如何自定义一个主题。
-从哪里找主题
-Hexo官网主题页面
-GitHub搜索 hexo theme
+                <hr>
 
-yilia主题的作者曾说过，她的主题设计原则是
 
-崇尚简约追求移动端体验希望把加载速度做到极致（努力中）让大家把注意力放到内容上。这是本主题设计初衷......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-04-02
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Hexo博客搭建（三)/">
-        <h2 class="post-title">
-            Hexo博客搭建（三）上线与个性化域名设置
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            与GitHub仓库互联直到目前，我们的blog还只是一个本地的小家伙，像一个没有出过门的孩子，只能在localhost:4000里面查看。别人是看不到的。那么如何把它部署到线上？
-一般建网站的都需要租服务器，买VPS，亚马逊，阿里云等等，还要花一笔小钱。
-好在我们有GitHub。
-GitHub提供里代码托管服务，作为全世界最大的程序员社区，自然不缺乏脑洞清奇的人，很多人在上面做各种各样的事情......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-03-28
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Hexo博客搭建（二）从最简单的开始/">
-        <h2 class="post-title">
-            Hexo博客搭建（二）从最简单的开始
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            安装git, node, hexomacOS和Linux中都自带git，使用macOS的强烈建议安装brew，之后使用brew命令安装各种东西都很方便。
-假定现在brew和git已经装好了。下面安装node，打开终端
-1$ brew install node
-OK，node装好了，之后使用node自带的包管理器(node package management?)安装hexo。
-1$ npm ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-03-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Hexo博客搭建（一）前期准备/">
-        <h2 class="post-title">
-            Hexo博客搭建（一）前期准备
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            一年半前，在网上闲逛时，无意点开了一个个人博客，酷炫。
-见贤思齐，看到别人搞的一个博客，感觉自己查查教程应该也可以搞出来。真不知道哪来的自信啊，那时候连GitHub都没用过🙈，搞不清楚GitHub和git是什么关系，很久以前，我一直以为GitHub是git的升级版……
-找到一个教程，迷迷糊糊注册一个GitHub账号，fork了别人的一个博客，改成自己的名字。
-然后……就没有然后了。
-第一次......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-03-24
-    </p>
-
-</div>
-<hr>
+                <!--prev and next  -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/java4/" data-toggle="tooltip" data-placement="top" title="MySQL与Java的连接">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
 
 
-<!-- Pager -->
-
-<ul class="pager">
-    
-        <li class="previous">
-            <a href="/">&larr; Newer Posts</a>
-        </li>
-    
-    
-</ul>
-
-
-
-                <!-- 如果开启评论功能 -->
                 
 
+                <!--gitment -->
+
+                
+
+
+
             </div>
-    <!-- Sidebar Container -->
+
+
+    <!-- Side Catalog Container -->
+        
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
                 sidebar-container
-            ">
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
-                            
-                            <a href="/tags/#Hexo" title="Hexo" rel="5">Hexo</a>
-                            
-                        
-                            
-                            <a href="/tags/#《数据挖掘》翻译" title="《数据挖掘》翻译" rel="3">《数据挖掘》翻译</a>
-                            
-                        
-                            
-                            <a href="/tags/#Java" title="Java" rel="4">Java</a>
-                            
-                        
-                            
-                            <a href="/tags/#MySQL" title="MySQL" rel="2">MySQL</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
+                       
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
                         
                     </div>
                 </section>
                 
-
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>我笑他人看不穿!</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/li-yao-89-61">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/GeneralLi95">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-
-                            
-                        </ul>
-                    </div>
-                </section>
 
                 <!-- Friends Blog -->
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
 
 
     <!-- Footer -->
@@ -586,6 +463,50 @@ OK，node装好了，之后使用node自带的包管理器(node package manageme
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 

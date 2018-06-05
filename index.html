@@ -93,14 +93,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -187,6 +187,60 @@
 
 <div class="post-preview">
 
+    <a href="/mysql1/">
+        <h2 class="post-title">
+            MySQL安装与初始化
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            MySQL安装与初始化安装使用brew进行安装
+1brew install mysql
+安装好之后通常会没有linked然后
+1sudo chown R ‘usrname’ usr/local
+通常会执行成功，但是macOS比较新的版本里面会没有拒绝这一操作。即Operation not permitted。这是由于Mac的rootless机制。
+解决方案：
+
+重启Mac，重启时按住comm......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Li Yao on
+        2018-06-05
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/java4/">
+        <h2 class="post-title">
+            MySQL与Java的连接
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            MySQL与Java的连接通过实现菜鸟教程上的一个例程来记录一下这个操作。
+Java与MySQL的连接主要依赖一个JDBC驱动来进行。
+建立一个测试的新库通过下面一行命令
+1mysqladmin -u root -p create jdbctest
+即建立了一个名为jdbctest的数据库。此时这个数据库中还没有tables。我们进入到数据库中并创建一个新的table
+12345678sql......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Li Yao on
+        2018-06-05
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/tsfl1/">
         <h2 class="post-title">
             tensorflow安装CPU指令集（AVX2）警告解决方案
@@ -263,10 +317,9 @@ Creat New Project选择Java EE，然后Next。之后又会有从模板创建的�
             
         </h3>
         <div class="post-content-preview">
-            MAC Java环境配置1. 安装JDKJDK全称Java Development Kit，Java开发工具包，是Java开发的核心。之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。终端输入
-1Java -version
-显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。
-2. 配置环境变量配置环境变量前先得到JAVA_H......
+            MAC Java环境配置1. 安装JDKJDK全称Java Development Kit，Java开发工具包，是Java开发的核心。之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。
+
+其他概念：SDK：Software Develop Toolkit 软件开发包，通常是为了开发某一方面的程序软件，由厂商提供的集成封装的库（library），通常比较底层，通用性强。例如Win......
         </div>
     </a>
     <p class="post-meta">
@@ -377,56 +430,6 @@ Creat New Project选择Java EE，然后Next。之后又会有从模板创建的�
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/hexo博客搭建（五）/">
-        <h2 class="post-title">
-            hexo博客搭建（五）SEO优化
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            何为SEO优化
-搜索引擎优化（英语：search engine optimization，缩写为SEO），是一种通过了解搜索引擎的运作规则来调整网站，以及提高目的网站在有关搜索引擎内排名的方式。由于不少研究发现，搜索引擎的用户往往只会留意搜索结果最前面的几个条目，所以不少网站都希望通过各种形式来影响搜索引擎的排序，让自己的网站可以有优秀的搜索排名。当中尤以各种依靠广告维生的网站为甚。所谓“针......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-04-02
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Hexo博客搭建（四）/">
-        <h2 class="post-title">
-            Hexo博客搭建（四） 主题设置
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Hexo支持大家自定义主题样式，所以不甘寂寞的高手们为此做了大量的工作，创作出了大量优秀的主题供我们选择。本文主要写一下如何选择，设置主题。不涉及如何自定义一个主题。
-从哪里找主题
-Hexo官网主题页面
-GitHub搜索 hexo theme
-
-yilia主题的作者曾说过，她的主题设计原则是
-
-崇尚简约追求移动端体验希望把加载速度做到极致（努力中）让大家把注意力放到内容上。这是本主题设计初衷......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-04-02
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -470,7 +473,11 @@ yilia主题的作者曾说过，她的主题设计原则是
                             
                         
                             
-                            <a href="/tags/#Java" title="Java" rel="3">Java</a>
+                            <a href="/tags/#Java" title="Java" rel="4">Java</a>
+                            
+                        
+                            
+                            <a href="/tags/#MySQL" title="MySQL" rel="2">MySQL</a>
                             
                         
                             

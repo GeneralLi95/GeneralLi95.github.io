@@ -14,11 +14,11 @@
 
     <title>
         
-          tensorflow安装CPU指令集（AVX2）警告解决方案 - 李尧的博客 | Yao Blog
+          MySQL与Java的连接 - 李尧的博客 | Yao Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liyaolife.com/tsfl1/">
+    <link rel="canonical" href="http://www.liyaolife.com/java4/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -168,16 +168,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#机器学习" title="机器学习">机器学习</a>
+                          <a class="tag" href="/tags/#Java" title="Java">Java</a>
                         
-                          <a class="tag" href="/tags/#tensorflow" title="tensorflow">tensorflow</a>
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
                         
                     </div>
-                    <h1>tensorflow安装CPU指令集（AVX2）警告解决方案</h1>
+                    <h1>MySQL与Java的连接</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Li Yao on
-                        2018-05-25
+                        2018-06-05
                         | view <span id="busuanzi_value_page_pv"></span> times
                     </span>
 
@@ -198,56 +198,24 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>在macOS通过pip3 install 安装tensorflow(CPU版)后，运行示例代码</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow <span class="keyword">as</span> <span class="keyword">tf</span></span><br><span class="line">hello = <span class="keyword">tf</span>.constant(<span class="string">'Hello, TensorFlow!'</span>)</span><br><span class="line">sess = <span class="keyword">tf</span>.Session()</span><br><span class="line"><span class="keyword">print</span>(sess.run(hello).decode())</span><br></pre></td></tr></table></figure>
-<p>运行之后可以正常输出</p>
-<p>“Hello, TensorFlow!”</p>
-<p>但是有一个警告警告提示：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I tensorflow<span class="regexp">/core/</span>platform/cpu_feature_guard.<span class="string">cc:</span><span class="number">140</span>] Your CPU supports instructions that <span class="keyword">this</span> TensorFlow binary was not compiled to <span class="string">use:</span> AVX2 FMA</span><br></pre></td></tr></table></figure>
-<p>在Stack Overflow上面关于这个问题有<a href="https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u" target="_blank" rel="noopener">一个详细的解答</a></p>
-<p>大致翻译一下高赞答案：</p>
-<blockquote>
-<p>Modern CPUs provide a lot of low-level instructions, besides the usual arithmetic and logic, known as extensions, e.g. SSE2, SSE4, AVX, etc. From the Wikipedia:</p>
-</blockquote>
-<blockquote>
-<p>Advanced Vector Extensions (AVX) are extensions to the x86 instruction set architecture for microprocessors from Intel and AMD proposed by Intel in March 2008 and first supported by Intel with the Sandy Bridge processor shipping in Q1 2011 and later on by AMD with the Bulldozer processor shipping in Q3 2011. AVX provides new features, new instructions and a new coding scheme.<br>In particular, AVX introduces fused multiply-accumulate (FMA) operations, which speed up linear algebra computation, namely dot-product, matrix multiply, convolution, etc. Almost every machine-learning training involves a great deal of these operations, hence will be faster on a CPU that supports AVX and FMA (up to 300%). The warning states that your CPU does support AVX (hooray!).<br>I’d like to stress here: it’s all about CPU only.</p>
-</blockquote>
-<p>现代CPU提供了一系列低级别的指令集，除了通常的算术和逻辑之外，被称为扩展，例如， SSE2，SSE4，AVX等。<br>维基百科有描述：</p>
-<blockquote>
-<p>高级矢量扩展（AVX）是英特尔在2008年3月提出的英特尔和AMD微处理器的x86指令集体系结构的扩展，英特尔首先通过Sandy Bridge处理器在2011年第一季度推出，随后由AMD推出Bulldozer处理器 在2011年第三季度.AVX提供了新功能，新指令和新编码方案。</p>
-</blockquote>
-<p>特别是，AVX引入了融合乘法累加（FMA）操作，加速了线性代数计算，即点积，矩阵乘法，卷积等。几乎所有机器学习训练都涉及大量这些操作，因此将会 支持AVX和FMA的CPU（最高达300％）更快。 该警告指出您的CPU确实支持AVX（hooray！）。</p>
-<p><strong>那为什么没有使用呢？</strong></p>
-<p>由于tensorflow默认是在没有CPU扩展的情况下构建的，例如SSE4.1，SSE4.2，AVX，AVX2，FMA等。默认版本（来自pip install tensorflow的版本）旨在与尽可能多的CPU兼容。 另一个观点是，即使使用这些扩展名，CPU的速度也要比GPU低很多，所以它预计中大型机器学习任务应该在GPU上执行。</p>
-<p><strong>那我们应该怎么办</strong></p>
-<p>如果你有GPU的话，直接忽略这一项即可，因为大部分的高消耗操作都会被分配到GPU上执行（除非你设置了不这么做）。在这种情况下，你可以通过下面这个方式直接忽略这个警告：</p>
-<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.environ[<span class="string">'TF_CPP_MIN_LOG_LEVEL'</span>] = <span class="string">'2'</span></span><br></pre></td></tr></table></figure>
-<p>这种方法只是去掉警告，实际上是没有解决问题的。</p>
-<p>如果你没有GPU，你想最大化使用CPU，你应该启动你的CPU的AVX，AVX2以及FMA拓展。在<a href="https://stackoverflow.com/questions/41293077/how-to-compile-tensorflow-with-sse4-2-and-avx-instructions" target="_blank" rel="noopener">这个问题</a>以及这个<a href="https://github.com/tensorflow/tensorflow/issues/8037" target="_blank" rel="noopener">GitHub issue</a>里面都有详细的讨论。Tensorflow使用称为bazel的ad-hoc构建系统，构建它并不是那么简单，但肯定是可行的。 在此之后，不仅警告消失，张量流性能也应该改善。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>什么是SSE4.2和AVX？</strong></p>
-<p><strong>SIMD</strong> (Single Instruction Multiple Data)单指令流多数据流，是一种采用一个控制器来控制多个处理器，同时对一组数据（又称“数据向量”）中的每一个分别执行相同的操作从而实现空间上的并行性技术。</p>
-<p>在微处理器中，SIMD则是一个控制器控制多个并行的处理微元，例如Intel的MMX或SSE，以及AMD的3D NOW指令集。</p>
-<p>所以说SSE4.2和AVX都是一种SIMD指令集。</p>
-<p>对于TF tasks。SSE4.2和AVX使向量和矩阵计算更加高效。具体可以看这个<a href="https://www.polyhedron.com/web_images/intel/productbriefs/3a_SIMD.pdf" target="_blank" rel="noopener">课件</a>。</p>
-<p>所以该怎么做，大概只能重装一遍tensorflow了。注意这次重装时候要从源码安装，从在源码安装的时候进行相关的设置。</p>
-<p><a href="https://tensorflow.google.cn/install/install_sources" target="_blank" rel="noopener">从源码安装的官方教程</a>总体来说还是非常麻烦的，需要很多依赖，安装一些其他的东西。</p>
-<p>基本过程可以概括为三步：</p>
-<ol>
-<li>下载TensorFlow源码</li>
-<li>准备安装环境 （此处需要安装很多东西）</li>
-<li>构建pip软件包（一个.whl后缀文件）</li>
-<li>使用pip命令进行本地安装</li>
-</ol>
-<p>其中2，3步骤都非常负责，及其容易出错。</p>
-<p>最终采用的是另外一种方法。<br>到这个<a href="https://github.com/lakshayg/tensorflow-build" target="_blank" rel="noopener">GitHub repo</a>下载自己对应版本的pip软件包。</p>
-<font color="red">一定要对应版本!</font>
-
-<p>版本查看方式</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python3</span><br><span class="line"></span><br><span class="line">Python 3.6.5 (default, Apr 25 2018, 14:23:58) </span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<p>从中可以得出我们的版本  Python 3.6.5 clang-902.0.29.1，又这两个版本号加上自己的系统名在上面的GitHub repo里面选择对应的软件包。下载下来相当于直接完成了官网教材的前3步。</p>
-<p>所以只需要执行第4步。</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="params">--ignore-installed</span> <span class="params">--upgrade</span> <span class="string">/path/to/binary.whl</span></span><br></pre></td></tr></table></figure>
-<p>注意 Python3的pip命令是pip3  这条语句可以忽略我们已经安装好的tf包，不需要卸载，会直接升级过去。很方便。</p>
+                <h1 id="MySQL与Java的连接"><a href="#MySQL与Java的连接" class="headerlink" title="MySQL与Java的连接"></a>MySQL与Java的连接</h1><p>通过实现<a href="http://www.runoob.com/java/java-mysql-connect.html" target="_blank" rel="noopener">菜鸟教程上的一个例程</a>来记录一下这个操作。</p>
+<p>Java与MySQL的连接主要依赖一个JDBC驱动来进行。</p>
+<h2 id="建立一个测试的新库"><a href="#建立一个测试的新库" class="headerlink" title="建立一个测试的新库"></a>建立一个测试的新库</h2><p>通过下面一行命令</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -<span class="selector-tag">p</span> create jdbctest</span><br></pre></td></tr></table></figure>
+<p>即建立了一个名为jdbctest的数据库。此时这个数据库中还没有tables。我们进入到数据库中并创建一个新的table</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; CREATE TABLE `websites` (</span><br><span class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `name` char(20) NOT NULL DEFAULT '' <span class="keyword">COMMENT</span> <span class="string">'站点名称'</span>,</span><br><span class="line">  <span class="string">`url`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`alexa`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'Alexa 排名'</span>,</span><br><span class="line">  <span class="string">`country`</span> <span class="built_in">char</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'国家'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">10</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
+<p>即创建了一个新table。然后给这个表中插入数据：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; INSERT INTO `websites` VALUES ('1', 'Google', 'https://www.google.cm/', '1', 'USA'), ('2', '淘宝', 'https://www.taobao.com/', '13', 'CN'), ('3', '菜鸟教程', 'http://www.runoob.com', '5892', ''), ('4', '微博', 'http://weibo.com/', '20', 'CN'), ('5', 'Facebook', 'https://www.facebook.com/', '3', 'USA');</span><br></pre></td></tr></table></figure>
+<p>一个测试的数据库就建好了。<br>如果需要导入数据库结构文件的话，通过这个方式：<br>导入方法：在已经use 这个数据库之后，通过下面命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> <span class="built_in">source</span> path-to-<span class="string">'filename.sql'</span></span></span><br></pre></td></tr></table></figure>
+<p>即可快速方便的导入数据建立索引。数据这时就已经导入了。</p>
+<h2 id="与Java进行连接"><a href="#与Java进行连接" class="headerlink" title="与Java进行连接"></a>与Java进行连接</h2><h3 id="JDBC配置"><a href="#JDBC配置" class="headerlink" title="JDBC配置"></a>JDBC配置</h3><p>连接数据库需要一个驱动包Java 连接 MySQL 需要驱动包，<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">最新版下载地址</a> ，解压后得到jar库文件，然后在对应的项目中导入该库文件。</p>
+<h2 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h2><p>通过命令</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global <span class="keyword">variables</span> like <span class="comment">'port'</span>;</span><br></pre></td></tr></table></figure>
+<p>即可查看端口，一般情况下默认端口号是3306。所以如果没有自己去修改端口号的话，这一步可以省略。</p>
+<h2 id="Demo代码"><a href="#Demo代码" class="headerlink" title="Demo代码"></a>Demo代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> jdbctestpack;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">jdbctest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//JDBC 驱动名及数据库URL</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String JDBC_DRIVER = <span class="string">"com.mysql.jdbc.Driver"</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String DB_URL = <span class="string">"jdbc:mysql://localhost:3306/jdbctest"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据库的用户名与密码，需要根据自己的设置</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String USER = <span class="string">"root"</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String PASS = <span class="string">"xxxxxx"</span>;</span><br><span class="line">    <span class="comment">//此处放自己的数据库密码</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        Statement stmt = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//注册JDBC驱动</span></span><br><span class="line">            Class.forName(JDBC_DRIVER);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//打开链接</span></span><br><span class="line">            System.out.println(<span class="string">"链接数据库..."</span>);</span><br><span class="line">            conn = DriverManager.getConnection(DB_URL,USER,PASS);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//执行查询</span></span><br><span class="line">            System.out.println(<span class="string">"实例化Statement对象..."</span>);</span><br><span class="line">            stmt = conn.createStatement();</span><br><span class="line">            String sql;</span><br><span class="line">            sql = <span class="string">"SELECT id, name, url FROM websites"</span>;</span><br><span class="line">            ResultSet rs = stmt.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//展开结果集数据库</span></span><br><span class="line">            <span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">                <span class="comment">//通过字段检索</span></span><br><span class="line">                <span class="keyword">int</span> id = rs.getInt(<span class="string">"id"</span>);</span><br><span class="line">                String name = rs.getString(<span class="string">"name"</span>);</span><br><span class="line">                String url = rs.getString(<span class="string">"url"</span>);</span><br><span class="line">                System.out.print(<span class="string">"ID: "</span> + id);</span><br><span class="line">                System.out.print(<span class="string">", 站点名称"</span> + name);</span><br><span class="line">                System.out.print(<span class="string">", 站点 URL: "</span> + url);</span><br><span class="line">                System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//完成后关闭</span></span><br><span class="line">            rs.close();</span><br><span class="line">            stmt.close();</span><br><span class="line">            conn.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (SQLException se)&#123;</span><br><span class="line">            <span class="comment">//处理JDBC错误</span></span><br><span class="line">            se.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="comment">//处理Class.forName错误</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//关闭资源</span></span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(stmt!=<span class="keyword">null</span>) stmt.close();</span><br><span class="line">                &#125;<span class="keyword">catch</span>(SQLException se2)&#123;</span><br><span class="line">                 <span class="comment">//什么都不做</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(conn!=<span class="keyword">null</span>) conn.close();</span><br><span class="line">                &#125;<span class="keyword">catch</span> (SQLException se)&#123;</span><br><span class="line">                    se.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"Goodbye!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行之后的输出结果如下：</p>
+<p><img src="http://p6atp7tts.bkt.clouddn.com/15281687764370.jpg" alt=""><br>即连接成功。</p>
 <hr>
 <p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>。</p>
 
@@ -259,12 +227,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/java4/" data-toggle="tooltip" data-placement="top" title="MySQL与Java的连接">&larr; Previous Post</a>
+                            <a href="/mysql1/" data-toggle="tooltip" data-placement="top" title="MySQL安装与初始化">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/java3/" data-toggle="tooltip" data-placement="top" title="Java基础题目(温度转换、时间换算、信号报告）">Next Post &rarr;</a>
+                            <a href="/tsfl1/" data-toggle="tooltip" data-placement="top" title="tensorflow安装CPU指令集（AVX2）警告解决方案">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -313,9 +281,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#机器学习" title="机器学习">机器学习</a>
+                          <a class="tag" href="/tags/#Java" title="Java">Java</a>
                         
-                          <a class="tag" href="/tags/#tensorflow" title="tensorflow">tensorflow</a>
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
                         
                     </div>
                 </section>

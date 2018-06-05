@@ -4,8 +4,59 @@
 
     
   <url>
+    <loc>http://liyaolife.comjava1/</loc>
+    <lastmod>2018-06-05T04:55:24.643Z</lastmod>
+    <data>
+        <display>
+        <title>Mac Java环境配置</title>
+        <pubTime>2018-05-19T05:42:32.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comjava2/</loc>
+    <lastmod>2018-06-05T04:55:06.422Z</lastmod>
+    <data>
+        <display>
+        <title>Java HelloWorld项目创建</title>
+        <pubTime>2018-05-19T05:42:39.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comjava3/</loc>
+    <lastmod>2018-06-05T04:55:01.370Z</lastmod>
+    <data>
+        <display>
+        <title>Java基础题目(温度转换、时间换算、信号报告）</title>
+        <pubTime>2018-05-19T05:42:44.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comtsfl1/</loc>
-    <lastmod>2018-05-26T09:40:00.064Z</lastmod>
+    <lastmod>2018-06-05T04:54:54.649Z</lastmod>
     <data>
         <display>
         <title>tensorflow安装CPU指令集（AVX2）警告解决方案</title>
@@ -23,14 +74,16 @@
 
     
   <url>
-    <loc>http://liyaolife.comjava3/</loc>
-    <lastmod>2018-05-19T05:54:34.362Z</lastmod>
+    <loc>http://liyaolife.comjava4/</loc>
+    <lastmod>2018-06-05T04:54:49.103Z</lastmod>
     <data>
         <display>
-        <title>Java基础题目(温度转换、时间换算、信号报告）</title>
-        <pubTime>2018-05-19T05:42:44.000Z</pubTime>
+        <title>MySQL与Java的连接</title>
+        <pubTime>2018-06-05T04:50:00.000Z</pubTime>
         
         <tag>Java</tag>
+         
+        <tag>MySQL</tag>
          
          
            
@@ -40,14 +93,14 @@
 
     
   <url>
-    <loc>http://liyaolife.comjava2/</loc>
-    <lastmod>2018-05-19T05:46:00.033Z</lastmod>
+    <loc>http://liyaolife.commysql1/</loc>
+    <lastmod>2018-06-05T04:54:43.290Z</lastmod>
     <data>
         <display>
-        <title>Java HelloWorld项目创建</title>
-        <pubTime>2018-05-19T05:42:39.000Z</pubTime>
+        <title>MySQL安装与初始化</title>
+        <pubTime>2018-06-05T04:51:38.000Z</pubTime>
         
-        <tag>Java</tag>
+        <tag>MySQL</tag>
          
          
            
@@ -57,14 +110,14 @@
 
     
   <url>
-    <loc>http://liyaolife.comjava1/</loc>
-    <lastmod>2018-05-19T05:45:38.795Z</lastmod>
+    <loc>http://liyaolife.comHexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/</loc>
+    <lastmod>2018-06-05T04:54:21.296Z</lastmod>
     <data>
         <display>
-        <title>Mac Java环境配置</title>
-        <pubTime>2018-05-19T05:42:32.000Z</pubTime>
+        <title>Hexo博客搭建（一）前期准备</title>
+        <pubTime>2018-03-24T02:53:24.000Z</pubTime>
         
-        <tag>Java</tag>
+        <tag>Hexo</tag>
          
          
            
@@ -149,23 +202,6 @@
         <display>
         <title>Hexo博客搭建（二）从最简单的开始</title>
         <pubTime>2018-03-27T03:16:36.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comHexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/</loc>
-    <lastmod>2018-04-10T01:53:19.623Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo博客搭建（一）前期准备</title>
-        <pubTime>2018-03-24T02:53:24.000Z</pubTime>
         
         <tag>Hexo</tag>
          
