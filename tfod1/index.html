@@ -14,11 +14,11 @@
 
     <title>
         
-          《Data Mining》翻译前期准备 - 李尧的博客 | Yao Blog
+          物体检测TensorFlow Object Detection API （一）安装 - 李尧的博客 | Yao Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liyaolife.com/data-mining翻译前期准备/">
+    <link rel="canonical" href="http://www.liyaolife.com/tfod1/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -168,14 +168,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#《数据挖掘》翻译" title="《数据挖掘》翻译">《数据挖掘》翻译</a>
+                          <a class="tag" href="/tags/#tensorflow" title="tensorflow">tensorflow</a>
+                        
+                          <a class="tag" href="/tags/#机器学习" title="机器学习">机器学习</a>
                         
                     </div>
-                    <h1>《Data Mining》翻译前期准备</h1>
+                    <h1>物体检测TensorFlow Object Detection API （一）安装</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Li Yao on
-                        2018-04-22
+                        2018-08-10
                         | view <span id="busuanzi_value_page_pv"></span> times
                     </span>
 
@@ -196,156 +198,49 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="全书概览"><a href="#全书概览" class="headerlink" title="全书概览"></a>全书概览</h1><p>《Data Mining》一书由Charu C.Aggarwal所著，出版于2015年4月14日，目前没有引进中国，亚马逊原版教材售价约为350元（会员价，非会员1000+）。豆瓣无评分，亚马逊评分4星（5星满分），从CSDN社区一些讨论情况来看，普遍认为本书质量较高。故我们选取本书进行翻译，旨在帮助更多中国学习者阅读优秀教材。</p>
-<p>全书共有20章，743页，内容详细，逻辑严谨，其中包含大量图表与公式。</p>
-<h1 id="协作方案"><a href="#协作方案" class="headerlink" title="协作方案"></a>协作方案</h1><p>Markdown是当前比较流行的轻量级标记语言，适合快速简便的编辑出高质量的文本。</p>
-<p>本团队采用Markdown进行写作。目前有30左右加入团队。<br>初步分工</p>
-<ul>
-<li>20-23人进行专职翻译</li>
-<li>将全书分为3个部分，由3人担任小组长，负责督促本组的进度</li>
-<li>3人负责翻译过程中的技术支持</li>
-<li>3人负责最终成书的统稿校对</li>
+                <h1 id="物体检测TensorFlow-Object-Detection-API-（一）安装"><a href="#物体检测TensorFlow-Object-Detection-API-（一）安装" class="headerlink" title="物体检测TensorFlow Object Detection API （一）安装"></a>物体检测TensorFlow Object Detection API （一）安装</h1><p>在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片-标签<span class="number">1</span>，标签<span class="number">2</span>，标签<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>这种类型的数据，我们最终的目的，也是测试的图片，打标签，姑且将其认为属于图片分类任务。</p>
+<p>而另外一种数据</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">图片中的某一块-标签<span class="number">1</span></span><br><span class="line">图片中的另一块-标签<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>这种任务，我们的目的是在某张图片中检测（查找）某物体。</p>
+<p>TensorFlow Object Detection API 是 TensorFlow models 里的一个 research project 其中预设了很多网络模型可供我们直接调用和调参，也可以根据其自定义模型。大大简化了我们进行实验的流程。然而，即便如此，TensorFlow 依然不是一个新 friendly 的一个项目。在开发过程中可能遇到各种各样的问题。在此做此记录。<br>——2018.8.10</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>此处参考了 <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md" target="_blank" rel="noopener"> Installation</a> TensorFlow models 官方 GitHub doc.</p>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><ul>
+<li>Protobuf &gt;= 3.0.0</li>
+<li>Python-tk</li>
+<li>Pillow</li>
+<li>lxml</li>
+<li>tf Slim</li>
+<li>Jupyter notebook</li>
+<li>matplotlib</li>
+<li>TensorFlow</li>
+<li>Cython</li>
+<li>contextlib2</li>
+<li>cocoapi</li>
 </ul>
-<p>按照自愿报名原则，鼓励能者多劳，即一人可以参加全部上述四个流程。</p>
-<h1 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h1><ol>
-<li>Markdown使用，考虑到本团队所有成员均为985院校硕（博）士，初步认为即使没有Markdown基础，也可以快速上手</li>
-<li>英语水平，提倡采用Google翻译，毕竟是人类智慧的精华，但是要求机翻之后必须有检查。</li>
-<li>公式编辑，Markdown支持LaTeX的公式书写，所以本书公式全部采用LaTeX语法进行书写，部分同学可能不太熟悉，由技术团队提供支持</li>
-<li>图、表插入，为了节省时间，本书不再对原书图表进行重绘，图表以及其编号保持与原书一致。但是Markdown中的图表与Word不一样，不是嵌在文件中的，而是一个路径指向一个图片文件，这种做法在生成PDF之后倒看不出来，但是直接分享.md源文件时就会出现问题（比如，写一个Python或者C程序中读取了一个文件，是通过一个路径指向这个文件，那么分享的时候需要把这个文件也带上）。目前在互联网博客中，主流的解决方案是采用图床（相当于一个云盘，把图片存里面）然后在Markdown文件中放该图片对应的url地址。这部分解决起来稍麻烦，在前期工作中可以先跳过，主要翻译文字和公式。</li>
-</ol>
-<h1 id="进度安排"><a href="#进度安排" class="headerlink" title="进度安排"></a>进度安排</h1><p>全书翻译计划时间为4周。2018.4.23-2018.5.20</p>
-<ul>
-<li>4.23-5.6，主要进行翻译核心工作，文字和公式部分的翻译。</li>
-<li>5.7-5.13，主要进行统稿工作。汇总各人的工作，帮助部分同学解决图片插入问题。形成初稿。</li>
-<li>5.14-5.20，主要进行校对工作。检查翻译质量，校对公式正误，最终成书。</li>
-</ul>
-<h1 id="具体分工"><a href="#具体分工" class="headerlink" title="具体分工"></a>具体分工</h1><table>
-<thead>
-<tr>
-<th style="text-align:center">章节</th>
-<th style="text-align:center">负责人</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">李尧</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">程琳</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">朱广阳</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">曹春，张巍烨</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">徐建秋</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">杨天威，刘丹阳</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">张万龙</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">司呈呈</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">王俊</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">刘立新，于雷</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">彭龙，吴旭桥</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">张伟，朱锦锟</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:center">李建鹏</td>
-</tr>
-<tr>
-<td style="text-align:center">14</td>
-<td style="text-align:center">逯旺旺，李泰立</td>
-</tr>
-<tr>
-<td style="text-align:center">15</td>
-<td style="text-align:center">贺亮，蒋孝卿</td>
-</tr>
-<tr>
-<td style="text-align:center">16</td>
-<td style="text-align:center">张宇</td>
-</tr>
-<tr>
-<td style="text-align:center">17</td>
-<td style="text-align:center">朱向典</td>
-</tr>
-<tr>
-<td style="text-align:center">18</td>
-<td style="text-align:center">杨山，刘仲康</td>
-</tr>
-<tr>
-<td style="text-align:center">19</td>
-<td style="text-align:center">赵纳森，王建秋</td>
-</tr>
-<tr>
-<td style="text-align:center">20</td>
-<td style="text-align:center">宋宇</td>
-</tr>
-</tbody>
-</table>
-<p>其余人员</p>
-<table>
-<thead>
-<tr>
-<th>小组长</th>
-<th>技术组</th>
-<th>校对组</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>李尧（1-6章）</td>
-<td>李尧</td>
-<td>刘蕾</td>
-</tr>
-<tr>
-<td>王俊（7-13章）</td>
-<td>程琳</td>
-<td>孙旭</td>
-</tr>
-<tr>
-<td>蒋孝卿（14-20章）</td>
-<td>陈南宇</td>
-<td>李楚茵</td>
-</tr>
-<tr>
-<td></td>
-<td>柯达</td>
-<td>李润浩</td>
-</tr>
-<tr>
-<td></td>
-<td>程煜</td>
-<td>杨刚</td>
-</tr>
-</tbody>
-</table>
+<p>TensorFlow 如何安装不再说明，Protobuf 可通过 brew 安装。<br>coco api 选装<br>其余通过 pip 安装</p>
+<p>其中 probuf 被用来设置模型和训练参数，在正式使用前，需要将 protobuf 库进行编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> From tensorflow/models/research/</span></span><br><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br></pre></td></tr></table></figure>
+<p>注意看好路径。</p>
+<p>jupyter notebook 是交互式的笔记本应用，可以边写代码边记笔记。非常实用的工具，使用它可以看作者预设的一个最简单的模型。</p>
+<h3 id="将-slim-directories-加入-PYTHONPATH"><a href="#将-slim-directories-加入-PYTHONPATH" class="headerlink" title="将 slim directories 加入 PYTHONPATH"></a>将 slim directories 加入 PYTHONPATH</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From tensorflow/models/research/</span></span><br><span class="line">export PYTHONPATH=<span class="variable">$PYTHONPATH</span><span class="symbol">:`pwd`</span><span class="symbol">:`pwd`/slim</span></span><br></pre></td></tr></table></figure>
+<p>任何位置使用此 api 都要首先运行此命令。</p>
+<p>如果没有运行此命令可能会出现</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ModuleNotFoundError: No module named 'object_detection'</span><br></pre></td></tr></table></figure>
+<p>这样的错误</p>
+<h3 id="测试安装效果"><a href="#测试安装效果" class="headerlink" title="测试安装效果"></a>测试安装效果</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python object_detection/builders/model_builder_test.py</span><br></pre></td></tr></table></figure>
+<p>因为在本人机器上 python 命令默认调用 python2， python3 命令才会调用 python3 所以在测试命令改为：</p>
+<pre><code class="shell">python3 object_detection/builders/model_builder_test.py
+
+</code></pre>
+<p>如果出现以下场景，表明运行成功。<br><img src="http://p6atp7tts.bkt.clouddn.com/15338710403317.jpg" alt=""></p>
+<p>代表安装成功了。</p>
+<blockquote>
+<p>一件趣事：<br>在测试这个8月6号，7号测试时候，总是出现错误，后来发现是一处 xrange（python2）用法没有改成 range。 然后我把它改了就能运行了，发了 pull request 被 Google 的哥哥回复了，说他们正在更新一个大版本，里面已经改了这个错误，然后 8月8号就确实更新了一个新版本，改了很多地方。</p>
+</blockquote>
+<hr>
+<p>本文首发于个人网页 <a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏 <a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>。</p>
 
 
                 <hr>
@@ -355,12 +250,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/DMtrans1/" data-toggle="tooltip" data-placement="top" title="《Data Mining》第1章翻译 绪论">&larr; Previous Post</a>
+                            <a href="/tfod2/" data-toggle="tooltip" data-placement="top" title="tfod2">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/hexo博客搭建（五）/" data-toggle="tooltip" data-placement="top" title="hexo博客搭建（五）SEO优化">Next Post &rarr;</a>
+                            <a href="/tsfl2/" data-toggle="tooltip" data-placement="top" title="TensorBoard使用示例">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -409,7 +304,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#《数据挖掘》翻译" title="《数据挖掘》翻译">《数据挖掘》翻译</a>
+                          <a class="tag" href="/tags/#tensorflow" title="tensorflow">tensorflow</a>
+                        
+                          <a class="tag" href="/tags/#机器学习" title="机器学习">机器学习</a>
                         
                     </div>
                 </section>

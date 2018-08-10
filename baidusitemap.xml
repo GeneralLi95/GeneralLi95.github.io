@@ -4,6 +4,63 @@
 
     
   <url>
+    <loc>http://liyaolife.comtfod2/</loc>
+    <lastmod>2018-08-10T07:00:04.692Z</lastmod>
+    <data>
+        <display>
+        <title>tfod2</title>
+        <pubTime>2018-08-10T06:55:41.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comtfod1/</loc>
+    <lastmod>2018-08-10T06:59:41.961Z</lastmod>
+    <data>
+        <display>
+        <title>物体检测TensorFlow Object Detection API （一）安装</title>
+        <pubTime>2018-08-10T06:55:35.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comtsfl1/</loc>
+    <lastmod>2018-08-10T06:59:29.934Z</lastmod>
+    <data>
+        <display>
+        <title>tensorflow安装CPU指令集（AVX2）警告解决方案</title>
+        <pubTime>2018-05-25T01:19:08.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comtsfl2/</loc>
     <lastmod>2018-07-25T03:44:37.605Z</lastmod>
     <data>
@@ -11,9 +68,9 @@
         <title>TensorBoard使用示例</title>
         <pubTime>2018-07-25T03:28:01.000Z</pubTime>
         
-        <tag>机器学习</tag>
-         
         <tag>tensorflow</tag>
+         
+        <tag>机器学习</tag>
          
          
            
@@ -65,25 +122,6 @@
         <pubTime>2018-05-19T05:42:44.000Z</pubTime>
         
         <tag>Java</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comtsfl1/</loc>
-    <lastmod>2018-06-05T04:54:54.649Z</lastmod>
-    <data>
-        <display>
-        <title>tensorflow安装CPU指令集（AVX2）警告解决方案</title>
-        <pubTime>2018-05-25T01:19:08.000Z</pubTime>
-        
-        <tag>机器学习</tag>
-         
-        <tag>tensorflow</tag>
          
          
            
