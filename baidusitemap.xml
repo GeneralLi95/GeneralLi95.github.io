@@ -4,6 +4,136 @@
 
     
   <url>
+    <loc>http://liyaolife.comjava4/</loc>
+    <lastmod>2019-11-14T07:25:30.181Z</lastmod>
+    <data>
+        <display>
+        <title>MySQL与Java的连接</title>
+        <pubTime>2018-06-05T04:50:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>MySQL</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comHexo3/</loc>
+    <lastmod>2019-11-14T07:04:26.638Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客搭建（三）上线与个性化域名设置</title>
+        <pubTime>2018-03-28T13:02:29.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comHexo2/</loc>
+    <lastmod>2019-11-14T07:04:23.269Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客搭建（二）从最简单的开始</title>
+        <pubTime>2018-03-27T03:16:36.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comtfod2/</loc>
+    <lastmod>2019-11-14T07:04:20.549Z</lastmod>
+    <data>
+        <display>
+        <title>物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo</title>
+        <pubTime>2018-08-10T06:55:41.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comtsfl1/</loc>
+    <lastmod>2019-11-14T07:04:08.203Z</lastmod>
+    <data>
+        <display>
+        <title>tensorflow安装CPU指令集（AVX2）警告解决方案</title>
+        <pubTime>2018-05-25T01:19:08.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comtfod1/</loc>
+    <lastmod>2019-11-14T07:04:04.445Z</lastmod>
+    <data>
+        <display>
+        <title>物体检测TensorFlow Object Detection API （一）安装</title>
+        <pubTime>2018-08-10T06:55:35.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.commysql1/</loc>
+    <lastmod>2019-11-14T07:04:00.556Z</lastmod>
+    <data>
+        <display>
+        <title>MySQL安装与初始化</title>
+        <pubTime>2018-06-05T04:51:38.000Z</pubTime>
+        
+        <tag>MySQL</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comjava3/</loc>
     <lastmod>2019-11-14T06:07:49.189Z</lastmod>
     <data>
@@ -140,43 +270,6 @@
     </url>
 
     
-  <url>
-    <loc>http://liyaolife.comHexo3/</loc>
-    <lastmod>2019-11-14T05:39:26.248Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo博客搭建（三）上线与个性化域名设置</title>
-        <pubTime>2018-03-28T13:02:29.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comHexo2/</loc>
-    <lastmod>2019-11-14T05:37:15.426Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo博客搭建（二）从最简单的开始</title>
-        <pubTime>2018-03-27T03:16:36.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
     
     
     
@@ -230,99 +323,6 @@
              
               <breadCrumb title="DataMining" url="http://www.liyaolife.com/categories/DataMining/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comtfod2/</loc>
-    <lastmod>2018-08-10T07:01:09.001Z</lastmod>
-    <data>
-        <display>
-        <title>物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo</title>
-        <pubTime>2018-08-10T06:55:41.000Z</pubTime>
-        
-        <tag>tensorflow</tag>
-         
-        <tag>机器学习</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comtfod1/</loc>
-    <lastmod>2018-08-10T06:59:41.961Z</lastmod>
-    <data>
-        <display>
-        <title>物体检测TensorFlow Object Detection API （一）安装</title>
-        <pubTime>2018-08-10T06:55:35.000Z</pubTime>
-        
-        <tag>tensorflow</tag>
-         
-        <tag>机器学习</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comtsfl1/</loc>
-    <lastmod>2018-08-10T06:59:29.934Z</lastmod>
-    <data>
-        <display>
-        <title>tensorflow安装CPU指令集（AVX2）警告解决方案</title>
-        <pubTime>2018-05-25T01:19:08.000Z</pubTime>
-        
-        <tag>tensorflow</tag>
-         
-        <tag>机器学习</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comjava4/</loc>
-    <lastmod>2018-06-05T04:54:49.103Z</lastmod>
-    <data>
-        <display>
-        <title>MySQL与Java的连接</title>
-        <pubTime>2018-06-05T04:50:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>MySQL</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.commysql1/</loc>
-    <lastmod>2018-06-05T04:54:43.290Z</lastmod>
-    <data>
-        <display>
-        <title>MySQL安装与初始化</title>
-        <pubTime>2018-06-05T04:51:38.000Z</pubTime>
-        
-        <tag>MySQL</tag>
-         
-         
-           
         </display>
     </data>
     </url>

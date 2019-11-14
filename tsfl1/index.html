@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="问题原因在macOS通过pip3 install 安装tensorflow(CPU版)后，运行示例代码 1234import tensorflow as tfhello = tf.constant(&apos;Hello, TensorFlow!&apos;)sess = tf.Session()print(sess.run(hello).decode()) 运行之后可以正常输出 “Hello, TensorFlow">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-10T06:59:29.934Z">
+<meta property="og:updated_time" content="2019-11-14T07:04:08.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tensorflow安装CPU指令集（AVX2）警告解决方案">
 <meta name="twitter:description" content="问题原因在macOS通过pip3 install 安装tensorflow(CPU版)后，运行示例代码 1234import tensorflow as tfhello = tf.constant(&apos;Hello, TensorFlow!&apos;)sess = tf.Session()print(sess.run(hello).decode()) 运行之后可以正常输出 “Hello, TensorFlow">
@@ -224,7 +224,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-08-10 14:59:29" itemprop="dateModified" datetime="2018-08-10T14:59:29+08:00">2018-08-10</time>
+                <time title="修改时间：2019-11-14 15:04:08" itemprop="dateModified" datetime="2019-11-14T15:04:08+08:00">2019-11-14</time>
               </span>
 
           
@@ -283,13 +283,13 @@
 <font color="red">一定要对应版本!</font>
 
 <p>版本查看方式</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python3</span><br><span class="line"></span><br><span class="line">Python 3.6.5 (default, Apr 25 2018, 14:23:58) </span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python3</span><br><span class="line"></span><br><span class="line">Python 3.6.5 (default, Apr 25 2018, 14:23:58)</span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
 <p>从中可以得出我们的版本  Python 3.6.5 clang-902.0.29.1，又这两个版本号加上自己的系统名在上面的GitHub repo里面选择对应的软件包。下载下来相当于直接完成了官网教材的前3步。</p>
 <p>所以只需要执行第4步。</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="params">--ignore-installed</span> <span class="params">--upgrade</span> <span class="string">/path/to/binary.whl</span></span><br></pre></td></tr></table></figure>
 <p>注意 Python3的pip命令是pip3  这条语句可以忽略我们已经安装好的tf包，不需要卸载，会直接升级过去。很方便。</p>
 <hr>
-<p>本文首发于个人网页 <a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏 <a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>。</p>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
 
     </div>
 
