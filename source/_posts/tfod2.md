@@ -3,11 +3,12 @@ title: 物体检测TensorFlow Object Detection API （二）使用 Jupyter Noteb
 date: 2018-08-10 14:55:41
 catalog: true
 tags:
-    - tensorflow
+    - TensorFlow
     - 机器学习
+    - 计算机视觉
+    - 目标检测
+categories: 机器学习
 ---
-
-# 物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo
 
 jupyter notebooks 之前也被称为 iPython 笔记本，提供了在同一环境中执行数据可视化的功能，是数据科学家最常用的工具之一。
 
@@ -25,16 +26,16 @@ jupyter notebook
 
 即可启动 jupyter notebook
 
-![](http://p6atp7tts.bkt.clouddn.com/15338823163485.jpg)
+![image](http://upload-images.jianshu.io/upload_images/11400909-fc91f8731dfc6c0d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 在系统8888端口，jupyter notebooks 已经跑起来了。
 一般来说会自动打开浏览器，如果没有，自己打开浏览器 输入 localhost: 8888 即可。
 
-![](http://p6atp7tts.bkt.clouddn.com/15338824038441.jpg)
+![image](http://upload-images.jianshu.io/upload_images/11400909-1a56d5e5087d29b8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 启动界面显示的是当前所在目录，找到位于  /models/research/object_detection/object_detection_tutorial.ipynb
 
-![](http://p6atp7tts.bkt.clouddn.com/15338825675427.jpg)
+![image](http://upload-images.jianshu.io/upload_images/11400909-a8f7bc4306dd5876.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 点击 run all 整个代码就跑起来了。
 
 如果前一篇文章最后的测试代码，能够输出 OK 的话，证明安装无误，这个文档跑起来应该是没问题的，如果有问题自行解决。
@@ -42,9 +43,9 @@ jupyter notebook
 大概运行3-5分钟，即可看到结果了。
     > 运行时间引人而异，在 [目标检测Tensorflow object detection API](https://zhuanlan.zhihu.com/p/35795901) 这篇文章中，这个同学讲他用了30-40分钟。因为中间有几行代码是下载训练好的模型，所以和网速也会有关系。
 
-![](http://p6atp7tts.bkt.clouddn.com/15338828519716.jpg)
+![image](http://upload-images.jianshu.io/upload_images/11400909-83016f6bd318f458.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![](http://p6atp7tts.bkt.clouddn.com/15338828651205.jpg)
+![image](http://upload-images.jianshu.io/upload_images/11400909-fce85e1e326f7159.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 关于这个官方 demo，不在具体解释。如果我们把整个任务分成下面部分
@@ -57,6 +58,7 @@ jupyter notebook
 3个大部分的话，这个 demo 应该算第三部分，用训练好的模型在其他图片是进行 object_detection.
 
 在具体工作中，大部分工作量其实是集中在前两个步骤。
+
 
 ***
 本文首发于个人网页[Yao Blog](http://liyaolife.com)，知乎专栏[谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)，简书：[且自小尧没谁管](https://www.jianshu.com/u/2ad44a001d34)。

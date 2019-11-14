@@ -3,9 +3,11 @@ title: tensorflow安装CPU指令集（AVX2）警告解决方案
 date: 2018-05-25 09:19:08
 tags:
     - 机器学习
-    - tensorflow
+    - TensorFlow
+categories: 机器学习
 catalog: true
 ---
+
 ## 问题原因
 在macOS通过pip3 install 安装tensorflow(CPU版)后，运行示例代码
 

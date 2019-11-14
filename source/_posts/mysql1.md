@@ -2,9 +2,10 @@
 title: MySQL安装与初始化
 date: 2018-06-05 12:51:38
 tags: MySQL
+categories: 数据库
 catalog: true
 ---
-# MySQL安装与初始化
+
 ## 安装
 
 使用brew进行安装

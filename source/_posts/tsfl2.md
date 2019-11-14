@@ -3,10 +3,12 @@ title: TensorBoard使用示例
 date: 2018-07-25 11:28:01
 tags:
     - 机器学习
-    - tensorflow
+    - TensorFlow
+    - TensorBoard
+categories: 机器学习
 catalog: true
 ---
-# TensorBoard使用
+
 为了更方便TensorFlow程序的理解、调试与优化，Google发布了一套叫做TensorBoard的可视化工具，可以用TensorBoard来展现TensorFlow的图像，绘制图像生成的定量指标图以及附加数据。
 
 TensorBoard设置完成之后的样子应该如下图：

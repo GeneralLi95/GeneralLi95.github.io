@@ -3,8 +3,11 @@ title: 物体检测TensorFlow Object Detection API （一）安装
 date: 2018-08-10 14:55:35
 catalog: true
 tags:
-    - tensorflow
+    - TensorFlow
     - 机器学习
+    - 计算机视觉
+    - 目标检测
+categories: 机器学习
 ---
 # 物体检测TensorFlow Object Detection API （一）安装
 在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是
@@ -88,7 +91,7 @@ python3 object_detection/builders/model_builder_test.py
 ```
 
 如果出现以下场景，表明运行成功。
-![](http://p6atp7tts.bkt.clouddn.com/15338710403317.jpg)
+![image](http://upload-images.jianshu.io/upload_images/11400909-ef5f5ca8c03c5218.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 代表安装成功了。
 
@@ -96,5 +99,5 @@ python3 object_detection/builders/model_builder_test.py
 > 在测试这个8月6号，7号测试时候，总是出现错误，后来发现是一处 xrange（python2）用法没有改成 range。 然后我把它改了就能运行了，发了 pull request 被 Google 的哥哥回复了，说他们正在更新一个大版本，里面已经改了这个错误，然后 8月8号就确实更新了一个新版本，改了很多地方。
 
 
-*** 
+***
 本文首发于个人网页[Yao Blog](http://liyaolife.com)，知乎专栏[谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)，简书：[且自小尧没谁管](https://www.jianshu.com/u/2ad44a001d34)。

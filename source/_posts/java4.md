@@ -1,12 +1,13 @@
 ---
 title: MySQL与Java的连接
 date: 2018-06-05 12:50:00
-tags: 
+tags:
     - Java
     - MySQL
+categories: Java
 catalog: true
 ---
-# MySQL与Java的连接
+
 通过实现[菜鸟教程上的一个例程](http://www.runoob.com/java/java-mysql-connect.html)来记录一下这个操作。
 
 Java与MySQL的连接主要依赖一个JDBC驱动来进行。
@@ -143,5 +144,4 @@ public class jdbctest {
 即连接成功。
 
 ***
-本文首发于个人网页[Yao Blog](http://liyaolife.com)，知乎专栏[谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)。
-
+本文首发于个人网页[Yao Blog](http://liyaolife.com)，知乎专栏[谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)，简书：[且自小尧没谁管](https://www.jianshu.com/u/2ad44a001d34)。
