@@ -1,7 +1,9 @@
 ---
 title: MySQL安装与初始化
 date: 2018-06-05 12:51:38
-tags: MySQL
+tags:
+  - MySQL
+  - 数据库
 categories: 数据库
 catalog: true
 ---
@@ -19,17 +21,28 @@ brew install mysql
 
 ```
 sudo chown R ‘usrname’ usr/local
+
 ```
+
 通常会执行成功，但是macOS比较新的版本里面会没有拒绝这一操作。即Operation not permitted。这是由于Mac的rootless机制。
 
 解决方案：
 
 1. 重启Mac，重启时按住command + R 进入恢复模式。（话说还是第一次知道Mac还有这个模式）
+
 2. 选择终端，在左上角，输入指令
-```
-csrutil disable
-```
-3. 再重启让机器正常启动，可以在终端查看rootless状态：```csrutil status```正常情况下rootless已经关闭了
+
+  ```
+  csrutil disable
+  ```
+
+3. 再重启让机器正常启动，可以在终端查看rootless状态：
+
+  ```
+  csrutil status
+  ```
+  正常情况下rootless已经关闭了
+
 4. 要想重新开启，参照步骤1，2
 
 
@@ -46,6 +59,7 @@ mysqladmin -u root password 123456
 ```
 mysql -u root -p
 ```
+
 输入 123456.即可
 
 ## 启动和关闭MySQL服务器

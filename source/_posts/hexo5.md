@@ -1,12 +1,9 @@
 ---
-title: hexo博客搭建（五）SEO优化
+title: Hexo博客搭建（五）SEO优化
 date: 2018-04-02 20:29:45
 tags: Hexo
 categories: Hexo
 ---
-
-
-
 # 与GitHub仓库互联
 直到目前，我们的blog还只是一个本地的小家伙，像一个没有出过门的孩子，只能在localhost:4000里面查看。别人是看不到的。那么如何把它部署到线上？
 

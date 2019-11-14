@@ -2,6 +2,7 @@
 title: Java基础题目(温度转换、时间换算、信号报告）
 date: 2018-05-19 13:42:44
 tags: Java
+categories: Java
 catalog: true
 ---
 # Java基础题目
