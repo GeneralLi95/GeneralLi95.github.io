@@ -1,7 +1,7 @@
 ---
 title: tensorflow安装CPU指令集（AVX2）警告解决方案
 date: 2018-05-25 09:19:08
-tags: 
+tags:
     - 机器学习
     - tensorflow
 catalog: true
@@ -68,7 +68,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 **SIMD** (Single Instruction Multiple Data)单指令流多数据流，是一种采用一个控制器来控制多个处理器，同时对一组数据（又称“数据向量”）中的每一个分别执行相同的操作从而实现空间上的并行性技术。
 
 在微处理器中，SIMD则是一个控制器控制多个并行的处理微元，例如Intel的MMX或SSE，以及AMD的3D NOW指令集。
- 
+
 所以说SSE4.2和AVX都是一种SIMD指令集。
 
 对于TF tasks。SSE4.2和AVX使向量和矩阵计算更加高效。具体可以看这个[课件](https://www.polyhedron.com/web_images/intel/productbriefs/3a_SIMD.pdf)。
@@ -95,7 +95,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 ```
 $ python3
 
-Python 3.6.5 (default, Apr 25 2018, 14:23:58) 
+Python 3.6.5 (default, Apr 25 2018, 14:23:58)
 [GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
@@ -114,5 +114,4 @@ pip install --ignore-installed --upgrade /path/to/binary.whl
 
 
 ***
-本文首发于个人网页 [Yao Blog](http://liyaolife.com)，知乎专栏 [谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)。
-
+本文首发于个人网页[Yao Blog](http://liyaolife.com)，知乎专栏[谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)，简书：[且自小尧没谁管](https://www.jianshu.com/u/2ad44a001d34)。

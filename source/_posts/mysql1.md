@@ -55,9 +55,9 @@ mysql -u root -p
 ps -ef | grep mysqld
 ```
  如果MySQL启动的情况下，将输出MySQL的进程列表。
- 
+
  如果要关闭目前运行的MySQL服务器，可以执行下面命令来关闭服务器：
- 
+
 ```
 mysqladmin -u root -p shutdown
 ```
@@ -109,5 +109,4 @@ mysql > SHOW COLUMNS FROM db;
 
 
 ***
-本文首发于个人网页[Yao Blog](http://liyaolife.com)，知乎专栏[谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)。
-
+本文首发于个人网页[Yao Blog](http://liyaolife.com)，知乎专栏[谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)，简书：[且自小尧没谁管](https://www.jianshu.com/u/2ad44a001d34)。

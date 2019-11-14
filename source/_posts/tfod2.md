@@ -2,15 +2,16 @@
 title: 物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo
 date: 2018-08-10 14:55:41
 catalog: true
-tags: 
+tags:
     - tensorflow
     - 机器学习
 ---
+
 # 物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo
 
 jupyter notebooks 之前也被称为 iPython 笔记本，提供了在同一环境中执行数据可视化的功能，是数据科学家最常用的工具之一。
 
-关于 Jupyter Notebooks 的使用可以看公众号机器之心的一篇科普文章 [入门｜始于Jupyter Notebooks：一份全面的初学者实用指南](http://baijiahao.baidu.com/s?id=1601883438842526311&wfr=spider&for=pc) 
+关于 Jupyter Notebooks 的使用可以看公众号机器之心的一篇科普文章 [入门｜始于Jupyter Notebooks：一份全面的初学者实用指南](http://baijiahao.baidu.com/s?id=1601883438842526311&wfr=spider&for=pc)
 
 综合来看，Jupyter Notebooks 非常适合教学和演示。所以 Google 开发人员也写了一个教学的 Jupyter 脚本，来帮我们演示。
 
@@ -58,6 +59,4 @@ jupyter notebook
 在具体工作中，大部分工作量其实是集中在前两个步骤。
 
 ***
-本文首发于个人网页 [Yao Blog](http://liyaolife.com)，知乎专栏 [谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)。
-
-
+本文首发于个人网页[Yao Blog](http://liyaolife.com)，知乎专栏[谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)，简书：[且自小尧没谁管](https://www.jianshu.com/u/2ad44a001d34)。

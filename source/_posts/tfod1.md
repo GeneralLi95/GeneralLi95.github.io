@@ -2,7 +2,7 @@
 title: 物体检测TensorFlow Object Detection API （一）安装
 date: 2018-08-10 14:55:35
 catalog: true
-tags: 
+tags:
     - tensorflow
     - 机器学习
 ---
@@ -85,7 +85,7 @@ python object_detection/builders/model_builder_test.py
 ```shell
 python3 object_detection/builders/model_builder_test.py
 
-``` 
+```
 
 如果出现以下场景，表明运行成功。
 ![](http://p6atp7tts.bkt.clouddn.com/15338710403317.jpg)
@@ -97,9 +97,4 @@ python3 object_detection/builders/model_builder_test.py
 
 
 *** 
-
-
-
-本文首发于个人网页 [Yao Blog](http://liyaolife.com)，知乎专栏 [谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)。
-
-
+本文首发于个人网页[Yao Blog](http://liyaolife.com)，知乎专栏[谈技术 不能潦草](https://zhuanlan.zhihu.com/c_175317330)，CSDN博客：[手握灵珠常奋笔](https://blog.csdn.net/GeneralLi95)，简书：[且自小尧没谁管](https://www.jianshu.com/u/2ad44a001d34)。
