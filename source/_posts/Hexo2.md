@@ -2,7 +2,7 @@
 title: Hexo博客搭建（二）从最简单的开始
 date: 2018-03-27 11:16:36
 tags: Hexo
-catalog: true
+categories: Hexo
 ---
 
 

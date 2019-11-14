@@ -3,7 +3,6 @@ title: hexo博客搭建（五）SEO优化
 date: 2018-04-02 20:29:45
 tags: Hexo
 categories: Hexo
-catalog: true
 ---
 
 

@@ -2,7 +2,7 @@
 title: Hexo博客搭建（一）前期准备
 date: 2018-03-24 10:53:24
 tags: Hexo
-
+categories: Hexo
 ---
 
 一年半前，在网上闲逛时，无意点开了一个个人博客，酷炫。

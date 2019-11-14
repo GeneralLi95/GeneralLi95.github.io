@@ -140,7 +140,8 @@ public class jdbctest {
 
 执行之后的输出结果如下：
 
-![](http://p6atp7tts.bkt.clouddn.com/15281687764370.jpg)
+![success](http://upload-images.jianshu.io/upload_images/11400909-80fd63263e2f2843.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 即连接成功。
 
 ***

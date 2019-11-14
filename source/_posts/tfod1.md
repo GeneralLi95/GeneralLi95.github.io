@@ -1,15 +1,15 @@
 ---
 title: 物体检测TensorFlow Object Detection API （一）安装
 date: 2018-08-10 14:55:35
-catalog: true
 tags:
     - TensorFlow
     - 机器学习
     - 计算机视觉
     - 目标检测
 categories: 机器学习
+catalog: true
 ---
-# 物体检测TensorFlow Object Detection API （一）安装
+
 在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是
 
 ```
@@ -91,6 +91,7 @@ python3 object_detection/builders/model_builder_test.py
 ```
 
 如果出现以下场景，表明运行成功。
+
 ![image](http://upload-images.jianshu.io/upload_images/11400909-ef5f5ca8c03c5218.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 代表安装成功了。

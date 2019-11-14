@@ -3,7 +3,6 @@ title: Hexo博客搭建（四） 主题设置
 date: 2018-04-02 20:29:06
 tags: Hexo
 categories: Hexo
-catalog: true
 ---
 
 Hexo支持大家自定义主题样式，所以不甘寂寞的高手们为此做了大量的工作，创作出了大量优秀的主题供我们选择。本文主要写一下如何选择，设置主题。不涉及如何自定义一个主题。
@@ -33,7 +32,7 @@ Hexo支持大家自定义主题样式，所以不甘寂寞的高手们为此做�
 ## 安装与配置
 我们以用的最多的[NEXT主题](https://github.com/iissnan/hexo-theme-next)为例。
 
-写了半天，发现[NEXT主题的官方中文文档](https://github.com/iissnan/hexo-theme-next/blob/master/README.cn.md)，珠玉在前，不再多言。其他主题的设置大同小异。
+写了半天，发现[NEXT主题的官方中文文档](https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/README.md)，珠玉在前，不再多言。其他主题的设置大同小异。
 
 向这些优秀主题的贡献者们敬礼👍👍。
 
