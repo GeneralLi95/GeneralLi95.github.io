@@ -1,724 +1,1289 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="9qoov3_TfJJpNB8lTPmTyQIFty7THrrcKf5gynDis6c" />
-    <meta name="baidu-site-verification" content="xbGWXltpq1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="程序员的成长之路| 前端设计&amp;GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
-    <meta name="keyword"  content="李尧, liyao李尧, liyao, nudtliyao, xiaoyaoyao, 李尧的博客, Yao Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.6.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-    <title>
-        
-          李尧的博客 | Yao Blog
-        
-    </title>
-
-    <link rel="canonical" href="http://www.liyaolife.com/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
-
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
-
-    <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
 
-    <!-- ga & ba script hoook -->
-    <script>
+  <meta name="description" content="程序员的成长之路| 前端设计&amp;GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yao Blog">
+<meta property="og:url" content="http://www.liyaolife.com/index.html">
+<meta property="og:site_name" content="Yao Blog">
+<meta property="og:description" content="程序员的成长之路| 前端设计&amp;GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yao Blog">
+<meta name="twitter:description" content="程序员的成长之路| 前端设计&amp;GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
 
-      </script>
+<link rel="canonical" href="http://www.liyaolife.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Yao Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Yao Blog</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-
-                    
-
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archives/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yao Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <!-- /.container -->
+        <p class="site-subtitle">图书馆里的清洁工 少林寺里的扫地僧</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
 </nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
+</div>
+    </header>
 
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeneralLi95" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg-o.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Yao Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">图书馆里的清洁工 少林寺里的扫地僧</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
+          <div class="content">
+            
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
+  <div class="posts-expand">
         
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tfod2/">
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
 
-                <!-- Main Content -->
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/tfod2/" class="post-title-link" itemprop="url">物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo</a>
+        </h1>
 
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-preview">
+              <time title="创建时间：2018-08-10 14:55:41 / 修改时间：15:01:09" itemprop="dateCreated datePublished" datetime="2018-08-10T14:55:41+08:00">2018-08-10</time>
+            </span>
 
-    <a href="/tfod2/">
-        <h2 class="post-title">
-            物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demojupyter notebooks 之前也被称为 iPython 笔记本，提供了在同一环境中执行数据可视化的功能，是数据科学家最常用的工具之一。
-关于 Jupyter Notebooks 的使用可以看公众号机器之心的一篇科普文章 入门｜始于Jupyter ......
+          
+
         </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-08-10
-    </p>
+      </header>
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/tfod1/">
-        <h2 class="post-title">
-            物体检测TensorFlow Object Detection API （一）安装
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            物体检测TensorFlow Object Detection API （一）安装在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是
-1图片-标签1，标签2，标签3
-这种类型的数据，我们最终的目的，也是测试的图片，打标签，姑且将其认为属于图片分类任务。
-而另外一种数据
-12图片中的某一块-标签1图片中的另一块-标签2
-这种任务，我们的目的是在某张图片中检测（查找）某物......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-08-10
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/tsfl2/">
-        <h2 class="post-title">
-            TensorBoard使用示例
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            TensorBoard使用为了更方便TensorFlow程序的理解、调试与优化，Google发布了一套叫做TensorBoard的可视化工具，可以用TensorBoard来展现TensorFlow的图像，绘制图像生成的定量指标图以及附加数据。
-TensorBoard设置完成之后的样子应该如下图：
-其基本原理见TensorBoard中文手册，内有详细的介绍。
-本文参考了放羊的水瓶的博文。
-下面......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-07-25
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/mysql1/">
-        <h2 class="post-title">
-            MySQL安装与初始化
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            MySQL安装与初始化安装使用brew进行安装
-1brew install mysql
-安装好之后通常会没有linked然后
-1sudo chown R ‘usrname’ usr/local
-通常会执行成功，但是macOS比较新的版本里面会没有拒绝这一操作。即Operation not permitted。这是由于Mac的rootless机制。
-解决方案：
-
-重启Mac，重启时按住comm......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-06-05
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/java4/">
-        <h2 class="post-title">
-            MySQL与Java的连接
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            MySQL与Java的连接通过实现菜鸟教程上的一个例程来记录一下这个操作。
-Java与MySQL的连接主要依赖一个JDBC驱动来进行。
-建立一个测试的新库通过下面一行命令
-1mysqladmin -u root -p create jdbctest
-即建立了一个名为jdbctest的数据库。此时这个数据库中还没有tables。我们进入到数据库中并创建一个新的table
-12345678sql......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-06-05
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/tsfl1/">
-        <h2 class="post-title">
-            tensorflow安装CPU指令集（AVX2）警告解决方案
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            问题原因在macOS通过pip3 install 安装tensorflow(CPU版)后，运行示例代码
-1234import tensorflow as tfhello = tf.constant('Hello, TensorFlow!')sess = tf.Session()print(sess.run(hello).decode())
-运行之后可以正常输出
-“Hello, TensorF......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-05-25
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/java3/">
-        <h2 class="post-title">
-            Java基础题目(温度转换、时间换算、信号报告）
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Java基础题目题目主要来自浙江大学翁凯教授的零基础学习Java课程的配套习题。
-1. 温度转换题目内容:写一个将华氏温度转换成摄氏温度的程序，转换的公式是：    °F = (9/5)*°C + 32其中C表示摄氏温度，F表示华氏温度。程序的输入是一个整数，表示华氏温度。输出对应的摄氏温度，也是一个整数。提示，为了把计算结果的浮点数转换成整数，需要使用下面的表达式：    (int)x;其......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-05-19
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/java2/">
-        <h2 class="post-title">
-            Java HelloWorld项目创建
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            HelloWorld项目创建以前学Python的时候大家都说Python简单，当时没什么感觉，如今回头来学Java才发现，Python确实简单。Python的HelloWord只要在console里面一行代码就解决了。Java就很麻烦。
-Creat New Project选择Java EE，然后Next。之后又会有从模板创建的选项(Create project from template)，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-05-19
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/java1/">
-        <h2 class="post-title">
-            Mac Java环境配置
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            MAC Java环境配置1. 安装JDKJDK全称Java Development Kit，Java开发工具包，是Java开发的核心。之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。
-
-其他概念：SDK：Software Develop Toolkit 软件开发包，通常是为了开发某一方面的程序软件，由厂商提供的集成封装的库（library），通常比较底层，通用性强。例如Win......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-05-19
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/环校长跑总结/">
-        <h2 class="post-title">
-            年度最强制作背后两三事
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-近人有言曰：文明其精神，野蛮其体魄。此言是也。欲文明其精神，先自野蛮其体魄；苟野蛮其体魄矣，则文明之精神随之。——毛泽东1917年《体育之研究》
-
-年度最强制作——NUDT首届纪念五四环校长跑2017落下帷幕。今年跟着研委会的大佬们一起参与了活动组织，活干的不多，感悟倒还是有一点（毕竟天生就是这么个多愁善感的人）。
-
-
-研委会组织架构完善且合理，各位boss大佬运筹帷幄，指挥有方。在此次活......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Li Yao on
-        2018-05-07
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
     
     
-        <li class="next">
-            <a href="/page/2/">Older Posts &rarr;</a>
-        </li>
     
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="物体检测TensorFlow-Object-Detection-API-（二）使用-Jupyter-Notebooks-学习官方-demo"><a href="#物体检测TensorFlow-Object-Detection-API-（二）使用-Jupyter-Notebooks-学习官方-demo" class="headerlink" title="物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo"></a>物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo</h1><p>jupyter notebooks 之前也被称为 iPython 笔记本，提供了在同一环境中执行数据可视化的功能，是数据科学家最常用的工具之一。</p>
+<p>关于 Jupyter Notebooks 的使用可以看公众号机器之心的一篇科普文章 <a href="http://baijiahao.baidu.com/s?id=1601883438842526311&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">入门｜始于Jupyter Notebooks：一份全面的初学者实用指南</a> </p>
+<p>综合来看，Jupyter Notebooks 非常适合教学和演示。所以 Google 开发人员也写了一个教学的 Jupyter 脚本，来帮我们演示。</p>
+<p>Jupyter Notebooks 笔记文件的后缀名都是 .ipynb</p>
+<p>终端输入：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">jupyter notebook</span></span><br></pre></td></tr></table></figure>
+<p>即可启动 jupyter notebook</p>
+<p><img src="http://p6atp7tts.bkt.clouddn.com/15338823163485.jpg" alt=""></p>
+<p>在系统8888端口，jupyter notebooks 已经跑起来了。<br>一般来说会自动打开浏览器，如果没有，自己打开浏览器 输入 localhost: 8888 即可。</p>
+<p><img src="http://p6atp7tts.bkt.clouddn.com/15338824038441.jpg" alt=""></p>
+<p>启动界面显示的是当前所在目录，找到位于  /models/research/object_detection/object_detection_tutorial.ipynb</p>
+<p><img src="http://p6atp7tts.bkt.clouddn.com/15338825675427.jpg" alt=""><br>点击 run all 整个代码就跑起来了。</p>
+<p>如果前一篇文章最后的测试代码，能够输出 OK 的话，证明安装无误，这个文档跑起来应该是没问题的，如果有问题自行解决。</p>
+<p>大概运行3-5分钟，即可看到结果了。<br>    &gt; 运行时间引人而异，在 <a href="https://zhuanlan.zhihu.com/p/35795901" target="_blank" rel="noopener">目标检测Tensorflow object detection API</a> 这篇文章中，这个同学讲他用了30-40分钟。因为中间有几行代码是下载训练好的模型，所以和网速也会有关系。</p>
+<p><img src="http://p6atp7tts.bkt.clouddn.com/15338828519716.jpg" alt=""></p>
+<p><img src="http://p6atp7tts.bkt.clouddn.com/15338828651205.jpg" alt=""></p>
+<p>关于这个官方 demo，不在具体解释。如果我们把整个任务分成下面部分</p>
+<ol>
+<li>准备数据集</li>
+<li>训练模型</li>
+<li>测试模型</li>
+</ol>
+<p>3个大部分的话，这个 demo 应该算第三部分，用训练好的模型在其他图片是进行 object_detection.</p>
+<p>在具体工作中，大部分工作量其实是集中在前两个步骤。</p>
+<hr>
+<p>本文首发于个人网页 <a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏 <a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tfod1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/tfod1/" class="post-title-link" itemprop="url">物体检测TensorFlow Object Detection API （一）安装</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-08-10 14:55:35 / 修改时间：14:59:41" itemprop="dateCreated datePublished" datetime="2018-08-10T14:55:35+08:00">2018-08-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="物体检测TensorFlow-Object-Detection-API-（一）安装"><a href="#物体检测TensorFlow-Object-Detection-API-（一）安装" class="headerlink" title="物体检测TensorFlow Object Detection API （一）安装"></a>物体检测TensorFlow Object Detection API （一）安装</h1><p>在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片-标签<span class="number">1</span>，标签<span class="number">2</span>，标签<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>这种类型的数据，我们最终的目的，也是测试的图片，打标签，姑且将其认为属于图片分类任务。</p>
+<p>而另外一种数据</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">图片中的某一块-标签<span class="number">1</span></span><br><span class="line">图片中的另一块-标签<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>这种任务，我们的目的是在某张图片中检测（查找）某物体。</p>
+<p>TensorFlow Object Detection API 是 TensorFlow models 里的一个 research project 其中预设了很多网络模型可供我们直接调用和调参，也可以根据其自定义模型。大大简化了我们进行实验的流程。然而，即便如此，TensorFlow 依然不是一个新 friendly 的一个项目。在开发过程中可能遇到各种各样的问题。在此做此记录。<br>——2018.8.10</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>此处参考了 <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md" target="_blank" rel="noopener"> Installation</a> TensorFlow models 官方 GitHub doc.</p>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><ul>
+<li>Protobuf &gt;= 3.0.0</li>
+<li>Python-tk</li>
+<li>Pillow</li>
+<li>lxml</li>
+<li>tf Slim</li>
+<li>Jupyter notebook</li>
+<li>matplotlib</li>
+<li>TensorFlow</li>
+<li>Cython</li>
+<li>contextlib2</li>
+<li>cocoapi</li>
 </ul>
+<p>TensorFlow 如何安装不再说明，Protobuf 可通过 brew 安装。<br>coco api 选装<br>其余通过 pip 安装</p>
+<p>其中 probuf 被用来设置模型和训练参数，在正式使用前，需要将 protobuf 库进行编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> From tensorflow/models/research/</span></span><br><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br></pre></td></tr></table></figure>
+<p>注意看好路径。</p>
+<p>jupyter notebook 是交互式的笔记本应用，可以边写代码边记笔记。非常实用的工具，使用它可以看作者预设的一个最简单的模型。</p>
+<h3 id="将-slim-directories-加入-PYTHONPATH"><a href="#将-slim-directories-加入-PYTHONPATH" class="headerlink" title="将 slim directories 加入 PYTHONPATH"></a>将 slim directories 加入 PYTHONPATH</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From tensorflow/models/research/</span></span><br><span class="line">export PYTHONPATH=<span class="variable">$PYTHONPATH</span><span class="symbol">:`pwd`</span><span class="symbol">:`pwd`/slim</span></span><br></pre></td></tr></table></figure>
+<p>任何位置使用此 api 都要首先运行此命令。</p>
+<p>如果没有运行此命令可能会出现</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ModuleNotFoundError: No module named 'object_detection'</span><br></pre></td></tr></table></figure>
+<p>这样的错误</p>
+<h3 id="测试安装效果"><a href="#测试安装效果" class="headerlink" title="测试安装效果"></a>测试安装效果</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python object_detection/builders/model_builder_test.py</span><br></pre></td></tr></table></figure>
+<p>因为在本人机器上 python 命令默认调用 python2， python3 命令才会调用 python3 所以在测试命令改为：</p>
+<pre><code class="shell">python3 object_detection/builders/model_builder_test.py
 
+</code></pre>
+<p>如果出现以下场景，表明运行成功。<br><img src="http://p6atp7tts.bkt.clouddn.com/15338710403317.jpg" alt=""></p>
+<p>代表安装成功了。</p>
+<blockquote>
+<p>一件趣事：<br>在测试这个8月6号，7号测试时候，总是出现错误，后来发现是一处 xrange（python2）用法没有改成 range。 然后我把它改了就能运行了，发了 pull request 被 Google 的哥哥回复了，说他们正在更新一个大版本，里面已经改了这个错误，然后 8月8号就确实更新了一个新版本，改了很多地方。</p>
+</blockquote>
+<hr>
+<p>本文首发于个人网页 <a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏 <a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>。</p>
 
+      
+    </div>
 
-                <!-- 如果开启评论功能 -->
-                
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-            </div>
-    <!-- Sidebar Container -->
-            <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                            
-                            <a href="/tags/#Hexo" title="Hexo" rel="5">Hexo</a>
-                            
-                        
-                            
-                            <a href="/tags/#《数据挖掘》翻译" title="《数据挖掘》翻译" rel="3">《数据挖掘》翻译</a>
-                            
-                        
-                            
-                            <a href="/tags/#Java" title="Java" rel="4">Java</a>
-                            
-                        
-                            
-                            <a href="/tags/#MySQL" title="MySQL" rel="2">MySQL</a>
-                            
-                        
-                            
-                            <a href="/tags/#tensorflow" title="tensorflow" rel="4">tensorflow</a>
-                            
-                        
-                            
-                            <a href="/tags/#机器学习" title="机器学习" rel="4">机器学习</a>
-                            
-                        
-                            
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>我笑他人看不穿!</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/li-yao-89-61">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/GeneralLi95">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-
-                            
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Friends Blog -->
-                
-            </div>
         
-    </div>
-</div>
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tsfl2/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
 
-    <!-- Footer -->
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/li-yao-89-61">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
-                
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/tsfl2/" class="post-title-link" itemprop="url">TensorBoard使用示例</a>
+        </h1>
 
-                
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-                
+              <time title="创建时间：2018-07-25 11:28:01" itemprop="dateCreated datePublished" datetime="2018-07-25T11:28:01+08:00">2018-07-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-14 13:58:06" itemprop="dateModified" datetime="2019-11-14T13:58:06+08:00">2019-11-14</time>
+              </span>
 
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/GeneralLi95">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
+          
 
-                
-
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Yao Blog 2019
-                    <br>
-                    Theme by <a href="http://huangxuan.me" rel="external nofollow">Hux</a>
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span>
-
-                    <span id="busuanzi_container_site_uv">
-                      欢迎你！第<span id="busuanzi_value_site_uv"></span>位小伙伴！
-                    </span>
-                    <!--
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span>
-
-                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
-                    </iframe>
-                  -->
-                </p>
-            </div>
         </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TensorBoard使用"><a href="#TensorBoard使用" class="headerlink" title="TensorBoard使用"></a>TensorBoard使用</h1><p>为了更方便TensorFlow程序的理解、调试与优化，Google发布了一套叫做TensorBoard的可视化工具，可以用TensorBoard来展现TensorFlow的图像，绘制图像生成的定量指标图以及附加数据。</p>
+<p>TensorBoard设置完成之后的样子应该如下图：<br><img src="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist_tensorboard.png" alt=""></p>
+<p>其基本原理见<a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/how_tos/summaries_and_tensorboard.html" target="_blank" rel="noopener">TensorBoard中文手册</a>，内有详细的介绍。</p>
+<p>本文参考了<a href="https://www.cnblogs.com/fydeblog/p/7429344.html" target="_blank" rel="noopener">放羊的水瓶的博文</a>。</p>
+<p>下面通过三个例程，来讲解其使用：</p>
+<h2 id="例程1-矩阵相乘-tfboard1-py"><a href="#例程1-矩阵相乘-tfboard1-py" class="headerlink" title="例程1  矩阵相乘 tfboard1.py"></a>例程1  矩阵相乘 tfboard1.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'graph'</span>) <span class="keyword">as</span> scope:</span><br><span class="line">    matrix1 = tf.constant([[<span class="number">3.</span>, <span class="number">3.</span>]], name = <span class="string">'matrix'</span>)   <span class="comment"># 一行两列</span></span><br><span class="line">    matrix2 = tf.constant([[<span class="number">2.</span>], [<span class="number">2.</span>]], name = <span class="string">'matrix2'</span>) <span class="comment"># 两行一列</span></span><br><span class="line">    product = tf.matmul(matrix1, matrix2, name = <span class="string">'product'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs1/"</span>, sess.graph)</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess.run(init)</span><br></pre></td></tr></table></figure>
+<p>tf.name_scope函数是作用域名，上述代码斯即在graph作用域op下，又有三个op（分别是matrix1，matrix2，product),用tf函数内部的name参数命名，这样会在tensorboard中显示。</p>
+<p>运行上述代码后，在项目所在目录会生成”logs1”目录（可以自定义名字），然后在命令行运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir logs1</span><br></pre></td></tr></table></figure>
+<p>即可在本机6006端口调用TensorBoard。可以通过浏览器打开使用。</p>
+<h2 id="例程2-线性拟合（一）-tfboard2-py"><a href="#例程2-线性拟合（一）-tfboard2-py" class="headerlink" title="例程2 线性拟合（一） tfboard2.py"></a>例程2 线性拟合（一） tfboard2.py</h2><p>例程1中没有任何训练过程，比较简单，下面通过这个例子来画出它的张量流动图。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备原始数据</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'data'</span>):</span><br><span class="line">    x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">    y_data = <span class="number">0.3</span>*x_data + <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数设置</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'parameters'</span>):</span><br><span class="line">    weight = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">    bias = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 得到 y_prediction</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'y_prediction'</span>):</span><br><span class="line">    y_prediction = weight*x_data + bias</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算损失率compute the loss</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'loss'</span>):</span><br><span class="line">    loss = tf.reduce_mean(tf.square(y_data - y_prediction))</span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'train'</span>):</span><br><span class="line">    train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'init'</span>):</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs2/"</span>,sess.graph)</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">101</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    <span class="keyword">if</span> step%<span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">        print(step, <span class="string">'weight'</span>, sess.run(weight), <span class="string">'bias:'</span>, sess.run(bias))</span><br></pre></td></tr></table></figure>
+<h2 id="例程3-线性拟合（二）-tfboard3-py"><a href="#例程3-线性拟合（二）-tfboard3-py" class="headerlink" title="例程3 线性拟合（二） tfboard3.py"></a>例程3 线性拟合（二） tfboard3.py</h2><p>对例程二代码进行修改，尝试tensorboard的其他功能，例如scalars,distributions,histograms,这些功能对于分析学习算法的性能有很大帮助。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'data'</span>):</span><br><span class="line">    x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">    y_data = <span class="number">0.3</span>*x_data + <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'paremeters'</span>):</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'weights'</span>):</span><br><span class="line">        weight = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">        tf.summary.histogram(<span class="string">'weight'</span>, weight)</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'biases'</span>):</span><br><span class="line">        bias = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">        tf.summary.histogram(<span class="string">'bias'</span>, bias)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'y_prediction'</span>):</span><br><span class="line">    y_prediction = weight*x_data + bias</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'loss'</span>):</span><br><span class="line">    loss = tf.reduce_mean(tf.square(y_data - y_prediction))</span><br><span class="line">    tf.summary.scalar(<span class="string">'loss'</span>, loss)</span><br><span class="line"></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'train'</span>):</span><br><span class="line">    train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'init'</span>):</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">merged = tf.summary.merge_all()</span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs3/"</span>, sess.graph)</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">101</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    rs = sess.run(merged)</span><br><span class="line">    writer.add_summary(rs, step)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
     </div>
-</footer>
 
-<!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/mysql1/">
 
-<!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/mysql1/" class="post-title-link" itemprop="url">MySQL安装与初始化</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-06-05 12:51:38 / 修改时间：12:54:43" itemprop="dateCreated datePublished" datetime="2018-06-05T12:51:38+08:00">2018-06-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MySQL安装与初始化"><a href="#MySQL安装与初始化" class="headerlink" title="MySQL安装与初始化"></a>MySQL安装与初始化</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用brew进行安装</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>mysql</span><br></pre></td></tr></table></figure>
+<p>安装好之后通常会没有linked<br>然后</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> R ‘usrname’ usr/<span class="keyword">local</span></span><br></pre></td></tr></table></figure>
+<p>通常会执行成功，但是macOS比较新的版本里面会没有拒绝这一操作。即Operation not permitted。这是由于Mac的rootless机制。</p>
+<p>解决方案：</p>
+<ol>
+<li>重启Mac，重启时按住command + R 进入恢复模式。（话说还是第一次知道Mac还有这个模式）</li>
+<li><p>选择终端，在左上角，输入指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再重启让机器正常启动，可以在终端查看rootless状态：<figure class="highlight plain"><figcaption><span>status```正常情况下rootless已经关闭了</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">4. 要想重新开启，参照步骤1，2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 设置root密码</span><br><span class="line"></span><br><span class="line">终端输入</span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<p>mysqladmin -u root password 123456<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">就已经把密码设置成<span class="number">123456</span>了。</span><br><span class="line">然后登陆</span><br></pre></td></tr></table></figure></p>
+<p>mysql -u root -p<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入 123456.即可</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 启动和关闭MySQL服务器</span></span></span><br><span class="line"></span><br><span class="line">通过命令来检查MySQL服务器是否启动：</span><br></pre></td></tr></table></figure></p>
+<p>ps -ef | grep mysqld<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果MySQL启动的情况下，将输出MySQL的进程列表。</span><br><span class="line"></span><br><span class="line">如果要关闭目前运行的MySQL服务器，可以执行下面命令来关闭服务器：</span><br></pre></td></tr></table></figure></p>
+<p>mysqladmin -u root -p shutdown<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">启动MySQL服务器</span><br></pre></td></tr></table></figure></p>
+<p>mysql.server start<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 管理MySQL的命令</span><br><span class="line">列出数据库列表:</span><br></pre></td></tr></table></figure></p>
+<p>mysql &gt; SHOW DATABASES;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">会显示当前的已有的数据库列表：</span><br><span class="line"></span><br><span class="line">默认的数据库Database有</span><br><span class="line">information_schema</span><br><span class="line">mysql</span><br><span class="line">performance_schema</span><br><span class="line">sys</span><br><span class="line">这四个</span><br><span class="line">然后从 databese列表里面挑一个</span><br></pre></td></tr></table></figure></p>
+<p>mysql &gt; use mysql;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这时候切换到database mysql里面。然后可以用</span><br></pre></td></tr></table></figure></p>
+<p>mysql &gt; SHOW TABLES;<br><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">看一下这个数据库里面有哪几个表</span><br><span class="line"></span><br><span class="line">然后可以看一下一个表中有那几个列（比如从表<span class="built_in">db</span>中查看）</span><br></pre></td></tr></table></figure></p>
+<p>mysql &gt; SHOW COLUMNS FROM db;<br><code>`</code></p>
+<p>从这几行中我们可以搞清楚这几个概念的从属关系。 DATABASE -&gt; TABLES -&gt; COLUMNS</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/java4/" class="post-title-link" itemprop="url">MySQL与Java的连接</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-06-05 12:50:00 / 修改时间：12:54:49" itemprop="dateCreated datePublished" datetime="2018-06-05T12:50:00+08:00">2018-06-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MySQL与Java的连接"><a href="#MySQL与Java的连接" class="headerlink" title="MySQL与Java的连接"></a>MySQL与Java的连接</h1><p>通过实现<a href="http://www.runoob.com/java/java-mysql-connect.html" target="_blank" rel="noopener">菜鸟教程上的一个例程</a>来记录一下这个操作。</p>
+<p>Java与MySQL的连接主要依赖一个JDBC驱动来进行。</p>
+<h2 id="建立一个测试的新库"><a href="#建立一个测试的新库" class="headerlink" title="建立一个测试的新库"></a>建立一个测试的新库</h2><p>通过下面一行命令</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -<span class="selector-tag">p</span> create jdbctest</span><br></pre></td></tr></table></figure>
+<p>即建立了一个名为jdbctest的数据库。此时这个数据库中还没有tables。我们进入到数据库中并创建一个新的table</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; CREATE TABLE `websites` (</span><br><span class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `name` char(20) NOT NULL DEFAULT '' <span class="keyword">COMMENT</span> <span class="string">'站点名称'</span>,</span><br><span class="line">  <span class="string">`url`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`alexa`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'Alexa 排名'</span>,</span><br><span class="line">  <span class="string">`country`</span> <span class="built_in">char</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'国家'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">10</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
+<p>即创建了一个新table。然后给这个表中插入数据：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; INSERT INTO `websites` VALUES ('1', 'Google', 'https://www.google.cm/', '1', 'USA'), ('2', '淘宝', 'https://www.taobao.com/', '13', 'CN'), ('3', '菜鸟教程', 'http://www.runoob.com', '5892', ''), ('4', '微博', 'http://weibo.com/', '20', 'CN'), ('5', 'Facebook', 'https://www.facebook.com/', '3', 'USA');</span><br></pre></td></tr></table></figure>
+<p>一个测试的数据库就建好了。<br>如果需要导入数据库结构文件的话，通过这个方式：<br>导入方法：在已经use 这个数据库之后，通过下面命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> <span class="built_in">source</span> path-to-<span class="string">'filename.sql'</span></span></span><br></pre></td></tr></table></figure>
+<p>即可快速方便的导入数据建立索引。数据这时就已经导入了。</p>
+<h2 id="与Java进行连接"><a href="#与Java进行连接" class="headerlink" title="与Java进行连接"></a>与Java进行连接</h2><h3 id="JDBC配置"><a href="#JDBC配置" class="headerlink" title="JDBC配置"></a>JDBC配置</h3><p>连接数据库需要一个驱动包Java 连接 MySQL 需要驱动包，<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">最新版下载地址</a> ，解压后得到jar库文件，然后在对应的项目中导入该库文件。</p>
+<h2 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h2><p>通过命令</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global <span class="keyword">variables</span> like <span class="comment">'port'</span>;</span><br></pre></td></tr></table></figure>
+<p>即可查看端口，一般情况下默认端口号是3306。所以如果没有自己去修改端口号的话，这一步可以省略。</p>
+<h2 id="Demo代码"><a href="#Demo代码" class="headerlink" title="Demo代码"></a>Demo代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> jdbctestpack;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">jdbctest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//JDBC 驱动名及数据库URL</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String JDBC_DRIVER = <span class="string">"com.mysql.jdbc.Driver"</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String DB_URL = <span class="string">"jdbc:mysql://localhost:3306/jdbctest"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据库的用户名与密码，需要根据自己的设置</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String USER = <span class="string">"root"</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String PASS = <span class="string">"xxxxxx"</span>;</span><br><span class="line">    <span class="comment">//此处放自己的数据库密码</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        Statement stmt = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//注册JDBC驱动</span></span><br><span class="line">            Class.forName(JDBC_DRIVER);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//打开链接</span></span><br><span class="line">            System.out.println(<span class="string">"链接数据库..."</span>);</span><br><span class="line">            conn = DriverManager.getConnection(DB_URL,USER,PASS);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//执行查询</span></span><br><span class="line">            System.out.println(<span class="string">"实例化Statement对象..."</span>);</span><br><span class="line">            stmt = conn.createStatement();</span><br><span class="line">            String sql;</span><br><span class="line">            sql = <span class="string">"SELECT id, name, url FROM websites"</span>;</span><br><span class="line">            ResultSet rs = stmt.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//展开结果集数据库</span></span><br><span class="line">            <span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">                <span class="comment">//通过字段检索</span></span><br><span class="line">                <span class="keyword">int</span> id = rs.getInt(<span class="string">"id"</span>);</span><br><span class="line">                String name = rs.getString(<span class="string">"name"</span>);</span><br><span class="line">                String url = rs.getString(<span class="string">"url"</span>);</span><br><span class="line">                System.out.print(<span class="string">"ID: "</span> + id);</span><br><span class="line">                System.out.print(<span class="string">", 站点名称"</span> + name);</span><br><span class="line">                System.out.print(<span class="string">", 站点 URL: "</span> + url);</span><br><span class="line">                System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//完成后关闭</span></span><br><span class="line">            rs.close();</span><br><span class="line">            stmt.close();</span><br><span class="line">            conn.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (SQLException se)&#123;</span><br><span class="line">            <span class="comment">//处理JDBC错误</span></span><br><span class="line">            se.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="comment">//处理Class.forName错误</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//关闭资源</span></span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(stmt!=<span class="keyword">null</span>) stmt.close();</span><br><span class="line">                &#125;<span class="keyword">catch</span>(SQLException se2)&#123;</span><br><span class="line">                 <span class="comment">//什么都不做</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(conn!=<span class="keyword">null</span>) conn.close();</span><br><span class="line">                &#125;<span class="keyword">catch</span> (SQLException se)&#123;</span><br><span class="line">                    se.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"Goodbye!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行之后的输出结果如下：</p>
+<p><img src="http://p6atp7tts.bkt.clouddn.com/15281687764370.jpg" alt=""><br>即连接成功。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tsfl1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/tsfl1/" class="post-title-link" itemprop="url">tensorflow安装CPU指令集（AVX2）警告解决方案</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-25 09:19:08" itemprop="dateCreated datePublished" datetime="2018-05-25T09:19:08+08:00">2018-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-08-10 14:59:29" itemprop="dateModified" datetime="2018-08-10T14:59:29+08:00">2018-08-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>在macOS通过pip3 install 安装tensorflow(CPU版)后，运行示例代码</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow <span class="keyword">as</span> <span class="keyword">tf</span></span><br><span class="line">hello = <span class="keyword">tf</span>.constant(<span class="string">'Hello, TensorFlow!'</span>)</span><br><span class="line">sess = <span class="keyword">tf</span>.Session()</span><br><span class="line"><span class="keyword">print</span>(sess.run(hello).decode())</span><br></pre></td></tr></table></figure>
+<p>运行之后可以正常输出</p>
+<p>“Hello, TensorFlow!”</p>
+<p>但是有一个警告警告提示：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I tensorflow<span class="regexp">/core/</span>platform/cpu_feature_guard.<span class="string">cc:</span><span class="number">140</span>] Your CPU supports instructions that <span class="keyword">this</span> TensorFlow binary was not compiled to <span class="string">use:</span> AVX2 FMA</span><br></pre></td></tr></table></figure>
+<p>在Stack Overflow上面关于这个问题有<a href="https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u" target="_blank" rel="noopener">一个详细的解答</a></p>
+<p>大致翻译一下高赞答案：</p>
+<blockquote>
+<p>Modern CPUs provide a lot of low-level instructions, besides the usual arithmetic and logic, known as extensions, e.g. SSE2, SSE4, AVX, etc. From the Wikipedia:</p>
+</blockquote>
+<blockquote>
+<p>Advanced Vector Extensions (AVX) are extensions to the x86 instruction set architecture for microprocessors from Intel and AMD proposed by Intel in March 2008 and first supported by Intel with the Sandy Bridge processor shipping in Q1 2011 and later on by AMD with the Bulldozer processor shipping in Q3 2011. AVX provides new features, new instructions and a new coding scheme.<br>In particular, AVX introduces fused multiply-accumulate (FMA) operations, which speed up linear algebra computation, namely dot-product, matrix multiply, convolution, etc. Almost every machine-learning training involves a great deal of these operations, hence will be faster on a CPU that supports AVX and FMA (up to 300%). The warning states that your CPU does support AVX (hooray!).<br>I’d like to stress here: it’s all about CPU only.</p>
+</blockquote>
+<p>现代CPU提供了一系列低级别的指令集，除了通常的算术和逻辑之外，被称为扩展，例如， SSE2，SSE4，AVX等。<br>维基百科有描述：</p>
+<blockquote>
+<p>高级矢量扩展（AVX）是英特尔在2008年3月提出的英特尔和AMD微处理器的x86指令集体系结构的扩展，英特尔首先通过Sandy Bridge处理器在2011年第一季度推出，随后由AMD推出Bulldozer处理器 在2011年第三季度.AVX提供了新功能，新指令和新编码方案。</p>
+</blockquote>
+<p>特别是，AVX引入了融合乘法累加（FMA）操作，加速了线性代数计算，即点积，矩阵乘法，卷积等。几乎所有机器学习训练都涉及大量这些操作，因此将会 支持AVX和FMA的CPU（最高达300％）更快。 该警告指出您的CPU确实支持AVX（hooray！）。</p>
+<p><strong>那为什么没有使用呢？</strong></p>
+<p>由于tensorflow默认是在没有CPU扩展的情况下构建的，例如SSE4.1，SSE4.2，AVX，AVX2，FMA等。默认版本（来自pip install tensorflow的版本）旨在与尽可能多的CPU兼容。 另一个观点是，即使使用这些扩展名，CPU的速度也要比GPU低很多，所以它预计中大型机器学习任务应该在GPU上执行。</p>
+<p><strong>那我们应该怎么办</strong></p>
+<p>如果你有GPU的话，直接忽略这一项即可，因为大部分的高消耗操作都会被分配到GPU上执行（除非你设置了不这么做）。在这种情况下，你可以通过下面这个方式直接忽略这个警告：</p>
+<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.environ[<span class="string">'TF_CPP_MIN_LOG_LEVEL'</span>] = <span class="string">'2'</span></span><br></pre></td></tr></table></figure>
+<p>这种方法只是去掉警告，实际上是没有解决问题的。</p>
+<p>如果你没有GPU，你想最大化使用CPU，你应该启动你的CPU的AVX，AVX2以及FMA拓展。在<a href="https://stackoverflow.com/questions/41293077/how-to-compile-tensorflow-with-sse4-2-and-avx-instructions" target="_blank" rel="noopener">这个问题</a>以及这个<a href="https://github.com/tensorflow/tensorflow/issues/8037" target="_blank" rel="noopener">GitHub issue</a>里面都有详细的讨论。Tensorflow使用称为bazel的ad-hoc构建系统，构建它并不是那么简单，但肯定是可行的。 在此之后，不仅警告消失，张量流性能也应该改善。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>什么是SSE4.2和AVX？</strong></p>
+<p><strong>SIMD</strong> (Single Instruction Multiple Data)单指令流多数据流，是一种采用一个控制器来控制多个处理器，同时对一组数据（又称“数据向量”）中的每一个分别执行相同的操作从而实现空间上的并行性技术。</p>
+<p>在微处理器中，SIMD则是一个控制器控制多个并行的处理微元，例如Intel的MMX或SSE，以及AMD的3D NOW指令集。</p>
+<p>所以说SSE4.2和AVX都是一种SIMD指令集。</p>
+<p>对于TF tasks。SSE4.2和AVX使向量和矩阵计算更加高效。具体可以看这个<a href="https://www.polyhedron.com/web_images/intel/productbriefs/3a_SIMD.pdf" target="_blank" rel="noopener">课件</a>。</p>
+<p>所以该怎么做，大概只能重装一遍tensorflow了。注意这次重装时候要从源码安装，从在源码安装的时候进行相关的设置。</p>
+<p><a href="https://tensorflow.google.cn/install/install_sources" target="_blank" rel="noopener">从源码安装的官方教程</a>总体来说还是非常麻烦的，需要很多依赖，安装一些其他的东西。</p>
+<p>基本过程可以概括为三步：</p>
+<ol>
+<li>下载TensorFlow源码</li>
+<li>准备安装环境 （此处需要安装很多东西）</li>
+<li>构建pip软件包（一个.whl后缀文件）</li>
+<li>使用pip命令进行本地安装</li>
+</ol>
+<p>其中2，3步骤都非常负责，及其容易出错。</p>
+<p>最终采用的是另外一种方法。<br>到这个<a href="https://github.com/lakshayg/tensorflow-build" target="_blank" rel="noopener">GitHub repo</a>下载自己对应版本的pip软件包。</p>
+<font color="red">一定要对应版本!</font>
+
+<p>版本查看方式</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python3</span><br><span class="line"></span><br><span class="line">Python 3.6.5 (default, Apr 25 2018, 14:23:58) </span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>从中可以得出我们的版本  Python 3.6.5 clang-902.0.29.1，又这两个版本号加上自己的系统名在上面的GitHub repo里面选择对应的软件包。下载下来相当于直接完成了官网教材的前3步。</p>
+<p>所以只需要执行第4步。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="params">--ignore-installed</span> <span class="params">--upgrade</span> <span class="string">/path/to/binary.whl</span></span><br></pre></td></tr></table></figure>
+<p>注意 Python3的pip命令是pip3  这条语句可以忽略我们已经安装好的tf包，不需要卸载，会直接升级过去。很方便。</p>
+<hr>
+<p>本文首发于个人网页 <a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏 <a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/java3/" class="post-title-link" itemprop="url">Java基础题目(温度转换、时间换算、信号报告）</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-19 13:42:44" itemprop="dateCreated datePublished" datetime="2018-05-19T13:42:44+08:00">2018-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-14 14:07:49" itemprop="dateModified" datetime="2019-11-14T14:07:49+08:00">2019-11-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java基础题目"><a href="#Java基础题目" class="headerlink" title="Java基础题目"></a>Java基础题目</h1><p>题目主要来自浙江大学翁凯教授的零基础学习Java课程的配套习题。</p>
+<h2 id="1-温度转换"><a href="#1-温度转换" class="headerlink" title="1. 温度转换"></a>1. 温度转换</h2><p><strong>题目内容:</strong><br>写一个将华氏温度转换成摄氏温度的程序，转换的公式是：</p>
+<pre><code>°F = (9/5) * °C + 32
+</code></pre><p>其中C表示摄氏温度，F表示华氏温度。<br>程序的输入是一个整数，表示华氏温度。输出对应的摄氏温度，也是一个整数。<br>提示，为了把计算结果的浮点数转换成整数，需要使用下面的表达式：<br>    (int)x;<br>其中x是要转换的那个浮点数。</p>
+<p>注意：除了题目要求的输出，不能输出任何其他内容，比如输入时的提示，输出时的说明等等都不能。这道题目要求转换后的数字，程序就只能输出这个数字，除此之外任何内容都不能输出。</p>
+<p>输入格式:<br>一个整数。</p>
+<p>输出格式：<br>一个整数。</p>
+<p>输入样例：<br>100</p>
+<p>输出样例：<br>37<br>时间限制：500ms内存限制：32000kb</p>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        a = in.nextInt();</span><br><span class="line">        <span class="keyword">float</span> b = <span class="number">0</span> ;</span><br><span class="line">        b = (a - <span class="number">32</span>)*<span class="number">5</span>/<span class="number">9</span>;</span><br><span class="line">        System.out.print((<span class="keyword">int</span>)b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个题主要考察输入输出的一些基本操作吧。</p>
+<h2 id="2-时间换算"><a href="#2-时间换算" class="headerlink" title="2.时间换算"></a>2.时间换算</h2><p><strong>题目内容：</strong><br>UTC是世界协调时，BJT是北京时间，UTC时间相当于BJT减去8。现在，你的程序要读入一个整数，表示BJT的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果分小于10分，需要保留十位上的0。如1124表示11点24分，而905表示9点5分，36表示0点36分，7表示0点7分。<br>有效的输入范围是0到2359，即你的程序不可能从测试服务器读到0到2359以外的输入数据。<br>你的程序要输出这个时间对应的UTC时间，输出的格式和输入的相同，即输出一个整数，表示UTC的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果分小于10分，需要保留十位上的0。<br>提醒：要小心跨日的换算。</p>
+<p>输入格式:<br>一个整数，表示BJT的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果小时不是0而且分小于10分，需要保留十位上的0。</p>
+<p>输出格式：<br>一个整数，表示UTC的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果小时不是0而且分小于10分，需要保留十位上的0。</p>
+<p>输入样例：<br>933</p>
+<p>输出样例：<br>133<br>时间限制：500ms内存限制：32000kb</p>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        a = in.nextInt();</span><br><span class="line">        <span class="keyword">int</span> b;</span><br><span class="line">        <span class="keyword">int</span> c;</span><br><span class="line">        String cc ;</span><br><span class="line">        b = a / <span class="number">100</span>;</span><br><span class="line">        c = a % <span class="number">100</span>;</span><br><span class="line">        b = b - <span class="number">8</span>;</span><br><span class="line">        cc = Integer.toString(c);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (b==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.print(cc);</span><br><span class="line">            System.exit(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (b&lt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            b = b + <span class="number">24</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (c&lt;<span class="number">10</span>)&#123;</span><br><span class="line">            cc = <span class="string">"0"</span>+ cc;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(b);</span><br><span class="line">        System.out.print(cc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这道题是主要考察if else语句的用法。</p>
+<h2 id="3-信号报告"><a href="#3-信号报告" class="headerlink" title="3. 信号报告"></a>3. 信号报告</h2><p><strong>信号报告</strong><br>题目内容：<br>无线电台的RS制信号报告是由三两个部分组成的：<br>R(Readability) 信号可辨度即清晰度.<br>S(Strength)    信号强度即大小.<br>其中R位于报告第一位，共分5级，用1—5数字表示.<br>1—Unreadable<br>2—Barely readable, occasional words distinguishable<br>3—Readable with considerable difficulty<br>4—Readable with practically no difficulty<br>5—Perfectly readable<br>报告第二位是S，共分九个级别，用1—9中的一位数字表示<br>1—Faint signals, barely perceptible<br>2—Very weak signals<br>3—Weak signals<br>4—Fair signals<br>5—Fairly good signals<br>6—Good signals<br>7—Moderately strong signals<br>8—Strong signals<br>9—Extremely strong signals<br>现在，你的程序要读入一个信号报告的数字，然后输出对应的含义。如读到59，则输出：<br>Extremely strong signals, perfectly readable.</p>
+<p>输入格式:<br>一个整数，信号报告。整数的十位部分表示可辨度，个位部分表示强度。输入的整数范围是[11,59]内有效的数字，这个范围外的数字不可能出现在测试数据中。</p>
+<p>输出格式：<br>一句话，表示这个信号报告的意义。按照题目中的文字，先输出表示强度的文字，跟上逗号和空格，然后是表示可辨度的文字，跟上句号。注意可辨度的句子的第一个字母是小写的。注意这里的标点符号都是英文的。</p>
+<p>输入样例：<br>33</p>
+<p>输出样例：<br>Weak signals, readable with considerable difficulty.<br>时间限制：500ms内存限制：32000kb</p>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        a = in.nextInt();</span><br><span class="line">        <span class="keyword">int</span> b;</span><br><span class="line">        <span class="keyword">int</span> c;</span><br><span class="line">        b = a / <span class="number">10</span>;</span><br><span class="line">        c = a % <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (c)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.print(<span class="string">"Faint signals, barely perceptible"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                System.out.print(<span class="string">"Very weak signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                System.out.print(<span class="string">"Weak signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                System.out.print(<span class="string">"Fair signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                System.out.print(<span class="string">"Fairly good signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                System.out.print(<span class="string">"Good signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                System.out.print(<span class="string">"Moderately strong signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                System.out.print(<span class="string">"Strong signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">                System.out.print(<span class="string">"Extremely strong signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">", "</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (b)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.print(<span class="string">"unreadable"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                System.out.print(<span class="string">"barely readable, occasional words distinguishable"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                System.out.print(<span class="string">"readable with considerable difficulty"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                System.out.print(<span class="string">"readable with practically no difficulty"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                System.out.print(<span class="string">"perfectly readable"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">"."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这道题主要考察switch case多路分支语句的用法。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/java2/" class="post-title-link" itemprop="url">Java HelloWorld项目创建</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-19 13:42:39" itemprop="dateCreated datePublished" datetime="2018-05-19T13:42:39+08:00">2018-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-14 13:49:31" itemprop="dateModified" datetime="2019-11-14T13:49:31+08:00">2019-11-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="HelloWorld项目创建"><a href="#HelloWorld项目创建" class="headerlink" title="HelloWorld项目创建"></a>HelloWorld项目创建</h1><p>以前学Python的时候大家都说Python简单，当时没什么感觉，如今回头来学Java才发现，Python确实简单。Python的HelloWord只要在console里面一行代码就解决了。Java就很麻烦。</p>
+<h2 id="Creat-New-Project"><a href="#Creat-New-Project" class="headerlink" title="Creat New Project"></a>Creat New Project</h2><p>选择Java EE，然后Next。之后又会有从模板创建的选项(Create project from template)，此选项下有两个选择Command Line App 和Java Hello world。前者会自动创建一个带有main方法的类，后者会自动穿件一个带有main方法的并且会打印输出Hello World的类。</p>
+<p>不勾选此选项，从零开始。</p>
+<ul>
+<li><p>src目录右键，new packages 创建新的包目录</p>
+</li>
+<li><p>在包下面创建class,选择创建class，文件名比如是hello.则生成的文件即为hello.java(原来class文件的后缀名是.java)。然后会自动生成一部分代码，包括<br>*</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hello</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>的声明。</p>
+<p>起初此处我是直接新建一个file，然后自己命名的hello.java，手敲的public class 声明，结果不能运行，发现问题是手敲的public class 声明的类名与hello.java文件名不一致。</p>
+<p>之后</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> hellopack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"Hello world"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即可输出Hello world了。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/java1/" class="post-title-link" itemprop="url">Mac Java环境配置</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-19 13:42:32" itemprop="dateCreated datePublished" datetime="2018-05-19T13:42:32+08:00">2018-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-14 13:56:35" itemprop="dateModified" datetime="2019-11-14T13:56:35+08:00">2019-11-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MAC-Java环境配置"><a href="#MAC-Java环境配置" class="headerlink" title="MAC Java环境配置"></a>MAC Java环境配置</h1><h2 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK"></a>1. 安装JDK</h2><p>JDK全称Java Development Kit，Java开发工具包，是Java开发的核心。<br>之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。<br>终端输入</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java -<span class="built_in">version</span></span><br></pre></td></tr></table></figure>
+<p>显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。<br><img src="http://upload-images.jianshu.io/upload_images/11400909-e41bcc47495420eb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h2 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2. 配置环境变量"></a>2. 配置环境变量</h2><p>配置环境变量前先得到JAVA_HOME的位置。<br>依旧：终端输入：</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/jav<span class="built_in">a_home</span></span><br></pre></td></tr></table></figure>
+<p>可返回JAVA_HOME的位置路径，把这个路径记下来，马上要用</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1.<span class="number">8.0</span>_151.jdk<span class="regexp">/Contents/</span>Home</span><br></pre></td></tr></table></figure>
+<p>环境变量一共有三个东西需要配置：<br>JAVA_HOME<br>CLASS_PATH<br>PATH<br>在windows 系统里是在我的电脑属性高级设置里分别设置，macOS里依然是通过命令行设置。<br>终端输入：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">vim</span> /etc/<span class="keyword">profile</span></span><br></pre></td></tr></table></figure>
+<p>然后后需要输入密码。接下来按i，显示insert，进入输入模式。然后输入下面配置：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"</span></span><br><span class="line"><span class="keyword">export</span> JAVA_HOME</span><br><span class="line">CLASS_PATH=i<span class="string">"$JAVA_HOME/lib"</span></span><br><span class="line">PATH=<span class="string">".$PATH:$JAVA_HOME/bin"</span></span><br></pre></td></tr></table></figure>
+<p>然后按esc，进入保存。<br>输入<figure class="highlight plain"><figcaption><span>保存</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;font color=red&gt;</span><br><span class="line">这里注意一下，JAVA_HOME的路径不要照着网上教程全抄了，把自己刚刚存下来的路径copy过来，毕竟安装的JDK版本不一致的时候，路径当中有的文件的名字是不一致的。</span><br><span class="line">&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">接下来 输入</span><br></pre></td></tr></table></figure></p>
+<p>source /etc/profile<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行<span class="keyword">profile</span>配置文件</span><br><span class="line"></span><br><span class="line">检查环境</span><br><span class="line">输入</span><br></pre></td></tr></table></figure></p>
+<p>echo $JAVA_HOME<br><code>`</code><br>得到配置的路径，说明配置完毕。</p>
+<blockquote>
+<p>5.14 日更新：<br>发现该环境变量配置之后，终端许多命令无法执行，比如python3,pip以及hexo命令，这是无法忍受的。所以又强行把它改了回去，得以恢复。<br>后发现IntelliJ IDEA会自带Java环境，在不设置这个环境变量的情况下，Java的hello world还是跑起来了。<br>所以真的是<strong>生命在与折腾！</strong></p>
+</blockquote>
+<h2 id="选择IDE"><a href="#选择IDE" class="headerlink" title="选择IDE"></a>选择IDE</h2><p>有些人可能建议初学者用记事本写代码，我感觉初学者最重要的应该是马上跑起来一个程序得到及时的反馈，所以我还是习惯用IDE。</p>
+<p>Java的IDE也挺多的，比较有名的是Eclipse和IntelliJ IDEA两款，作为一个初学者，当然一个也没用过，前者开源后者付费。考虑到后者是JetBrains的产品，他们公司的Pycharm和Webstorm我是用过并且非常喜欢的，所以上手IntelliJ IDEA可能会比较容易的，另外JetBrains也向学生提供了免费的序列号。所以不需要考虑付费的问题。</p>
+<p>综上所述、采用IntelliJ IDEA。</p>
+<blockquote>
+<p>5.18日更新，观看了浙江大学翁凯教授的Java教程，方知Eclipse软件本身就是用Java编写的，所以要配置好Java环境才能运行这个IDE。这也是为什么网上那么多教程起手就是配环境了。</p>
+</blockquote>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/54-run/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/54-run/" class="post-title-link" itemprop="url">年度最强制作背后两三事</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-07 22:37:12" itemprop="dateCreated datePublished" datetime="2018-05-07T22:37:12+08:00">2018-05-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-14 10:32:36" itemprop="dateModified" datetime="2019-11-14T10:32:36+08:00">2019-11-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>近人有言曰：文明其精神，野蛮其体魄。此言是也。欲文明其精神，先自野蛮其体魄；苟野蛮其体魄矣，则文明之精神随之。——毛泽东1917年《体育之研究》</p>
+</blockquote>
+<p>年度最强制作——NUDT首届纪念五四环校长跑2017落下帷幕。今年跟着研委会的大佬们一起参与了活动组织，活干的不多，感悟倒还是有一点（毕竟天生就是这么个多愁善感的人）。</p>
+<hr>
+<ol>
+<li><p>研委会组织架构完善且合理，各位boss大佬运筹帷幄，指挥有方。在此次活动中八大部门分工合理，各司其职。在同一个部门的人员可能还不是互相认识的情况下，能够有序得进展活动，我还是非常佩服的。</p>
+<p> 一次活动要考虑的事情比想象中的多很多。统计报名表、号码布制作、开闭幕式组织、邀请领导、裁判员、成绩统计、封路、宣传、赞助。特别意外的是居然还想到了调整宿舍楼的热水供应时间以及安排官方配速员带跑，可以说是很贴心了，从热水供应这方面来讲可以说超过长沙马拉松了（说多了都是泪）。总之，学到了。</p>
+</li>
+<li><p>作为研委会第二大部们——文体部（第一大可能是随时随地都在拉人的外联部吧），本部门主要负责统计报名表、号码布制作发放、检录区、起跑区的组织，开闭幕式音响设备借还与调试。</p>
+<p> 部长安排我在检录区工作。5.3星期四联系了各大队负责此比赛的骨干，要求各自指定一名同学在检录区与本部门人员对接。下午17：20召集这几名同学，在广场划分了检录区，与一个学弟一起拿胶带在地上贴了记号，以为是一件大活，结果基本上十分钟搞定了。各大队的负责同学都很nice，协调过程轻松且愉快。</p>
+</li>
+<li><p>5.4星期五12：30进行彩排，彩排过程中莫名被叫去帮另一个部门贴开幕式入场队伍在地上的标记，而他们居然没有准备黄胶带，打电话由舍友骑自行车送来了前一日在广场使用的黄胶带，完成此活。在此过程中，领对讲机的时候被大佬叫了好几次都没发现（毕竟我在操场另一侧贴胶带呀）……感觉不太好。</p>
+<p> 同时被通知要离开检录处，去负责开闭幕式入场方阵组织。</p>
+</li>
+<li><p>5.5星期六中午饭后，骑车去南门拿一块检录区的牌子。17：00，替因事不在的部长参加赛前最后一次协调会，再次明确了本部门的人员与任务。</p>
+<p> 之后收到外联部联系的赞助商提供的帐篷，以为对方会安排人员帮忙搭帐篷。结果并没有。于是开始喊人来搬帐篷搭帐篷，偶遇来跑步的两位本队同学，叫来帮忙，研委会其他各部门都来了人帮忙，这种小棚子果然很好搭，当然感觉也很不稳，晚上下雨，一直担心帐篷会不会被风吹倒……</p>
+<p> 一起搞帐篷的好几个同学都不认识，但是知道是环校长跑的活，所以都来干。集体荣誉感激励人奉献。当然我也去帮其他部门搬了水。两位本队来跑步的同学还没感谢，改日请喝饮料。</p>
+</li>
+<li><p>5.5晚上19：00收到消息，有个别大队号码布有缺失，找同学联系广告店补做，怕来不及，所以同时联系其他大队看有没有多发的空的。广告店服务到位，很快补做好，20：30去取，顺手拿了支马克笔回来。这支笔后来发挥大作用了吧……现场写了几个号码布。</p>
+<p>经验：发放号码布之后应要求各单位点好数目，以免快比赛了又有不够的，准备空白号码布和马克笔，对于丢失和后报名的同学开个后门。</p>
+</li>
+<li><p>5.6早5：30起床，到办公室领早饭，对讲机。调音响设备遇到严重bug，一根线接头断了，导致无法放音乐。问题之大，引发严重关切，一群boss都围过来了，负责的学弟表情很难看。打电话求助大四学弟，看队内卡拉OK系统是否能借根线，学弟表示无能为力，一时竟不知该如何是好。</p>
+<p> 最终，还是靠专业的力量，部门玩乐队的同学回队拿了自己的一根线，解决问题。最佳表现投他一票。</p>
+<p> 教训：设备本该提前一天调好，结果5.5号不是工作日，找不到拿钥匙的班长，所以没有调试，加之5.4号彩排的时候设备正常，所以也没有太关注。<br> 经验：不应该图方便把设备放在近但却钥匙不在自己手里的仓库里，这种重要的东西还是要随时能自己掌握，应该放办公室。无论如何前一天都要再调一遍的。</p>
+</li>
+<li><p>8：00按计划集合了开幕式方阵，集中讲了注意事项，并要求10：10于入场处参加闭幕式（闭幕式计划10：30开始）。开幕式一切正常。</p>
+</li>
+<li><p>开幕式结束后协助进行了一些封路、打杂的工作。</p>
+</li>
+<li><p>比赛结束了，闭幕式流程改变，之前先表演节目再运动员入场，改为先运动员入场再表演节目了，而表演节目的时间本来就是计划给分数统计、运动员换衣服、集合的。所以9：50临时通知各大队迅速召集人来参加闭幕式。有几个大队迅速到了，个别大队到了之前说好的10：10也没把人集合齐（现场场面似乎看上去是没有组织的临时凑人）。地方生方阵直接散了……散了……</p>
+<p> 所以，闭幕式比开幕式少了一个方阵。作为方阵组织负责人，略显狼狈。</p>
+<p> 经验教训：从组织角度，运动员刚刚跑完就需要立马换衣服参加闭幕式似有不妥，地方生分布于各分委会，没有统一负责人，参赛尚由一名同学逐一通知，赛后散了也确实叫人无能为力。从我角度：彩排后接手此任务时没有把相应的联系渠道接手，计划有变后不能及时联系到关键人员。所以建立顺畅的沟通渠道非常重要。    </p>
+</li>
+<li><p>闭幕式进行时，与检录处兄弟一起拆帐篷，收拾垃圾，闭幕式结束，合影，搬器材，活动结束。</p>
+</li>
+</ol>
+<hr>
+<p>活动收获很多，组织经验，友谊，在朋友圈看了很多同学的愉快的体验，感觉还不错。多少有些意犹未尽，思来想去：一是还是没有收获最想要的，二是没有能参赛是一大遗憾。</p>
+<p>自大三之后，曾想之后再也不做什么骨干。年纪大了几岁，发现更难寻志同道合之友。意外加入研委会文体部，一次活动，收获几个朋友，不失为一快事。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
 
-<!-- busuanzi counter-->
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+          </div>
+          
 
-<!--
-     Because of the native support for backtick-style fenced code blocks
-     right within the Markdown is landed in Github Pages,
-     From V1.6, There is no need for Highlight.js,
-     so Huxblog drops it officially.
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
 
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://www.liyaolife.com/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
 
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<!-- Google Analytics -->
-
-
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-116714676-1';
-    var _gaDomain = 'liyaolife.com';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Li Yao"
+    src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Li Yao</p>
+  <div class="site-description" itemprop="description">程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GeneralLi95" title="GitHub &rarr; https://github.com/GeneralLi95" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nudtliyao@foxmail.com" title="E-Mail &rarr; mailto:nudtliyao@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6379926438" title="Weibo &rarr; https://weibo.com/6379926438" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/li-yao-89-61/activities" title="Zhihu &rarr; https://www.zhihu.com/people/li-yao-89-61/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-zhihu"></i>Zhihu</a>
+      </span>
+  </div>
 
 
 
-<!-- Baidu Tongji -->
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-<!-- Side Catalog -->
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Yao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.6.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
 
 
 
 
-<!-- Image to hack wechat -->
-<img src="http://www.liyaolife.com/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
 
 </body>
-
 </html>

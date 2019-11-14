@@ -1,202 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="9qoov3_TfJJpNB8lTPmTyQIFty7THrrcKf5gynDis6c" />
-    <meta name="baidu-site-verification" content="xbGWXltpq1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="程序员的成长之路| 前端设计&amp;GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
-    <meta name="keyword"  content="李尧, liyao李尧, liyao, nudtliyao, xiaoyaoyao, 李尧的博客, Yao Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.6.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-    <title>
-        
-          《Data Mining》第1章翻译 绪论 - 李尧的博客 | Yao Blog
-        
-    </title>
-
-    <link rel="canonical" href="http://www.liyaolife.com/DMtrans1/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
-
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
-
-    <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- ga & ba script hoook -->
-    <script>
-
-      </script>
-</head>
-
-
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
-
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Yao Blog</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-
-                    
-
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archives/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
 </script>
 
+  <meta name="description" content="1 绪论  “教育不是学习，信息，数据，事实，技能或能力的堆砌,这是培训或教学。教育是让隐藏的种子变得可见。” - Thomas More  1.1 介绍数据挖掘是收集，清理，处理，分析和从数据中获得有用见解的研究。 在实际应用中遇到的问题域，应用，公式和数据表示方面存在很大差异。 因此，“数据挖掘”是一个广泛的术语，用于描述数据处理的这些不同方面。 在现代，几乎所有的自动化系统都会生成某种形式的">
+<meta name="keywords" content="-《数据挖掘》翻译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Data Mining》第1章翻译 绪论">
+<meta property="og:url" content="http://www.liyaolife.com/DMtrans1/index.html">
+<meta property="og:site_name" content="Yao Blog">
+<meta property="og:description" content="1 绪论  “教育不是学习，信息，数据，事实，技能或能力的堆砌,这是培训或教学。教育是让隐藏的种子变得可见。” - Thomas More  1.1 介绍数据挖掘是收集，清理，处理，分析和从数据中获得有用见解的研究。 在实际应用中遇到的问题域，应用，公式和数据表示方面存在很大差异。 因此，“数据挖掘”是一个广泛的术语，用于描述数据处理的这些不同方面。 在现代，几乎所有的自动化系统都会生成某种形式的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p6atp7tts.bkt.clouddn.com/15249000172922.jpg">
+<meta property="og:image" content="http://p6atp7tts.bkt.clouddn.com/15249001649310.jpg">
+<meta property="og:image" content="http://p6atp7tts.bkt.clouddn.com/15249065611953.jpg">
+<meta property="og:updated_time" content="2019-11-14T02:56:34.134Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Data Mining》第1章翻译 绪论">
+<meta name="twitter:description" content="1 绪论  “教育不是学习，信息，数据，事实，技能或能力的堆砌,这是培训或教学。教育是让隐藏的种子变得可见。” - Thomas More  1.1 介绍数据挖掘是收集，清理，处理，分析和从数据中获得有用见解的研究。 在实际应用中遇到的问题域，应用，公式和数据表示方面存在很大差异。 因此，“数据挖掘”是一个广泛的术语，用于描述数据处理的这些不同方面。 在现代，几乎所有的自动化系统都会生成某种形式的">
+<meta name="twitter:image" content="http://p6atp7tts.bkt.clouddn.com/15249000172922.jpg">
 
-    <!-- Main Content -->
-    
-<!-- Image to hack wechat -->
-<!-- <img src="http://www.liyaolife.com/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+<link rel="canonical" href="http://www.liyaolife.com/DMtrans1/">
 
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        background-image: url('/img/home-bg-o.jpg')
-    }
-</style>
-<header class="intro-header" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                          <a class="tag" href="/tags/#《数据挖掘》翻译" title="《数据挖掘》翻译">《数据挖掘》翻译</a>
-                        
-                    </div>
-                    <h1>《Data Mining》第1章翻译 绪论</h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-                        Posted by Li Yao on
-                        2018-05-06
-                        | view <span id="busuanzi_value_page_pv"></span> times
-                    </span>
 
-                </div>
-            </div>
-        </div>
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>《Data Mining》第1章翻译 绪论 | Yao Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yao Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-</header>
+        <p class="site-subtitle">图书馆里的清洁工 少林寺里的扫地僧</p>
+  </div>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
 
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
 
-                <h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1 绪论"></a>1 绪论</h1><!--本章由李尧翻译-->
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeneralLi95" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/DMtrans1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《Data Mining》第1章翻译 绪论
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-06 20:12:30" itemprop="dateCreated datePublished" datetime="2018-05-06T20:12:30+08:00">2018-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-14 10:56:34" itemprop="dateModified" datetime="2019-11-14T10:56:34+08:00">2019-11-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1 绪论"></a>1 绪论</h1><!--本章由李尧翻译-->
 <blockquote>
 <p>“教育不是学习，信息，数据，事实，技能或能力的堆砌,这是培训或教学。教育是让隐藏的种子变得可见。” - Thomas More</p>
 </blockquote>
@@ -414,7 +460,7 @@
 </ol>
 <p>由于数据模式随时间而变化的速率以及基础数据中不断演变的模式，因此设计这些场景的算法通常很具挑战性。 对于流挖掘方法在第12章中得到解决。</p>
 <h2 id="1-6-典型应用场景介绍"><a href="#1-6-典型应用场景介绍" class="headerlink" title="1.6 典型应用场景介绍"></a>1.6 典型应用场景介绍</h2><p>在本节中，将讨论一些常见的应用场景。 目标是说明问题和应用的广泛多样性，以及它们如何映射到本章讨论的某些构件块。</p>
-<h3 id="1-6-1-产品放置位置"><a href="#1-6-1-产品放置位置" class="headerlink" title="1.6.1 产品放置位置"></a>1.6.1 产品放置位置</h3><p>应用场景可以表述如下：<br><strong>应用 1.6.1（产品放置位置）</strong> <em>商家拥有一套$d$产品，以及来自顾客的以前交易，其中包含一起购买的物品篮。 商家希望知道如何将产品放置在货架上，以增加经常一起购买的商品被放置在相邻货架上的可能性。</em> </p>
+<h3 id="1-6-1-产品放置位置"><a href="#1-6-1-产品放置位置" class="headerlink" title="1.6.1 产品放置位置"></a>1.6.1 产品放置位置</h3><p>应用场景可以表述如下：<br><strong>应用 1.6.1（产品放置位置）</strong> <em>商家拥有一套$d$产品，以及来自顾客的以前交易，其中包含一起购买的物品篮。 商家希望知道如何将产品放置在货架上，以增加经常一起购买的商品被放置在相邻货架上的可能性。</em></p>
 <p>此问题与频繁模式挖掘密切相关，因为分析师可以使用频繁模式挖掘问题来确定在特定支持级别经常一起购买的项目组。这里需要注意的一点是，在提供有用见解的同时，确定频繁模式并不能为商家提供关于如何将产品放置在不同货架上的准确指导。这种情况在数据挖掘中很常见。积木问题往往不能直接解决手头的问题。在这种特殊情况下，商家可以从各种启发式的想法中选择产品如何储存在不同的货架上。例如，商家可能已经拥有现有的展示位置，并且可能会使用频繁模式为展示位置的质量创建一个数字分数。通过对当前展示位置进行增量更改，可以连续优化此展示位置。使用适当的初始化方法，频繁模式挖掘方法可以作为该问题非常有用的子程序。数据挖掘的这些部分通常是特定于应用程序的，并且在不同领域显示出如此大的差异，因此只能通过实践经验来学习。</p>
 <h3 id="1-6-2-用户推荐"><a href="#1-6-2-用户推荐" class="headerlink" title="1.6.2 用户推荐"></a>1.6.2 用户推荐</h3><p>这是数据挖掘文献中经常遇到的问题。 这个问题存在许多变化，取决于该应用程序可用的输入数据的类型。 在下文中，我们将研究推荐问题的具体实例并提供一个解决方案。</p>
 <p><strong>应用 1.6.2(用户推荐)</strong> <em>商家有一个$n×d$的二元矩阵$D$，表示$n$个客户在$d$个项目上的购买行为。 假定矩阵是稀疏的，因此每个客户可能只购买了几件商品。 最好使用产品关联向顾客提供建议。</em></p>
@@ -464,302 +510,201 @@
 </li>
 </ol>
 
+    </div>
 
-                <hr>
+    
+    
+    
 
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/《数据挖掘》翻译/" rel="tag"><i class="fa fa-tag"></i> -《数据挖掘》翻译</a>
+          </div>
 
-                <!--prev and next  -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/DMtrans2/" data-toggle="tooltip" data-placement="top" title="《Data Mining》第2章翻译 数据预处理">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/data-mining翻译前期准备/" data-toggle="tooltip" data-placement="top" title="《Data Mining》翻译前期准备">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
-
-
-
-                
-
-                <!--gitment -->
-
-                
-
-
-
-            </div>
-
-
-    <!-- Side Catalog Container -->
-        
-            <div class="
-                col-lg-2 col-lg-offset-0
-                visible-lg-block
-                sidebar-container
-                catalog-container">
-                <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5>
-                        <a class="catalog-toggle" href="#">CATALOG</a>
-                    </h5>
-                    <ul class="catalog-body"></ul>
-                </div>
-            </div>
         
 
-    <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/tags/#《数据挖掘》翻译" title="《数据挖掘》翻译">《数据挖掘》翻译</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/dmtrans-pre/" rel="next" title="《Data Mining》翻译前期准备">
+                  <i class="fa fa-chevron-left"></i> 《Data Mining》翻译前期准备
+                </a>
             </div>
 
-        </div>
-    </div>
-</article>
+            <span class="post-nav-divider"></span>
 
-
-
-
-
-
-
-
-
-    <!-- Footer -->
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/li-yao-89-61">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                
-
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/GeneralLi95">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Yao Blog 2019
-                    <br>
-                    Theme by <a href="http://huangxuan.me" rel="external nofollow">Hux</a>
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span>
-
-                    <span id="busuanzi_container_site_uv">
-                      欢迎你！第<span id="busuanzi_value_site_uv"></span>位小伙伴！
-                    </span>
-                    <!--
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span>
-
-                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
-                    </iframe>
-                  -->
-                </p>
+            <div class="post-nav-prev post-nav-item">
+                <a href="/DMtrans2/" rel="prev" title="《Data Mining》第2章翻译 数据预处理">
+                  《Data Mining》第2章翻译 数据预处理 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-绪论"><span class="nav-number">1.</span> <span class="nav-text">1 绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-介绍"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-数据预处理阶段"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.2.1 数据预处理阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-1-定量多维数据"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1.3.1.1 定量多维数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-2-分类和混合属性数据"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">1.3.1.2 分类和混合属性数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-3-二进制和设置数据"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">1.3.1.3 二进制和设置数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-4-文本数据"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">1.3.1.4 文本数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-2-离散序列和字符串"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">1.3.2.2 离散序列和字符串</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-5-复杂数据类型对问题定义的影响"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.4.5 复杂数据类型对问题定义的影响</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-5-1-复杂数据类型的模式挖掘"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1.4.5.1 复杂数据类型的模式挖掘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-5-2-复杂数据类型的聚类"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">1.4.5.2 复杂数据类型的聚类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-5-3-复杂数据类型的异常值检测"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">1.4.5.3 复杂数据类型的异常值检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-5-4-复杂诗句类型的分类"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">1.4.5.4 复杂诗句类型的分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-可伸缩性问题和流式场景"><span class="nav-number">1.2.</span> <span class="nav-text">1.5 可伸缩性问题和流式场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-典型应用场景介绍"><span class="nav-number">1.3.</span> <span class="nav-text">1.6 典型应用场景介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-1-产品放置位置"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.6.1 产品放置位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-2-用户推荐"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.6.2 用户推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-3-医疗诊断"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.6.3 医疗诊断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-4-Web日志异常"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.6.4 Web日志异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-总结"><span class="nav-number">1.4.</span> <span class="nav-text">1.7 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-书目注释"><span class="nav-number">1.5.</span> <span class="nav-text">1.8 书目注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-习题"><span class="nav-number">1.6.</span> <span class="nav-text">1.9 习题</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Li Yao"
+    src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Li Yao</p>
+  <div class="site-description" itemprop="description">程序员的成长之路| 前端设计&GIS开发 | 图书馆里的扫地僧 少林寺里的清洁工</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GeneralLi95" title="GitHub &rarr; https://github.com/GeneralLi95" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nudtliyao@foxmail.com" title="E-Mail &rarr; mailto:nudtliyao@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6379926438" title="Weibo &rarr; https://weibo.com/6379926438" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/li-yao-89-61/activities" title="Zhihu &rarr; https://www.zhihu.com/people/li-yao-89-61/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-zhihu"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
     </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
+      </div>
+    </main>
 
-<!-- busuanzi counter-->
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+    <footer class="footer">
+      <div class="footer-inner">
+        
 
-<!--
-     Because of the native support for backtick-style fenced code blocks
-     right within the Markdown is landed in Github Pages,
-     From V1.6, There is no need for Highlight.js,
-     so Huxblog drops it officially.
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Yao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.6.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
 
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
-
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://www.liyaolife.com/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<!-- Google Analytics -->
-
-
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-116714676-1';
-    var _gaDomain = 'liyaolife.com';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
+        
 
 
 
 
-<!-- Baidu Tongji -->
-
-
-<!-- Side Catalog -->
-
-<script type="text/javascript">
-    function generateCatalog (selector) {
-        var P = $('div.post-container'),a,n,t,l,i,c;
-        a = P.find('h1,h2,h3,h4,h5,h6');
-        a.each(function () {
-            n = $(this).prop('tagName').toLowerCase();
-            i = "#"+$(this).prop('id');
-            t = $(this).text();
-            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
-            l = $('<li class="'+n+'_nav"></li>').append(c);
-            $(selector).append(l);
-        });
-        return true;
-    }
-
-    generateCatalog(".catalog-body");
-
-    // toggle side catalog
-    $(".catalog-toggle").click((function(e){
-        e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
-    }))
-
-    /*
-     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
-     * Fork by Hux to support padding
-     */
-    async("/js/jquery.nav.js", function () {
-        $('.catalog-body').onePageNav({
-            currentClass: "active",
-            changeHash: !1,
-            easing: "swing",
-            filter: "",
-            scrollSpeed: 700,
-            scrollOffset: 0,
-            scrollThreshold: .2,
-            begin: null,
-            end: null,
-            scrollChange: null,
-            padding: 80
-        });
-    });
-</script>
 
 
 
 
-<!-- Image to hack wechat -->
-<img src="http://www.liyaolife.com/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
 
 </body>
-
 </html>
