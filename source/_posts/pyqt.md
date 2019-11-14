@@ -36,7 +36,7 @@ brew install qt
 
 官网安装基本上就是一路下一步即可了。
 
-**缺点：** 安装包太大，并且后续安装不能使用Homebrew了。因为通过brew安装sip或者PyQt的时候会检查系统有没有qt，而如果是通过官网安装的qt，不在brew目录下面的话，它就会重新执行 ```brew install qt```这样相当于官网安装的就没有用上。
+**缺点：** 安装包太大，并且后续安装不能使用Homebrew了。因为通过brew安装sip或者PyQt的时候会检查系统有没有qt，而如果是通过官网安装的qt，不在brew目录下面的话，它就会重新执行**brew install qt**这样相当于官网安装的就没有用上。
 ## 2. 安装SIP
 > sip: create python bindings for c and c++ libraries
 
