@@ -72,7 +72,7 @@ pip3 install pyqt5
 
 2. 配置GUI设计工具
 
-![15332767318097.jpg](https://upload-images.jianshu.io/upload_images/11400909-a15901baa3e37bcf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![15332767318097](https://upload-images.jianshu.io/upload_images/11400909-a15901baa3e37bcf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 这里要求我们在安装qt的时候，能够知道其路径在何处。
@@ -80,7 +80,7 @@ Working Directory是系统自动生成的，不需要我们设置。
 
 3. 设置 ui 文件编译工具
 
-![15332769446963.jpg](https://upload-images.jianshu.io/upload_images/11400909-6c4d6dab2672a1b9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![15332769446963](https://upload-images.jianshu.io/upload_images/11400909-6c4d6dab2672a1b9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Parameters 栏的固定代码：
 
@@ -92,7 +92,7 @@ Ps: Working directory 栏也会自动生成路径，但是有时候生成的不�
 
 4. 安装好之后的模样：
 
-![image.png](https://upload-images.jianshu.io/upload_images/11400909-9e78d991eafc0248.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image](https://upload-images.jianshu.io/upload_images/11400909-9e78d991eafc0248.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 
