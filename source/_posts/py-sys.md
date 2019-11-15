@@ -2,9 +2,9 @@
 title: Python 通过sys.argv控制台输入参数
 date: 2019-11-15 16:41:44
 tags:
-  -
+  - Python
 categories:
-  -
+  - Python
 mathjax:
 ---
 
