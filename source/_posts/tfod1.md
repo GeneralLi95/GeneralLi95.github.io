@@ -2,10 +2,10 @@
 title: 物体检测TensorFlow Object Detection API （一）安装
 date: 2018-08-10 14:55:35
 tags:
-    - TensorFlow
-    - 机器学习
-    - 计算机视觉
-    - 目标检测
+  - TensorFlow
+  - 机器学习
+  - 计算机视觉
+  - 目标检测
 categories: 机器学习
 catalog: true
 ---

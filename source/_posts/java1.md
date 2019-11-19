@@ -3,7 +3,7 @@ title: Mac Java环境配置
 date: 2018-05-19 13:42:32
 tags:
   - Java
-  - 编程
+  - 基础编程
 categories: Java
 catalog: true
 ---

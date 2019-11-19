@@ -2,7 +2,7 @@
 title: 在Python下搭建QT+SIP+PyQt5环境
 date: 2018-08-13 16:04:35
 tags:
-    - Python
+  - Python
 categories: Python
 catalog: true
 ---

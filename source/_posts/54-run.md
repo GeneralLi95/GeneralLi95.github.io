@@ -2,8 +2,8 @@
 title: 年度最强制作背后两三事
 date: 2018-05-07 22:37:12
 tags:
-  - 随笔
-categories: 随笔
+  - 生活杂记
+categories: 生活杂记
 catalog: true
 ---
 

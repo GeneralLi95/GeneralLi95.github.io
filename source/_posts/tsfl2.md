@@ -2,9 +2,9 @@
 title: TensorBoard使用示例
 date: 2018-07-25 11:28:01
 tags:
-    - 机器学习
-    - TensorFlow
-    - TensorBoard
+  - 机器学习
+  - TensorFlow
+  - TensorBoard
 categories: 机器学习
 catalog: true
 ---

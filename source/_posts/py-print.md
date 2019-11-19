@@ -2,7 +2,9 @@
 title: 详解 Python 3 的 print()
 catalog: true
 date: 2019-11-15 10:02:06
-tags: Python
+tags:
+  - Python
+  - 基础编程
 categories: Python
 mathjax:
 ---
