@@ -73,12 +73,93 @@ def step_decay(epoch):
 lrate = LearningRateScheduler(step_decay)
 ```
 
+题外话，回调是要在训练过程的给定阶段应用的一组功能。 我们可以使用回调来获得训练期间模型的内部状态和统计信息。 在我们的示例中，我们通过扩展基类keras.callbacks.Callback来创建自定义回调，以记录训练过程中的丢失历史记录和学习率。
 
+```
+class LossHistory(keras.callbacks.Callback):
+    def on_train_begin(self, logs={}):
+       self.losses = []
+       self.lr = []
+
+    def on_epoch_end(self, batch, logs={}):
+       self.losses.append(logs.get(‘loss’))
+       self.lr.append(step_decay(len(self.losses)))
+```
+
+将所有内容放在一起，我们可以传递一个由LearningRateScheduler回调和我们的自定义回调组成的回调列表以适合模型。 然后，我们可以通过访问loss_history.lr和loss_history.losses可视化学习率进度表和损失历史记录。
+
+```
+loss_history = LossHistory()
+lrate = LearningRateScheduler(step_decay)
+callbacks_list = [loss_history, lrate]
+history = model.fit(X_train, y_train,
+   validation_data=(X_test, y_test),
+   epochs=epochs,
+   batch_size=batch_size,
+   callbacks=callbacks_list,
+   verbose=2)
+```
+
+![按步衰减模型精度](https://i.loli.net/2019/11/26/XRicvsu5gEfJwm6.png)
+
+![按步衰减的学习率](https://i.loli.net/2019/11/26/lPLmMX1Jxfipy68.png)
 ### 1.4 指数衰减
+
+指数衰减也是常用的学习率下降模式。数学公式是 `lr = lr0 * e^(−kt)`，这里`lr`,`k`都是超参数，`t`是循环次数。同样，我们可以通过定义指数衰减函数并将其传递给`LearningRateScheduler`来实现。 实际上，可以使用此方法在Keras中实现任何自定义衰减时间表。 唯一的区别是定义了不同的自定义衰减函数。
+
+```
+def exp_decay(epoch):
+   initial_lrate = 0.1
+   k = 0.1
+   lrate = initial_lrate * exp(-k*t)
+   return lrate
+lrate = LearningRateScheduler(exp_decay)
+```
+
+![](https://i.loli.net/2019/11/26/5v24fC6RodxQXlb.png)
+
+![](https://i.loli.net/2019/11/26/vnHbEkyPfSlG1jL.png)
+
+现在让我们在示例中使用不同的学习率时间表来比较模型的准确性。
+
+![](https://i.loli.net/2019/11/26/dzaVuJ9sirMDUgm.png)
 
 
 ## 2 自适应学习率方法
+使用学习速率计划的挑战在于，必须提前定义其超参数，并且它们在很大程度上取决于模型和问题的类型。另一个问题是，将相同的学习率应用于所有参数更新。如果数据稀疏，则可能需要在不同程度上更新参数。
 
+诸如Adagrad，Adadelta，RMSprop，Adam之类的自适应梯度下降算法提供了经典SGD的替代方法。这些按参数学习速率的方法提供了启发式方法，而无需为手动调整学习速率时间表的超参数而进行昂贵的工作。
+
+简而言之，Adagrad对较大的稀疏参数执行较大的更新，对较小的稀疏参数执行较小的更新。它在稀疏数据和训练大规模神经网络方面表现良好。但是，当训练深度神经网络时，其单调学习率通常证明过于激进，并且过早停止学习。 Adadelta是Adagrad的扩展，旨在降低其激进的，单调降低的学习率。 RMSprop以非常简单的方式调整Adagrad方法，以尝试降低其激进的，单调降低的学习率。亚当是对RMSProp优化器的更新，类似于具有动力的RMSprop。
+
+在Keras中，我们可以使用相应的优化器轻松实现这些自适应学习算法。通常建议将这些优化器的超参数保留为默认值（有时除外lr）。
+
+```
+keras.optimizers.Adagrad(lr=0.01, epsilon=1e-08, decay=0.0)
+keras.optimizers.Adadelta(lr=1.0, rho=0.95, epsilon=1e-08, decay=0.0)
+keras.optimizers.RMSprop(lr=0.001, rho=0.9, epsilon=1e-08, decay=0.0)
+keras.optimizers.Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
+```
+
+现在让我们看看使用不同的自适应学习率方法的模型性能。 在我们的示例中，Adadelta提供了其他自适应学习率方法中最佳的模型精度。
+
+![](https://i.loli.net/2019/11/26/PMzyi2NuXE5TrR9.png)
+
+最后，我们比较了我们讨论过的所有学习率计划和自适应学习率方法的性能。
+
+![](https://i.loli.net/2019/11/26/itTkIjezbpqcdRD.png)
 
 
 ## 结论
+
+在我研究过的许多示例中，自适应学习率方法比学习率表显示出更好的性能，并且在超参数设置中需要更少的精力。 我们还可以使用Keras中的LearningRateScheduler创建针对我们数据问题的自定义学习率计划。
+
+为了进一步阅读，Yoshua Bengio的论文为调整深度学习的学习速率提供了非常好的实用建议，例如如何设置初始学习速率，最小批量大小，时期数以及使用早期停止和动量。
+
+[源代码](https://github.com/sukilau/Ziff-deep-learning/blob/master/3-CIFAR10-lrate/CIFAR10-lrate.ipynb)
+
+## 参考文献
+
+* [Practical Recommendations for Gradient-Based Training of Deep Architectures by Yoshua Bengio](https://arxiv.org/pdf/1206.5533v2.pdf)
+* [Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/neural-networks-3/#sgd)
+* [Using Learning Rate Schedules for Deep Learning Models in Python with Keras](https://machinelearningmastery.com/using-learning-rate-schedules-deep-learning-models-python-keras/)
