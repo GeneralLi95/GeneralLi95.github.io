@@ -39,8 +39,39 @@ keras.optimizers.SGD(lr=0.1, momentum=0.0, decay=0.0, nesterov=False)
 lr *= (1. / (1. + self.decay * self.iterations))
 ```
 
+动量是 SGD optimizer 里的另外一个参数，我们可以通过调整它来获得更快的收敛速度。不像经典的 SGD 方法，动动量法可帮助参数矢量以恒定的梯度下降沿任意方向建立速度，从而防止振荡。一般动量选择的值是0.5-0.9之间。
+
+SGD optimizer 还有一个参数叫做 nesterov，默认情况下它的值是 false. Nesterov 动量是动量方法的一种变形，对凸函数具有更强的理论收敛保证。在实际操作中，它的效果比标准动量方法稍好。
+
+在 Keras 里我们可以实现时序衰减学习率通过在SGD optimizer 中设置初始学习率，衰减率和动量。
+
+```
+learning_rate = 0.1
+decay_rate = learning_rate / epochs
+momentum = 0.8
+sgd = SGD(lr=learning_rate, momentum=momentum, decay=decay_rate, nesterov=False
+```
+
+
 
 ### 1.3 按步衰减
+按步衰减学习率通过一个参数，每几个epoch下降一次。公式为:
+
+```
+lr = lr0 * drop^floor(epoch / epochs_drop)
+```
+一个常用降低学习率的方法是每隔10个 epoch，学习率降低为原来的一半。在 Keras 中实现这个方法，我们可以定义一个逐步递减函数，使用 LearningRateScheduler 回调，将逐步衰减函数作为参数，并将更新的学习率返回到 SGD optimizer中。
+
+```python
+def step_decay(epoch):
+   initial_lrate = 0.1
+   drop = 0.5
+   epochs_drop = 10.0
+   lrate = initial_lrate * math.pow(drop,  
+           math.floor((1+epoch)/epochs_drop))
+   return lrate
+lrate = LearningRateScheduler(step_decay)
+```
 
 
 ### 1.4 指数衰减

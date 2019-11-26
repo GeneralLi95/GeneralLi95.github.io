@@ -70,10 +70,10 @@ mathjax:
     > In Deep Learning, an epoch is a hyperparameter which is defined before training a model. One epoch is when an entire dataset is passed both forward and backward through the neural network only once.
 
     1个 epoch 意味着所有数据通过神经网络一遍
-    **batch**:
+    **batch_size**:
     > A batch is the total number of training examples present in a single batch and an iteration is the number of batches needed to complete one epoch.
 
-    训练数据不可能一次性全部通过神经网络，所以需要分为不同的 batch
+    训练数据不可能一次性全部通过神经网络，所以需要分为不同的 batch。batch_size 大小将影响占用内存的数量。
     **iteration**:
     > If we divide a dataset of 2000 training examples into 500 batches, then 4 iterations will complete 1 epoch
 
@@ -89,7 +89,7 @@ mathjax:
     学习率，决定模型收敛速度的一个重要超参数，学习率大，下降快，但可能陷入震荡，学习率小，下降慢，却容易获得收敛。
     ![学习率](https://i.loli.net/2019/11/20/jpqVeSfFwrgkBO5.png)
 
-    * learning_rate_policy:
+    **learning_rate_policy**:
     学习率函数，可选参数为 poly(polynomial function 多项式函数), piece wise
 
 
@@ -101,6 +101,14 @@ mathjax:
 
 
 2. **deeplab_model.py**  deeplab模型基本不用动
+    函数 **atrous_spatial_pyramid_pooling**:空洞卷积空间金字塔池化
+    atrous_rate 空洞卷积膨胀率，空洞卷积的核心指标。
+
+    函数 **deeplab_v3_plus_generator** deeplabv3+ 网络生成器
+
+    函数 **deeplabv3_plus_model_fn** 模型方程
+
+
 
 ---
 ## 致谢
