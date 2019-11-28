@@ -192,6 +192,601 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/java4/" class="post-title-link" itemprop="url">MySQL与Java的连接</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-05 12:50:00" itemprop="dateCreated datePublished" datetime="2018-06-05T12:50:00+08:00">2018-06-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 16:58:04" itemprop="dateModified" datetime="2019-11-19T16:58:04+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/java4/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL与Java的连接" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/java4/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/java4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>通过实现<a href="http://www.runoob.com/java/java-mysql-connect.html" target="_blank" rel="noopener">菜鸟教程上的一个例程</a>来记录一下这个操作。</p>
+<p>Java与MySQL的连接主要依赖一个JDBC驱动来进行。</p>
+<h2 id="建立一个测试的新库"><a href="#建立一个测试的新库" class="headerlink" title="建立一个测试的新库"></a>建立一个测试的新库</h2><p>通过下面一行命令</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -<span class="selector-tag">p</span> create jdbctest</span><br></pre></td></tr></table></figure>
+<p>即建立了一个名为jdbctest的数据库。此时这个数据库中还没有tables。我们进入到数据库中并创建一个新的table</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; CREATE TABLE `websites` (</span><br><span class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `name` char(20) NOT NULL DEFAULT '' <span class="keyword">COMMENT</span> <span class="string">'站点名称'</span>,</span><br><span class="line">  <span class="string">`url`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`alexa`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'Alexa 排名'</span>,</span><br><span class="line">  <span class="string">`country`</span> <span class="built_in">char</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'国家'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">10</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
+<p>即创建了一个新table。然后给这个表中插入数据：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; INSERT INTO `websites` VALUES ('1', 'Google', 'https://www.google.cm/', '1', 'USA'), ('2', '淘宝', 'https://www.taobao.com/', '13', 'CN'), ('3', '菜鸟教程', 'http://www.runoob.com', '5892', ''), ('4', '微博', 'http://weibo.com/', '20', 'CN'), ('5', 'Facebook', 'https://www.facebook.com/', '3', 'USA');</span><br></pre></td></tr></table></figure>
+<p>一个测试的数据库就建好了。<br>如果需要导入数据库结构文件的话，通过这个方式：<br>导入方法：在已经use 这个数据库之后，通过下面命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> <span class="built_in">source</span> path-to-<span class="string">'filename.sql'</span></span></span><br></pre></td></tr></table></figure>
+<p>即可快速方便的导入数据建立索引。数据这时就已经导入了。</p>
+<h2 id="与Java进行连接"><a href="#与Java进行连接" class="headerlink" title="与Java进行连接"></a>与Java进行连接</h2><h3 id="JDBC配置"><a href="#JDBC配置" class="headerlink" title="JDBC配置"></a>JDBC配置</h3><p>连接数据库需要一个驱动包Java 连接 MySQL 需要驱动包，<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">最新版下载地址</a> ，解压后得到jar库文件，然后在对应的项目中导入该库文件。</p>
+<h2 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h2><p>通过命令</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global <span class="keyword">variables</span> like <span class="comment">'port'</span>;</span><br></pre></td></tr></table></figure>
+<p>即可查看端口，一般情况下默认端口号是3306。所以如果没有自己去修改端口号的话，这一步可以省略。</p>
+<h2 id="Demo代码"><a href="#Demo代码" class="headerlink" title="Demo代码"></a>Demo代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> jdbctestpack;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">jdbctest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//JDBC 驱动名及数据库URL</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String JDBC_DRIVER = <span class="string">"com.mysql.jdbc.Driver"</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String DB_URL = <span class="string">"jdbc:mysql://localhost:3306/jdbctest"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据库的用户名与密码，需要根据自己的设置</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String USER = <span class="string">"root"</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String PASS = <span class="string">"xxxxxx"</span>;</span><br><span class="line">    <span class="comment">//此处放自己的数据库密码</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        Statement stmt = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//注册JDBC驱动</span></span><br><span class="line">            Class.forName(JDBC_DRIVER);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//打开链接</span></span><br><span class="line">            System.out.println(<span class="string">"链接数据库..."</span>);</span><br><span class="line">            conn = DriverManager.getConnection(DB_URL,USER,PASS);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//执行查询</span></span><br><span class="line">            System.out.println(<span class="string">"实例化Statement对象..."</span>);</span><br><span class="line">            stmt = conn.createStatement();</span><br><span class="line">            String sql;</span><br><span class="line">            sql = <span class="string">"SELECT id, name, url FROM websites"</span>;</span><br><span class="line">            ResultSet rs = stmt.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//展开结果集数据库</span></span><br><span class="line">            <span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">                <span class="comment">//通过字段检索</span></span><br><span class="line">                <span class="keyword">int</span> id = rs.getInt(<span class="string">"id"</span>);</span><br><span class="line">                String name = rs.getString(<span class="string">"name"</span>);</span><br><span class="line">                String url = rs.getString(<span class="string">"url"</span>);</span><br><span class="line">                System.out.print(<span class="string">"ID: "</span> + id);</span><br><span class="line">                System.out.print(<span class="string">", 站点名称"</span> + name);</span><br><span class="line">                System.out.print(<span class="string">", 站点 URL: "</span> + url);</span><br><span class="line">                System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//完成后关闭</span></span><br><span class="line">            rs.close();</span><br><span class="line">            stmt.close();</span><br><span class="line">            conn.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (SQLException se)&#123;</span><br><span class="line">            <span class="comment">//处理JDBC错误</span></span><br><span class="line">            se.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="comment">//处理Class.forName错误</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//关闭资源</span></span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(stmt!=<span class="keyword">null</span>) stmt.close();</span><br><span class="line">                &#125;<span class="keyword">catch</span>(SQLException se2)&#123;</span><br><span class="line">                 <span class="comment">//什么都不做</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(conn!=<span class="keyword">null</span>) conn.close();</span><br><span class="line">                &#125;<span class="keyword">catch</span> (SQLException se)&#123;</span><br><span class="line">                    se.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"Goodbye!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行之后的输出结果如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/11400909-80fd63263e2f2843.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="success"></p>
+<p>即连接成功。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tsfl1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/tsfl1/" class="post-title-link" itemprop="url">tensorflow安装CPU指令集（AVX2）警告解决方案</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-25 09:19:08" itemprop="dateCreated datePublished" datetime="2018-05-25T09:19:08+08:00">2018-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-28 10:38:16" itemprop="dateModified" datetime="2019-11-28T10:38:16+08:00">2019-11-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/tsfl1/" class="post-meta-item leancloud_visitors" data-flag-title="tensorflow安装CPU指令集（AVX2）警告解决方案" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/tsfl1/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/tsfl1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>在macOS通过pip3 install 安装tensorflow(CPU版)后，运行示例代码</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow <span class="keyword">as</span> <span class="keyword">tf</span></span><br><span class="line">hello = <span class="keyword">tf</span>.constant(<span class="string">'Hello, TensorFlow!'</span>)</span><br><span class="line">sess = <span class="keyword">tf</span>.Session()</span><br><span class="line"><span class="keyword">print</span>(sess.run(hello).decode())</span><br></pre></td></tr></table></figure>
+<p>运行之后可以正常输出</p>
+<p>“Hello, TensorFlow!”</p>
+<p>但是有一个警告警告提示：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I tensorflow<span class="regexp">/core/</span>platform/cpu_feature_guard.<span class="string">cc:</span><span class="number">140</span>] Your CPU supports instructions that <span class="keyword">this</span> TensorFlow binary was not compiled to <span class="string">use:</span> AVX2 FMA</span><br></pre></td></tr></table></figure>
+<p>在Stack Overflow上面关于这个问题有<a href="https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u" target="_blank" rel="noopener">一个详细的解答</a></p>
+<p>大致翻译一下高赞答案：</p>
+<blockquote>
+<p>Modern CPUs provide a lot of low-level instructions, besides the usual arithmetic and logic, known as extensions, e.g. SSE2, SSE4, AVX, etc. From the Wikipedia:</p>
+</blockquote>
+<blockquote>
+<p>Advanced Vector Extensions (AVX) are extensions to the x86 instruction set architecture for microprocessors from Intel and AMD proposed by Intel in March 2008 and first supported by Intel with the Sandy Bridge processor shipping in Q1 2011 and later on by AMD with the Bulldozer processor shipping in Q3 2011. AVX provides new features, new instructions and a new coding scheme.<br>In particular, AVX introduces fused multiply-accumulate (FMA) operations, which speed up linear algebra computation, namely dot-product, matrix multiply, convolution, etc. Almost every machine-learning training involves a great deal of these operations, hence will be faster on a CPU that supports AVX and FMA (up to 300%). The warning states that your CPU does support AVX (hooray!).<br>I’d like to stress here: it’s all about CPU only.</p>
+</blockquote>
+<p>现代CPU提供了一系列低级别的指令集，除了通常的算术和逻辑之外，被称为扩展，例如， SSE2，SSE4，AVX等。<br>维基百科有描述：</p>
+<blockquote>
+<p>高级矢量扩展（AVX）是英特尔在2008年3月提出的英特尔和AMD微处理器的x86指令集体系结构的扩展，英特尔首先通过Sandy Bridge处理器在2011年第一季度推出，随后由AMD推出Bulldozer处理器 在2011年第三季度.AVX提供了新功能，新指令和新编码方案。</p>
+</blockquote>
+<p>特别是，AVX引入了融合乘法累加（FMA）操作，加速了线性代数计算，即点积，矩阵乘法，卷积等。几乎所有机器学习训练都涉及大量这些操作，因此将会 支持AVX和FMA的CPU（最高达300％）更快。 该警告指出您的CPU确实支持AVX（hooray！）。</p>
+<p><strong>那为什么没有使用呢？</strong></p>
+<p>由于tensorflow默认是在没有CPU扩展的情况下构建的，例如SSE4.1，SSE4.2，AVX，AVX2，FMA等。默认版本（来自pip install tensorflow的版本）旨在与尽可能多的CPU兼容。 另一个观点是，即使使用这些扩展名，CPU的速度也要比GPU低很多，所以它预计中大型机器学习任务应该在GPU上执行。</p>
+<p><strong>那我们应该怎么办</strong></p>
+<p>如果你有GPU的话，直接忽略这一项即可，因为大部分的高消耗操作都会被分配到GPU上执行（除非你设置了不这么做）。在这种情况下，你可以通过下面这个方式直接忽略这个警告：</p>
+<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.environ[<span class="string">'TF_CPP_MIN_LOG_LEVEL'</span>] = <span class="string">'2'</span></span><br></pre></td></tr></table></figure>
+<p>这种方法只是去掉警告，实际上是没有解决问题的。</p>
+<p>如果你没有GPU，你想最大化使用CPU，你应该启动你的CPU的AVX，AVX2以及FMA拓展。在<a href="https://stackoverflow.com/questions/41293077/how-to-compile-tensorflow-with-sse4-2-and-avx-instructions" target="_blank" rel="noopener">这个问题</a>以及这个<a href="https://github.com/tensorflow/tensorflow/issues/8037" target="_blank" rel="noopener">GitHub issue</a>里面都有详细的讨论。Tensorflow使用称为bazel的ad-hoc构建系统，构建它并不是那么简单，但肯定是可行的。 在此之后，不仅警告消失，张量流性能也应该改善。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>什么是SSE4.2和AVX？</strong></p>
+<p><strong>SIMD</strong> (Single Instruction Multiple Data)单指令流多数据流，是一种采用一个控制器来控制多个处理器，同时对一组数据（又称“数据向量”）中的每一个分别执行相同的操作从而实现空间上的并行性技术。</p>
+<p>在微处理器中，SIMD则是一个控制器控制多个并行的处理微元，例如Intel的MMX或SSE，以及AMD的3D NOW指令集。</p>
+<p>所以说SSE4.2和AVX都是一种SIMD指令集。</p>
+<p>对于TF tasks。SSE4.2和AVX使向量和矩阵计算更加高效。具体可以看这个<a href="https://www.polyhedron.com/web_images/intel/productbriefs/3a_SIMD.pdf" target="_blank" rel="noopener">课件</a>。</p>
+<p>所以该怎么做，大概只能重装一遍tensorflow了。注意这次重装时候要从源码安装，从在源码安装的时候进行相关的设置。</p>
+<p><a href="https://tensorflow.google.cn/install/install_sources" target="_blank" rel="noopener">从源码安装的官方教程</a>总体来说还是非常麻烦的，需要很多依赖，安装一些其他的东西。</p>
+<p>基本过程可以概括为三步：</p>
+<ol>
+<li>下载TensorFlow源码</li>
+<li>准备安装环境 （此处需要安装很多东西）</li>
+<li>构建pip软件包（一个.whl后缀文件）</li>
+<li>使用pip命令进行本地安装</li>
+</ol>
+<p>其中2，3步骤都非常负责，及其容易出错。</p>
+<p>最终采用的是另外一种方法。<br>到这个<a href="https://github.com/lakshayg/tensorflow-build" target="_blank" rel="noopener">GitHub repo</a>下载自己对应版本的pip软件包。</p>
+<font color="red">一定要对应版本!</font>
+
+<p>版本查看方式</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python3</span><br><span class="line"></span><br><span class="line">Python 3.6.5 (default, Apr 25 2018, 14:23:58)</span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>从中可以得出我们的版本  Python 3.6.5 clang-902.0.29.1，又这两个版本号加上自己的系统名在上面的GitHub repo里面选择对应的软件包。下载下来相当于直接完成了官网教材的前3步。</p>
+<p>所以只需要执行第4步。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="params">--ignore-installed</span> <span class="params">--upgrade</span> <span class="string">/path/to/binary.whl</span></span><br></pre></td></tr></table></figure>
+<p>注意 Python3的pip命令是pip3  这条语句可以忽略我们已经安装好的tf包，不需要卸载，会直接升级过去。很方便。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/assets/tsfl1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/assets/tsfl1/" class="post-title-link" itemprop="url">tensorflow安装CPU指令集（AVX2）警告解决方案</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-25 09:19:08" itemprop="dateCreated datePublished" datetime="2018-05-25T09:19:08+08:00">2018-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 16:58:38" itemprop="dateModified" datetime="2019-11-19T16:58:38+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/assets/tsfl1/" class="post-meta-item leancloud_visitors" data-flag-title="tensorflow安装CPU指令集（AVX2）警告解决方案" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/assets/tsfl1/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/assets/tsfl1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>在macOS通过pip3 install 安装tensorflow(CPU版)后，运行示例代码</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow <span class="keyword">as</span> <span class="keyword">tf</span></span><br><span class="line">hello = <span class="keyword">tf</span>.constant(<span class="string">'Hello, TensorFlow!'</span>)</span><br><span class="line">sess = <span class="keyword">tf</span>.Session()</span><br><span class="line"><span class="keyword">print</span>(sess.run(hello).decode())</span><br></pre></td></tr></table></figure>
+<p>运行之后可以正常输出</p>
+<p>“Hello, TensorFlow!”</p>
+<p>但是有一个警告警告提示：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I tensorflow<span class="regexp">/core/</span>platform/cpu_feature_guard.<span class="string">cc:</span><span class="number">140</span>] Your CPU supports instructions that <span class="keyword">this</span> TensorFlow binary was not compiled to <span class="string">use:</span> AVX2 FMA</span><br></pre></td></tr></table></figure>
+<p>在Stack Overflow上面关于这个问题有<a href="https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u" target="_blank" rel="noopener">一个详细的解答</a></p>
+<p>大致翻译一下高赞答案：</p>
+<blockquote>
+<p>Modern CPUs provide a lot of low-level instructions, besides the usual arithmetic and logic, known as extensions, e.g. SSE2, SSE4, AVX, etc. From the Wikipedia:</p>
+</blockquote>
+<blockquote>
+<p>Advanced Vector Extensions (AVX) are extensions to the x86 instruction set architecture for microprocessors from Intel and AMD proposed by Intel in March 2008 and first supported by Intel with the Sandy Bridge processor shipping in Q1 2011 and later on by AMD with the Bulldozer processor shipping in Q3 2011. AVX provides new features, new instructions and a new coding scheme.<br>In particular, AVX introduces fused multiply-accumulate (FMA) operations, which speed up linear algebra computation, namely dot-product, matrix multiply, convolution, etc. Almost every machine-learning training involves a great deal of these operations, hence will be faster on a CPU that supports AVX and FMA (up to 300%). The warning states that your CPU does support AVX (hooray!).<br>I’d like to stress here: it’s all about CPU only.</p>
+</blockquote>
+<p>现代CPU提供了一系列低级别的指令集，除了通常的算术和逻辑之外，被称为扩展，例如， SSE2，SSE4，AVX等。<br>维基百科有描述：</p>
+<blockquote>
+<p>高级矢量扩展（AVX）是英特尔在2008年3月提出的英特尔和AMD微处理器的x86指令集体系结构的扩展，英特尔首先通过Sandy Bridge处理器在2011年第一季度推出，随后由AMD推出Bulldozer处理器 在2011年第三季度.AVX提供了新功能，新指令和新编码方案。</p>
+</blockquote>
+<p>特别是，AVX引入了融合乘法累加（FMA）操作，加速了线性代数计算，即点积，矩阵乘法，卷积等。几乎所有机器学习训练都涉及大量这些操作，因此将会 支持AVX和FMA的CPU（最高达300％）更快。 该警告指出您的CPU确实支持AVX（hooray！）。</p>
+<p><strong>那为什么没有使用呢？</strong></p>
+<p>由于tensorflow默认是在没有CPU扩展的情况下构建的，例如SSE4.1，SSE4.2，AVX，AVX2，FMA等。默认版本（来自pip install tensorflow的版本）旨在与尽可能多的CPU兼容。 另一个观点是，即使使用这些扩展名，CPU的速度也要比GPU低很多，所以它预计中大型机器学习任务应该在GPU上执行。</p>
+<p><strong>那我们应该怎么办</strong></p>
+<p>如果你有GPU的话，直接忽略这一项即可，因为大部分的高消耗操作都会被分配到GPU上执行（除非你设置了不这么做）。在这种情况下，你可以通过下面这个方式直接忽略这个警告：</p>
+<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.environ[<span class="string">'TF_CPP_MIN_LOG_LEVEL'</span>] = <span class="string">'2'</span></span><br></pre></td></tr></table></figure>
+<p>这种方法只是去掉警告，实际上是没有解决问题的。</p>
+<p>如果你没有GPU，你想最大化使用CPU，你应该启动你的CPU的AVX，AVX2以及FMA拓展。在<a href="https://stackoverflow.com/questions/41293077/how-to-compile-tensorflow-with-sse4-2-and-avx-instructions" target="_blank" rel="noopener">这个问题</a>以及这个<a href="https://github.com/tensorflow/tensorflow/issues/8037" target="_blank" rel="noopener">GitHub issue</a>里面都有详细的讨论。Tensorflow使用称为bazel的ad-hoc构建系统，构建它并不是那么简单，但肯定是可行的。 在此之后，不仅警告消失，张量流性能也应该改善。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>什么是SSE4.2和AVX？</strong></p>
+<p><strong>SIMD</strong> (Single Instruction Multiple Data)单指令流多数据流，是一种采用一个控制器来控制多个处理器，同时对一组数据（又称“数据向量”）中的每一个分别执行相同的操作从而实现空间上的并行性技术。</p>
+<p>在微处理器中，SIMD则是一个控制器控制多个并行的处理微元，例如Intel的MMX或SSE，以及AMD的3D NOW指令集。</p>
+<p>所以说SSE4.2和AVX都是一种SIMD指令集。</p>
+<p>对于TF tasks。SSE4.2和AVX使向量和矩阵计算更加高效。具体可以看这个<a href="https://www.polyhedron.com/web_images/intel/productbriefs/3a_SIMD.pdf" target="_blank" rel="noopener">课件</a>。</p>
+<p>所以该怎么做，大概只能重装一遍tensorflow了。注意这次重装时候要从源码安装，从在源码安装的时候进行相关的设置。</p>
+<p><a href="https://tensorflow.google.cn/install/install_sources" target="_blank" rel="noopener">从源码安装的官方教程</a>总体来说还是非常麻烦的，需要很多依赖，安装一些其他的东西。</p>
+<p>基本过程可以概括为三步：</p>
+<ol>
+<li>下载TensorFlow源码</li>
+<li>准备安装环境 （此处需要安装很多东西）</li>
+<li>构建pip软件包（一个.whl后缀文件）</li>
+<li>使用pip命令进行本地安装</li>
+</ol>
+<p>其中2，3步骤都非常负责，及其容易出错。</p>
+<p>最终采用的是另外一种方法。<br>到这个<a href="https://github.com/lakshayg/tensorflow-build" target="_blank" rel="noopener">GitHub repo</a>下载自己对应版本的pip软件包。</p>
+<font color="red">一定要对应版本!</font>
+
+<p>版本查看方式</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python3</span><br><span class="line"></span><br><span class="line">Python 3.6.5 (default, Apr 25 2018, 14:23:58)</span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>从中可以得出我们的版本  Python 3.6.5 clang-902.0.29.1，又这两个版本号加上自己的系统名在上面的GitHub repo里面选择对应的软件包。下载下来相当于直接完成了官网教材的前3步。</p>
+<p>所以只需要执行第4步。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="params">--ignore-installed</span> <span class="params">--upgrade</span> <span class="string">/path/to/binary.whl</span></span><br></pre></td></tr></table></figure>
+<p>注意 Python3的pip命令是pip3  这条语句可以忽略我们已经安装好的tf包，不需要卸载，会直接升级过去。很方便。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/java3/" class="post-title-link" itemprop="url">Java基础题目(温度转换、时间换算、信号报告）</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-19 13:42:44" itemprop="dateCreated datePublished" datetime="2018-05-19T13:42:44+08:00">2018-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 17:11:15" itemprop="dateModified" datetime="2019-11-19T17:11:15+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/java3/" class="post-meta-item leancloud_visitors" data-flag-title="Java基础题目(温度转换、时间换算、信号报告）" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/java3/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/java3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java基础题目"><a href="#Java基础题目" class="headerlink" title="Java基础题目"></a>Java基础题目</h1><p>题目主要来自浙江大学翁凯教授的零基础学习Java课程的配套习题。</p>
+<h2 id="1-温度转换"><a href="#1-温度转换" class="headerlink" title="1. 温度转换"></a>1. 温度转换</h2><p><strong>题目内容:</strong><br>写一个将华氏温度转换成摄氏温度的程序，转换的公式是：</p>
+<pre><code>°F = (9/5) * °C + 32
+</code></pre><p>其中C表示摄氏温度，F表示华氏温度。<br>程序的输入是一个整数，表示华氏温度。输出对应的摄氏温度，也是一个整数。<br>提示，为了把计算结果的浮点数转换成整数，需要使用下面的表达式：<br>    (int)x;<br>其中x是要转换的那个浮点数。</p>
+<p>注意：除了题目要求的输出，不能输出任何其他内容，比如输入时的提示，输出时的说明等等都不能。这道题目要求转换后的数字，程序就只能输出这个数字，除此之外任何内容都不能输出。</p>
+<p>输入格式:<br>一个整数。</p>
+<p>输出格式：<br>一个整数。</p>
+<p>输入样例：<br>100</p>
+<p>输出样例：<br>37<br>时间限制：500ms内存限制：32000kb</p>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        a = in.nextInt();</span><br><span class="line">        <span class="keyword">float</span> b = <span class="number">0</span> ;</span><br><span class="line">        b = (a - <span class="number">32</span>)*<span class="number">5</span>/<span class="number">9</span>;</span><br><span class="line">        System.out.print((<span class="keyword">int</span>)b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个题主要考察输入输出的一些基本操作吧。</p>
+<h2 id="2-时间换算"><a href="#2-时间换算" class="headerlink" title="2.时间换算"></a>2.时间换算</h2><p><strong>题目内容：</strong><br>UTC是世界协调时，BJT是北京时间，UTC时间相当于BJT减去8。现在，你的程序要读入一个整数，表示BJT的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果分小于10分，需要保留十位上的0。如1124表示11点24分，而905表示9点5分，36表示0点36分，7表示0点7分。<br>有效的输入范围是0到2359，即你的程序不可能从测试服务器读到0到2359以外的输入数据。<br>你的程序要输出这个时间对应的UTC时间，输出的格式和输入的相同，即输出一个整数，表示UTC的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果分小于10分，需要保留十位上的0。<br>提醒：要小心跨日的换算。</p>
+<p>输入格式:<br>一个整数，表示BJT的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果小时不是0而且分小于10分，需要保留十位上的0。</p>
+<p>输出格式：<br>一个整数，表示UTC的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果小时不是0而且分小于10分，需要保留十位上的0。</p>
+<p>输入样例：<br>933</p>
+<p>输出样例：<br>133<br>时间限制：500ms内存限制：32000kb</p>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        a = in.nextInt();</span><br><span class="line">        <span class="keyword">int</span> b;</span><br><span class="line">        <span class="keyword">int</span> c;</span><br><span class="line">        String cc ;</span><br><span class="line">        b = a / <span class="number">100</span>;</span><br><span class="line">        c = a % <span class="number">100</span>;</span><br><span class="line">        b = b - <span class="number">8</span>;</span><br><span class="line">        cc = Integer.toString(c);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (b==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.print(cc);</span><br><span class="line">            System.exit(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (b&lt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            b = b + <span class="number">24</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (c&lt;<span class="number">10</span>)&#123;</span><br><span class="line">            cc = <span class="string">"0"</span>+ cc;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(b);</span><br><span class="line">        System.out.print(cc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这道题是主要考察if else语句的用法。</p>
+<h2 id="3-信号报告"><a href="#3-信号报告" class="headerlink" title="3. 信号报告"></a>3. 信号报告</h2><p><strong>信号报告</strong><br>题目内容：<br>无线电台的RS制信号报告是由三两个部分组成的：<br>R(Readability) 信号可辨度即清晰度.<br>S(Strength)    信号强度即大小.<br>其中R位于报告第一位，共分5级，用1—5数字表示.<br>1—Unreadable<br>2—Barely readable, occasional words distinguishable<br>3—Readable with considerable difficulty<br>4—Readable with practically no difficulty<br>5—Perfectly readable<br>报告第二位是S，共分九个级别，用1—9中的一位数字表示<br>1—Faint signals, barely perceptible<br>2—Very weak signals<br>3—Weak signals<br>4—Fair signals<br>5—Fairly good signals<br>6—Good signals<br>7—Moderately strong signals<br>8—Strong signals<br>9—Extremely strong signals<br>现在，你的程序要读入一个信号报告的数字，然后输出对应的含义。如读到59，则输出：<br>Extremely strong signals, perfectly readable.</p>
+<p>输入格式:<br>一个整数，信号报告。整数的十位部分表示可辨度，个位部分表示强度。输入的整数范围是[11,59]内有效的数字，这个范围外的数字不可能出现在测试数据中。</p>
+<p>输出格式：<br>一句话，表示这个信号报告的意义。按照题目中的文字，先输出表示强度的文字，跟上逗号和空格，然后是表示可辨度的文字，跟上句号。注意可辨度的句子的第一个字母是小写的。注意这里的标点符号都是英文的。</p>
+<p>输入样例：<br>33</p>
+<p>输出样例：<br>Weak signals, readable with considerable difficulty.<br>时间限制：500ms内存限制：32000kb</p>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        a = in.nextInt();</span><br><span class="line">        <span class="keyword">int</span> b;</span><br><span class="line">        <span class="keyword">int</span> c;</span><br><span class="line">        b = a / <span class="number">10</span>;</span><br><span class="line">        c = a % <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (c)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.print(<span class="string">"Faint signals, barely perceptible"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                System.out.print(<span class="string">"Very weak signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                System.out.print(<span class="string">"Weak signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                System.out.print(<span class="string">"Fair signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                System.out.print(<span class="string">"Fairly good signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                System.out.print(<span class="string">"Good signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                System.out.print(<span class="string">"Moderately strong signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                System.out.print(<span class="string">"Strong signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">                System.out.print(<span class="string">"Extremely strong signals"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">", "</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (b)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.print(<span class="string">"unreadable"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                System.out.print(<span class="string">"barely readable, occasional words distinguishable"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                System.out.print(<span class="string">"readable with considerable difficulty"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                System.out.print(<span class="string">"readable with practically no difficulty"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                System.out.print(<span class="string">"perfectly readable"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">"."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这道题主要考察switch case多路分支语句的用法。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -998,7 +1593,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/Hexo4/">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/Hexo5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1012,7 +1607,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/Hexo4/" class="post-title-link" itemprop="url">Hexo博客搭建（四） 主题设置</a>
+            <a href="/Hexo5/" class="post-title-link" itemprop="url">Hexo博客搭建（五）SEO优化</a>
         </h1>
 
         <div class="post-meta">
@@ -1022,14 +1617,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-04-02 20:29:06" itemprop="dateCreated datePublished" datetime="2018-04-02T20:29:06+08:00">2018-04-02</time>
+              <time title="创建时间：2018-04-02 20:29:45" itemprop="dateCreated datePublished" datetime="2018-04-02T20:29:45+08:00">2018-04-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 16:19:30" itemprop="dateModified" datetime="2019-11-14T16:19:30+08:00">2019-11-14</time>
+                <time title="修改时间：2019-11-28 10:38:17" itemprop="dateModified" datetime="2019-11-28T10:38:17+08:00">2019-11-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1044,7 +1639,7 @@
             </span>
 
           
-            <span id="/Hexo4/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建（四） 主题设置" title="阅读次数">
+            <span id="/Hexo5/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建（五）SEO优化" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1059,139 +1654,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/Hexo4/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Hexo4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>673</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Hexo支持大家自定义主题样式，所以不甘寂寞的高手们为此做了大量的工作，创作出了大量优秀的主题供我们选择。本文主要写一下如何选择，设置主题。不涉及如何自定义一个主题。</p>
-<h2 id="从哪里找主题"><a href="#从哪里找主题" class="headerlink" title="从哪里找主题"></a>从哪里找主题</h2><ul>
-<li><a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官网主题页面</a></li>
-<li><a href="https://github.com/search?utf8=✓&amp;q=hexo+theme&amp;type=" target="_blank" rel="noopener">GitHub搜索 hexo theme</a></li>
-</ul>
-<p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a> 的作者曾说过，她的主题设计原则是</p>
-<blockquote>
-<p>崇尚简约<br>追求移动端体验<br>希望把加载速度做到极致（努力中）<br>让大家把注意力放到内容上。这是本主题设计初衷<br>主题不支持IE6，7，8。以后也不会</p>
-</blockquote>
-<p>深得我心，作为文艺又浪漫的技术人员，我们的博客不是QQ空间，不需要那么多花里胡哨的装扮，真正重要的是内容。</p>
-<p>所以在建议大家不要花太多的时间用在选主题上。<br>选主题时，注意下面一些问题:</p>
-<ul>
-<li>主题尽量选通用的，想要个性的话，下下来自己改，尽量避免太小众的主题，除非你有很强的技术能力。因为一些用的比较多的主题已经成为一个开源项目，有很多人维护，并且不断开发新功能。</li>
-<li>接口是否全面，在后续的设置中，有SEO优化，社交账号快捷入口，流量统计，评论功能等等一系列可以做的事情，一些好的主题会集成这些功能，接口很全面，直接在博客设置文件里面配置一下就好了。</li>
-<li>语言支持，至少支持中英文吧。大部分主题现在还支持emoji，真的十分优秀（相比之下，CSDN就不能显示emoji，不忍直视）</li>
-</ul>
-<h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><p>我们以用的最多的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NEXT主题</a>为例。</p>
-<p>写了半天，发现<a href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/README.md" target="_blank" rel="noopener">NEXT主题的官方中文文档</a>，珠玉在前，不再多言。其他主题的设置大同小异。</p>
-<p>向这些优秀主题的贡献者们敬礼👍👍。</p>
-<hr>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/Hexo3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo3/" class="post-title-link" itemprop="url">Hexo博客搭建（三）上线与个性化域名设置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-03-28 21:02:29" itemprop="dateCreated datePublished" datetime="2018-03-28T21:02:29+08:00">2018-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-15 12:52:34" itemprop="dateModified" datetime="2019-11-15T12:52:34+08:00">2019-11-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/Hexo3/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建（三）上线与个性化域名设置" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/Hexo3/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Hexo3/" itemprop="commentCount"></span>
+    <a title="valine" href="/Hexo5/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Hexo5/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1224,7 +1688,7 @@
 <p>一般建网站的都需要租服务器，买VPS，亚马逊，阿里云等等，还要花一笔小钱。</p>
 <p>好在我们有GitHub。</p>
 <p>GitHub提供里代码托管服务，作为全世界最大的程序员社区，自然不缺乏脑洞清奇的人，很多人在上面做各种各样的事情，这是后话。</p>
-<p>如果是首次使用GitHub，配置过程是比较复杂的，可先看一下<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰的git教程</a>。</p>
+<p>如果是首次使用GitHub，配置过程是比较复杂的，可先看一下 <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰的git教程</a>。</p>
 <p>假定我们已经配好了环境，那么就很容易了。</p>
 <p>在GitHub上面新建一个repo，注意项目名称为  “用户名.github.io”否则之后是无法访问的，一个账户只能建一个github pages。之后将之前的public文件夹里的内容都同步到这个项目的master分支，之后浏览器访问用户名.github.io就能看到hexo的博客界面了。</p>
 <p>比如我的repo 名字是<br><img src="http://upload-images.jianshu.io/upload_images/11400909-2489f8b1cadd7dc0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br>那我在浏览器地址栏输入 generalli95.github.io就可以访问我的网页了！</p>
@@ -1258,744 +1722,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/Hexo2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo2/" class="post-title-link" itemprop="url">Hexo博客搭建（二）从最简单的开始</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-03-27 11:16:36" itemprop="dateCreated datePublished" datetime="2018-03-27T11:16:36+08:00">2018-03-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 16:21:03" itemprop="dateModified" datetime="2019-11-14T16:21:03+08:00">2019-11-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/Hexo2/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建（二）从最简单的开始" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/Hexo2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Hexo2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装git-node-hexo"><a href="#安装git-node-hexo" class="headerlink" title="安装git, node, hexo"></a>安装git, node, hexo</h2><p>macOS和Linux中都自带git，使用macOS的强烈建议安装brew，之后使用brew命令安装各种东西都很方便。</p>
-<p>假定现在brew和git已经装好了。下面安装node，打开终端</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew install node</span><br></pre></td></tr></table></figure>
-<p>OK，node装好了，之后使用node自带的包管理器(node package management?)安装hexo。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<p>如果需要权限的话，在前面加上sudo即可。</p>
-<p>OK现在开始新建一个blog。<br>先新建一个文件夹，姑且就命名为blog吧，当然你也可以命名其他名字，终端cd到这个文件夹下面。<br>下面的命令都在blog文件夹里执行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo init</span><br><span class="line"><span class="meta">$</span> npm install</span><br><span class="line"><span class="meta">$</span> hexo server</span><br></pre></td></tr></table></figure>
-<p>解释一下这几个命令，hexo init 和git init一样，（init initialization缩写，初始化）使这个blog文件夹成为一个“黑箱”,只有在这里面”hexo“的相关指令才有效，npm install安装相关文件，hexo server，启动本地服务器（默认端口4000），现在打开浏览器，在地址栏输入，localhost:4000。OK一个博客雏形就好了。hexo server  命令可以简写为hexo s。</p>
-<p>最开始的界面大概就长这个样子：<br><img src="http://upload-images.jianshu.io/upload_images/11400909-abee9df147ccfa44.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p>好像还蛮容易的。<br>参考：<a href="https://shino.space/2016/使用Hexo在GitHub上搭建网站/" target="_blank" rel="noopener">shino的博客</a> ，<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a></p>
-<h2 id="博文写作"><a href="#博文写作" class="headerlink" title="博文写作"></a>博文写作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo new test</span><br></pre></td></tr></table></figure>
-<p>通过这个命令在，blog文件夹下面就有了一个test.md文件。.md表明这是一个Markdown格式的文档，注意如果文档名包含空格的话注意加双引号。</p>
-<p>如果要编辑这个文档，使用任何文本编辑器一颗，有一些专用的Markdown编辑器，比如Mou，Macdown，以及我目前用的MWeb（强烈推荐），一些IDE也可以加装Markdown插件，比如Pycharm，Webstorm。当然目前很多高手喜欢用Github出品的号称21世纪的文本编辑器Atom。</p>
-<p>总之不管使用什么编辑器，Markdown的语法都是一样的。<br>使用Markdown编辑好，保存。重新hexo s 即可刷新本地的网页。</p>
-<h2 id="使用MWeb与七牛云图床优化写作体验"><a href="#使用MWeb与七牛云图床优化写作体验" class="headerlink" title="使用MWeb与七牛云图床优化写作体验"></a>使用MWeb与七牛云图床优化写作体验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">该部分不是必须的，可以跳过。</span><br></pre></td></tr></table></figure>
-<p>MWeb作为Mac APP store里面非常优秀的Markdown编辑器。使用MWeb，具体方法，打开MWeb之后Command+E，进入外部模式，跟IDE打开project一样打开blog/soure即可，本地编辑，保存，命令行一键发布，简直不能再爽了。</p>
-<p><font color="red">图床是什么鬼，为什么要使用图床？</font><br>当我们在本地做一个Word或者PPT文档的时候，图片的插入非常方便，只要拖进去就行了。</p>
-<p>但是也存在一个问题，插入图片越多，文档就越大，打开时间也就越长，一台老机子开一个Word有时候需要30s以上，网页虽然道理不太一样，但是大体也是图片越多，打开越慢。</p>
-<p>HTML语言里面，图片都是作为标签引用。有过公众号运营的同学可能有体会，插入图片需要先上传到公众号相册，然后再在相册里面选一下。非常麻烦。那能否直接插入图片？</p>
-<p>答案必须是Yes。</p>
-<p>这时候图床就派上用场了，拖进去，上传，复制Markdown，这时候你的文档里面是一个<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="selector-attr">[]</span>(<span class="attribute">http</span>:<span class="comment">//p6atp7tts.bkt.clouddn.com/15222405680070.jpg)</span></span><br></pre></td></tr></table></figure></p>
-<p>这样的东西，相当于图片变成了一个源。</p>
-<p>Hexo博客其实本身不存在这个问题，因为拖进去的图片会被保存下来，一起上传到GitHub repo里面，相当于自动完成了这个过程。但是这样博客的迁移性就不太好，如果要随便迁移，比如要迁移到微信公众号或CSDN，这个方法就比较有用了。关于MWeb和七牛的配置具体可见下面两个资源。<br><a href="https://blog.csdn.net/crazy1235/article/details/78570367" target="_blank" rel="noopener">MWeb</a> ，<a href="https://www.cnblogs.com/colder219/p/6266296.html" target="_blank" rel="noopener">七牛云图床</a></p>
-<p>还有一篇文章，介绍的比较详细，可以看出MWeb+七牛到底有什么好处。<br><a href="https://www.jianshu.com/p/c859ead1b493" target="_blank" rel="noopener">一个码子工作者的正确书写发文姿势</a></p>
-<hr>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/Hexo1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo1/" class="post-title-link" itemprop="url">Hexo博客搭建（一）前期准备</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-03-24 10:53:24" itemprop="dateCreated datePublished" datetime="2018-03-24T10:53:24+08:00">2018-03-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 16:21:13" itemprop="dateModified" datetime="2019-11-14T16:21:13+08:00">2019-11-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/Hexo1/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建（一）前期准备" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/Hexo1/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Hexo1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一年半前，在网上闲逛时，无意点开了一个个人博客，酷炫。</p>
-<p>见贤思齐，看到别人搞的一个博客，感觉自己查查教程应该也可以搞出来。真不知道哪来的自信啊，那时候连GitHub都没用过🙈，搞不清楚GitHub和git是什么关系，很久以前，我一直以为GitHub是git的升级版……</p>
-<p>找到一个教程，迷迷糊糊注册一个GitHub账号，fork了别人的一个博客，改成自己的名字。</p>
-<p>然后……就没有然后了。</p>
-<p>第一次尝试，不了了之。</p>
-<hr>
-<p>后来玩过一段时间微信公众号，毕业设计的时候开始大量使用CSDN，注册了CSDN blog 也发了四五十篇水文，还有四五个粉丝，熟悉了Markdown的用法，有一种想见恨晚的感觉。</p>
-<p>当然，相见恨晚指的是Markdown，不是CSDN，CSDN的界面非常落后，还经常改版，博客上传图片非常麻烦，社区活跃度也基本上不复存在。编程初学阶段还比较友好，用了半年感觉就不够用了（这年头，程序员，GitHub，Stack Overflow，知乎，简书，什么都得用一点）。</p>
-<p>毕业设计，搞的是一个3维GIS的显示，用了Cesium库（JavaScript），又花了不少时间粗浅了解了一下前端的东西。但我必须承认，我的毕设是个垃圾。</p>
-<hr>
-<p>最近两周，进实验室开始做事情，用Python flask框架做了一个项目，后台代码基本上都是自己写的，前端代码由一个工程师帮了很大的忙，最后由导师亲自部署到阿里云去。</p>
-<p>以为要做几个月的项目，没想到两三个星期也做完了。信心大增。<br>感觉现在的水平应该可以完成这个小项目了吧。</p>
-<p>开干。</p>
-<hr>
-<p>总结一下，做这么一个小网站，大概需要预备下面的知识（技能）。</p>
-<ul>
-<li><p>Markdown<br>  Markdown是一种轻量级的标记语言咯，非常简单易懂，五分钟上手，写过三四篇基本可以不再查表。Hexo博客天生支持，可以说为Markdown而生，所以它虽然简单但是，最为重要。</p>
-</li>
-<li><p>一定的前端能力<br>毕竟是在做一个网页，所以需要一定的前端能力，HTML，JavaScript了解一些足以，除了一些自己定制Theme的高手，CSS基本上用不到。Node.js要安装，它提供了快速的网页渲染。但是不必精通。我在之前复现别人一个GitHub repo的时候，IDE说缺Node.js，然后就装了。Hexo整个应该是基于Node.js写的，所有的插件都可以通过npm非常方便的安装。所以前端能力Need。</p>
-</li>
-<li><p>熟练的Git技能<br>Git和GitHub技能。因为我们没有租服务器，代码网站的代码实际上是托管在GitHub上面（相当于GitHub给我们免费提供了服务器）。所以Git技能也是必须的。</p>
-</li>
-<li><p>习惯命令行操作<br>npm包的安装，hexo和Git的很多操作，通过命令行要方便太多太多。我用的MacOS的命令行，Linux与之相似，Windows应该也差不多。</p>
-</li>
-<li>其他知识<br>诸如计算机网络，等一些大学课堂上可能会教的东西，具备这些知识的话很多操作比较容易理解，不具备也不会有任何影响，这就是一个小工程问题。</li>
-</ul>
-<hr>
-<p>万事俱备，<br>开干！</p>
-<hr>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ml-bl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/ml-bl/" class="post-title-link" itemprop="url">北京理工大学慕课「Python与机器学习」笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-11-24 16:34:05" itemprop="dateCreated datePublished" datetime="2017-11-24T16:34:05+08:00">2017-11-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 16:52:29" itemprop="dateModified" datetime="2019-11-19T16:52:29+08:00">2019-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/ml-bl/" class="post-meta-item leancloud_visitors" data-flag-title="北京理工大学慕课「Python与机器学习」笔记" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ml-bl/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ml-bl/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1 绪论"></a>1 绪论</h2><p>机器学习分类</p>
-<blockquote>
-<ul>
-<li>监督学习</li>
-<li><p>无监督学习<br>训练集无人为标注结果</p>
-</li>
-<li><p>强化学习</p>
-</li>
-<li>半监督学习</li>
-<li>深度学习<br>当下最火的机器学习应用</li>
-</ul>
-</blockquote>
-<p>Python Scikit-Learn库</p>
-<p>scikit-learn常用算法的调用方法</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>应用</th>
-<th>算法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>分类(classfication)</td>
-<td>异常检测、图像识别等</td>
-<td>KNN，SVM，etc</td>
-</tr>
-<tr>
-<td>聚类(clustering)</td>
-<td>图像分割、群体划分等</td>
-<td>K-Means，谱聚类，etc</td>
-</tr>
-<tr>
-<td>回归(regression)</td>
-<td>价格预测，趋势预测，等</td>
-<td>线性回归，SVR，etc</td>
-</tr>
-<tr>
-<td>降维</td>
-<td>可视化</td>
-<td>PCA，NMF，etc</td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-sklearn-安装"><a href="#2-sklearn-安装" class="headerlink" title="2 sklearn 安装"></a>2 sklearn 安装</h2><p>scikit-learn简称，是在Numpy、Scipy和matplotlib基础上开发而成，因此使用sklearn库之前需要先安装前几个库</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Numpy（Numerical Python）是一个开源的Python科学计算库</span><br><span class="line"></span><br><span class="line"><span class="keyword">Scipy库是sklearn库的基础，它是基于Numpy的一个集成了多种数学算法和函数的Python模块</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">matplotlib是基于Numpy的一套Python工具包，提供了大量的数据绘图工具</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">安装顺序</span></span><br><span class="line"><span class="keyword">Numpy</span></span><br><span class="line"><span class="keyword">Scipy</span></span><br><span class="line"><span class="keyword">matplotlib</span></span><br><span class="line"><span class="keyword">sklearn</span></span><br></pre></td></tr></table></figure>
-<p>由于mac系统自带的Python是2.7，自带的包也是只支持2.x版本的，要使用Python3的话需要重新安装这几个包。</p>
-<p><strong>如果要为某一脚本选择Python2或者Python3解释器，只需要在脚本前面加入一行</strong></p>
-<p><code># ！Python2</code>或<br><code># ! Python3</code>即可<br>在命令行环境下输入下列代码(不需要先进入python 环境)</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip3 <span class="keyword">install </span>numpy <span class="comment">#安装支持Python3的的Numpy包</span></span><br><span class="line">pip3 <span class="keyword">install </span><span class="keyword">scipy </span><span class="comment">#安装支持Python3的scipy包</span></span><br><span class="line">pip3 <span class="keyword">install </span>matplotlib  <span class="comment">#安装支持Python3 的matplotlib包</span></span><br><span class="line">pip3 <span class="keyword">install </span>sklearn  <span class="comment">#安装sklearn包</span></span><br></pre></td></tr></table></figure>
-<p>数据下载 ：uzi数据集</p>
-<h2 id="3-sklearn库中的标准数据集及基本功能"><a href="#3-sklearn库中的标准数据集及基本功能" class="headerlink" title="3 sklearn库中的标准数据集及基本功能"></a>3 sklearn库中的标准数据集及基本功能</h2><p>数据集总览</p>
-<table>
-<thead>
-<tr>
-<th>数据集名称</th>
-<th>调用方式</th>
-<th>适用算法</th>
-<th>数据规模</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>小数据集|波士顿房价数据集|load_boston()|回归|506<em>13<br> |鸢尾花数据集|load_iris()|分类|150</em>4<br> |糖尿病数据集|load_diabetes()|回归|442<em>10<br> |手写数字数据集|load_digits()|分类|5620</em>64<br>大数据集|Olivetti脸部图像数据集|fetch_olivetti_faces()|降维|400 <em> 64 </em> 64<br> | 新闻分类数据集|fetch——20newsgroups（）|分类|-<br> |带标签的人脸数据集|fetch_lfw_people()|分类；降维|-<br>  |路透社新闻语料数据集|fetch_revl()|分类|804414*47236</p>
-<p><em>注：小数据集可以直接使用，大数据集要在调用程序时自动下载（一次即可）</em></p>
-<p>波士顿房价数据集：<br>包含506组数据，每条数据包含房屋以及房屋周围的详细信息。其中包括城镇犯罪率、一氧化碳浓度、住宅平均房间数、到中心去域的加权距离以及自主房平均房价等。因此，波士顿房价数据集能够应用到回归问题上。</p>
-<p>例如<br>使用<br><code>sklearn.datasets.load_bosten</code>即可加载相关数据集<br>重要参数<br><code>return_X_y</code>:表示是否返回target(即价格），默认为FALSE，只返回data(即属性）</p>
-<p>波士顿房价数据集-加载示例</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; from sklearn.datasets import load_boston</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; boston = load_boston()</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(boston.data.shape)</span></span><br><span class="line">(506,13)</span><br></pre></td></tr></table></figure>
-<p>示例二</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; from sklearn.datasets import load_boston</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; data,target = load_boston(return_X_y=True)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(data.shape)</span></span><br><span class="line">(506,13)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(target.shape)</span></span><br><span class="line">506</span><br></pre></td></tr></table></figure>
-<p>手写数字数据集<br>包括1797个0-9的手写数字数据，每个数字由8*8大小的矩阵构成，矩阵中值得范围是0-16，代表颜色的深度。</p>
-<p>示例</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; from sklearn.datasets import load_digits</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; digits = load_digits()</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(digits.data.shape)</span></span><br><span class="line">(1797,64)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(digits.target.shape)</span></span><br><span class="line">(1797,)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(digits.images.shape)</span></span><br><span class="line">(1797.8.8)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; import matplotlib.pyplot as plt</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; plt.matshow(digits.images[0])</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; plt.show()</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="sklearn库的基本功能"><a href="#sklearn库的基本功能" class="headerlink" title="sklearn库的基本功能"></a>sklearn库的基本功能</h3><p>sklearn库的功能分为6大部分，分别用于完成分类任务、回归任务、聚类任务、降维任务、模型选择以及数据的预处理。</p>
-<p>分类任务</p>
-<table>
-<thead>
-<tr>
-<th>分类模型</th>
-<th>加载模块</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>最近邻算法</td>
-<td>neighbors.NearestNeighbors</td>
-</tr>
-<tr>
-<td>支持向量机</td>
-<td>svm.SVC</td>
-</tr>
-<tr>
-<td>朴素贝叶斯</td>
-<td>naive_bays.GaussianNB</td>
-</tr>
-<tr>
-<td>决策树</td>
-<td>tree.DecisionTreeClassifier</td>
-</tr>
-<tr>
-<td>集成方法</td>
-<td>ensemble.BaggingClassifier</td>
-</tr>
-<tr>
-<td>神经网络</td>
-<td>neural_network.MLPClassifier</td>
-</tr>
-</tbody>
-</table>
-<p>回归任务</p>
-<table>
-<thead>
-<tr>
-<th>回归模型</th>
-<th>加载模块</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>岭回归</td>
-<td>linear_model.Ridge</td>
-</tr>
-<tr>
-<td>Lasso回归</td>
-<td>linear_model.Lasso</td>
-</tr>
-<tr>
-<td>弹性网络</td>
-<td>linear_model.ElasticNet</td>
-</tr>
-<tr>
-<td>最小叫回归</td>
-<td>linear_model.Lars</td>
-</tr>
-<tr>
-<td>贝叶斯回归</td>
-<td>linear_model.BayesianRidge</td>
-</tr>
-<tr>
-<td>逻辑回归</td>
-<td>linear_model.LogisticRegression</td>
-</tr>
-<tr>
-<td>多项式回归</td>
-<td>preprocessing.PolynomialFeatures</td>
-</tr>
-</tbody>
-</table>
-<p>聚类任务</p>
-<table>
-<thead>
-<tr>
-<th>聚类方法</th>
-<th>加载模块</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>K-means</td>
-<td>cluster.KMeans</td>
-</tr>
-<tr>
-<td>AP聚类</td>
-<td>cluster.AffinityPropagation</td>
-</tr>
-<tr>
-<td>均值漂移</td>
-<td>cluster.MeanShift</td>
-</tr>
-<tr>
-<td>层次聚类</td>
-<td>cluster.AgglomerativeClustering</td>
-</tr>
-<tr>
-<td>DBSCAN</td>
-<td>cluster.DBSCAN</td>
-</tr>
-<tr>
-<td>BIRCH</td>
-<td>cluster.Birch</td>
-</tr>
-<tr>
-<td>谱聚类</td>
-<td>cluster.SpectralClustering</td>
-</tr>
-</tbody>
-</table>
-<p>降维任务</p>
-<table>
-<thead>
-<tr>
-<th>降维方法</th>
-<th>加载模块</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>主成分分析</td>
-<td>decomposition.PCA</td>
-</tr>
-<tr>
-<td>截断SVD和LSA</td>
-<td>decomposition.TruncatedSVD</td>
-</tr>
-<tr>
-<td>字典学习</td>
-<td>decomposition.SparseCoder</td>
-</tr>
-<tr>
-<td>因子分析</td>
-<td>decomposition.FactorAnalysis</td>
-</tr>
-<tr>
-<td>独立成分分析</td>
-<td>decomposition.FastICA</td>
-</tr>
-<tr>
-<td>非负矩阵分解</td>
-<td>decompositon.NMF</td>
-</tr>
-<tr>
-<td>LDA</td>
-<td>decompositon.LatentDirichletAllocation</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-无监督学习"><a href="#4-无监督学习" class="headerlink" title="4 无监督学习"></a>4 无监督学习</h2><p>利用无标签的数据学习数据的分布或数据与数据之间的关系。</p>
-<p><em>有监督学习和无监督学习的最大区别在于数据是否有标签</em><br>无监督学习最常用的场景是聚类和降维。</p>
-<p><strong>聚类，就是根据数据的“相似性”将数据分为多类的过程。</strong><br>so，如何定义相似性？<br>根据两个样本之间的距离。</p>
-<blockquote>
-<p>欧式距离 几何距离</p>
-<p>曼哈顿距离  也称街区距离 个人理解就是直角三角形两直角边的和</p>
-<p>马氏距离  表示数据的协方差距离，是一种尺度无关的度量方式。也就是说马氏距离会先将样本点的各个属性标准化，再计算样本间的距离。 （<em>感觉马氏距离比较难理解</em>）</p>
-<p>余弦相似度 用向量空间中两个向量夹角的余弦值作为衡量两个样本差异的大小。余弦值越接近1，说明两个向量夹角越接近0度，说明两个向量越相似。</p>
-</blockquote>
-<p>以同样的数据集应用于不同的算法可能会得到不同的结果，这是由算法特性决定的。</p>
-<p>sklearn.cluster<br>数据标准输入格式：[样本个数，特征个数]定义的矩阵形式。<br>相似度矩阵输入格式</p>
-<p>sklearn.cluster几个有代表性的聚类方法的参数与特性</p>
-<table>
-<thead>
-<tr>
-<th>算法名称</th>
-<th>参数</th>
-<th>可扩展性</th>
-<th>相似性度量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>K-means</td>
-<td>聚类个数</td>
-<td>大规模数据</td>
-<td>点间距离</td>
-</tr>
-<tr>
-<td>DBSCAN</td>
-<td>邻域大小</td>
-<td>大规模数据</td>
-<td>点间距离</td>
-</tr>
-<tr>
-<td>Gaussian Mixtures</td>
-<td>聚类个数及其他超参</td>
-<td>复杂度高，不适合处理大规模数据</td>
-<td>马氏距离</td>
-</tr>
-<tr>
-<td>Birch</td>
-<td>分支因子，阈值等其他超参</td>
-<td>大规模数据</td>
-<td>两点间的欧式距离</td>
-</tr>
-</tbody>
-</table>
-<p><strong>降维，就是在保证数据所具有的代表性特性或者分布的情况下，将高维数据转化为低位数据的过程。</strong></p>
-<p>通常用于：</p>
-<blockquote>
-<p>数据可视化<br>精简数据，中间过程，提高机器学习算法效率</p>
-</blockquote>
-<p>降维过程也可以理解为对数据集的组成成分进行分解（decomposition）的过程，因此sklearn为降维模块命名为decomposition，在对降维算法调用需要使用sklearn.decomposition模块。</p>
-<p>sklearn.decomposition里的几个常用降维算法</p>
-<table>
-<thead>
-<tr>
-<th>算法名称</th>
-<th>参数</th>
-<th>可拓展性</th>
-<th>适用任务</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>PCA</td>
-<td>所降维度及其他超参</td>
-<td>大规模数据</td>
-<td>信号处理等</td>
-</tr>
-<tr>
-<td>FastICA</td>
-<td>所降维度及其他超参</td>
-<td>超大规模数据</td>
-<td>图形图像特征提取</td>
-</tr>
-<tr>
-<td>NMF</td>
-<td>所降维度及其他超参</td>
-<td>大规模数据</td>
-<td>图形图像特征提取</td>
-</tr>
-<tr>
-<td>LDA</td>
-<td>所降维度及其他超参</td>
-<td>大规模数据</td>
-<td>文本数据，主题挖掘</td>
-</tr>
-</tbody>
-</table>
-<h2 id="5-K-means-聚类算法"><a href="#5-K-means-聚类算法" class="headerlink" title="5 K-means 聚类算法"></a>5 K-means 聚类算法</h2><p>以k为参数，把n个对象分成k个簇，使簇内具有较高的相似度，而簇间的相似度较低</p>
-<blockquote>
-<p>1.随机选择k个点作为初始的聚类中心<br>2.对于剩下的点，根据其与聚类中心的距离，将其归入最近的簇<br>3.对每个簇，计算所有点的均值作为新的聚类中心<br>4.重复2、3直到聚类中心不再发生改变</p>
-</blockquote>
-<h2 id="6-DBSCAN-密度聚类算法"><a href="#6-DBSCAN-密度聚类算法" class="headerlink" title="6 DBSCAN 密度聚类算法"></a>6 DBSCAN 密度聚类算法</h2><p>基于密度进行聚类，一种基于密度进行聚类的算法。</p>
-<blockquote>
-<p>聚类的时候不需要预先指定簇的个数<br>最终的簇的个数不确定</p>
-</blockquote>
-<p>DBSCAN算法将数据点分为三类：<br>核心点：在半径Eps内含有超过MinPts数目的点。<br>边界点：在半径Eps内点的数量小于MinPts，但是落在核心点的邻域内。<br>噪音点：既不是核心点，也不是边界点。</p>
-<p>算法流程：</p>
-<blockquote>
-<p>1.将所有点标记为核心点、边界点或噪声点；<br>2.删除噪声点；<br>3.为距离在Eps之内的所有核心点之间赋予一条边；<br>4.每组连通的核心点形成一个簇；<br>5.将每个边界点指派到一个与之关联的核心点的簇中（即看它在哪一个核心点的半径范围之内，那么它就属于该核心点所在的簇）。</p>
-</blockquote>
-<h2 id="7-主成成分分析（PCA）降维算法"><a href="#7-主成成分分析（PCA）降维算法" class="headerlink" title="7 主成成分分析（PCA）降维算法"></a>7 主成成分分析（PCA）降维算法</h2><p>Principal Component Analysis，PCA是一种常用的降维方法，通常用于高维数据集的探索与可视化，还可以用作数据压缩和预处理等。</p>
-<p>回顾统计学名词：<br>方差：<br>协方差：用于度量两个变量之间的线性相关性程度<br>特征向量：描述数据集结构的非零向量</p>
-<p>PCA的原理：<br>矩阵的主成分就是其协方差矩阵对应的特征向量，按照对应的特征值大小进行排序，最大的特征值就是第一主成分，其次是第二主成分，以此类推。（推到过程参见《机器学习》南京大学周志华。）</p>
-<h2 id="8-非负矩阵分解（NMF）-降维方法"><a href="#8-非负矩阵分解（NMF）-降维方法" class="headerlink" title="8 非负矩阵分解（NMF） 降维方法"></a>8 非负矩阵分解（NMF） 降维方法</h2><p>非负矩阵分解（Non-negative Matrix Factorization)是在矩阵中的元素均为非负数约束条件之下的非负矩阵分解方法。</p>
-<p>基本思想：给定一个非负矩阵V，NMF能够找到一个非负矩阵W和一个非负矩阵H，是得矩阵W和H的乘积近似等于矩阵V中的值。</p>
-<blockquote>
-<p>W 矩阵：基础图像矩阵，相当于从原矩阵V中抽取出来的特征。<br>V 矩阵：系数矩阵</p>
-</blockquote>
-<p>NMF能够广泛应用于图像分析、文本挖掘、和图像处理领域。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2041,7 +1772,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2112,13 +1843,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">53k</span>
+    <span title="站点总字数">62k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:28</span>
+    <span title="站点阅读时长">1:44</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
