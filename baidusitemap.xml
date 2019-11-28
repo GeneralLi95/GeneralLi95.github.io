@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://liyaolife.comassets/Hexo5/</loc>
+    <lastmod>2019-11-28T02:32:41.831Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客搭建（五）SEO优化</title>
+        <pubTime>2018-04-02T12:29:45.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comlearningrate/</loc>
+    <lastmod>2019-11-26T09:00:41.912Z</lastmod>
+    <data>
+        <display>
+        <title>深度学习中的学习率变化和自适应学习率方法</title>
+        <pubTime>2019-11-20T02:30:29.000Z</pubTime>
+        
+        <tag>深度学习</tag>
+         
+        <tag>学习率</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度学习" url="http://www.liyaolife.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comhyjl_gz/</loc>
+    <lastmod>2019-11-26T01:23:14.001Z</lastmod>
+    <data>
+        <display>
+        <title>GIIC-新一代人工智能产业发展论坛</title>
+        <pubTime>2019-11-23T04:41:22.000Z</pubTime>
+        
+        <tag>参会记录</tag>
+         
+        <tag>人工智能</tag>
+         
+         
+           
+             
+              <breadCrumb title="参会记录" url="http://www.liyaolife.com/categories/%E5%8F%82%E4%BC%9A%E8%AE%B0%E5%BD%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comhyjl_gz2/</loc>
+    <lastmod>2019-11-26T01:23:06.839Z</lastmod>
+    <data>
+        <display>
+        <title>GIIC-新一代人工智能产业发展论坛(day2)</title>
+        <pubTime>2019-11-24T00:58:00.000Z</pubTime>
+        
+        <tag>参会记录</tag>
+         
+        <tag>人工智能</tag>
+         
+         
+           
+             
+              <breadCrumb title="参会记录" url="http://www.liyaolife.com/categories/%E5%8F%82%E4%BC%9A%E8%AE%B0%E5%BD%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comdeepland/</loc>
+    <lastmod>2019-11-24T03:07:24.305Z</lastmod>
+    <data>
+        <display>
+        <title>DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记</title>
+        <pubTime>2019-11-19T10:37:27.000Z</pubTime>
+        
+        <tag>深度学习</tag>
+         
+        <tag>图像分割</tag>
+         
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度学习" url="http://www.liyaolife.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comdataset/</loc>
+    <lastmod>2019-11-24T03:07:21.822Z</lastmod>
+    <data>
+        <display>
+        <title>深度学习常用数据集总结</title>
+        <pubTime>2019-11-20T03:07:06.000Z</pubTime>
+        
+        <tag>数据集</tag>
+         
+        <tag>深度学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度学习" url="http://www.liyaolife.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comjava3/</loc>
+    <lastmod>2019-11-19T09:11:15.884Z</lastmod>
+    <data>
+        <display>
+        <title>Java基础题目(温度转换、时间换算、信号报告）</title>
+        <pubTime>2018-05-19T05:42:44.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>基础编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.liyaolife.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comjava2/</loc>
+    <lastmod>2019-11-19T09:11:14.851Z</lastmod>
+    <data>
+        <display>
+        <title>Java HelloWorld项目创建</title>
+        <pubTime>2018-05-19T05:42:39.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>基础编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.liyaolife.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comjava1/</loc>
+    <lastmod>2019-11-19T09:11:13.542Z</lastmod>
+    <data>
+        <display>
+        <title>Mac Java环境配置</title>
+        <pubTime>2018-05-19T05:42:32.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>基础编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.liyaolife.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.com54-run/</loc>
+    <lastmod>2019-11-19T09:11:09.162Z</lastmod>
+    <data>
+        <display>
+        <title>年度最强制作背后两三事</title>
+        <pubTime>2018-05-07T14:37:12.000Z</pubTime>
+        
+        <tag>生活杂记</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活杂记" url="http://www.liyaolife.com/categories/%E7%94%9F%E6%B4%BB%E6%9D%82%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comybrj2/</loc>
+    <lastmod>2019-11-19T09:00:49.477Z</lastmod>
+    <data>
+        <display>
+        <title>阅兵日记（二）  阅兵训练跨春秋，驻璧山下显风流</title>
+        <pubTime>2019-11-15T12:00:58.000Z</pubTime>
+        
+        <tag>阅兵日记</tag>
+         
+         
+           
+             
+              <breadCrumb title="阅兵日记" url="http://www.liyaolife.com/categories/%E9%98%85%E5%85%B5%E6%97%A5%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.compy-print/</loc>
+    <lastmod>2019-11-19T09:00:18.251Z</lastmod>
+    <data>
+        <display>
+        <title>详解 Python 3 的 print()</title>
+        <pubTime>2019-11-15T02:02:06.000Z</pubTime>
+        
+        <tag>基础编程</tag>
+         
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.liyaolife.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.compyqt/</loc>
+    <lastmod>2019-11-19T08:59:07.758Z</lastmod>
+    <data>
+        <display>
+        <title>在Python下搭建QT+SIP+PyQt5环境</title>
+        <pubTime>2018-08-13T08:04:35.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.liyaolife.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comassets/tsfl2/</loc>
+    <lastmod>2019-11-19T08:58:45.378Z</lastmod>
+    <data>
+        <display>
+        <title>TensorBoard使用示例</title>
+        <pubTime>2018-07-25T03:28:01.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>TensorBoard</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comassets/tsfl1/</loc>
+    <lastmod>2019-11-19T08:58:38.403Z</lastmod>
+    <data>
+        <display>
+        <title>tensorflow安装CPU指令集（AVX2）警告解决方案</title>
+        <pubTime>2018-05-25T01:19:08.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comassets/tfod1/</loc>
+    <lastmod>2019-11-19T08:58:32.132Z</lastmod>
+    <data>
+        <display>
+        <title>物体检测TensorFlow Object Detection API （一）安装</title>
+        <pubTime>2018-08-10T06:55:35.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>计算机视觉</tag>
+         
+        <tag>目标检测</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comjava4/</loc>
+    <lastmod>2019-11-19T08:58:04.732Z</lastmod>
+    <data>
+        <display>
+        <title>MySQL与Java的连接</title>
+        <pubTime>2018-06-05T04:50:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>MySQL</tag>
+         
+        <tag>数据库</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.liyaolife.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comsqlite1/</loc>
+    <lastmod>2019-11-19T08:52:43.450Z</lastmod>
+    <data>
+        <display>
+        <title>SQLite基础</title>
+        <pubTime>2019-11-18T01:36:07.000Z</pubTime>
+        
+        <tag>数据库</tag>
+         
+        <tag>SQLite</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://www.liyaolife.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.commysql2/</loc>
+    <lastmod>2019-11-19T08:52:42.515Z</lastmod>
+    <data>
+        <display>
+        <title>MySQL 基础指令</title>
+        <pubTime>2019-11-18T00:55:18.000Z</pubTime>
+        
+        <tag>MySQL</tag>
+         
+        <tag>数据库</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://www.liyaolife.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comml-bl/</loc>
+    <lastmod>2019-11-19T08:52:29.901Z</lastmod>
+    <data>
+        <display>
+        <title>北京理工大学慕课「Python与机器学习」笔记</title>
+        <pubTime>2017-11-24T08:34:05.000Z</pubTime>
+        
+        <tag>机器学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comybrj1/</loc>
+    <lastmod>2019-11-15T12:00:24.003Z</lastmod>
+    <data>
+        <display>
+        <title>阅兵日记（一） 一支穿云箭，千军万马来相见</title>
+        <pubTime>2019-11-15T10:57:33.000Z</pubTime>
+        
+        <tag>阅兵日记</tag>
+         
+         
+           
+             
+              <breadCrumb title="阅兵日记" url="http://www.liyaolife.com/categories/%E9%98%85%E5%85%B5%E6%97%A5%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.compy-sys/</loc>
+    <lastmod>2019-11-15T09:59:05.566Z</lastmod>
+    <data>
+        <display>
+        <title>Python 通过sys.argv控制台输入参数</title>
+        <pubTime>2019-11-15T08:41:44.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.liyaolife.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comHexo3/</loc>
+    <lastmod>2019-11-15T04:52:34.083Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客搭建（三）上线与个性化域名设置</title>
+        <pubTime>2018-03-28T13:02:29.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.commysql1/</loc>
+    <lastmod>2019-11-14T16:00:19.846Z</lastmod>
+    <data>
+        <display>
+        <title>MySQL安装与初始化</title>
+        <pubTime>2018-06-05T04:51:38.000Z</pubTime>
+        
+        <tag>MySQL</tag>
+         
+        <tag>数据库</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://www.liyaolife.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comleaflet1/</loc>
+    <lastmod>2019-11-14T11:18:57.707Z</lastmod>
+    <data>
+        <display>
+        <title>使用Leaflet-imageoverlay加载本地图片实现拖拽和缩放</title>
+        <pubTime>2018-07-17T06:55:35.000Z</pubTime>
+        
+        <tag>leaflet</tag>
+         
+        <tag>前端</tag>
+         
+        <tag>GIS</tag>
+         
+         
+           
+             
+              <breadCrumb title="Leaflet" url="http://www.liyaolife.com/categories/Leaflet/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comHexo1/</loc>
+    <lastmod>2019-11-14T08:21:13.851Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客搭建（一）前期准备</title>
+        <pubTime>2018-03-24T02:53:24.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comHexo2/</loc>
+    <lastmod>2019-11-14T08:21:03.590Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客搭建（二）从最简单的开始</title>
+        <pubTime>2018-03-27T03:16:36.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comHexo4/</loc>
+    <lastmod>2019-11-14T08:19:30.364Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客搭建（四） 主题设置</title>
+        <pubTime>2018-04-02T12:29:06.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comassets/tfod2/</loc>
+    <lastmod>2019-11-14T08:01:02.421Z</lastmod>
+    <data>
+        <display>
+        <title>物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo</title>
+        <pubTime>2018-08-10T06:55:41.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>计算机视觉</tag>
+         
+        <tag>目标检测</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comdmtrans-pre/</loc>
+    <lastmod>2019-11-14T07:49:00.235Z</lastmod>
+    <data>
+        <display>
+        <title>《Data Mining》翻译前期准备</title>
+        <pubTime>2018-04-22T10:12:30.000Z</pubTime>
+        
+        <tag>《数据挖掘》翻译</tag>
+         
+         
+           
+             
+              <breadCrumb title="DataMining" url="http://www.liyaolife.com/categories/DataMining/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+</urlset>
