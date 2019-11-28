@@ -72,26 +72,6 @@
 
     
   <url>
-    <loc>http://liyaolife.comassets/Hexo5/</loc>
-    <lastmod>2019-11-28T02:32:41.831Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo博客搭建（五）SEO优化</title>
-        <pubTime>2018-04-02T12:29:45.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://liyaolife.comlearningrate/</loc>
     <lastmod>2019-11-26T09:00:41.912Z</lastmod>
     <data>
@@ -352,30 +332,6 @@
 
     
   <url>
-    <loc>http://liyaolife.comassets/tsfl2/</loc>
-    <lastmod>2019-11-19T08:58:45.378Z</lastmod>
-    <data>
-        <display>
-        <title>TensorBoard使用示例</title>
-        <pubTime>2018-07-25T03:28:01.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-        <tag>机器学习</tag>
-         
-        <tag>TensorBoard</tag>
-         
-         
-           
-             
-              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://liyaolife.comtsfl2/</loc>
     <lastmod>2019-11-19T08:58:45.378Z</lastmod>
     <data>
@@ -388,54 +344,6 @@
         <tag>机器学习</tag>
          
         <tag>TensorBoard</tag>
-         
-         
-           
-             
-              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comassets/tsfl1/</loc>
-    <lastmod>2019-11-19T08:58:38.403Z</lastmod>
-    <data>
-        <display>
-        <title>tensorflow安装CPU指令集（AVX2）警告解决方案</title>
-        <pubTime>2018-05-25T01:19:08.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-        <tag>机器学习</tag>
-         
-         
-           
-             
-              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comassets/tfod1/</loc>
-    <lastmod>2019-11-19T08:58:32.132Z</lastmod>
-    <data>
-        <display>
-        <title>物体检测TensorFlow Object Detection API （一）安装</title>
-        <pubTime>2018-08-10T06:55:35.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-        <tag>机器学习</tag>
-         
-        <tag>计算机视觉</tag>
-         
-        <tag>目标检测</tag>
          
          
            
@@ -721,32 +629,6 @@
            
              
               <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comassets/tfod2/</loc>
-    <lastmod>2019-11-14T08:01:02.421Z</lastmod>
-    <data>
-        <display>
-        <title>物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo</title>
-        <pubTime>2018-08-10T06:55:41.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-        <tag>机器学习</tag>
-         
-        <tag>计算机视觉</tag>
-         
-        <tag>目标检测</tag>
-         
-         
-           
-             
-              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
           
         </display>
     </data>
