@@ -11,4 +11,16 @@ mathjax:
 
 深度学习常用数据集总结
 
-[CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html)
+## 图像
+[CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html)
+
+
+
+[CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html)
+
+
+
+## 语音
+
+
+## 文本
