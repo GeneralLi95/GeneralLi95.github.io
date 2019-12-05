@@ -26,6 +26,30 @@
 
     
   <url>
+    <loc>http://liyaolife.comdeepland/</loc>
+    <lastmod>2019-11-29T13:50:14.945Z</lastmod>
+    <data>
+        <display>
+        <title>DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记</title>
+        <pubTime>2019-11-19T10:37:27.000Z</pubTime>
+        
+        <tag>深度学习</tag>
+         
+        <tag>图像分割</tag>
+         
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度学习" url="http://www.liyaolife.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comHexo5/</loc>
     <lastmod>2019-11-28T02:38:17.834Z</lastmod>
     <data>
@@ -153,30 +177,6 @@
            
              
               <breadCrumb title="参会记录" url="http://www.liyaolife.com/categories/%E5%8F%82%E4%BC%9A%E8%AE%B0%E5%BD%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comdeepland/</loc>
-    <lastmod>2019-11-24T03:07:24.305Z</lastmod>
-    <data>
-        <display>
-        <title>DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记</title>
-        <pubTime>2019-11-19T10:37:27.000Z</pubTime>
-        
-        <tag>深度学习</tag>
-         
-        <tag>图像分割</tag>
-         
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="深度学习" url="http://www.liyaolife.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
           
         </display>
     </data>

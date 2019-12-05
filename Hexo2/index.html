@@ -289,16 +289,16 @@
       
         <h2 id="安装git-node-hexo"><a href="#安装git-node-hexo" class="headerlink" title="安装git, node, hexo"></a>安装git, node, hexo</h2><p>macOS和Linux中都自带git，使用macOS的强烈建议安装brew，之后使用brew命令安装各种东西都很方便。</p>
 <p>假定现在brew和git已经装好了。下面安装node，打开终端</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew install node</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install node</span></span><br></pre></td></tr></table></figure>
 <p>OK，node装好了，之后使用node自带的包管理器(node package management?)安装hexo。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install hexo-cli -g</span></span><br></pre></td></tr></table></figure>
 <p>如果需要权限的话，在前面加上sudo即可。</p>
 <p>OK现在开始新建一个blog。<br>先新建一个文件夹，姑且就命名为blog吧，当然你也可以命名其他名字，终端cd到这个文件夹下面。<br>下面的命令都在blog文件夹里执行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo init</span><br><span class="line"><span class="meta">$</span> npm install</span><br><span class="line"><span class="meta">$</span> hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo server</span></span><br></pre></td></tr></table></figure>
 <p>解释一下这几个命令，hexo init 和git init一样，（init initialization缩写，初始化）使这个blog文件夹成为一个“黑箱”,只有在这里面”hexo“的相关指令才有效，npm install安装相关文件，hexo server，启动本地服务器（默认端口4000），现在打开浏览器，在地址栏输入，localhost:4000。OK一个博客雏形就好了。hexo server  命令可以简写为hexo s。</p>
 <p>最开始的界面大概就长这个样子：<br><img src="http://upload-images.jianshu.io/upload_images/11400909-abee9df147ccfa44.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <p>好像还蛮容易的。<br>参考：<a href="https://shino.space/2016/使用Hexo在GitHub上搭建网站/" target="_blank" rel="noopener">shino的博客</a> ，<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a></p>
-<h2 id="博文写作"><a href="#博文写作" class="headerlink" title="博文写作"></a>博文写作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo new test</span><br></pre></td></tr></table></figure>
+<h2 id="博文写作"><a href="#博文写作" class="headerlink" title="博文写作"></a>博文写作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo new <span class="built_in">test</span></span></span><br></pre></td></tr></table></figure>
 <p>通过这个命令在，blog文件夹下面就有了一个test.md文件。.md表明这是一个Markdown格式的文档，注意如果文档名包含空格的话注意加双引号。</p>
 <p>如果要编辑这个文档，使用任何文本编辑器一颗，有一些专用的Markdown编辑器，比如Mou，Macdown，以及我目前用的MWeb（强烈推荐），一些IDE也可以加装Markdown插件，比如Pycharm，Webstorm。当然目前很多高手喜欢用Github出品的号称21世纪的文本编辑器Atom。</p>
 <p>总之不管使用什么编辑器，Markdown的语法都是一样的。<br>使用Markdown编辑好，保存。重新hexo s 即可刷新本地的网页。</p>
