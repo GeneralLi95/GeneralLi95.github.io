@@ -34,7 +34,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp">
 {%- endif %}
 {%- if theme.google_site_verification %}
-  <meta name="google-site-verification" content="{{ theme.google_site_verification }}">
+  <meta name="google-site-verification" content="9qoov3_TfJJpNB8lTPmTyQIFty7THrrcKf5gynDis6c">
 {%- endif %}
 {%- if theme.bing_site_verification %}
   <meta name="msvalidate.01" content="{{ theme.bing_site_verification }}">
