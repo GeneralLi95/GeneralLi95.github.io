@@ -22,7 +22,11 @@ CIFAR-10的拓展，有100个类别。
 [UCM 数据集](http://weegee.vision.ucmerced.edu/datasets/landuse.html)
 UC Merced Land Use Dataset，2010年10月28号发布，包含21类土地利用分类数据。每类100张，共2100张。
 
+
+
 ## 语音
 
 
 ## 文本
+[WordNet](https://wordnet.princeton.edu/download)
+普林斯顿大学发布的英语词汇数据库，收录了超过十万个实词。在WordNet中意义相近的词组成同义词组，而同义词组之间则以上-下义，同义-反义，整体-部分以及蕴含等语义关系连接在一起，构成一个由同义词组作为节点，语义关系作为边的网状结构。
