@@ -22,8 +22,13 @@ CIFAR-10的拓展，有100个类别。
 [UCM 数据集](http://weegee.vision.ucmerced.edu/datasets/landuse.html)
 UC Merced Land Use Dataset，2010年10月28号发布，包含21类土地利用分类数据。每类100张，共2100张。
 
+[DOTA数据集](https://captain-whu.github.io/DOTA)
+DOTA: A Large-scale Dataset for Object DeTection in Aerial Images
+航空影像目标检测
 
-
+[iSAID](https://captain-whu.github.io/iSAID/evaluation.html)
+iSAID: A Large-scale Dataset for Instance Segmentation in Aerial Images
+航空影像实例分割
 ## 语音
 
 
