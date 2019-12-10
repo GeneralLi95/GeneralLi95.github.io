@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/12/10/Do7F938hGXu2QJt.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/10/dnZh3HFN7eVUbzq.png">
-<meta property="og:updated_time" content="2019-12-10T13:38:08.731Z">
+<meta property="og:updated_time" content="2019-12-10T13:45:18.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeNet 笔记">
 <meta name="twitter:description" content="LeNet论文提出，Yann LeCun 1998年Gradient-Based Learning Applied to Document Recognition.pdf 网络结构 PyTorch 网络结构代码 123456789101112131415161718192021import torch.nn as nnimport torch.nn.functional as Fclass Net">
@@ -222,7 +222,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-10 19:19:26 / 修改时间：21:38:08" itemprop="dateCreated datePublished" datetime="2019-12-10T19:19:26+08:00">2019-12-10</time>
+              <time title="创建时间：2019-12-10 19:19:26 / 修改时间：21:45:18" itemprop="dateCreated datePublished" datetime="2019-12-10T19:19:26+08:00">2019-12-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -303,7 +303,7 @@
 <p>激励函数是为了增加神经网络的非线性，如果不使用非线性激活函数，则分类器永远是线性的，即使是在更多维的空间内也是线性的，而线性模型的表达能力是不够的。所以必须引入非线性激励函数，常用的非线性激励函数有sigmoid、tanh、ReLU。目前在深度学习中用的最多的就是 ReLU。</p>
 <p>ReLU更容易学习优化，因为其分段线性的性质，导致其前传，后传，求导都是分段线性。而传统的 sigmoid 函数，由于两端饱和，在传播过程中容易丢弃信息。</p>
 <p>Rectified Linear Units<br><img src="https://i.loli.net/2019/12/10/dnZh3HFN7eVUbzq.png" alt></p>
-<p>###全连接层 fc<br>Fully Connected Layer，全连接层，简写为fc。在整个神经网络中起到「分类器」的作用。卷积层、池化层和激活函数层等操作是将原始数据映射到隐层特征空间，全连接层则起到将学到的「分布式特征表示」映射到样本标记空间的作用。</p>
+<h3 id="全连接层-fc"><a href="#全连接层-fc" class="headerlink" title="全连接层 fc"></a>全连接层 fc</h3><p>Fully Connected Layer，全连接层，简写为fc。在整个神经网络中起到「分类器」的作用。卷积层、池化层和激活函数层等操作是将原始数据映射到隐层特征空间，全连接层则起到将学到的「分布式特征表示」映射到样本标记空间的作用。</p>
 <p>由于目前全连接层参数冗余(仅全连接层参数就可占整个神经网络参数80%左右)，一些性能优异的网络模型如 ResNet 和 GoogLeNet 等均采用全局平均池化(global average pooling, GAP) 取代 FC 来融合学到的深度特征，最后仍用 softmax 等损失函数作为网络目标函数来指导学习过程。需要指出的是，用 GAP 替代 FC 的网络通常有较好的预测性能。</p>
 <p>即使 FC 越来越不被看好，有研究发现，FC 可在模型能力迁移过程中充当「防火墙」。如果目标域与源域图像差异较大，不含 FC 的网络微调后的结果差于含 FC 的网络。因此 FC 可以视为模型表示能力的「防火墙」，说明冗余的参数并非一无是处。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
@@ -376,7 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeNet"><span class="nav-text">LeNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络的几个层详解："><span class="nav-text">神经网络的几个层详解：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层-conv"><span class="nav-text">卷积层 conv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#池化层-pool"><span class="nav-text">池化层 pool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激活函数层-relu"><span class="nav-text">激活函数层 relu</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeNet"><span class="nav-text">LeNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络的几个层详解："><span class="nav-text">神经网络的几个层详解：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层-conv"><span class="nav-text">卷积层 conv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#池化层-pool"><span class="nav-text">池化层 pool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激活函数层-relu"><span class="nav-text">激活函数层 relu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层-fc"><span class="nav-text">全连接层 fc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
