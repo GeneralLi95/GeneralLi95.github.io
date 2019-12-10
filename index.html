@@ -193,6 +193,138 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/netmodels/lenet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/netmodels/lenet/" class="post-title-link" itemprop="url">LeNet 笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-10 19:19:26 / 修改时间：21:38:08" itemprop="dateCreated datePublished" datetime="2019-12-10T19:19:26+08:00">2019-12-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/netmodels/lenet/" class="post-meta-item leancloud_visitors" data-flag-title="LeNet 笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/netmodels/lenet/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/netmodels/lenet/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="LeNet"><a href="#LeNet" class="headerlink" title="LeNet"></a>LeNet</h2><p>论文提出，Yann LeCun 1998年<br><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf" target="_blank" rel="noopener">Gradient-Based Learning Applied to Document Recognition.pdf</a></p>
+<p>网络结构<br><img src="https://i.loli.net/2019/12/10/Do7F938hGXu2QJt.png" alt="LeNet"></p>
+<p>PyTorch 网络结构代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>)</span><br><span class="line">        self.pool = nn.MaxPool2d(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">6</span>, <span class="number">16</span>, <span class="number">5</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>, <span class="number">120</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">120</span>, <span class="number">84</span>)</span><br><span class="line">        self.fc3 = nn.Linear(<span class="number">84</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.pool(F.relu(self.conv1(x)))</span><br><span class="line">        x = self.pool(F.relu(self.conv2(x)))</span><br><span class="line">        x = x.view(<span class="number">-1</span>, <span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>)</span><br><span class="line">        x = F.relu(self.fc1(x))</span><br><span class="line">        x = F.relu(self.fc2(x))</span><br><span class="line">        x = self.fc3(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p><code>__init__</code> 定义操作，<code>forward</code> 里是网络流程，拆分看就是</p>
+<p>conv1 -&gt; relu -&gt; pool -&gt; conv2 -&gt;relu -&gt; pool -&gt; fc1 -&gt; relu -&gt; fc2 -&gt; relu -&gt; fc3</p>
+<p>最初用于手写体字母识别，后被证明适合于图像分类。</p>
+<p><strong>view的作用</strong></p>
+<p>view相当于对一个tensor的reshape，典型的例子是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">a = torch.tensor(<span class="number">1</span>, <span class="number">16</span>)</span><br><span class="line">a = a.view(<span class="number">4</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>-1</strong> 参数的作用，在不知道行有多少，但是知道列的情况下，可以用-1代替（但是注意要能整除），相当于告诉系统有多少列让系统自动帮你计算有多少行。</p>
+<blockquote>
+<p>If there is any situation that you don’t know how many rows you want but are sure of the number of columns, then you can specify this with a -1. (Note that you can extend this to tensors with more dimensions. Only one of the axis value can be -1). This is a way of telling the library: “give me a tensor that has these many columns and you compute the appropriate number of rows that is necessary to make this happen”.<br>This can be seen in the neural network code that you have given above. After the line x = self.pool(F.relu(self.conv2(x))) in the forward function, you will have a 16 depth feature map. You have to flatten this to give it to the fully connected layer. So you tell pytorch to reshape the tensor you obtained to have specific number of columns and tell it to decide the number of rows by itself.</p>
+</blockquote>
+<h2 id="神经网络的几个层详解："><a href="#神经网络的几个层详解：" class="headerlink" title="神经网络的几个层详解："></a>神经网络的几个层详解：</h2><h3 id="卷积层-conv"><a href="#卷积层-conv" class="headerlink" title="卷积层 conv"></a>卷积层 conv</h3><p>CNN的第一层一般是卷积层(conv)。一般采用 filter 也可称为 neuron 或者 kernel，我感觉叫 kernel好一点，卷积核。kernel 一般为 3<em>3 或者 5</em>5 大小的窗口，在整个图像进行滑动。这个窗口区域就是 CNN 的感受野(receptive field)， kernel 一般会对有一组数字对应（不是说kernel本身的矩阵)，也就是权重(weight)或者参数(parameters)。其中 kernel 的depth对应输入图像的depth。filter的结果对应 activetion map 或者feature map。</p>
+<h3 id="池化层-pool"><a href="#池化层-pool" class="headerlink" title="池化层 pool"></a>池化层 pool</h3><p>用 feature map 作为输入，用不含参数的 filter (小方框自由设计尺寸)，对其进行扫描，平移，跳格。filter 没有参数，但是要对方框内的数值做做大值(max pooling)或均值(average pooling)保留，抹去方框内其他值，实现压缩浓缩；把流行的值形成的matrix 也就是压缩后的 feature map 传给下一层 hidden layer。<br>下采样也是一种池化。</p>
+<p>池化的作用是减小计算量，减小内存消耗，提高感受野的大小，减少参数数量，增加平移不变性。</p>
+<h3 id="激活函数层-relu"><a href="#激活函数层-relu" class="headerlink" title="激活函数层 relu"></a>激活函数层 relu</h3><p>激活函数 activation function，也叫激励函数，一般用relu作为激励函数</p>
+<p>激励函数是为了增加神经网络的非线性，如果不使用非线性激活函数，则分类器永远是线性的，即使是在更多维的空间内也是线性的，而线性模型的表达能力是不够的。所以必须引入非线性激励函数，常用的非线性激励函数有sigmoid、tanh、ReLU。目前在深度学习中用的最多的就是 ReLU。</p>
+<p>ReLU更容易学习优化，因为其分段线性的性质，导致其前传，后传，求导都是分段线性。而传统的 sigmoid 函数，由于两端饱和，在传播过程中容易丢弃信息。</p>
+<p>Rectified Linear Units<br><img src="https://i.loli.net/2019/12/10/dnZh3HFN7eVUbzq.png" alt></p>
+<p>###全连接层 fc<br>Fully Connected Layer，全连接层，简写为fc。在整个神经网络中起到「分类器」的作用。卷积层、池化层和激活函数层等操作是将原始数据映射到隐层特征空间，全连接层则起到将学到的「分布式特征表示」映射到样本标记空间的作用。</p>
+<p>由于目前全连接层参数冗余(仅全连接层参数就可占整个神经网络参数80%左右)，一些性能优异的网络模型如 ResNet 和 GoogLeNet 等均采用全局平均池化(global average pooling, GAP) 取代 FC 来融合学到的深度特征，最后仍用 softmax 等损失函数作为网络目标函数来指导学习过程。需要指出的是，用 GAP 替代 FC 的网络通常有较好的预测性能。</p>
+<p>即使 FC 越来越不被看好，有研究发现，FC 可在模型能力迁移过程中充当「防火墙」。如果目标域与源域图像差异较大，不含 FC 的网络微调后的结果差于含 FC 的网络。因此 FC 可以视为模型表示能力的「防火墙」，说明冗余的参数并非一无是处。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://www.zhihu.com/question/41037974" target="_blank" rel="noopener">魏秀参：全连接层有什么用?</a></li>
+<li><a href="https://stackoverflow.com/questions/42479902/how-does-the-view-method-work-in-pytorch" target="_blank" rel="noopener">stackoverflow:How does the “view” method work in PyTorch?</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/hyjz_iccc2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -715,7 +847,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/hyjl_gz/" class="post-title-link" itemprop="url">GIIC-新一代人工智能产业发展论坛</a>
+            <a href="/hyjl_gz/" class="post-title-link" itemprop="url">GIIC-新一代人工智能产业发展论坛(day 1)</a>
         </h1>
 
         <div class="post-meta">
@@ -732,7 +864,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-26 09:23:14" itemprop="dateModified" datetime="2019-11-26T09:23:14+08:00">2019-11-26</time>
+                <time title="修改时间：2019-12-10 19:20:56" itemprop="dateModified" datetime="2019-12-10T19:20:56+08:00">2019-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -747,7 +879,7 @@
             </span>
 
           
-            <span id="/hyjl_gz/" class="post-meta-item leancloud_visitors" data-flag-title="GIIC-新一代人工智能产业发展论坛" title="阅读次数">
+            <span id="/hyjl_gz/" class="post-meta-item leancloud_visitors" data-flag-title="GIIC-新一代人工智能产业发展论坛(day 1)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1579,137 +1711,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ybrj2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/ybrj2/" class="post-title-link" itemprop="url">阅兵日记（二）  阅兵训练跨春秋，驻璧山下显风流</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-15 20:00:58" itemprop="dateCreated datePublished" datetime="2019-11-15T20:00:58+08:00">2019-11-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 17:00:49" itemprop="dateModified" datetime="2019-11-19T17:00:49+08:00">2019-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/阅兵日记/" itemprop="url" rel="index">
-                    <span itemprop="name">阅兵日记</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/ybrj2/" class="post-meta-item leancloud_visitors" data-flag-title="阅兵日记（二）  阅兵训练跨春秋，驻璧山下显风流" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ybrj2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ybrj2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://i.loli.net/2019/11/15/gvYIiGa4AJDdT2p.png" alt="航空博物馆"></p>
-<h2 id="2019-4-7-星期天-晴"><a href="#2019-4-7-星期天-晴" class="headerlink" title="2019.4.7 星期天 晴"></a>2019.4.7 星期天 晴</h2><p>一周没有看新闻了，所以一周没写日记。总结一下过去的一周。</p>
-<p>正步训练完全展开，目前一天的训练节奏变成了上午30分钟，下午20分钟军姿，剩下的时间就完全是正步训练。真的是太辛苦了。夜训时间也改成了每周一、二、四、五都训练。强度一天天加大，每天训练下来身上没有一块不疼的，好在这一周有清明假期，方队给我们放了两天假，周五、周六不用训练，周天训练。（正常我们的训练节奏是每周六天，清明放假这一周多休息一天）</p>
-<p>周五方队组织集体参观了中国航空博物馆，我们先祭奠了空军英烈，然后大家自由参观。走马观花了一下，飞机很多，但是感觉保存的不太好，就直接摆放在草地上经受风吹日晒，很多飞机和其他装备都已经锈迹斑斑。</p>
-<p>星期五晚上排名组织了加练。</p>
-<p>今天是星期天，一周的训练又开始了。新来的52名士官学员正式加入排面，我们排面也趁此机会调整了位置，我因为动作太差从10号的位置被调整到了27号，感觉自己快回家了……平常心，平常心。</p>
-<h2 id="2019-4-15-星期一-晴"><a href="#2019-4-15-星期一-晴" class="headerlink" title="2019.4.15 星期一  晴"></a>2019.4.15 星期一  晴</h2><p>训练节奏进展很快，几乎感觉不到时间的流逝，一周就已经过去了。从4.7号星期天到4.13号星期六，连续训练七天。开始练习一步两动、一步一动、快慢步，对于每步75cm的步幅也开始有要求。一个个科目快速推进，一波波疲惫感扑面而来。</p>
-<p>对我而言，目前最怕的就是站台阶上练踢腿，其次就是在台阶上站军姿。只用脚尖站在台阶上，不到半分钟脚就开始酸了，小腿就开始胀痛。第三是怕原地踢腿练习，这一直是弱项。</p>
-<p>好在现在踢腿练习没有刚开始那么多了，主要时间是一步一动和一步两动的练习，后天有一个高规格的考核，我也从27号重新调整回了10号，这次希望能保住这个位置，别在被调回去了。</p>
-<h2 id="2019-4-16-星期二-晴"><a href="#2019-4-16-星期二-晴" class="headerlink" title="2019.4.16 星期二 晴"></a>2019.4.16 星期二 晴</h2><p>天气在一天天变热，今天上午的训练一小会儿我们每个人的衬衣都湿透了。中间休息的时候，方队给我们准备了雪梨汤，我去喝了不少，上午收操的时候一口气喝光了大半壶水，走到食堂又喝了两碗汤。实在是太渴了。</p>
-<p>下午训练时，地面温度很高，皮鞋前面的脚尖感觉在被炙烤。明天徒步方指将挑四个排面进行单个军人受阅动作的考核，方队上下都非常紧张。训练和加练不断，周末好不容易缓一缓的身体这两天马上又变得非常疲惫，这个星期后面几天不知道怎么熬过去。</p>
-<p>今天有个好消息，有大领导来我们方队慰问，发了很多橘子和西瓜，目前宿舍的苹果橘子，安慕希，果粒橙，非常多。</p>
-<h2 id="2019-4-22-星期一-晴"><a href="#2019-4-22-星期一-晴" class="headerlink" title="2019.4.22 星期一 晴"></a>2019.4.22 星期一 晴</h2><p>上一周真是十分艰难的一周，为了迎接周三的考核，整周都在不断进行正步训练。周三考完之后全方队的成绩不理想，于是又是一波“报复”性的训练，训练强度突然被再次加强。中午午休起床时间从14：10提前到了13：40，晚上夜训的收操时间也从21；30推迟到了21：45.一向没什么伤病的我目前也是跟腱很疼，不能压脚尖，踢腿一压脚尖脚后跟上面就特别疼，然而脚尖压不平，教练班长不满意，一直批评我。</p>
-<p>昨天是星期天，没有加练。我在床上躺了一天，身体有所恢复，但是今天一训练就发现，休息还是不够，身体还是很疼。</p>
-<p>总教练表示目前我们迎来了第一个疲劳期，最近方队病号很多，不少发烧感冒的，一些同学得了乙流，被送去301医院隔离了，还有尿血的。好在我都没用这些症状。</p>
-<p>继续加油，挺进阅兵村。</p>
-<h2 id="2019-4-24-星期三-雨"><a href="#2019-4-24-星期三-雨" class="headerlink" title="2019.4.24 星期三 雨"></a>2019.4.24 星期三 雨</h2><p>第一次在训练场经历暴雨天气，上午训练到11点左右，风云突变，我以为我们方队会冒雨训练，但是可能目前感冒发烧的病号太多，方队领导协调了大巴车把我们拉了回去（训练场离宿舍3km）。</p>
-<p>最近训练状况不容乐观。从上往下，头需要收下颌，挺胸不够，胳膊肘容易变形，要没力气，踢腿时身体重心在后面，右腿膝盖压不死，脚尖压不平等等问题，感觉浑身没有一处动作是对的，各种动作要领在我的脑海里像一片迷雾笼罩。整个脑子几乎已成浆糊，动作有越做越差的趋势，今天早上去找班长请教动作，说着说着就哭了一下，我太难了。</p>
-<p>还是要稳住心态呐。不能慌，心态崩了就全完了。阅兵训练是一场马拉松，还有五个多月呢，坚持！</p>
-<h2 id="2019-4-28-星期天-晴"><a href="#2019-4-28-星期天-晴" class="headerlink" title="2019.4.28 星期天 晴"></a>2019.4.28 星期天 晴</h2><p>老爸利用一次在北京出差的机会来北京看我。今天和老爸在圆明园地铁站见面，刚好今天是清华校庆日，老爸作为教育工作者的当然想去凑这个热闹，在晓杰的带领下，进去转了一圈，然后和表哥三个人一起吃了顿饭。</p>
-<p>去年暑假在广州实习锻炼没回家，今年暑假，看来也是回不了家了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1760,7 +1761,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1773,7 +1774,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1831,13 +1832,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">55k</span>
+    <span title="站点总字数">58k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:32</span>
+    <span title="站点阅读时长">1:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

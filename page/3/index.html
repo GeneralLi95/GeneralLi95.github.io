@@ -193,6 +193,137 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/java4/" class="post-title-link" itemprop="url">MySQL与Java的连接</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-05 12:50:00" itemprop="dateCreated datePublished" datetime="2018-06-05T12:50:00+08:00">2018-06-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 16:58:04" itemprop="dateModified" datetime="2019-11-19T16:58:04+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/java4/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL与Java的连接" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/java4/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/java4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>通过实现<a href="http://www.runoob.com/java/java-mysql-connect.html" target="_blank" rel="noopener">菜鸟教程上的一个例程</a>来记录一下这个操作。</p>
+<p>Java与MySQL的连接主要依赖一个JDBC驱动来进行。</p>
+<h2 id="建立一个测试的新库"><a href="#建立一个测试的新库" class="headerlink" title="建立一个测试的新库"></a>建立一个测试的新库</h2><p>通过下面一行命令</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -<span class="selector-tag">p</span> create jdbctest</span><br></pre></td></tr></table></figure>
+<p>即建立了一个名为jdbctest的数据库。此时这个数据库中还没有tables。我们进入到数据库中并创建一个新的table</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; CREATE TABLE `websites` (</span><br><span class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `name` char(20) NOT NULL DEFAULT '' <span class="keyword">COMMENT</span> <span class="string">'站点名称'</span>,</span><br><span class="line">  <span class="string">`url`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`alexa`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'Alexa 排名'</span>,</span><br><span class="line">  <span class="string">`country`</span> <span class="built_in">char</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'国家'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">10</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
+<p>即创建了一个新table。然后给这个表中插入数据：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; INSERT INTO `websites` VALUES ('1', 'Google', 'https://www.google.cm/', '1', 'USA'), ('2', '淘宝', 'https://www.taobao.com/', '13', 'CN'), ('3', '菜鸟教程', 'http://www.runoob.com', '5892', ''), ('4', '微博', 'http://weibo.com/', '20', 'CN'), ('5', 'Facebook', 'https://www.facebook.com/', '3', 'USA');</span><br></pre></td></tr></table></figure>
+<p>一个测试的数据库就建好了。<br>如果需要导入数据库结构文件的话，通过这个方式：<br>导入方法：在已经use 这个数据库之后，通过下面命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> <span class="built_in">source</span> path-to-<span class="string">'filename.sql'</span></span></span><br></pre></td></tr></table></figure>
+<p>即可快速方便的导入数据建立索引。数据这时就已经导入了。</p>
+<h2 id="与Java进行连接"><a href="#与Java进行连接" class="headerlink" title="与Java进行连接"></a>与Java进行连接</h2><h3 id="JDBC配置"><a href="#JDBC配置" class="headerlink" title="JDBC配置"></a>JDBC配置</h3><p>连接数据库需要一个驱动包Java 连接 MySQL 需要驱动包，<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">最新版下载地址</a> ，解压后得到jar库文件，然后在对应的项目中导入该库文件。</p>
+<h2 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h2><p>通过命令</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global <span class="keyword">variables</span> like <span class="comment">'port'</span>;</span><br></pre></td></tr></table></figure>
+<p>即可查看端口，一般情况下默认端口号是3306。所以如果没有自己去修改端口号的话，这一步可以省略。</p>
+<h2 id="Demo代码"><a href="#Demo代码" class="headerlink" title="Demo代码"></a>Demo代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> jdbctestpack;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">jdbctest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//JDBC 驱动名及数据库URL</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String JDBC_DRIVER = <span class="string">"com.mysql.jdbc.Driver"</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String DB_URL = <span class="string">"jdbc:mysql://localhost:3306/jdbctest"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据库的用户名与密码，需要根据自己的设置</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String USER = <span class="string">"root"</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String PASS = <span class="string">"xxxxxx"</span>;</span><br><span class="line">    <span class="comment">//此处放自己的数据库密码</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        Statement stmt = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//注册JDBC驱动</span></span><br><span class="line">            Class.forName(JDBC_DRIVER);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//打开链接</span></span><br><span class="line">            System.out.println(<span class="string">"链接数据库..."</span>);</span><br><span class="line">            conn = DriverManager.getConnection(DB_URL,USER,PASS);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//执行查询</span></span><br><span class="line">            System.out.println(<span class="string">"实例化Statement对象..."</span>);</span><br><span class="line">            stmt = conn.createStatement();</span><br><span class="line">            String sql;</span><br><span class="line">            sql = <span class="string">"SELECT id, name, url FROM websites"</span>;</span><br><span class="line">            ResultSet rs = stmt.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//展开结果集数据库</span></span><br><span class="line">            <span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">                <span class="comment">//通过字段检索</span></span><br><span class="line">                <span class="keyword">int</span> id = rs.getInt(<span class="string">"id"</span>);</span><br><span class="line">                String name = rs.getString(<span class="string">"name"</span>);</span><br><span class="line">                String url = rs.getString(<span class="string">"url"</span>);</span><br><span class="line">                System.out.print(<span class="string">"ID: "</span> + id);</span><br><span class="line">                System.out.print(<span class="string">", 站点名称"</span> + name);</span><br><span class="line">                System.out.print(<span class="string">", 站点 URL: "</span> + url);</span><br><span class="line">                System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//完成后关闭</span></span><br><span class="line">            rs.close();</span><br><span class="line">            stmt.close();</span><br><span class="line">            conn.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (SQLException se)&#123;</span><br><span class="line">            <span class="comment">//处理JDBC错误</span></span><br><span class="line">            se.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="comment">//处理Class.forName错误</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//关闭资源</span></span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(stmt!=<span class="keyword">null</span>) stmt.close();</span><br><span class="line">                &#125;<span class="keyword">catch</span>(SQLException se2)&#123;</span><br><span class="line">                 <span class="comment">//什么都不做</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(conn!=<span class="keyword">null</span>) conn.close();</span><br><span class="line">                &#125;<span class="keyword">catch</span> (SQLException se)&#123;</span><br><span class="line">                    se.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"Goodbye!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行之后的输出结果如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/11400909-80fd63263e2f2843.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="success"></p>
+<p>即连接成功。</p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tsfl1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1561,143 +1692,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/Hexo2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo2/" class="post-title-link" itemprop="url">Hexo博客搭建（二）从最简单的开始</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-03-27 11:16:36" itemprop="dateCreated datePublished" datetime="2018-03-27T11:16:36+08:00">2018-03-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 16:21:03" itemprop="dateModified" datetime="2019-11-14T16:21:03+08:00">2019-11-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/Hexo2/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建（二）从最简单的开始" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/Hexo2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Hexo2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装git-node-hexo"><a href="#安装git-node-hexo" class="headerlink" title="安装git, node, hexo"></a>安装git, node, hexo</h2><p>macOS和Linux中都自带git，使用macOS的强烈建议安装brew，之后使用brew命令安装各种东西都很方便。</p>
-<p>假定现在brew和git已经装好了。下面安装node，打开终端</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install node</span></span><br></pre></td></tr></table></figure>
-<p>OK，node装好了，之后使用node自带的包管理器(node package management?)安装hexo。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install hexo-cli -g</span></span><br></pre></td></tr></table></figure>
-<p>如果需要权限的话，在前面加上sudo即可。</p>
-<p>OK现在开始新建一个blog。<br>先新建一个文件夹，姑且就命名为blog吧，当然你也可以命名其他名字，终端cd到这个文件夹下面。<br>下面的命令都在blog文件夹里执行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo server</span></span><br></pre></td></tr></table></figure>
-<p>解释一下这几个命令，hexo init 和git init一样，（init initialization缩写，初始化）使这个blog文件夹成为一个“黑箱”,只有在这里面”hexo“的相关指令才有效，npm install安装相关文件，hexo server，启动本地服务器（默认端口4000），现在打开浏览器，在地址栏输入，localhost:4000。OK一个博客雏形就好了。hexo server  命令可以简写为hexo s。</p>
-<p>最开始的界面大概就长这个样子：<br><img src="http://upload-images.jianshu.io/upload_images/11400909-abee9df147ccfa44.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p>好像还蛮容易的。<br>参考：<a href="https://shino.space/2016/使用Hexo在GitHub上搭建网站/" target="_blank" rel="noopener">shino的博客</a> ，<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a></p>
-<h2 id="博文写作"><a href="#博文写作" class="headerlink" title="博文写作"></a>博文写作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo new <span class="built_in">test</span></span></span><br></pre></td></tr></table></figure>
-<p>通过这个命令在，blog文件夹下面就有了一个test.md文件。.md表明这是一个Markdown格式的文档，注意如果文档名包含空格的话注意加双引号。</p>
-<p>如果要编辑这个文档，使用任何文本编辑器一颗，有一些专用的Markdown编辑器，比如Mou，Macdown，以及我目前用的MWeb（强烈推荐），一些IDE也可以加装Markdown插件，比如Pycharm，Webstorm。当然目前很多高手喜欢用Github出品的号称21世纪的文本编辑器Atom。</p>
-<p>总之不管使用什么编辑器，Markdown的语法都是一样的。<br>使用Markdown编辑好，保存。重新hexo s 即可刷新本地的网页。</p>
-<h2 id="使用MWeb与七牛云图床优化写作体验"><a href="#使用MWeb与七牛云图床优化写作体验" class="headerlink" title="使用MWeb与七牛云图床优化写作体验"></a>使用MWeb与七牛云图床优化写作体验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">该部分不是必须的，可以跳过。</span><br></pre></td></tr></table></figure>
-<p>MWeb作为Mac APP store里面非常优秀的Markdown编辑器。使用MWeb，具体方法，打开MWeb之后Command+E，进入外部模式，跟IDE打开project一样打开blog/soure即可，本地编辑，保存，命令行一键发布，简直不能再爽了。</p>
-<p><font color="red">图床是什么鬼，为什么要使用图床？</font><br>当我们在本地做一个Word或者PPT文档的时候，图片的插入非常方便，只要拖进去就行了。</p>
-<p>但是也存在一个问题，插入图片越多，文档就越大，打开时间也就越长，一台老机子开一个Word有时候需要30s以上，网页虽然道理不太一样，但是大体也是图片越多，打开越慢。</p>
-<p>HTML语言里面，图片都是作为标签引用。有过公众号运营的同学可能有体会，插入图片需要先上传到公众号相册，然后再在相册里面选一下。非常麻烦。那能否直接插入图片？</p>
-<p>答案必须是Yes。</p>
-<p>这时候图床就派上用场了，拖进去，上传，复制Markdown，这时候你的文档里面是一个<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="selector-attr">[]</span>(<span class="attribute">http</span>:<span class="comment">//p6atp7tts.bkt.clouddn.com/15222405680070.jpg)</span></span><br></pre></td></tr></table></figure></p>
-<p>这样的东西，相当于图片变成了一个源。</p>
-<p>Hexo博客其实本身不存在这个问题，因为拖进去的图片会被保存下来，一起上传到GitHub repo里面，相当于自动完成了这个过程。但是这样博客的迁移性就不太好，如果要随便迁移，比如要迁移到微信公众号或CSDN，这个方法就比较有用了。关于MWeb和七牛的配置具体可见下面两个资源。<br><a href="https://blog.csdn.net/crazy1235/article/details/78570367" target="_blank" rel="noopener">MWeb</a> ，<a href="https://www.cnblogs.com/colder219/p/6266296.html" target="_blank" rel="noopener">七牛云图床</a></p>
-<p>还有一篇文章，介绍的比较详细，可以看出MWeb+七牛到底有什么好处。<br><a href="https://www.jianshu.com/p/c859ead1b493" target="_blank" rel="noopener">一个码子工作者的正确书写发文姿势</a></p>
-<hr>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1748,7 +1742,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1761,7 +1755,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1819,13 +1813,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">55k</span>
+    <span title="站点总字数">58k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:32</span>
+    <span title="站点阅读时长">1:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

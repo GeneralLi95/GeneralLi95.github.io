@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://liyaolife.comnetmodels/lenet/</loc>
+    <lastmod>2019-12-10T13:38:08.731Z</lastmod>
+    <data>
+        <display>
+        <title>LeNet 笔记</title>
+        <pubTime>2019-12-10T11:19:26.000Z</pubTime>
+        
+        <tag>深度学习</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>神经网络</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comhyjl_gz/</loc>
+    <lastmod>2019-12-10T11:20:56.307Z</lastmod>
+    <data>
+        <display>
+        <title>GIIC-新一代人工智能产业发展论坛(day 1)</title>
+        <pubTime>2019-11-23T04:41:22.000Z</pubTime>
+        
+        <tag>参会记录</tag>
+         
+        <tag>人工智能</tag>
+         
+         
+           
+             
+              <breadCrumb title="参会记录" url="http://www.liyaolife.com/categories/%E5%8F%82%E4%BC%9A%E8%AE%B0%E5%BD%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comhyjz_iccc2/</loc>
     <lastmod>2019-12-10T07:24:37.170Z</lastmod>
     <data>
@@ -173,28 +219,6 @@
            
              
               <breadCrumb title="深度学习" url="http://www.liyaolife.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comhyjl_gz/</loc>
-    <lastmod>2019-11-26T01:23:14.001Z</lastmod>
-    <data>
-        <display>
-        <title>GIIC-新一代人工智能产业发展论坛</title>
-        <pubTime>2019-11-23T04:41:22.000Z</pubTime>
-        
-        <tag>参会记录</tag>
-         
-        <tag>人工智能</tag>
-         
-         
-           
-             
-              <breadCrumb title="参会记录" url="http://www.liyaolife.com/categories/%E5%8F%82%E4%BC%9A%E8%AE%B0%E5%BD%95/"/>
           
         </display>
     </data>
