@@ -18,7 +18,9 @@ Danny Hin-Kwok TSANG, IEEE Fellow, Hong Kong University of Science and Technolog
 
 核心问题：如何最有效的分配计算资源来保证最大化的社会效益。
 
+![01D870D5-61E1-411F-8ED3-A9A0E73FF778_1_105_c](https://i.loli.net/2019/12/10/1HRkvGMsXmSiWLa.jpg)
 Posted-pricing algorithm 不同时刻不同定价。
+![8AF5457C-D5C1-4564-8F55-D32C1C78B4EE_1_105_c](https://i.loli.net/2019/12/10/Kx5PSuFJior1Ozs.jpg)
 
 主要是一个定价策略。
 
@@ -32,12 +34,15 @@ Alex X.Liu, IEEE Fellow, Michigan State University, USA
 
 不是本专业，也听不太懂。但是他的演示非常有趣，有个同学跑来跑去，然后电脑上显示一个信号的变化，可以给出现在他是在走路或者跑步。
 
+![E6781B34-B032-4D5E-8FE3-1DEADCD9314D_1_105_c](https://i.loli.net/2019/12/10/FED2AfycLCTmJoS.jpg)
 而这个信号是 WiFi信号？！
 
 感觉非常黑科技。
 
 步态特征基础上的运动姿态识别
+![3B012C41-AB2F-4CF2-AC43-F41C9C3947FE_1_105_c](https://i.loli.net/2019/12/10/RJ1F7594e8Wif2b.jpg)
 
+有个外国小哥提了一个问题非常好，就说这种技术，能否识机器人？恐怕要打个问号，它利用的是人的身体的电信号或者某些东西，这些对于机器人来说显然就不行了。
 
 ## 6. AI-Enabled Experience-driven Networking: Vision, State-of-the-Art and Future Directions
 Jian Tang, IEEE Fellow, Syracuse University, USA 雪城大学
