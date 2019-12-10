@@ -84,7 +84,7 @@ ReLU更容易学习优化，因为其分段线性的性质，导致其前传，�
 
 Rectified Linear Units
 ![](https://i.loli.net/2019/12/10/dnZh3HFN7eVUbzq.png)
-###全连接层 fc
+### 全连接层 fc
 Fully Connected Layer，全连接层，简写为fc。在整个神经网络中起到「分类器」的作用。卷积层、池化层和激活函数层等操作是将原始数据映射到隐层特征空间，全连接层则起到将学到的「分布式特征表示」映射到样本标记空间的作用。
 
 由于目前全连接层参数冗余(仅全连接层参数就可占整个神经网络参数80%左右)，一些性能优异的网络模型如 ResNet 和 GoogLeNet 等均采用全局平均池化(global average pooling, GAP) 取代 FC 来融合学到的深度特征，最后仍用 softmax 等损失函数作为网络目标函数来指导学习过程。需要指出的是，用 GAP 替代 FC 的网络通常有较好的预测性能。
