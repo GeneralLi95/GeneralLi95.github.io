@@ -11,8 +11,10 @@ mathjax:
 ---
 ## VGG net
 
-论文提出 牛津大学 2014年
+论文提出 Oxford Visual Geometry Group 2014年
 ![VGG16](https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png)
+
+[原文链接](https://arxiv.org/pdf/1409.1556.pdf%20http://arxiv.org/abs/1409.1556.pdf)
 
 ## 参考
 
