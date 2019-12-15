@@ -32,10 +32,12 @@ VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 
 
 ### VGG缺点
 * VGG耗费更多计算资源，并且使用了更多的参数，导致更多的内存占用(140M)。其中绝大多数参数来自于第一个全连接层。
-* VGG参数空间很大，最终的model有500M+，而AlexNet只有200M，GoogLeNet更少，所以训练一个VGG需要更长的时间。 
+* VGG参数空间很大，最终的model有500M+，而AlexNet只有200M，GoogLeNet更少，所以训练一个VGG需要更长的时间。
 ## 参考
 
 [Quora: What is the VGG neural network](https://www.quora.com/What-is-the-VGG-neural-network)
 
 
-[Rethinking the Inception Architecture for Computer Vision](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Szegedy_Rethinking_the_Inception_CVPR_2016_paper.pdf)
+[Paper: Rethinking the Inception Architecture for Computer Vision](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Szegedy_Rethinking_the_Inception_CVPR_2016_paper.pdf)
+
+[知乎: 一文读懂VGG网络](https://zhuanlan.zhihu.com/p/41423739)
