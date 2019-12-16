@@ -193,6 +193,138 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/mysql2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/mysql2/" class="post-title-link" itemprop="url">MySQL 基础指令</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 08:55:18" itemprop="dateCreated datePublished" datetime="2019-11-18T08:55:18+08:00">2019-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 16:52:42" itemprop="dateModified" datetime="2019-11-19T16:52:42+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/mysql2/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL 基础指令" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/mysql2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/mysql2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>531</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="启动和关闭-MySQL-服务器"><a href="#启动和关闭-MySQL-服务器" class="headerlink" title="启动和关闭 MySQL 服务器"></a>启动和关闭 MySQL 服务器</h2><p>启动<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="selector-class">.server</span> start</span><br></pre></td></tr></table></figure></p>
+<p>关闭服务器（需要输入密码）</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -<span class="selector-tag">p</span> shutdown</span><br></pre></td></tr></table></figure>
+<p>查看服务器是否启动</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ps</span> -ef | <span class="keyword">grep</span> mysqld</span><br></pre></td></tr></table></figure>
+<h2 id="管理-MySQL-服务器"><a href="#管理-MySQL-服务器" class="headerlink" title="管理 MySQL 服务器"></a>管理 MySQL 服务器</h2><p>登录服务器（前提是已经启动）<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql -u root -p</span></span><br></pre></td></tr></table></figure></p>
+<p>登出服务器</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">quit</span></span><br></pre></td></tr></table></figure>
+<p>设置 root 密码 ：<br>终端输入</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root password <span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<p>就已经把密码设置成123456了</p>
+<h2 id="基础操作指令"><a href="#基础操作指令" class="headerlink" title="基础操作指令"></a>基础操作指令</h2><p>列出数据库列表:</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; <span class="keyword">SHOW </span>DATABASES<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>会显示当前的已有的数据库列表：</p>
+<p>默认的数据库Database有<br>information_schema<br>mysql<br>performance_schema<br>sys<br>这四个<br>然后从 databese列表里面挑一个</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; <span class="keyword">use</span> <span class="title">mysql</span>;</span><br></pre></td></tr></table></figure>
+<p>这时候切换到database mysql里面。然后可以用</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; <span class="keyword">SHOW </span>TABLES<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>看一下这个数据库里面有哪几个表</p>
+<p>然后可以看一下一个表中有那几个列（比如从表db中查看）</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; SHOW <span class="built_in">COLUMNS</span> FROM <span class="built_in">db</span>;</span><br></pre></td></tr></table></figure>
+<p>从这几行中我们可以搞清楚这几个概念的从属关系。 DATABASE -&gt; TABLES -&gt; COLUMNS</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ybrj2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1394,160 +1526,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/mysql1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/mysql1/" class="post-title-link" itemprop="url">MySQL安装与初始化</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-05 12:51:38" itemprop="dateCreated datePublished" datetime="2018-06-05T12:51:38+08:00">2018-06-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-15 00:00:19" itemprop="dateModified" datetime="2019-11-15T00:00:19+08:00">2019-11-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/mysql1/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL安装与初始化" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/mysql1/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/mysql1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>946</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用brew进行安装</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>mysql</span><br></pre></td></tr></table></figure>
-<p>安装好之后通常会没有linked<br>然后</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> R ‘usrname’ usr/<span class="keyword">local</span></span><br></pre></td></tr></table></figure>
-<p>通常会执行成功，但是macOS比较新的版本里面会没有拒绝这一操作。即Operation not permitted。这是由于Mac的rootless机制。</p>
-<p>解决方案：</p>
-<ol>
-<li><p>重启Mac，重启时按住command + R 进入恢复模式。（话说还是第一次知道Mac还有这个模式）</p>
-</li>
-<li><p>选择终端，在左上角，输入指令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再重启让机器正常启动，可以在终端查看rootless状态：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">csrutil status</span></span><br></pre></td></tr></table></figure>
-<p>正常情况下rootless已经关闭了</p>
-</li>
-<li><p>要想重新开启，参照步骤1，2</p>
-</li>
-</ol>
-<h2 id="设置root密码"><a href="#设置root密码" class="headerlink" title="设置root密码"></a>设置root密码</h2><p>终端输入</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root password <span class="number">123456</span></span><br></pre></td></tr></table></figure>
-<p>就已经把密码设置成123456了。<br>然后登陆</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql -u root -p</span></span><br></pre></td></tr></table></figure>
-<p>输入 123456.即可</p>
-<h2 id="启动和关闭MySQL服务器"><a href="#启动和关闭MySQL服务器" class="headerlink" title="启动和关闭MySQL服务器"></a>启动和关闭MySQL服务器</h2><p>通过命令来检查MySQL服务器是否启动：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ps</span> -ef | <span class="keyword">grep</span> mysqld</span><br></pre></td></tr></table></figure>
-<p> 如果MySQL启动的情况下，将输出MySQL的进程列表。</p>
-<p> 如果要关闭目前运行的MySQL服务器，可以执行下面命令来关闭服务器：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -<span class="selector-tag">p</span> shutdown</span><br></pre></td></tr></table></figure>
-<p>启动MySQL服务器</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="selector-class">.server</span> start</span><br></pre></td></tr></table></figure>
-<h2 id="管理MySQL的命令"><a href="#管理MySQL的命令" class="headerlink" title="管理MySQL的命令"></a>管理MySQL的命令</h2><p>列出数据库列表:</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; <span class="keyword">SHOW </span>DATABASES<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>会显示当前的已有的数据库列表：</p>
-<p>默认的数据库Database有<br>information_schema<br>mysql<br>performance_schema<br>sys<br>这四个<br>然后从 databese列表里面挑一个</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; <span class="keyword">use</span> <span class="title">mysql</span>;</span><br></pre></td></tr></table></figure>
-<p>这时候切换到database mysql里面。然后可以用</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; <span class="keyword">SHOW </span>TABLES<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>看一下这个数据库里面有哪几个表</p>
-<p>然后可以看一下一个表中有那几个列（比如从表db中查看）</p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; SHOW <span class="built_in">COLUMNS</span> FROM <span class="built_in">db</span>;</span><br></pre></td></tr></table></figure>
-<p>从这几行中我们可以搞清楚这几个概念的从属关系。 DATABASE -&gt; TABLES -&gt; COLUMNS</p>
-<hr>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1598,7 +1576,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1669,13 +1647,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">58k</span>
+    <span title="站点总字数">59k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:36</span>
+    <span title="站点阅读时长">1:38</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

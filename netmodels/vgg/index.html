@@ -51,18 +51,23 @@
   };
 </script>
 
-  <meta name="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yao Blog">
-<meta property="og:url" content="http://www.liyaolife.com/archives/2018/03/index.html">
+  <meta name="description" content="VGG net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
+<meta name="keywords" content="深度学习,机器学习,神经网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VGG 笔记">
+<meta property="og:url" content="http://www.liyaolife.com/netmodels/vgg/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="图书馆里的扫地僧 少林寺里的清洁工">
+<meta property="og:description" content="VGG net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png">
+<meta property="og:updated_time" content="2019-12-15T15:36:18.415Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yao Blog">
-<meta name="twitter:description" content="图书馆里的扫地僧 少林寺里的清洁工">
+<meta name="twitter:title" content="VGG 笔记">
+<meta name="twitter:description" content="VGG net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
+<meta name="twitter:image" content="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png">
 
-<link rel="canonical" href="http://www.liyaolife.com/archives/2018/03/">
+<link rel="canonical" href="http://www.liyaolife.com/netmodels/vgg/">
 
 
 <script id="page-configurations">
@@ -70,13 +75,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | Yao Blog</title>
+  <title>VGG 笔记 | Yao Blog</title>
   
 
 
@@ -188,94 +193,159 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/netmodels/vgg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VGG 笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-12 17:24:16" itemprop="dateCreated datePublished" datetime="2019-12-12T17:24:16+08:00">2019-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-15 23:36:18" itemprop="dateModified" datetime="2019-12-15T23:36:18+08:00">2019-12-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/netmodels/vgg/" class="post-meta-item leancloud_visitors" data-flag-title="VGG 笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 34 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/netmodels/vgg/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/netmodels/vgg/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>639</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2018</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-03-28T21:02:29+08:00"
-              content="2018-03-28">
-          03-28
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/Hexo3/" itemprop="url">
-            <span itemprop="name">Hexo博客搭建（三）上线与个性化域名设置</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-03-27T11:16:36+08:00"
-              content="2018-03-27">
-          03-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/Hexo2/" itemprop="url">
-            <span itemprop="name">Hexo博客搭建（二）从最简单的开始</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-03-24T10:53:24+08:00"
-              content="2018-03-24">
-          03-24
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/Hexo1/" itemprop="url">
-            <span itemprop="name">Hexo博客搭建（一）前期准备</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        <h2 id="VGG-net"><a href="#VGG-net" class="headerlink" title="VGG net"></a>VGG net</h2><p>论文提出 Oxford Visual Geometry Group 2014年</p>
+<p><a href="https://arxiv.org/pdf/1409.1556.pdf%20http://arxiv.org/abs/1409.1556.pdf" target="_blank" rel="noopener">Very Deep Convolutional Networks for Large-Scale Image Recognition</a><br><img src="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png" alt="VGG16"></p>
+<p>VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的输入图片的局部大小)，采用堆积的小卷积核是由于采用大的卷积核，因为多层非线性层可以增加网络深度来保证学习更复杂的模式，而且代价还更小(参数更少)。</p>
+<p>下面这张图解释了为什么使用2个3x3的卷积核可以代替5x5的卷积核。<br><img src="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png" alt></p>
+<h2 id="VGG优缺点"><a href="#VGG优缺点" class="headerlink" title="VGG优缺点"></a>VGG优缺点</h2><h3 id="VGG优点"><a href="#VGG优点" class="headerlink" title="VGG优点"></a>VGG优点</h3><ul>
+<li>VGGNet 的结构非常简洁，整个网络都使用了同样大小的卷积核尺寸(3x3)和最大池化尺寸(2x2)</li>
+<li>几个小滤波器(3x3)卷积层的组合比一个大滤波器(5x5)或(7x7)卷积层更好</li>
+<li>验证了通过不断增加网络结构可以提高性能</li>
+</ul>
+<h3 id="VGG缺点"><a href="#VGG缺点" class="headerlink" title="VGG缺点"></a>VGG缺点</h3><ul>
+<li>VGG耗费更多计算资源，并且使用了更多的参数，导致更多的内存占用(140M)。其中绝大多数参数来自于第一个全连接层。</li>
+<li>VGG参数空间很大，最终的model有500M+，而AlexNet只有200M，GoogLeNet更少，所以训练一个VGG需要更长的时间。<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2></li>
+</ul>
+<p><a href="https://www.quora.com/What-is-the-VGG-neural-network" target="_blank" rel="noopener">Quora: What is the VGG neural network</a></p>
+<p><a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Szegedy_Rethinking_the_Inception_CVPR_2016_paper.pdf" target="_blank" rel="noopener">Paper: Rethinking the Inception Architecture for Computer Vision</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/41423739" target="_blank" rel="noopener">知乎: 一文读懂VGG网络</a></p>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+              <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+              <a href="/tags/神经网络/" rel="tag"><i class="fa fa-tag"></i> 神经网络</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/netmodels/lenet/" rel="next" title="LeNet 笔记">
+                  <i class="fa fa-chevron-left"></i> LeNet 笔记
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -300,6 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG-net"><span class="nav-text">VGG net</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG优缺点"><span class="nav-text">VGG优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG优点"><span class="nav-text">VGG优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG缺点"><span class="nav-text">VGG缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

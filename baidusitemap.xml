@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://liyaolife.comnetmodels/vgg/</loc>
+    <lastmod>2019-12-15T15:36:18.415Z</lastmod>
+    <data>
+        <display>
+        <title>VGG 笔记</title>
+        <pubTime>2019-12-12T09:24:16.000Z</pubTime>
+        
+        <tag>深度学习</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>神经网络</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comnetmodels/lenet/</loc>
     <lastmod>2019-12-10T13:45:18.431Z</lastmod>
     <data>
