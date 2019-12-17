@@ -9,7 +9,7 @@ categories:
   - 机器学习
 mathjax:
 ---
-## VGG net
+## VGG Net
 
 论文提出 Oxford Visual Geometry Group 2014年
 

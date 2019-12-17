@@ -13,7 +13,7 @@ mathjax:
 
 ## 图像
 [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html)
-
+包含50K训练图片和10k测试图片。所有图片大小32x32，
 ![CIFAR10](https://i.loli.net/2019/12/02/2vNbTFxY5lPynoG.png)
 
 [CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html)
