@@ -5,6 +5,7 @@ tags:
   - 机器学习
   - 深度学习
   - 神经网络
+  - PyTorch
 categories:
   - 机器学习
 mathjax: True
