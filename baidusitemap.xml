@@ -4,18 +4,20 @@
 
     
   <url>
-    <loc>http://liyaolife.comnetmodels/vgg/</loc>
-    <lastmod>2019-12-15T15:36:18.415Z</lastmod>
+    <loc>http://liyaolife.comnetmodels/resnet/</loc>
+    <lastmod>2019-12-19T09:20:46.982Z</lastmod>
     <data>
         <display>
-        <title>VGG 笔记</title>
-        <pubTime>2019-12-12T09:24:16.000Z</pubTime>
+        <title>ResNet 笔记</title>
+        <pubTime>2019-12-17T00:57:34.000Z</pubTime>
         
         <tag>深度学习</tag>
          
         <tag>机器学习</tag>
          
         <tag>神经网络</tag>
+         
+        <tag>PyTorch</tag>
          
          
            
@@ -29,7 +31,7 @@
     
   <url>
     <loc>http://liyaolife.comnetmodels/lenet/</loc>
-    <lastmod>2019-12-10T13:45:18.431Z</lastmod>
+    <lastmod>2019-12-19T09:20:44.654Z</lastmod>
     <data>
         <display>
         <title>LeNet 笔记</title>
@@ -41,10 +43,80 @@
          
         <tag>神经网络</tag>
          
+        <tag>PyTorch</tag>
+         
          
            
              
               <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comnetmodels/vgg/</loc>
+    <lastmod>2019-12-19T09:20:43.446Z</lastmod>
+    <data>
+        <display>
+        <title>VGG 笔记</title>
+        <pubTime>2019-12-12T09:24:16.000Z</pubTime>
+        
+        <tag>深度学习</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>神经网络</tag>
+         
+        <tag>PyTorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.compytorch_notes/</loc>
+    <lastmod>2019-12-19T08:03:03.708Z</lastmod>
+    <data>
+        <display>
+        <title>PyTorch 笔记</title>
+        <pubTime>2019-12-19T07:03:17.000Z</pubTime>
+        
+        <tag>PyTorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comdataset/</loc>
+    <lastmod>2019-12-17T06:53:32.354Z</lastmod>
+    <data>
+        <display>
+        <title>深度学习常用数据集总结</title>
+        <pubTime>2019-11-20T03:07:06.000Z</pubTime>
+        
+        <tag>数据集</tag>
+         
+        <tag>深度学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度学习" url="http://www.liyaolife.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
           
         </display>
     </data>
@@ -87,28 +159,6 @@
            
              
               <breadCrumb title="参会记录" url="http://www.liyaolife.com/categories/%E5%8F%82%E4%BC%9A%E8%AE%B0%E5%BD%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comdataset/</loc>
-    <lastmod>2019-12-09T15:02:44.640Z</lastmod>
-    <data>
-        <display>
-        <title>深度学习常用数据集总结</title>
-        <pubTime>2019-11-20T03:07:06.000Z</pubTime>
-        
-        <tag>数据集</tag>
-         
-        <tag>深度学习</tag>
-         
-         
-           
-             
-              <breadCrumb title="深度学习" url="http://www.liyaolife.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
           
         </display>
     </data>

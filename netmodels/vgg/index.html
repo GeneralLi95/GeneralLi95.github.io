@@ -51,20 +51,20 @@
   };
 </script>
 
-  <meta name="description" content="VGG net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
-<meta name="keywords" content="深度学习,机器学习,神经网络">
+  <meta name="description" content="VGG Net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
+<meta name="keywords" content="深度学习,机器学习,神经网络,PyTorch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VGG 笔记">
 <meta property="og:url" content="http://www.liyaolife.com/netmodels/vgg/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="VGG net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
+<meta property="og:description" content="VGG Net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png">
-<meta property="og:updated_time" content="2019-12-15T15:36:18.415Z">
+<meta property="og:updated_time" content="2019-12-19T09:20:43.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VGG 笔记">
-<meta name="twitter:description" content="VGG net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
+<meta name="twitter:description" content="VGG Net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
 <meta name="twitter:image" content="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png">
 
 <link rel="canonical" href="http://www.liyaolife.com/netmodels/vgg/">
@@ -228,7 +228,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-15 23:36:18" itemprop="dateModified" datetime="2019-12-15T23:36:18+08:00">2019-12-15</time>
+                <time title="修改时间：2019-12-19 17:20:43" itemprop="dateModified" datetime="2019-12-19T17:20:43+08:00">2019-12-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,7 +288,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="VGG-net"><a href="#VGG-net" class="headerlink" title="VGG net"></a>VGG net</h2><p>论文提出 Oxford Visual Geometry Group 2014年</p>
+        <h2 id="VGG-Net"><a href="#VGG-Net" class="headerlink" title="VGG Net"></a>VGG Net</h2><p>论文提出 Oxford Visual Geometry Group 2014年</p>
 <p><a href="https://arxiv.org/pdf/1409.1556.pdf%20http://arxiv.org/abs/1409.1556.pdf" target="_blank" rel="noopener">Very Deep Convolutional Networks for Large-Scale Image Recognition</a><br><img src="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png" alt="VGG16"></p>
 <p>VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的输入图片的局部大小)，采用堆积的小卷积核是由于采用大的卷积核，因为多层非线性层可以增加网络深度来保证学习更复杂的模式，而且代价还更小(参数更少)。</p>
 <p>下面这张图解释了为什么使用2个3x3的卷积核可以代替5x5的卷积核。<br><img src="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png" alt></p>
@@ -317,6 +317,7 @@
               <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
               <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
               <a href="/tags/神经网络/" rel="tag"><i class="fa fa-tag"></i> 神经网络</a>
+              <a href="/tags/PyTorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
           </div>
 
         
@@ -331,6 +332,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/netmodels/resnet/" rel="prev" title="ResNet 笔记">
+                  ResNet 笔记 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -370,7 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG-net"><span class="nav-text">VGG net</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG优缺点"><span class="nav-text">VGG优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG优点"><span class="nav-text">VGG优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG缺点"><span class="nav-text">VGG缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG-Net"><span class="nav-text">VGG Net</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG优缺点"><span class="nav-text">VGG优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG优点"><span class="nav-text">VGG优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG缺点"><span class="nav-text">VGG缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,7 +390,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -399,7 +403,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -457,13 +461,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">59k</span>
+    <span title="站点总字数">60k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:38</span>
+    <span title="站点阅读时长">1:41</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
