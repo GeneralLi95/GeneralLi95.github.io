@@ -16,6 +16,10 @@ mathjax:
 网络结构
 ![LeNet](https://i.loli.net/2019/12/10/Do7F938hGXu2QJt.png)
 
+
+![LeNet5 结构总结](https://i.loli.net/2019/12/19/LWsHUaEjAYxyd4b.png)
+论文中采用的激活函数为 tanh，目前主流实现中的激活函数都是 ReLU
+
 PyTorch 网络结构代码
 
 ```python
@@ -97,3 +101,4 @@ Fully Connected Layer，全连接层，简写为fc。在整个神经网络中起
 
 1. [魏秀参：全连接层有什么用?](https://www.zhihu.com/question/41037974)
 2. [stackoverflow:How does the "view" method work in PyTorch?](https://stackoverflow.com/questions/42479902/how-does-the-view-method-work-in-pytorch)
+3. [LeNet-5 – A Classic CNN Architecture](https://engmrk.com/lenet-5-a-classic-cnn-architecture/)
