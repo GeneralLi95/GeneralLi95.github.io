@@ -53,7 +53,14 @@ Transforms 对图像进行变换，有各种方法
     *
 ### 翻转和旋转 Flip and Rotation
  * torchvision.transforms.RandomHorizontalFlip(p=0.5) 水平翻转图像，默认概率为0.5，决定这个图像是否被翻转
- * 裁剪为随机大小和纵横比
+ * torchvision.transforms.RandomResizedCrop(size, scale=(0.08, 1.0), ratio=(0.75, 1.3333333333333333), interpolation=2)裁剪为随机大小和纵横比
+
+### 标准化 Normalize
+* torchvision.transforms.Normalize(mean, std, inplace=False)
+对数据按通道进行标准化，即先减均值，再除以标准差。
+$$input[channel1] = \frac{input[channel1] - mean[channel1]}{std[channel1]}$$
+    * mean(sequence)，每个channel的均值
+    * std(sequence)，每个channel的标准差
 
 
 ## 参考
