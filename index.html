@@ -193,6 +193,133 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/virtualenv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/virtualenv/" class="post-title-link" itemprop="url">Python 虚拟环境</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-25 23:25:16" itemprop="dateCreated datePublished" datetime="2019-12-25T23:25:16+08:00">2019-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-26 10:01:58" itemprop="dateModified" datetime="2019-12-26T10:01:58+08:00">2019-12-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/virtualenv/" class="post-meta-item leancloud_visitors" data-flag-title="Python 虚拟环境" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/virtualenv/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/virtualenv/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>909</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>以前在自己的 mac 笔记本跑代码一直用的一套环境，什么都往里面装，基本上没用过虚拟环境。最近在服务器上跑代码，因为多人共用，自己需要更新软件包，又不能影响别人，所以新建虚拟环境是最好的选择。</p>
+<h2 id="管理虚拟环境"><a href="#管理虚拟环境" class="headerlink" title="管理虚拟环境"></a>管理虚拟环境</h2><h3 id="使用-virtualenv"><a href="#使用-virtualenv" class="headerlink" title="使用 virtualenv"></a>使用 virtualenv</h3><p>先安装 virtualenv<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install virtualenv</span></span><br></pre></td></tr></table></figure></p>
+<p>为某个项目建立虚拟环境<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> project_folder</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> virtualenv venv</span></span><br></pre></td></tr></table></figure></p>
+<p>启动虚拟环境<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> venv/bin/activate</span></span><br></pre></td></tr></table></figure></p>
+<p>关闭虚拟环境<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> deactivate</span></span><br></pre></td></tr></table></figure></p>
+<p>导出 requirements<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip freeze &gt; requirements.txt</span></span><br></pre></td></tr></table></figure></p>
+<p>根据 requirements 安装 packages<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install -r requirements.txt</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="使用-virtualenv-clone-来-copy-一个虚拟环境"><a href="#使用-virtualenv-clone-来-copy-一个虚拟环境" class="headerlink" title="使用 virtualenv-clone 来 copy 一个虚拟环境"></a>使用 virtualenv-clone 来 copy 一个虚拟环境</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pip install virtualenv-clone</span><br><span class="line">$ virtualenv-<span class="keyword">clone</span> <span class="title">venvA</span> venvB</span><br></pre></td></tr></table></figure>
+<p>这里 venvA 是源，venvB是目标</p>
+<p>在操作过程中，我发现，copy过去的虚拟环境，文件夹名字是不一样了，但是启动进去后命令行最前面的括弧里的小名字还是和原来的一样，需要手动改一下 bin/activate 里面的这一块描述，总之不麻烦。</p>
+<h2 id="使用-virtualenvwrapper"><a href="#使用-virtualenvwrapper" class="headerlink" title="使用 virtualenvwrapper"></a>使用 virtualenvwrapper</h2><p>virtualenvwrapper 功能等于 virtualenv + virtualenv-clone  从建立虚拟环境，到克隆都有一系列命令，这里列出一个克隆命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cpvirtualenv ENVNAME [TARGETENVNAME]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="使用-Anaconda-管理虚拟环境"><a href="#使用-Anaconda-管理虚拟环境" class="headerlink" title="使用 Anaconda 管理虚拟环境"></a>使用 Anaconda 管理虚拟环境</h2><p>前面的三个包都是在 pip 情况下的虚拟环境管理方法，使用conda的话是另外一套体系了。(conda 的并列级别是 pip</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://docs.python-guide.org/dev/virtualenvs/" target="_blank" rel="noopener">The Hitchhiker’s Guide to Python:Pipenv &amp; Virtual Environments</a></li>
+<li><a href="https://askubuntu.com/questions/737098/create-a-copy-of-virtualenv-locally-without-pip-install" target="_blank" rel="noopener">stackExchange:Create a copy of virtualenv locally without pip install</a></li>
+<li><a href="https://stackoverflow.com/questions/7438681/how-to-duplicate-virtualenv" target="_blank" rel="noopener">stackoverflow:How to duplicate virtualenv</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pytorch_notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,10 +343,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-12-19 15:03:17 / 修改时间：16:03:03" itemprop="dateCreated datePublished" datetime="2019-12-19T15:03:17+08:00">2019-12-19</time>
+              <time title="创建时间：2019-12-19 15:03:17" itemprop="dateCreated datePublished" datetime="2019-12-19T15:03:17+08:00">2019-12-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-26 10:04:39" itemprop="dateModified" datetime="2019-12-26T10:04:39+08:00">2019-12-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -259,14 +392,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -292,8 +425,30 @@
 <h2 id="全连接层参数解释"><a href="#全连接层参数解释" class="headerlink" title="全连接层参数解释"></a>全连接层参数解释</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Linear(in_features, out_features, <span class="attribute">bias</span>=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <p>对应公式：<br>$$y = x A^T + b$$</p>
 <p><strong>in_features</strong> - size of each input samples 输入的样本大小<br><strong>out_features</strong> - size of each output samples 输出的样本大小<br><strong>bias</strong> If set to False, the layer wiil not learn an additive bias. Default True如果设置为false, 图形不会学习偏差</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://stackoverflow.com/questions/56675943/what-is-the-meaning-of-parameters-involved-in-torch-nn-conv2d" target="_blank" rel="noopener">stackoverflow: what is the what is the meaning of parameters involved in torch.nn.conv2d
-</a></p>
+<h2 id="Transforms-in-pytorch-手册阅读"><a href="#Transforms-in-pytorch-手册阅读" class="headerlink" title="Transforms in pytorch 手册阅读"></a>Transforms in pytorch 手册阅读</h2><blockquote>
+<p>Data augmentation is the process of artificially enlarging your training dataset using carefully chosen transforms.<br>When used appropriately, data augmentation can make your trained models more robust and capable of achieving higher accuracy without requiring larger dataset.<br>For those who are familiar with it, data augmentation is very similar to regularization in that it can prevent over-fitting compared to another identical model learning on the same dataset for the same number of epochs.<br>Two very useful transforms of this type that are commonly used in computer vision are random flipping and random cropping.<br>In torchvision, random flipping can be achieved with a random horizontal flip and random vertical flip transforms while random cropping can be achieved using the random crop transform.</p>
+</blockquote>
+<p>Data augmentation 数据增强，人工一些精巧的变换来增强数据集。以前一直没把数据增强当回事，觉得是一些奇淫巧技，结果直到自己的 cifar 识别率一直达不到别人的同样水平，最后发现二者的差别就在于有没有用数据增强，加了一个随机水平翻转增强后最终准确率大大提高了有将近10个百分点(80% -&gt; 90%)，看来这一块必须得重视。当成一个通用技巧来看。</p>
+<p>Transforms 对图像进行变换，有各种方法</p>
+<h3 id="裁剪-Crop"><a href="#裁剪-Crop" class="headerlink" title="裁剪 Crop"></a>裁剪 Crop</h3><ul>
+<li><code>torchvision.transforms.RandomCrop(size, padding=None, pad_if_needed=False, fill=0, padding_mode=&#39;constant&#39;)</code><br>在随机位置裁剪原图像，<ul>
+<li>size 裁剪大小，两种结果，如果是 sequence，则为(h,w),高*宽，如果只有一个数字int，则裁剪为正方形。</li>
+<li>padding，填充，可以是 sequence 或者 int。默认不填充，当为int时，上下左右同时填充，当有两个数的sequence时，第一个数表示左右填充值是多少，第二个说表示上下填充值是多少，当有四个数时，则分别为左、上、右、下（顺时针方向）</li>
+</ul>
+</li>
+<li><code>torchvision.transforms.RandomResizedCrop(size, scale=(0.08, 1.0), ratio=(0.75, 1.3333333333333333), interpolation=2)</code><br>  *<h3 id="翻转和旋转-Flip-and-Rotation"><a href="#翻转和旋转-Flip-and-Rotation" class="headerlink" title="翻转和旋转 Flip and Rotation"></a>翻转和旋转 Flip and Rotation</h3><ul>
+<li>torchvision.transforms.RandomHorizontalFlip(p=0.5) 水平翻转图像，默认概率为0.5，决定这个图像是否被翻转</li>
+<li>裁剪为随机大小和纵横比</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://stackoverflow.com/questions/56675943/what-is-the-meaning-of-parameters-involved-in-torch-nn-conv2d" target="_blank" rel="noopener">stackoverflow: what is the what is the meaning of parameters involved in torch.nn.conv2d
+</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/53367135" target="_blank" rel="noopener">知乎:PyTorch 学习笔记（三）：transforms的二十二个方法</a></li>
+<li><a href="https://www.aiworkbox.com/lessons/augment-the-cifar10-dataset-using-the-randomhorizontalflip-and-randomcrop-transforms" target="_blank" rel="noopener">Augment the CIFAR10 Dataset Using the RandomHorizontalFlip and RandomCrop Transforms</a></li>
+<li><a href="https://pytorch.org/docs/stable/torchvision/transforms.html" target="_blank" rel="noopener">TorchVision 官方手册 Transforms 部分</a></li>
+</ol>
 
       
     </div>
@@ -1405,7 +1560,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-17 14:53:32" itemprop="dateModified" datetime="2019-12-17T14:53:32+08:00">2019-12-17</time>
+                <time title="修改时间：2019-12-21 23:30:19" itemprop="dateModified" datetime="2019-12-21T23:30:19+08:00">2019-12-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1446,7 +1601,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>425</span>
+              <span>462</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1469,166 +1624,10 @@
 <h2 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h2><p><a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener">CIFAR-10</a><br>包含50K训练图片和10k测试图片。所有图片大小32x32，<br><img src="https://i.loli.net/2019/12/02/2vNbTFxY5lPynoG.png" alt="CIFAR10"></p>
 <p><a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener">CIFAR-100</a><br>CIFAR-10的拓展，有100个类别。</p>
 <p><a href="http://weegee.vision.ucmerced.edu/datasets/landuse.html" target="_blank" rel="noopener">UCM 数据集</a><br>UC Merced Land Use Dataset，2010年10月28号发布，包含21类土地利用分类数据。每类100张，共2100张。</p>
+<p><a href="https://www.kaggle.com/alxmamaev/flowers-recognition/" target="_blank" rel="noopener">Kaggle Flowers Recognition</a><br>包含4242张花的数据集。</p>
 <p><a href="https://captain-whu.github.io/DOTA" target="_blank" rel="noopener">DOTA数据集</a><br>DOTA: A Large-scale Dataset for Object DeTection in Aerial Images<br>航空影像目标检测</p>
 <p><a href="https://captain-whu.github.io/iSAID/evaluation.html" target="_blank" rel="noopener">iSAID</a><br>iSAID: A Large-scale Dataset for Instance Segmentation in Aerial Images<br>航空影像实例分割</p>
 <h2 id="语音"><a href="#语音" class="headerlink" title="语音"></a>语音</h2><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><p><a href="https://wordnet.princeton.edu/download" target="_blank" rel="noopener">WordNet</a><br>普林斯顿大学发布的英语词汇数据库，收录了超过十万个实词。在WordNet中意义相近的词组成同义词组，而同义词组之间则以上-下义，同义-反义，整体-部分以及蕴含等语义关系连接在一起，构成一个由同义词组作为节点，语义关系作为边的网状结构。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/learningrate/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/learningrate/" class="post-title-link" itemprop="url">深度学习中的学习率变化和自适应学习率方法</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-20 10:30:29" itemprop="dateCreated datePublished" datetime="2019-11-20T10:30:29+08:00">2019-11-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-26 17:00:41" itemprop="dateModified" datetime="2019-11-26T17:00:41+08:00">2019-11-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/learningrate/" class="post-meta-item leancloud_visitors" data-flag-title="深度学习中的学习率变化和自适应学习率方法" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/learningrate/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/learningrate/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>声明：本文主要是以翻译Suki Lau的在Media博文 <a href="https://towardsdatascience.com/learning-rate-schedules-and-adaptive-learning-rate-methods-for-deep-learning-2c8f433990d1" target="_blank" rel="noopener">Learning Rate Schedules and Adaptive Learning Rate Methods for Deep Learning</a> 为基础，增加了个人的理解。</p>
-<hr>
-<p>学习率 learning rate 是深度中最重要的超参数之一，学习率大小决定了神经网络收敛的速度，学习率太大，可能导致收敛速度过快而震荡，学习率太小则可能导致收敛速度太慢。<br><img src="https://i.loli.net/2019/11/20/jpqVeSfFwrgkBO5.png" alt="学习率"></p>
-<p>所以在我们训练神经网络的时候，经常在刚开始采用较大的学习率，随着时间推进，学习率会逐渐减小。我们可以预设一个公式或自适应的学习率变化方法(learning rate schedules or adaptive learning rate methods)。本文在 CIFAR-10 数据集上训练一个神经网络，通过使用不同的学习率变化来比较他们之间的表现差别。</p>
-<h2 id="1-预设学习率变化"><a href="#1-预设学习率变化" class="headerlink" title="1 预设学习率变化"></a>1 预设学习率变化</h2><p>学习率时间表通过预设一个学习率变化的时间表来控制学习率的衰减。通常的方法包括<strong>时序衰减</strong>，<strong>按步衰减</strong>，<strong>指数衰减</strong>。为了证明，我们构建了一个训练在 CIFAR-10 数据集上的卷积神经网络，用随机梯度下降方法(SGD)来表现不同学习率时间表的性能。</p>
-<h3 id="1-1-固定学习率"><a href="#1-1-固定学习率" class="headerlink" title="1.1 固定学习率"></a>1.1 固定学习率</h3><p>固定学习率方法就是设置一个默认的学习率。在 Keras 的 SGD optimizer 中实现。动量和衰减率都设置为 0。 在这种情况下，选择一个合适的学习率是不容易的。这需要一定的经验和大量的实验。在这个例子中，学习率 <code>lr = 0.1</code> 展示了一个相对较好的结果。这可以作为这篇文章实验的一个基线。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keras.optimizers.SGD(<span class="attribute">lr</span>=0.1, <span class="attribute">momentum</span>=0.0, <span class="attribute">decay</span>=0.0, <span class="attribute">nesterov</span>=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/11/21/k2CWzNHb3vnlQoV.png" alt="固定学习率"></p>
-<h3 id="1-2-时序衰减学习率"><a href="#1-2-时序衰减学习率" class="headerlink" title="1.2 时序衰减学习率"></a>1.2 时序衰减学习率</h3><p>时序衰减学习率的数学公式是 $lr=lr_0/(1 + k_t)$ 这里 $lr$，和 $k$ 都是一个高参数，$t$ 是一个迭代次数。如果看 Keras 的源码，会发现 SGD optimizer 把衰减和学习率的更新通过在每个周期递减一个参数数值来更新。</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr *= (<span class="number">1</span>. / (<span class="number">1</span>. + <span class="keyword">self</span>.decay * <span class="keyword">self</span>.iterations))</span><br></pre></td></tr></table></figure>
-<p>动量是 SGD optimizer 里的另外一个参数，我们可以通过调整它来获得更快的收敛速度。不像经典的 SGD 方法，动动量法可帮助参数矢量以恒定的梯度下降沿任意方向建立速度，从而防止振荡。一般动量选择的值是0.5-0.9之间。</p>
-<p>SGD optimizer 还有一个参数叫做 nesterov，默认情况下它的值是 false. Nesterov 动量是动量方法的一种变形，对凸函数具有更强的理论收敛保证。在实际操作中，它的效果比标准动量方法稍好。</p>
-<p>在 Keras 里我们可以实现时序衰减学习率通过在SGD optimizer 中设置初始学习率，衰减率和动量。</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">learning_rate</span> = <span class="number">0.1</span></span><br><span class="line"><span class="attr">decay_rate</span> = learning_rate / epochs</span><br><span class="line"><span class="attr">momentum</span> = <span class="number">0.8</span></span><br><span class="line"><span class="attr">sgd</span> = SGD(lr=learning_rate, momentum=momentum, decay=decay_rate, nesterov=<span class="literal">False</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-3-按步衰减"><a href="#1-3-按步衰减" class="headerlink" title="1.3 按步衰减"></a>1.3 按步衰减</h3><p>按步衰减学习率通过一个参数，每几个epoch下降一次。公式为:</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lr</span> = lr0 * <span class="keyword">drop</span>^<span class="built_in">floor</span>(epoch / epochs_drop)</span><br></pre></td></tr></table></figure>
-<p>一个常用降低学习率的方法是每隔10个 epoch，学习率降低为原来的一半。在 Keras 中实现这个方法，我们可以定义一个逐步递减函数，使用 LearningRateScheduler 回调，将逐步衰减函数作为参数，并将更新的学习率返回到 SGD optimizer中。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">step_decay</span><span class="params">(epoch)</span>:</span></span><br><span class="line">   initial_lrate = <span class="number">0.1</span></span><br><span class="line">   drop = <span class="number">0.5</span></span><br><span class="line">   epochs_drop = <span class="number">10.0</span></span><br><span class="line">   lrate = initial_lrate * math.pow(drop,  </span><br><span class="line">           math.floor((<span class="number">1</span>+epoch)/epochs_drop))</span><br><span class="line">   <span class="keyword">return</span> lrate</span><br><span class="line">lrate = LearningRateScheduler(step_decay)</span><br></pre></td></tr></table></figure>
-<p>题外话，回调是要在训练过程的给定阶段应用的一组功能。 我们可以使用回调来获得训练期间模型的内部状态和统计信息。 在我们的示例中，我们通过扩展基类keras.callbacks.Callback来创建自定义回调，以记录训练过程中的丢失历史记录和学习率。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LossHistory</span>(<span class="title">keras</span>.<span class="title">callbacks</span>.<span class="title">Callback</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_train_begin</span><span class="params">(<span class="keyword">self</span>, logs=&#123;&#125;)</span></span><span class="symbol">:</span></span><br><span class="line">       <span class="keyword">self</span>.losses = []</span><br><span class="line">       <span class="keyword">self</span>.lr = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_epoch_end</span><span class="params">(<span class="keyword">self</span>, batch, logs=&#123;&#125;)</span></span><span class="symbol">:</span></span><br><span class="line">       <span class="keyword">self</span>.losses.append(logs.get(‘loss’))</span><br><span class="line">       <span class="keyword">self</span>.lr.append(step_decay(len(<span class="keyword">self</span>.losses)))</span><br></pre></td></tr></table></figure>
-<p>将所有内容放在一起，我们可以传递一个由LearningRateScheduler回调和我们的自定义回调组成的回调列表以适合模型。 然后，我们可以通过访问loss_history.lr和loss_history.losses可视化学习率进度表和损失历史记录。</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">loss_history</span> = LossHistory()</span><br><span class="line"><span class="attr">lrate</span> = LearningRateScheduler(step_decay)</span><br><span class="line"><span class="attr">callbacks_list</span> = [loss_history, lrate]</span><br><span class="line"><span class="attr">history</span> = model.fit(X_train, y_train,</span><br><span class="line">   <span class="attr">validation_data=(X_test,</span> y_test),</span><br><span class="line">   <span class="attr">epochs=epochs,</span></span><br><span class="line">   <span class="attr">batch_size=batch_size,</span></span><br><span class="line">   <span class="attr">callbacks=callbacks_list,</span></span><br><span class="line">   <span class="attr">verbose=2)</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/11/26/XRicvsu5gEfJwm6.png" alt="按步衰减模型精度"></p>
-<p><img src="https://i.loli.net/2019/11/26/lPLmMX1Jxfipy68.png" alt="按步衰减的学习率"></p>
-<h3 id="1-4-指数衰减"><a href="#1-4-指数衰减" class="headerlink" title="1.4 指数衰减"></a>1.4 指数衰减</h3><p>指数衰减也是常用的学习率下降模式。数学公式是 <code>lr = lr0 * e^(−kt)</code>，这里<code>lr</code>,<code>k</code>都是超参数，<code>t</code>是循环次数。同样，我们可以通过定义指数衰减函数并将其传递给<code>LearningRateScheduler</code>来实现。 实际上，可以使用此方法在Keras中实现任何自定义衰减时间表。 唯一的区别是定义了不同的自定义衰减函数。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exp_decay</span><span class="params">(epoch)</span></span><span class="symbol">:</span></span><br><span class="line">   initial_lrate = <span class="number">0</span>.<span class="number">1</span></span><br><span class="line">   k = <span class="number">0</span>.<span class="number">1</span></span><br><span class="line">   lrate = initial_lrate * exp(-k*t)</span><br><span class="line">   <span class="keyword">return</span> lrate</span><br><span class="line">lrate = LearningRateScheduler(exp_decay)</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/11/26/5v24fC6RodxQXlb.png" alt></p>
-<p><img src="https://i.loli.net/2019/11/26/vnHbEkyPfSlG1jL.png" alt></p>
-<p>现在让我们在示例中使用不同的学习率时间表来比较模型的准确性。</p>
-<p><img src="https://i.loli.net/2019/11/26/dzaVuJ9sirMDUgm.png" alt></p>
-<h2 id="2-自适应学习率方法"><a href="#2-自适应学习率方法" class="headerlink" title="2 自适应学习率方法"></a>2 自适应学习率方法</h2><p>使用学习速率计划的挑战在于，必须提前定义其超参数，并且它们在很大程度上取决于模型和问题的类型。另一个问题是，将相同的学习率应用于所有参数更新。如果数据稀疏，则可能需要在不同程度上更新参数。</p>
-<p>诸如Adagrad，Adadelta，RMSprop，Adam之类的自适应梯度下降算法提供了经典SGD的替代方法。这些按参数学习速率的方法提供了启发式方法，而无需为手动调整学习速率时间表的超参数而进行昂贵的工作。</p>
-<p>简而言之，Adagrad对较大的稀疏参数执行较大的更新，对较小的稀疏参数执行较小的更新。它在稀疏数据和训练大规模神经网络方面表现良好。但是，当训练深度神经网络时，其单调学习率通常证明过于激进，并且过早停止学习。 Adadelta是Adagrad的扩展，旨在降低其激进的，单调降低的学习率。 RMSprop以非常简单的方式调整Adagrad方法，以尝试降低其激进的，单调降低的学习率。亚当是对RMSProp优化器的更新，类似于具有动力的RMSprop。</p>
-<p>在Keras中，我们可以使用相应的优化器轻松实现这些自适应学习算法。通常建议将这些优化器的超参数保留为默认值（有时除外lr）。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">keras.optimizers.Adagrad(<span class="attribute">lr</span>=0.01, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br><span class="line">keras.optimizers.Adadelta(<span class="attribute">lr</span>=1.0, <span class="attribute">rho</span>=0.95, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br><span class="line">keras.optimizers.RMSprop(<span class="attribute">lr</span>=0.001, <span class="attribute">rho</span>=0.9, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br><span class="line">keras.optimizers.Adam(<span class="attribute">lr</span>=0.001, <span class="attribute">beta_1</span>=0.9, <span class="attribute">beta_2</span>=0.999, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br></pre></td></tr></table></figure>
-<p>现在让我们看看使用不同的自适应学习率方法的模型性能。 在我们的示例中，Adadelta提供了其他自适应学习率方法中最佳的模型精度。</p>
-<p><img src="https://i.loli.net/2019/11/26/PMzyi2NuXE5TrR9.png" alt></p>
-<p>最后，我们比较了我们讨论过的所有学习率计划和自适应学习率方法的性能。</p>
-<p><img src="https://i.loli.net/2019/11/26/itTkIjezbpqcdRD.png" alt></p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在我研究过的许多示例中，自适应学习率方法比学习率表显示出更好的性能，并且在超参数设置中需要更少的精力。 我们还可以使用Keras中的LearningRateScheduler创建针对我们数据问题的自定义学习率计划。</p>
-<p>为了进一步阅读，Yoshua Bengio的论文为调整深度学习的学习速率提供了非常好的实用建议，例如如何设置初始学习速率，最小批量大小，时期数以及使用早期停止和动量。</p>
-<p><a href="https://github.com/sukilau/Ziff-deep-learning/blob/master/3-CIFAR10-lrate/CIFAR10-lrate.ipynb" target="_blank" rel="noopener">源代码</a></p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://arxiv.org/pdf/1206.5533v2.pdf" target="_blank" rel="noopener">Practical Recommendations for Gradient-Based Training of Deep Architectures by Yoshua Bengio</a></li>
-<li><a href="http://cs231n.github.io/neural-networks-3/#sgd" target="_blank" rel="noopener">Convolutional Neural Networks for Visual Recognition</a></li>
-<li><a href="https://machinelearningmastery.com/using-learning-rate-schedules-deep-learning-models-python-keras/" target="_blank" rel="noopener">Using Learning Rate Schedules for Deep Learning Models in Python with Keras</a></li>
-</ul>
 
       
     </div>
@@ -1694,7 +1693,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1765,13 +1764,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">60k</span>
+    <span title="站点总字数">63k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:41</span>
+    <span title="站点阅读时长">1:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

@@ -193,6 +193,268 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/dmtrans-pre/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/dmtrans-pre/" class="post-title-link" itemprop="url">《Data Mining》翻译前期准备</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-22 18:12:30" itemprop="dateCreated datePublished" datetime="2018-04-22T18:12:30+08:00">2018-04-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-14 15:49:00" itemprop="dateModified" datetime="2019-11-14T15:49:00+08:00">2019-11-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DataMining/" itemprop="url" rel="index">
+                    <span itemprop="name">DataMining</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/dmtrans-pre/" class="post-meta-item leancloud_visitors" data-flag-title="《Data Mining》翻译前期准备" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/dmtrans-pre/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/dmtrans-pre/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="全书概览"><a href="#全书概览" class="headerlink" title="全书概览"></a>全书概览</h2><p>《Data Mining》一书由Charu C.Aggarwal所著，出版于2015年4月14日，目前没有引进中国，亚马逊原版教材售价约为350元（会员价，非会员1000+）。豆瓣无评分，亚马逊评分4星（5星满分），从CSDN社区一些讨论情况来看，普遍认为本书质量较高。故我们选取本书进行翻译，旨在帮助更多中国学习者阅读优秀教材。</p>
+<p>全书共有20章，743页，内容详细，逻辑严谨，其中包含大量图表与公式。</p>
+<h2 id="协作方案"><a href="#协作方案" class="headerlink" title="协作方案"></a>协作方案</h2><p>Markdown是当前比较流行的轻量级标记语言，适合快速简便的编辑出高质量的文本。</p>
+<p>本团队采用Markdown进行写作。目前有30左右加入团队。<br>初步分工</p>
+<ul>
+<li>20-23人进行专职翻译</li>
+<li>将全书分为3个部分，由3人担任小组长，负责督促本组的进度</li>
+<li>3人负责翻译过程中的技术支持</li>
+<li>3人负责最终成书的统稿校对</li>
+</ul>
+<p>按照自愿报名原则，鼓励能者多劳，即一人可以参加全部上述四个流程。</p>
+<h2 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h2><ol>
+<li>Markdown使用，考虑到本团队所有成员均为985院校硕（博）士，初步认为即使没有Markdown基础，也可以快速上手</li>
+<li>英语水平，提倡采用Google翻译，毕竟是人类智慧的精华，但是要求机翻之后必须有检查。</li>
+<li>公式编辑，Markdown支持LaTeX的公式书写，所以本书公式全部采用LaTeX语法进行书写，部分同学可能不太熟悉，由技术团队提供支持</li>
+<li>图、表插入，为了节省时间，本书不再对原书图表进行重绘，图表以及其编号保持与原书一致。但是Markdown中的图表与Word不一样，不是嵌在文件中的，而是一个路径指向一个图片文件，这种做法在生成PDF之后倒看不出来，但是直接分享.md源文件时就会出现问题（比如，写一个Python或者C程序中读取了一个文件，是通过一个路径指向这个文件，那么分享的时候需要把这个文件也带上）。目前在互联网博客中，主流的解决方案是采用图床（相当于一个云盘，把图片存里面）然后在Markdown文件中放该图片对应的url地址。这部分解决起来稍麻烦，在前期工作中可以先跳过，主要翻译文字和公式。</li>
+</ol>
+<h2 id="进度安排"><a href="#进度安排" class="headerlink" title="进度安排"></a>进度安排</h2><p>全书翻译计划时间为4周。2018.4.23-2018.5.20</p>
+<ul>
+<li>4.23-5.6，主要进行翻译核心工作，文字和公式部分的翻译。</li>
+<li>5.7-5.13，主要进行统稿工作。汇总各人的工作，帮助部分同学解决图片插入问题。形成初稿。</li>
+<li>5.14-5.20，主要进行校对工作。检查翻译质量，校对公式正误，最终成书。</li>
+</ul>
+<h2 id="具体分工"><a href="#具体分工" class="headerlink" title="具体分工"></a>具体分工</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">章节</th>
+<th style="text-align:center">负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">李尧</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">程琳</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">朱广阳</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">曹春，张巍烨</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">徐建秋</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">杨天威，刘丹阳</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">张万龙</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">司呈呈</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">王俊</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">刘立新，于雷</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">彭龙，吴旭桥</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">张伟，朱锦锟</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">李建鹏</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">逯旺旺，李泰立</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">贺亮，蒋孝卿</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">张宇</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">朱向典</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">杨山，刘仲康</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">赵纳森，王建秋</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">宋宇</td>
+</tr>
+</tbody>
+</table>
+<p>其余人员</p>
+<table>
+<thead>
+<tr>
+<th>小组长</th>
+<th>技术组</th>
+<th>校对组</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>李尧（1-6章）</td>
+<td>李尧</td>
+<td>刘蕾</td>
+</tr>
+<tr>
+<td>王俊（7-13章）</td>
+<td>程琳</td>
+<td>孙旭</td>
+</tr>
+<tr>
+<td>蒋孝卿（14-20章）</td>
+<td>陈南宇</td>
+<td>李楚茵</td>
+</tr>
+<tr>
+<td></td>
+<td>柯达</td>
+<td>李润浩</td>
+</tr>
+<tr>
+<td></td>
+<td>程煜</td>
+<td>杨刚</td>
+</tr>
+</tbody>
+</table>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p> 电子书网站：<a href="https://dm-trans.github.io/DM-trans/" target="_blank" rel="noopener">数据挖掘</a></p>
+<p> 2019.11.14 由于七牛云的图床挂掉了，这个网站目前很多图片已经无法显示，不失是一种遗憾。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/Hexo5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1369,7 +1631,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1440,13 +1702,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">60k</span>
+    <span title="站点总字数">63k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:41</span>
+    <span title="站点阅读时长">1:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
