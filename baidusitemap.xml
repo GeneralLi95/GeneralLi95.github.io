@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://liyaolife.compytorch_error/</loc>
+    <lastmod>2019-12-26T02:51:38.632Z</lastmod>
+    <data>
+        <display>
+        <title>Pytorch THCudaCheck FAIL 错误</title>
+        <pubTime>2019-12-26T02:42:17.000Z</pubTime>
+        
+        <tag>PyTorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.compytorch_notes/</loc>
-    <lastmod>2019-12-26T02:04:39.145Z</lastmod>
+    <lastmod>2019-12-26T02:42:58.095Z</lastmod>
     <data>
         <display>
         <title>PyTorch 笔记</title>
@@ -25,7 +45,7 @@
     
   <url>
     <loc>http://liyaolife.comvirtualenv/</loc>
-    <lastmod>2019-12-26T02:01:58.224Z</lastmod>
+    <lastmod>2019-12-26T02:12:41.719Z</lastmod>
     <data>
         <display>
         <title>Python 虚拟环境</title>

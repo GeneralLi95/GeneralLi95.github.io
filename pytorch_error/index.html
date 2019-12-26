@@ -51,25 +51,20 @@
   };
 </script>
 
-  <meta name="description" content="第二天的会议来的人大概只有40%，似乎有许多人跑去看熊猫了… 主持是 北京邮电大学的吴湛击教授 4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and ApplicationsDanny Hin-Kwok TSANG, IEEE Fellow, Hong Kong University o">
-<meta name="keywords" content="参会记录">
+  <meta name="description" content="在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误1THCudaCheck FAIL file=/pytorch/aten/src/THC/THCGeneral.cpp line=405 error=11 : invalid argument 经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和">
+<meta name="keywords" content="PyTorch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ICCC参会记录 (day 2)">
-<meta property="og:url" content="http://www.liyaolife.com/hyjz_iccc2/index.html">
+<meta property="og:title" content="Pytorch THCudaCheck FAIL 错误">
+<meta property="og:url" content="http://www.liyaolife.com/pytorch_error/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="第二天的会议来的人大概只有40%，似乎有许多人跑去看熊猫了… 主持是 北京邮电大学的吴湛击教授 4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and ApplicationsDanny Hin-Kwok TSANG, IEEE Fellow, Hong Kong University o">
+<meta property="og:description" content="在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误1THCudaCheck FAIL file=/pytorch/aten/src/THC/THCGeneral.cpp line=405 error=11 : invalid argument 经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/12/10/1HRkvGMsXmSiWLa.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/12/10/Kx5PSuFJior1Ozs.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/12/10/FED2AfycLCTmJoS.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/12/10/RJ1F7594e8Wif2b.jpg">
-<meta property="og:updated_time" content="2019-12-10T07:24:37.170Z">
+<meta property="og:updated_time" content="2019-12-26T02:51:38.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ICCC参会记录 (day 2)">
-<meta name="twitter:description" content="第二天的会议来的人大概只有40%，似乎有许多人跑去看熊猫了… 主持是 北京邮电大学的吴湛击教授 4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and ApplicationsDanny Hin-Kwok TSANG, IEEE Fellow, Hong Kong University o">
-<meta name="twitter:image" content="https://i.loli.net/2019/12/10/1HRkvGMsXmSiWLa.jpg">
+<meta name="twitter:title" content="Pytorch THCudaCheck FAIL 错误">
+<meta name="twitter:description" content="在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误1THCudaCheck FAIL file=/pytorch/aten/src/THC/THCGeneral.cpp line=405 error=11 : invalid argument 经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和">
 
-<link rel="canonical" href="http://www.liyaolife.com/hyjz_iccc2/">
+<link rel="canonical" href="http://www.liyaolife.com/pytorch_error/">
 
 
 <script id="page-configurations">
@@ -83,7 +78,7 @@
   };
 </script>
 
-  <title>ICCC参会记录 (day 2) | Yao Blog</title>
+  <title>Pytorch THCudaCheck FAIL 错误 | Yao Blog</title>
   
 
 
@@ -200,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/hyjz_iccc2/">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pytorch_error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -213,7 +208,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ICCC参会记录 (day 2)
+          Pytorch THCudaCheck FAIL 错误
         </h1>
 
         <div class="post-meta">
@@ -222,30 +217,24 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-12-08 09:32:40" itemprop="dateCreated datePublished" datetime="2019-12-08T09:32:40+08:00">2019-12-08</time>
+              <time title="创建时间：2019-12-26 10:42:17 / 修改时间：10:51:38" itemprop="dateCreated datePublished" datetime="2019-12-26T10:42:17+08:00">2019-12-26</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-10 15:24:37" itemprop="dateModified" datetime="2019-12-10T15:24:37+08:00">2019-12-10</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/参会记录/" itemprop="url" rel="index">
-                    <span itemprop="name">参会记录</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/hyjz_iccc2/" class="post-meta-item leancloud_visitors" data-flag-title="ICCC参会记录 (day 2)" title="阅读次数">
+            <span id="/pytorch_error/" class="post-meta-item leancloud_visitors" data-flag-title="Pytorch THCudaCheck FAIL 错误" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -260,8 +249,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/hyjz_iccc2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/hyjz_iccc2/" itemprop="commentCount"></span>
+    <a title="valine" href="/pytorch_error/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/pytorch_error/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -271,7 +260,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>822</span>
+              <span>331</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -290,24 +279,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>第二天的会议来的人大概只有40%，似乎有许多人跑去看熊猫了…</p>
-<p>主持是 北京邮电大学的吴湛击教授</p>
-<h2 id="4-Online-Resource-Allocation-with-Supply-Costs-Pricing-Competitve-Analysis-and-Applications"><a href="#4-Online-Resource-Allocation-with-Supply-Costs-Pricing-Competitve-Analysis-and-Applications" class="headerlink" title="4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and Applications"></a>4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and Applications</h2><p>Danny Hin-Kwok TSANG, IEEE Fellow, Hong Kong University of Science and Technology</p>
-<p>首先介绍了自己报告的 co-author，这个比较少见。</p>
-<p>核心问题：如何最有效的分配计算资源来保证最大化的社会效益。</p>
-<p><img src="https://i.loli.net/2019/12/10/1HRkvGMsXmSiWLa.jpg" alt="01D870D5-61E1-411F-8ED3-A9A0E73FF778_1_105_c"><br>Posted-pricing algorithm 不同时刻不同定价。<br><img src="https://i.loli.net/2019/12/10/Kx5PSuFJior1Ozs.jpg" alt="8AF5457C-D5C1-4564-8F55-D32C1C78B4EE_1_105_c"></p>
-<p>主要是一个定价策略。</p>
-<p>… 最后也是不可避免的提到了一些 political 方面的事情，说 HK is very safe.</p>
-<h2 id="5-Siginal-Processing-Approaches-to-Sensing-without-Sensors-没有传感器的感知信号处理"><a href="#5-Siginal-Processing-Approaches-to-Sensing-without-Sensors-没有传感器的感知信号处理" class="headerlink" title="5. Siginal Processing Approaches to Sensing without Sensors 没有传感器的感知信号处理"></a>5. Siginal Processing Approaches to Sensing without Sensors 没有传感器的感知信号处理</h2><p>Alex X.Liu, IEEE Fellow, Michigan State University, USA</p>
-<p>不是本专业，也听不太懂。但是他的演示非常有趣，有个同学跑来跑去，然后电脑上显示一个信号的变化，可以给出现在他是在走路或者跑步。</p>
-<p><img src="https://i.loli.net/2019/12/10/FED2AfycLCTmJoS.jpg" alt="E6781B34-B032-4D5E-8FE3-1DEADCD9314D_1_105_c"><br>而这个信号是 WiFi信号？！</p>
-<p>感觉非常黑科技。</p>
-<p>步态特征基础上的运动姿态识别<br><img src="https://i.loli.net/2019/12/10/RJ1F7594e8Wif2b.jpg" alt="3B012C41-AB2F-4CF2-AC43-F41C9C3947FE_1_105_c"></p>
-<p>有个外国小哥提了一个问题非常好，就说这种技术，能否识机器人？恐怕要打个问号，它利用的是人的身体的电信号或者某些东西，这些对于机器人来说显然就不行了。</p>
-<h2 id="6-AI-Enabled-Experience-driven-Networking-Vision-State-of-the-Art-and-Future-Directions"><a href="#6-AI-Enabled-Experience-driven-Networking-Vision-State-of-the-Art-and-Future-Directions" class="headerlink" title="6. AI-Enabled Experience-driven Networking: Vision, State-of-the-Art and Future Directions"></a>6. AI-Enabled Experience-driven Networking: Vision, State-of-the-Art and Future Directions</h2><p>Jian Tang, IEEE Fellow, Syracuse University, USA 雪城大学</p>
-<p>看到雪城大学，首先想到安东尼大一大队获得 NCAA 冠军…</p>
-<p>跟想象中的不太一样，语速非常快，听了一会就跟不上。</p>
-<p>但是他讲了非常久… 感觉快一个小时</p>
+        <p>在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">THCudaCheck FAIL <span class="attribute">file</span>=/pytorch/aten/src/THC/THCGeneral.cpp <span class="attribute">line</span>=405 <span class="attribute">error</span>=11 : invalid argument</span><br></pre></td></tr></table></figure></p>
+<p>经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和 CUDA 的版本与 torch 的版本共同相关，另外 cudnn.benchmark 默认是 Flase。所以隐藏的很深。</p>
+<p>关于 cudnn.benchmark 的作用可以参考这个 <a href="https://zhuanlan.zhihu.com/p/73711222" target="_blank" rel="noopener">知乎:torch.backends.cudnn.benchmark ?!</a>，关于这个bug的更多解释可以看这个 <a href="https://discuss.pytorch.org/t/a-error-when-using-gpu/32761" target="_blank" rel="noopener">A error when using GPU</a></p>
 
     </div>
 
@@ -318,24 +292,21 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/参会记录/" rel="tag"><i class="fa fa-tag"></i> 参会记录</a>
+              <a href="/tags/PyTorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/hyjz_iccc/" rel="next" title="ICCC 参会记录(day 1)">
-                  <i class="fa fa-chevron-left"></i> ICCC 参会记录(day 1)
+                <a href="/virtualenv/" rel="next" title="Python 虚拟环境">
+                  <i class="fa fa-chevron-left"></i> Python 虚拟环境
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/netmodels/lenet/" rel="prev" title="LeNet 笔记">
-                  LeNet 笔记 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -375,7 +346,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Online-Resource-Allocation-with-Supply-Costs-Pricing-Competitve-Analysis-and-Applications"><span class="nav-text">4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and Applications</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Siginal-Processing-Approaches-to-Sensing-without-Sensors-没有传感器的感知信号处理"><span class="nav-text">5. Siginal Processing Approaches to Sensing without Sensors 没有传感器的感知信号处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-AI-Enabled-Experience-driven-Networking-Vision-State-of-the-Art-and-Future-Directions"><span class="nav-text">6. AI-Enabled Experience-driven Networking: Vision, State-of-the-Art and Future Directions</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

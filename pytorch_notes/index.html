@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode=&apos;zeros&apos;)  in_channel(int) - Number of channels in the input image，输入图">
+  <meta name="description" content="1. 网络层参数理解卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode=&apos;zeros&apos;)  in_channel(int) - Number of channels in the input">
 <meta name="keywords" content="PyTorch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyTorch 笔记">
 <meta property="og:url" content="http://www.liyaolife.com/pytorch_notes/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode=&apos;zeros&apos;)  in_channel(int) - Number of channels in the input image，输入图">
+<meta property="og:description" content="1. 网络层参数理解卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode=&apos;zeros&apos;)  in_channel(int) - Number of channels in the input">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-26T02:04:39.145Z">
+<meta property="og:updated_time" content="2019-12-26T02:42:58.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyTorch 笔记">
-<meta name="twitter:description" content="卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode=&apos;zeros&apos;)  in_channel(int) - Number of channels in the input image，输入图">
+<meta name="twitter:description" content="1. 网络层参数理解卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode=&apos;zeros&apos;)  in_channel(int) - Number of channels in the input">
 
 <link rel="canonical" href="http://www.liyaolife.com/pytorch_notes/">
 
@@ -225,7 +225,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-26 10:04:39" itemprop="dateModified" datetime="2019-12-26T10:04:39+08:00">2019-12-26</time>
+                <time title="修改时间：2019-12-26 10:42:58" itemprop="dateModified" datetime="2019-12-26T10:42:58+08:00">2019-12-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="卷积层参数解释"><a href="#卷积层参数解释" class="headerlink" title="卷积层参数解释"></a>卷积层参数解释</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Conv2d(in_channels, out_channels, kernel_size, <span class="attribute">stride</span>=1, <span class="attribute">padding</span>=0, <span class="attribute">dilation</span>=1, <span class="attribute">groups</span>=1, <span class="attribute">bias</span>=<span class="literal">True</span>, <span class="attribute">padding_mode</span>=<span class="string">'zeros'</span>)</span><br></pre></td></tr></table></figure>
+        <h2 id="1-网络层参数理解"><a href="#1-网络层参数理解" class="headerlink" title="1. 网络层参数理解"></a>1. 网络层参数理解</h2><h3 id="卷积层参数解释"><a href="#卷积层参数解释" class="headerlink" title="卷积层参数解释"></a>卷积层参数解释</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Conv2d(in_channels, out_channels, kernel_size, <span class="attribute">stride</span>=1, <span class="attribute">padding</span>=0, <span class="attribute">dilation</span>=1, <span class="attribute">groups</span>=1, <span class="attribute">bias</span>=<span class="literal">True</span>, <span class="attribute">padding_mode</span>=<span class="string">'zeros'</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>in_channel</strong>(int) - Number of channels in the input image，输入图片通道，RGB图片3通道</li>
 <li><strong>out_channels</strong> (int) – Number of channels produced by the convolution, 卷积的输出通道，表示有多少个 filter 对输入进行滤波，同时输出N个结果</li>
@@ -296,10 +296,10 @@
 <li><strong>groups</strong> (int,optional) – Number of blocked connections from input channels to output channels. Default: 1 从输入通道到输出通道的阻塞连接数，默认1</li>
 <li><strong>bias</strong> (bool,optional) – If True, adds a learnable bias to the output. Default: True 向输出添加可学习的偏见，默认 True</li>
 </ul>
-<h2 id="全连接层参数解释"><a href="#全连接层参数解释" class="headerlink" title="全连接层参数解释"></a>全连接层参数解释</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Linear(in_features, out_features, <span class="attribute">bias</span>=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="全连接层参数解释"><a href="#全连接层参数解释" class="headerlink" title="全连接层参数解释"></a>全连接层参数解释</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Linear(in_features, out_features, <span class="attribute">bias</span>=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <p>对应公式：<br>$$y = x A^T + b$$</p>
 <p><strong>in_features</strong> - size of each input samples 输入的样本大小<br><strong>out_features</strong> - size of each output samples 输出的样本大小<br><strong>bias</strong> If set to False, the layer wiil not learn an additive bias. Default True如果设置为false, 图形不会学习偏差</p>
-<h2 id="Transforms-in-pytorch-手册阅读"><a href="#Transforms-in-pytorch-手册阅读" class="headerlink" title="Transforms in pytorch 手册阅读"></a>Transforms in pytorch 手册阅读</h2><blockquote>
+<h2 id="2-Transforms-in-pytorch-手册阅读"><a href="#2-Transforms-in-pytorch-手册阅读" class="headerlink" title="2. Transforms in pytorch 手册阅读"></a>2. Transforms in pytorch 手册阅读</h2><blockquote>
 <p>Data augmentation is the process of artificially enlarging your training dataset using carefully chosen transforms.<br>When used appropriately, data augmentation can make your trained models more robust and capable of achieving higher accuracy without requiring larger dataset.<br>For those who are familiar with it, data augmentation is very similar to regularization in that it can prevent over-fitting compared to another identical model learning on the same dataset for the same number of epochs.<br>Two very useful transforms of this type that are commonly used in computer vision are random flipping and random cropping.<br>In torchvision, random flipping can be achieved with a random horizontal flip and random vertical flip transforms while random cropping can be achieved using the random crop transform.</p>
 </blockquote>
 <p>Data augmentation 数据增强，人工一些精巧的变换来增强数据集。以前一直没把数据增强当回事，觉得是一些奇淫巧技，结果直到自己的 cifar 识别率一直达不到别人的同样水平，最后发现二者的差别就在于有没有用数据增强，加了一个随机水平翻转增强后最终准确率大大提高了有将近10个百分点(80% -&gt; 90%)，看来这一块必须得重视。当成一个通用技巧来看。</p>
@@ -390,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积层参数解释"><span class="nav-text">卷积层参数解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全连接层参数解释"><span class="nav-text">全连接层参数解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transforms-in-pytorch-手册阅读"><span class="nav-text">Transforms in pytorch 手册阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#裁剪-Crop"><span class="nav-text">裁剪 Crop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻转和旋转-Flip-and-Rotation"><span class="nav-text">翻转和旋转 Flip and Rotation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-网络层参数理解"><span class="nav-text">1. 网络层参数理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层参数解释"><span class="nav-text">卷积层参数解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层参数解释"><span class="nav-text">全连接层参数解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Transforms-in-pytorch-手册阅读"><span class="nav-text">2. Transforms in pytorch 手册阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#裁剪-Crop"><span class="nav-text">裁剪 Crop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻转和旋转-Flip-and-Rotation"><span class="nav-text">翻转和旋转 Flip and Rotation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -406,7 +406,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
