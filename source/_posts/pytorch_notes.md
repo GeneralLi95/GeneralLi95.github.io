@@ -7,7 +7,8 @@ categories:
   - 机器学习
 mathjax: True
 ---
-## 卷积层参数解释
+## 1. 网络层参数理解
+###  卷积层参数解释
 ```
 torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode='zeros')
 ```
@@ -20,7 +21,7 @@ torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dil
 * **groups** (int,optional) – Number of blocked connections from input channels to output channels. Default: 1 从输入通道到输出通道的阻塞连接数，默认1
 * **bias** (bool,optional) – If True, adds a learnable bias to the output. Default: True 向输出添加可学习的偏见，默认 True
 
-## 全连接层参数解释
+### 全连接层参数解释
 
 ```
 torch.nn.Linear(in_features, out_features, bias=True)
@@ -32,7 +33,7 @@ $$y = x A^T + b$$
 **out_features** - size of each output samples 输出的样本大小
 **bias** If set to False, the layer wiil not learn an additive bias. Default True如果设置为false, 图形不会学习偏差
 
-## Transforms in pytorch 手册阅读
+## 2. Transforms in pytorch 手册阅读
 >Data augmentation is the process of artificially enlarging your training dataset using carefully chosen transforms.
 >When used appropriately, data augmentation can make your trained models more robust and capable of achieving higher accuracy without requiring larger dataset.
 For those who are familiar with it, data augmentation is very similar to regularization in that it can prevent over-fitting compared to another identical model learning on the same dataset for the same number of epochs.
@@ -53,7 +54,6 @@ Transforms 对图像进行变换，有各种方法
 ### 翻转和旋转 Flip and Rotation
  * torchvision.transforms.RandomHorizontalFlip(p=0.5) 水平翻转图像，默认概率为0.5，决定这个图像是否被翻转
  * 裁剪为随机大小和纵横比
-
 
 
 ## 参考

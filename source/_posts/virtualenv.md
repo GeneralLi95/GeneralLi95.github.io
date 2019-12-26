@@ -41,7 +41,7 @@ $ pip freeze > requirements.txt
 ```
 $ pip install -r requirements.txt
 ```
-## 使用 virtualenv-clone 来 copy 一个虚拟环境
+### 使用 virtualenv-clone 来 copy 一个虚拟环境
 
 ```
 $ pip install virtualenv-clone
@@ -51,13 +51,13 @@ $ virtualenv-clone venvA venvB
 
 在操作过程中，我发现，copy过去的虚拟环境，文件夹名字是不一样了，但是启动进去后命令行最前面的括弧里的小名字还是和原来的一样，需要手动改一下 bin/activate 里面的这一块描述，总之不麻烦。
 
-## 使用 virtualenvwrapper
+### 使用 virtualenvwrapper
 virtualenvwrapper 功能等于 virtualenv + virtualenv-clone  从建立虚拟环境，到克隆都有一系列命令，这里列出一个克隆命令
 ```
 $ cpvirtualenv ENVNAME [TARGETENVNAME]
 ```
 
-## 使用 Anaconda 管理虚拟环境
+### 使用 Anaconda 管理虚拟环境
 前面的三个包都是在 pip 情况下的虚拟环境管理方法，使用conda的话是另外一套体系了。(conda 的并列级别是 pip
 
 ## 参考资料
