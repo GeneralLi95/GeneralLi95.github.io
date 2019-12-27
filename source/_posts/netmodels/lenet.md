@@ -19,6 +19,7 @@ mathjax:
 
 
 ![LeNet5 结构总结](https://i.loli.net/2019/12/19/LWsHUaEjAYxyd4b.png)
+LeNet的模型 ckpt.pth 只有 250 KB。
 论文中采用的激活函数为 tanh，目前主流实现中的激活函数都是 ReLU
 
 PyTorch 网络结构代码

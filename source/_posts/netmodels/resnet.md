@@ -23,3 +23,10 @@ Batch Normalization Google2015年提出
 **
 
 ![BN操作(从论文中截图)](https://i.loli.net/2019/12/17/4Bo1XFyHfLwcelW.png)
+
+
+### ResNet 大小
+模型|大小
+ResNet18|44.8MB
+ResNet34|85.2Mb
+ResNet50|94.4MB
