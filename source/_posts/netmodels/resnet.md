@@ -26,7 +26,11 @@ Batch Normalization Google2015年提出
 
 
 ### ResNet 大小
+模型大小反应了参数数量，参数越多，模型大小越大。所以层数月深，模型大小越大。
+
 模型|大小
+---|---
 ResNet18|44.8MB
 ResNet34|85.2Mb
 ResNet50|94.4MB
+ResNet101|170.6MB
