@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png">
-<meta property="og:updated_time" content="2019-12-19T09:20:43.446Z">
+<meta property="og:updated_time" content="2019-12-27T01:44:40.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VGG 笔记">
 <meta name="twitter:description" content="VGG Net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
@@ -228,7 +228,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-19 17:20:43" itemprop="dateModified" datetime="2019-12-19T17:20:43+08:00">2019-12-19</time>
+                <time title="修改时间：2019-12-27 09:44:40" itemprop="dateModified" datetime="2019-12-27T09:44:40+08:00">2019-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,7 +269,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>639</span>
+              <span>679</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -292,6 +292,28 @@
 <p><a href="https://arxiv.org/pdf/1409.1556.pdf%20http://arxiv.org/abs/1409.1556.pdf" target="_blank" rel="noopener">Very Deep Convolutional Networks for Large-Scale Image Recognition</a><br><img src="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png" alt="VGG16"></p>
 <p>VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的输入图片的局部大小)，采用堆积的小卷积核是由于采用大的卷积核，因为多层非线性层可以增加网络深度来保证学习更复杂的模式，而且代价还更小(参数更少)。</p>
 <p>下面这张图解释了为什么使用2个3x3的卷积核可以代替5x5的卷积核。<br><img src="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png" alt></p>
+<h3 id="VGG-模型大小"><a href="#VGG-模型大小" class="headerlink" title="VGG 模型大小"></a>VGG 模型大小</h3><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VGG11</td>
+<td>37MB</td>
+</tr>
+<tr>
+<td>VGG13</td>
+<td>37.7MB</td>
+</tr>
+<tr>
+<td>VGG16</td>
+<td>59MB</td>
+</tr>
+</tbody>
+</table>
 <h2 id="VGG优缺点"><a href="#VGG优缺点" class="headerlink" title="VGG优缺点"></a>VGG优缺点</h2><h3 id="VGG优点"><a href="#VGG优点" class="headerlink" title="VGG优点"></a>VGG优点</h3><ul>
 <li>VGGNet 的结构非常简洁，整个网络都使用了同样大小的卷积核尺寸(3x3)和最大池化尺寸(2x2)</li>
 <li>几个小滤波器(3x3)卷积层的组合比一个大滤波器(5x5)或(7x7)卷积层更好</li>
@@ -374,7 +396,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG-Net"><span class="nav-text">VGG Net</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG优缺点"><span class="nav-text">VGG优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG优点"><span class="nav-text">VGG优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG缺点"><span class="nav-text">VGG缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG-Net"><span class="nav-text">VGG Net</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG-模型大小"><span class="nav-text">VGG 模型大小</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG优缺点"><span class="nav-text">VGG优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG优点"><span class="nav-text">VGG优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG缺点"><span class="nav-text">VGG缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -390,7 +412,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -451,7 +473,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -461,13 +483,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">63k</span>
+    <span title="站点总字数">64k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:45</span>
+    <span title="站点阅读时长">1:47</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

@@ -193,6 +193,298 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/py-print/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/py-print/" class="post-title-link" itemprop="url">详解 Python 3 的 print()</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-15 10:02:06" itemprop="dateCreated datePublished" datetime="2019-11-15T10:02:06+08:00">2019-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 17:00:18" itemprop="dateModified" datetime="2019-11-19T17:00:18+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/py-print/" class="post-meta-item leancloud_visitors" data-flag-title="详解 Python 3 的 print()" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/py-print/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/py-print/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>719</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>从 Python2 到 Python3 一个很大的变化是 print statement 被 print() function 替代<br>—— Guido van Rossum</p>
+</blockquote>
+<p>PEP 3105 – Make print a function</p>
+<p><code>print()</code> 函数的定义是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print</span><span class="params">(self, *args, sep=<span class="string">' '</span>, end=<span class="string">'\n'</span>, file=None)</span>:</span> <span class="comment"># known special case of print</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Prints the values to a stream, or to sys.stdout by default.</span></span><br><span class="line"><span class="string">    Optional keyword arguments:</span></span><br><span class="line"><span class="string">    file:  a file-like object (stream); defaults to the current sys.stdout.</span></span><br><span class="line"><span class="string">    sep:   string inserted between values, default a space.</span></span><br><span class="line"><span class="string">    end:   string appended after the last value, default a newline.</span></span><br><span class="line"><span class="string">    flush: whether to forcibly flush the stream.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<ol>
+<li>sep 参数为分隔，默认是一个空格，如果输出的几个值之间取其他分隔，可以自定义 sep 为什么都没有，或者 <code>&#39;\t&#39;</code></li>
+<li>end 为输出的最后一个值之后的终止，默认取  <code>&#39;\n&#39;</code>即换行，如果想让 <code>print()</code> 不换行，可以自定义这个 end.</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/11400909-b43e36b7ec1ef1e3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15401722413509.jpg"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://docs.python.org/3/whatsnew/3.0.html?highlight=print" target="_blank" rel="noopener">《What’s New In Pyhton 3.0》</a></p>
+<p><a href="https://www.python.org/dev/peps/pep-3105/" target="_blank" rel="noopener">《PEP 3105 – Make print a function》</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pyqt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/pyqt/" class="post-title-link" itemprop="url">在Python下搭建QT+SIP+PyQt5环境</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-13 16:04:35" itemprop="dateCreated datePublished" datetime="2018-08-13T16:04:35+08:00">2018-08-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 16:59:07" itemprop="dateModified" datetime="2019-11-19T16:59:07+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/pyqt/" class="post-meta-item leancloud_visitors" data-flag-title="在Python下搭建QT+SIP+PyQt5环境" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/pyqt/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/pyqt/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>PyQt是Python界面开发的常用库，因为需要写一个图像标注的GUI界面，所以用到了这个库。但是在环境搭建的实际过程中，查阅了大量的资料，尝试了很多种方法，大都以失败告终。在此将最后的解决方案记录下来。</p>
+<h2 id="1-安装QT"><a href="#1-安装QT" class="headerlink" title="1. 安装QT"></a>1. 安装QT</h2><p>Qt 是一个跨平台的 C++ 应用程序开发框架，是自由且开放源代码的软件</p>
+<blockquote>
+<p>Qt [1]  是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如控制台工具和服务器。Qt是面向对象的框架，使用特殊的代码生成扩展（称为元对象编译器(Meta Object Compiler, moc)）以及一些宏，Qt很容易扩展，并且允许真正地组件编程。2008年，Qt Company科技被诺基亚公司收购，Qt也因此成为诺基亚旗下的编程语言工具。2012年，Qt被Digia收购。2014年4月，跨平台集成开发环境Qt Creator 3.1.0正式发布，实现了对于iOS的完全支持，新增WinRT、Beautifier等插件，废弃了无Python接口的GDB调试支持，集成了基于Clang的C/C++代码模块，并对Android支持做出了调整，至此实现了全面支持iOS、Android、WP,它提供给应用程序开发者建立艺术级的图形用户界面所需的所有功能。基本上，Qt 同 X Window 上的 Motif，Openwin，GTK 等图形界 面库和 Windows 平台上的 MFC，OWL，VCL，ATL 是同类型的东西。<br>——百度百科</p>
+</blockquote>
+<p>安装 qt 的方式基本上分两种</p>
+<h3 id="1-1-通过-brew-安装-qt"><a href="#1-1-通过-brew-安装-qt" class="headerlink" title="1.1 通过 brew 安装 qt"></a>1.1 通过 brew 安装 qt</h3><p>使用 macOS 的开发人员一定知道brew这个非常好用的包管理工具，基本上只要能在mac上安装的东西，都可以通过 homebrew 来安装和管理，并且可以及时对其进行更新和下载。</p>
+<p>通过brew安装的办法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install qt</span><br></pre></td></tr></table></figure>
+<p><strong>优点：</strong> 一行代码搞定，安装包精简，同时速度快。</p>
+<p><strong>缺点：</strong> brew下载下来的包大小只有100MB左右，解压后也只有300多兆。而官网的.dmg安装包有一个G，全套组件安装下来占用空间将近13G。所以在后续过程中可能还需要使用brew安装其他东西。</p>
+<h3 id="1-2-通过官网安装"><a href="#1-2-通过官网安装" class="headerlink" title="1.2 通过官网安装"></a>1.2 通过官网安装</h3><p>官网的开源版本下载页面迟迟打不开，令人十分急躁，并且似乎还要注册。所以此处推荐大家使用镜像资源下载。（没有链接，自己找最新版的吧。）</p>
+<p>官网安装基本上就是一路下一步即可了。</p>
+<p><strong>缺点：</strong> 安装包太大，并且后续安装不能使用Homebrew了。因为通过brew安装sip或者PyQt的时候会检查系统有没有qt，而如果是通过官网安装的qt，不在brew目录下面的话，它就会重新执行<strong>brew install qt</strong>这样相当于官网安装的就没有用上。</p>
+<h2 id="2-安装SIP"><a href="#2-安装SIP" class="headerlink" title="2. 安装SIP"></a>2. 安装SIP</h2><blockquote>
+<p>sip: create python bindings for c and c++ libraries</p>
+</blockquote>
+<p>sip是RiverBank（也就是PyQt的开发商）开发的用于PyQt的Python/C++混合编程解决方案。由于Qt框架的复杂性，PyQt并没有使用Cython、SWIG的混合编程方案，而是自己单独做了一套框架。sip包括一个sip工具、SDK和Python Module。</p>
+<p>与SWIG类似，使用sip也需要先编写一个「配置文件」，然后使用sip工具『编译』为C++源文件，最后，和Qt库一起编译形成适用于Python的PyQt。</p>
+<p>与SWIG不同的是，sip 同时以Python Module的形式存在，也就是说，作为Python Module的PyQt，依赖于作为Python Module的sip。而对于SWIG，一旦自动生成的C++生成完毕，整个流程就不再依赖SWIG了。</p>
+<p>很多教程推荐使用 brew 安装 sip， 这样省编译 blabla 因为，但实际上我们上面已经交代了， sip 同时以 Python Module 的形式存在，所以，此时可以使用 pip 工具了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install sip</span><br></pre></td></tr></table></figure>
+<p>搞定。</p>
+<h2 id="3-安装PyQt5"><a href="#3-安装PyQt5" class="headerlink" title="3. 安装PyQt5"></a>3. 安装PyQt5</h2><p>PyQt是python的一个插件库,通过这个库我们可以连接qt和python.便捷的使用GUI编程.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyqt5</span><br></pre></td></tr></table></figure>
+<p>安装好了。</p>
+<h2 id="4-配置-PyCharm-开发环境"><a href="#4-配置-PyCharm-开发环境" class="headerlink" title="4. 配置 PyCharm 开发环境"></a>4. 配置 PyCharm 开发环境</h2><ol>
+<li>先确认我们的 pyqt 模块是不是安装好了， 以及python版本。</li>
+</ol>
+<ol>
+<li>配置GUI设计工具</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/11400909-a15901baa3e37bcf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15332767318097"></p>
+<p>这里要求我们在安装qt的时候，能够知道其路径在何处。<br>Working Directory是系统自动生成的，不需要我们设置。</p>
+<ol>
+<li>设置 ui 文件编译工具</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/11400909-6c4d6dab2672a1b9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15332769446963"></p>
+<p>Parameters 栏的固定代码：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">m PyQt5.uic.pyuic  $FileName$ -o $FileNameWithoutExtension$.py</span></span><br></pre></td></tr></table></figure>
+<p>Ps: Working directory 栏也会自动生成路径，但是有时候生成的不是那个位置，而是qt文件位置或其他，我们需要把它改成我们那样，这样相当于一个定位，让编译程序在本 project 内部找编译的源文件。</p>
+<ol>
+<li>安装好之后的模样：</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/11400909Â-9e78d991eafc0248.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h2 id="5-开始使用-PyQt5-编写第一个-GUI-程序"><a href="#5-开始使用-PyQt5-编写第一个-GUI-程序" class="headerlink" title="5. 开始使用 PyQt5 编写第一个 GUI 程序"></a>5. 开始使用 PyQt5 编写第一个 GUI 程序</h2><p> 这部分不再赘述，看下面的参考资料就可以啦。<br> <a href="https://juejin.im/post/5a671677518825734501ad2e" target="_blank" rel="noopener">momoxiaomming的博文：如何在Python下搭建QT+SIP+PyQt5环境</a></p>
+<p> 总之基本上步骤是：</p>
+<ol>
+<li>使用 QT_Designer 图形化界面，拖动的方式设计。 生成.ui文件</li>
+<li>使用 PyGUI 将 .ui 文件编译成 .py 文件</li>
+<li>编写脚本 import 前面生成的 .py 文件，再有一通操作即可。</li>
+</ol>
+<hr>
+<p>参考资料：<br><a href="https://juejin.im/post/5a671677518825734501ad2e" target="_blank" rel="noopener">momoxiaomming的博文：如何在Python下搭建QT+SIP+PyQt5环境</a></p>
+<p><a href="http://www.cnblogs.com/goodboy-heyang/p/4793459.html" target="_blank" rel="noopener">Qt安装后配置环境变量（Mac）</a></p>
+<p><a href="http://zhailiange.com/2016/06/04/Homebrew/" target="_blank" rel="noopener">善用Homebrew</a></p>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tfod2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1319,267 +1611,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/java2/" class="post-title-link" itemprop="url">Java HelloWorld项目创建</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-19 13:42:39" itemprop="dateCreated datePublished" datetime="2018-05-19T13:42:39+08:00">2018-05-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 17:11:14" itemprop="dateModified" datetime="2019-11-19T17:11:14+08:00">2019-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/java2/" class="post-meta-item leancloud_visitors" data-flag-title="Java HelloWorld项目创建" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>757</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="HelloWorld项目创建"><a href="#HelloWorld项目创建" class="headerlink" title="HelloWorld项目创建"></a>HelloWorld项目创建</h1><p>以前学Python的时候大家都说Python简单，当时没什么感觉，如今回头来学Java才发现，Python确实简单。Python的HelloWord只要在console里面一行代码就解决了。Java就很麻烦。</p>
-<h2 id="Creat-New-Project"><a href="#Creat-New-Project" class="headerlink" title="Creat New Project"></a>Creat New Project</h2><p>选择Java EE，然后Next。之后又会有从模板创建的选项(Create project from template)，此选项下有两个选择Command Line App 和Java Hello world。前者会自动创建一个带有main方法的类，后者会自动穿件一个带有main方法的并且会打印输出Hello World的类。</p>
-<p>不勾选此选项，从零开始。</p>
-<ul>
-<li><p>src目录右键，new packages 创建新的包目录</p>
-</li>
-<li><p>在包下面创建class,选择创建class，文件名比如是hello.则生成的文件即为hello.java(原来class文件的后缀名是.java)。然后会自动生成一部分代码，包括<br>*</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hello</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>的声明。</p>
-<p>起初此处我是直接新建一个file，然后自己命名的hello.java，手敲的public class 声明，结果不能运行，发现问题是手敲的public class 声明的类名与hello.java文件名不一致。</p>
-<p>之后</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> hellopack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"Hello world"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>即可输出Hello world了。</p>
-<hr>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/java1/" class="post-title-link" itemprop="url">Mac Java环境配置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-19 13:42:32" itemprop="dateCreated datePublished" datetime="2018-05-19T13:42:32+08:00">2018-05-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 17:11:13" itemprop="dateModified" datetime="2019-11-19T17:11:13+08:00">2019-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/java1/" class="post-meta-item leancloud_visitors" data-flag-title="Mac Java环境配置" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java1/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="MAC-Java环境配置"><a href="#MAC-Java环境配置" class="headerlink" title="MAC Java环境配置"></a>MAC Java环境配置</h1><h2 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK"></a>1. 安装JDK</h2><p>JDK全称Java Development Kit，Java开发工具包，是Java开发的核心。<br>之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。<br>终端输入</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java -<span class="built_in">version</span></span><br></pre></td></tr></table></figure>
-<p>显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。<br><img src="http://upload-images.jianshu.io/upload_images/11400909-e41bcc47495420eb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<h2 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2. 配置环境变量"></a>2. 配置环境变量</h2><p>配置环境变量前先得到JAVA_HOME的位置。<br>依旧：终端输入：</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/jav<span class="built_in">a_home</span></span><br></pre></td></tr></table></figure>
-<p>可返回JAVA_HOME的位置路径，把这个路径记下来，马上要用</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1.<span class="number">8.0</span>_151.jdk<span class="regexp">/Contents/</span>Home</span><br></pre></td></tr></table></figure>
-<p>环境变量一共有三个东西需要配置：<br>JAVA_HOME<br>CLASS_PATH<br>PATH<br>在windows 系统里是在我的电脑属性高级设置里分别设置，macOS里依然是通过命令行设置。<br>终端输入：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">vim</span> /etc/<span class="keyword">profile</span></span><br></pre></td></tr></table></figure>
-<p>然后后需要输入密码。接下来按i，显示insert，进入输入模式。然后输入下面配置：</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"</span></span><br><span class="line"><span class="keyword">export</span> JAVA_HOME</span><br><span class="line">CLASS_PATH=i<span class="string">"$JAVA_HOME/lib"</span></span><br><span class="line">PATH=<span class="string">".$PATH:$JAVA_HOME/bin"</span></span><br></pre></td></tr></table></figure>
-<p>然后按esc，进入保存。<br>输入<figure class="highlight plain"><figcaption><span>保存</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;font color=red&gt;</span><br><span class="line">这里注意一下，JAVA_HOME的路径不要照着网上教程全抄了，把自己刚刚存下来的路径copy过来，毕竟安装的JDK版本不一致的时候，路径当中有的文件的名字是不一致的。</span><br><span class="line">&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">接下来 输入</span><br></pre></td></tr></table></figure></p>
-<p>source /etc/profile<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行<span class="keyword">profile</span>配置文件</span><br><span class="line"></span><br><span class="line">检查环境</span><br><span class="line">输入</span><br></pre></td></tr></table></figure></p>
-<p>echo $JAVA_HOME<br><code>`</code><br>得到配置的路径，说明配置完毕。</p>
-<blockquote>
-<p>5.14 日更新：<br>发现该环境变量配置之后，终端许多命令无法执行，比如python3,pip以及hexo命令，这是无法忍受的。所以又强行把它改了回去，得以恢复。<br>后发现IntelliJ IDEA会自带Java环境，在不设置这个环境变量的情况下，Java的hello world还是跑起来了。<br>所以真的是<strong>生命在与折腾！</strong></p>
-</blockquote>
-<h2 id="选择IDE"><a href="#选择IDE" class="headerlink" title="选择IDE"></a>选择IDE</h2><p>有些人可能建议初学者用记事本写代码，我感觉初学者最重要的应该是马上跑起来一个程序得到及时的反馈，所以我还是习惯用IDE。</p>
-<p>Java的IDE也挺多的，比较有名的是Eclipse和IntelliJ IDEA两款，作为一个初学者，当然一个也没用过，前者开源后者付费。考虑到后者是JetBrains的产品，他们公司的Pycharm和Webstorm我是用过并且非常喜欢的，所以上手IntelliJ IDEA可能会比较容易的，另外JetBrains也向学生提供了免费的序列号。所以不需要考虑付费的问题。</p>
-<p>综上所述、采用IntelliJ IDEA。</p>
-<blockquote>
-<p>5.18日更新，观看了浙江大学翁凯教授的Java教程，方知Eclipse软件本身就是用Java编写的，所以要配置好Java环境才能运行这个IDE。这也是为什么网上那么多教程起手就是配环境了。</p>
-</blockquote>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1630,7 +1661,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1691,7 +1722,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1701,13 +1732,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">63k</span>
+    <span title="站点总字数">64k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:45</span>
+    <span title="站点阅读时长">1:47</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
