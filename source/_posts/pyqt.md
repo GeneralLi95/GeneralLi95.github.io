@@ -92,7 +92,7 @@ Ps: Working directory 栏也会自动生成路径，但是有时候生成的不�
 
 4. 安装好之后的模样：
 
-![image](https://upload-images.jianshu.io/upload_images/11400909Â-9e78d991eafc0248.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image](https://upload-images.jianshu.io/upload_images/11400909-9e78d991eafc0248.png)
 
 
 
