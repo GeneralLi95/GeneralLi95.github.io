@@ -193,6 +193,719 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/netmodels/resnet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/netmodels/resnet/" class="post-title-link" itemprop="url">ResNet 笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-17 08:57:34" itemprop="dateCreated datePublished" datetime="2019-12-17T08:57:34+08:00">2019-12-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-30 11:42:52" itemprop="dateModified" datetime="2019-12-30T11:42:52+08:00">2019-12-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/netmodels/resnet/" class="post-meta-item leancloud_visitors" data-flag-title="ResNet 笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/netmodels/resnet/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/netmodels/resnet/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>731</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><p>论文提出  何恺明(微软研究院)   2015<br><a href="http://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf" target="_blank" rel="noopener">Deep residual learning for image recognition</a></p>
+<h3 id="批标准化层-BN"><a href="#批标准化层-BN" class="headerlink" title="批标准化层 BN"></a>批标准化层 BN</h3><p>Batch Normalization Google2015年提出<br><a href="https://arxiv.org/pdf/1502.03167v3.pdf" target="_blank" rel="noopener">Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</a><br><strong>为何需要 BN</strong><br>解决 <em>Internal Covariate Shift(ICS)</em> 问题。在统计及其学习中的一个经典假设是”源空间(source domain)和目标空间(target domain)的数据分布(distribution)是一致的。如果不一致就会出席一些新的问题，比如 transfer learning/domain adaptation等，而 covariate shift 就是分布不一致假设之下的一个分支问题，它是指源空间和目标攻坚的条件概率是一致的，但是其边缘概率不同。即对所有的 $x \in \mathcal{X}, P_s(Y|X = x)=P_t(Y|X=x)$ 但是 $P_s(X) \neq P_t(X)$。显然对于神经网络的各层输出，由于经过了层内的操作，其分布与各层对应的输入信号分布不同，而且差异会随着网络深度增大而增大，可是他们所能“指示”的标注样本(label)仍然是不变的，所以这就符合 covariate shift 的定义。由于是对层间信号的分析，所以也是 “internal”。<br>**</p>
+<p><img src="https://i.loli.net/2019/12/17/4Bo1XFyHfLwcelW.png" alt="BN操作(从论文中截图)"></p>
+<h3 id="ResNet-大小"><a href="#ResNet-大小" class="headerlink" title="ResNet 大小"></a>ResNet 大小</h3><p>模型大小反应了参数数量，参数越多，模型大小越大。所以层数月深，模型大小越大。</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ResNet18</td>
+<td>44.8MB</td>
+</tr>
+<tr>
+<td>ResNet34</td>
+<td>85.2Mb</td>
+</tr>
+<tr>
+<td>ResNet50</td>
+<td>94.4MB</td>
+</tr>
+<tr>
+<td>ResNet101</td>
+<td>170.6MB</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/netmodels/vgg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/netmodels/vgg/" class="post-title-link" itemprop="url">VGG 笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-12 17:24:16" itemprop="dateCreated datePublished" datetime="2019-12-12T17:24:16+08:00">2019-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-27 09:44:40" itemprop="dateModified" datetime="2019-12-27T09:44:40+08:00">2019-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/netmodels/vgg/" class="post-meta-item leancloud_visitors" data-flag-title="VGG 笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/netmodels/vgg/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/netmodels/vgg/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>679</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="VGG-Net"><a href="#VGG-Net" class="headerlink" title="VGG Net"></a>VGG Net</h2><p>论文提出 Oxford Visual Geometry Group 2014年</p>
+<p><a href="https://arxiv.org/pdf/1409.1556.pdf%20http://arxiv.org/abs/1409.1556.pdf" target="_blank" rel="noopener">Very Deep Convolutional Networks for Large-Scale Image Recognition</a><br><img src="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png" alt="VGG16"></p>
+<p>VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的输入图片的局部大小)，采用堆积的小卷积核是由于采用大的卷积核，因为多层非线性层可以增加网络深度来保证学习更复杂的模式，而且代价还更小(参数更少)。</p>
+<p>下面这张图解释了为什么使用2个3x3的卷积核可以代替5x5的卷积核。<br><img src="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png" alt></p>
+<h3 id="VGG-模型大小"><a href="#VGG-模型大小" class="headerlink" title="VGG 模型大小"></a>VGG 模型大小</h3><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VGG11</td>
+<td>37MB</td>
+</tr>
+<tr>
+<td>VGG13</td>
+<td>37.7MB</td>
+</tr>
+<tr>
+<td>VGG16</td>
+<td>59MB</td>
+</tr>
+</tbody>
+</table>
+<h2 id="VGG优缺点"><a href="#VGG优缺点" class="headerlink" title="VGG优缺点"></a>VGG优缺点</h2><h3 id="VGG优点"><a href="#VGG优点" class="headerlink" title="VGG优点"></a>VGG优点</h3><ul>
+<li>VGGNet 的结构非常简洁，整个网络都使用了同样大小的卷积核尺寸(3x3)和最大池化尺寸(2x2)</li>
+<li>几个小滤波器(3x3)卷积层的组合比一个大滤波器(5x5)或(7x7)卷积层更好</li>
+<li>验证了通过不断增加网络结构可以提高性能</li>
+</ul>
+<h3 id="VGG缺点"><a href="#VGG缺点" class="headerlink" title="VGG缺点"></a>VGG缺点</h3><ul>
+<li>VGG耗费更多计算资源，并且使用了更多的参数，导致更多的内存占用(140M)。其中绝大多数参数来自于第一个全连接层。</li>
+<li>VGG参数空间很大，最终的model有500M+，而AlexNet只有200M，GoogLeNet更少，所以训练一个VGG需要更长的时间。<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2></li>
+</ul>
+<p><a href="https://www.quora.com/What-is-the-VGG-neural-network" target="_blank" rel="noopener">Quora: What is the VGG neural network</a></p>
+<p><a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Szegedy_Rethinking_the_Inception_CVPR_2016_paper.pdf" target="_blank" rel="noopener">Paper: Rethinking the Inception Architecture for Computer Vision</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/41423739" target="_blank" rel="noopener">知乎: 一文读懂VGG网络</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/netmodels/lenet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/netmodels/lenet/" class="post-title-link" itemprop="url">LeNet 笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-10 19:19:26" itemprop="dateCreated datePublished" datetime="2019-12-10T19:19:26+08:00">2019-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-27 09:44:38" itemprop="dateModified" datetime="2019-12-27T09:44:38+08:00">2019-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/netmodels/lenet/" class="post-meta-item leancloud_visitors" data-flag-title="LeNet 笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/netmodels/lenet/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/netmodels/lenet/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="LeNet"><a href="#LeNet" class="headerlink" title="LeNet"></a>LeNet</h2><p>论文提出，Yann LeCun 1998年<br><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf" target="_blank" rel="noopener">Gradient-Based Learning Applied to Document Recognition.pdf</a></p>
+<p>网络结构<br><img src="https://i.loli.net/2019/12/10/Do7F938hGXu2QJt.png" alt="LeNet"></p>
+<p><img src="https://i.loli.net/2019/12/19/LWsHUaEjAYxyd4b.png" alt="LeNet5 结构总结"><br>LeNet的模型 ckpt.pth 只有 250 KB。<br>论文中采用的激活函数为 tanh，目前主流实现中的激活函数都是 ReLU</p>
+<p>PyTorch 网络结构代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>)</span><br><span class="line">        self.pool = nn.MaxPool2d(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">6</span>, <span class="number">16</span>, <span class="number">5</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>, <span class="number">120</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">120</span>, <span class="number">84</span>)</span><br><span class="line">        self.fc3 = nn.Linear(<span class="number">84</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.pool(F.relu(self.conv1(x)))</span><br><span class="line">        x = self.pool(F.relu(self.conv2(x)))</span><br><span class="line">        x = x.view(<span class="number">-1</span>, <span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>)</span><br><span class="line">        x = F.relu(self.fc1(x))</span><br><span class="line">        x = F.relu(self.fc2(x))</span><br><span class="line">        x = self.fc3(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p><code>__init__</code> 定义操作，<code>forward</code> 里是网络流程，拆分看就是</p>
+<p>conv1 -&gt; relu -&gt; pool -&gt; conv2 -&gt;relu -&gt; pool -&gt; fc1 -&gt; relu -&gt; fc2 -&gt; relu -&gt; fc3</p>
+<p>最初用于手写体字母识别，后被证明适合于图像分类。</p>
+<p><strong>view的作用</strong></p>
+<p>view相当于对一个tensor的reshape，典型的例子是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">a = torch.tensor(<span class="number">1</span>, <span class="number">16</span>)</span><br><span class="line">a = a.view(<span class="number">4</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>-1</strong> 参数的作用，在不知道行有多少，但是知道列的情况下，可以用-1代替（但是注意要能整除），相当于告诉系统有多少列让系统自动帮你计算有多少行。</p>
+<blockquote>
+<p>If there is any situation that you don’t know how many rows you want but are sure of the number of columns, then you can specify this with a -1. (Note that you can extend this to tensors with more dimensions. Only one of the axis value can be -1). This is a way of telling the library: “give me a tensor that has these many columns and you compute the appropriate number of rows that is necessary to make this happen”.<br>This can be seen in the neural network code that you have given above. After the line x = self.pool(F.relu(self.conv2(x))) in the forward function, you will have a 16 depth feature map. You have to flatten this to give it to the fully connected layer. So you tell pytorch to reshape the tensor you obtained to have specific number of columns and tell it to decide the number of rows by itself.</p>
+</blockquote>
+<h2 id="神经网络的几个层详解："><a href="#神经网络的几个层详解：" class="headerlink" title="神经网络的几个层详解："></a>神经网络的几个层详解：</h2><h3 id="卷积层-conv"><a href="#卷积层-conv" class="headerlink" title="卷积层 conv"></a>卷积层 conv</h3><p>CNN的第一层一般是卷积层(conv)。一般采用 filter 也可称为 neuron 或者 kernel，我感觉叫 kernel好一点，卷积核。kernel 一般为 3<em>3 或者 5</em>5 大小的窗口，在整个图像进行滑动。这个窗口区域就是 CNN 的感受野(receptive field)， kernel 一般会对有一组数字对应（不是说kernel本身的矩阵)，也就是权重(weight)或者参数(parameters)。其中 kernel 的depth对应输入图像的depth。filter的结果对应 activetion map 或者feature map。</p>
+<h3 id="池化层-pool"><a href="#池化层-pool" class="headerlink" title="池化层 pool"></a>池化层 pool</h3><p>用 feature map 作为输入，用不含参数的 filter (小方框自由设计尺寸)，对其进行扫描，平移，跳格。filter 没有参数，但是要对方框内的数值做做大值(max pooling)或均值(average pooling)保留，抹去方框内其他值，实现压缩浓缩；把流行的值形成的matrix 也就是压缩后的 feature map 传给下一层 hidden layer。<br>下采样也是一种池化。</p>
+<p>池化的作用是减小计算量，减小内存消耗，提高感受野的大小，减少参数数量，增加平移不变性。</p>
+<h3 id="激活函数层-relu"><a href="#激活函数层-relu" class="headerlink" title="激活函数层 relu"></a>激活函数层 relu</h3><p>激活函数 activation function，也叫激励函数，一般用relu作为激励函数</p>
+<p>激励函数是为了增加神经网络的非线性，如果不使用非线性激活函数，则分类器永远是线性的，即使是在更多维的空间内也是线性的，而线性模型的表达能力是不够的。所以必须引入非线性激励函数，常用的非线性激励函数有sigmoid、tanh、ReLU。目前在深度学习中用的最多的就是 ReLU。</p>
+<p>ReLU更容易学习优化，因为其分段线性的性质，导致其前传，后传，求导都是分段线性。而传统的 sigmoid 函数，由于两端饱和，在传播过程中容易丢弃信息。</p>
+<p>Rectified Linear Units<br><img src="https://i.loli.net/2019/12/10/dnZh3HFN7eVUbzq.png" alt></p>
+<h3 id="全连接层-fc"><a href="#全连接层-fc" class="headerlink" title="全连接层 fc"></a>全连接层 fc</h3><p>Fully Connected Layer，全连接层，简写为fc。在整个神经网络中起到「分类器」的作用。卷积层、池化层和激活函数层等操作是将原始数据映射到隐层特征空间，全连接层则起到将学到的「分布式特征表示」映射到样本标记空间的作用。</p>
+<p>由于目前全连接层参数冗余(仅全连接层参数就可占整个神经网络参数80%左右)，一些性能优异的网络模型如 ResNet 和 GoogLeNet 等均采用全局平均池化(global average pooling, GAP) 取代 FC 来融合学到的深度特征，最后仍用 softmax 等损失函数作为网络目标函数来指导学习过程。需要指出的是，用 GAP 替代 FC 的网络通常有较好的预测性能。</p>
+<p>即使 FC 越来越不被看好，有研究发现，FC 可在模型能力迁移过程中充当「防火墙」。如果目标域与源域图像差异较大，不含 FC 的网络微调后的结果差于含 FC 的网络。因此 FC 可以视为模型表示能力的「防火墙」，说明冗余的参数并非一无是处。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://www.zhihu.com/question/41037974" target="_blank" rel="noopener">魏秀参：全连接层有什么用?</a></li>
+<li><a href="https://stackoverflow.com/questions/42479902/how-does-the-view-method-work-in-pytorch" target="_blank" rel="noopener">stackoverflow:How does the “view” method work in PyTorch?</a></li>
+<li><a href="https://engmrk.com/lenet-5-a-classic-cnn-architecture/" target="_blank" rel="noopener">LeNet-5 – A Classic CNN Architecture</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/hyjz_iccc2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/hyjz_iccc2/" class="post-title-link" itemprop="url">ICCC参会记录 (day 2)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-08 09:32:40" itemprop="dateCreated datePublished" datetime="2019-12-08T09:32:40+08:00">2019-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-10 15:24:37" itemprop="dateModified" datetime="2019-12-10T15:24:37+08:00">2019-12-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/参会记录/" itemprop="url" rel="index">
+                    <span itemprop="name">参会记录</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/hyjz_iccc2/" class="post-meta-item leancloud_visitors" data-flag-title="ICCC参会记录 (day 2)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/hyjz_iccc2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/hyjz_iccc2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>822</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>第二天的会议来的人大概只有40%，似乎有许多人跑去看熊猫了…</p>
+<p>主持是 北京邮电大学的吴湛击教授</p>
+<h2 id="4-Online-Resource-Allocation-with-Supply-Costs-Pricing-Competitve-Analysis-and-Applications"><a href="#4-Online-Resource-Allocation-with-Supply-Costs-Pricing-Competitve-Analysis-and-Applications" class="headerlink" title="4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and Applications"></a>4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and Applications</h2><p>Danny Hin-Kwok TSANG, IEEE Fellow, Hong Kong University of Science and Technology</p>
+<p>首先介绍了自己报告的 co-author，这个比较少见。</p>
+<p>核心问题：如何最有效的分配计算资源来保证最大化的社会效益。</p>
+<p><img src="https://i.loli.net/2019/12/10/1HRkvGMsXmSiWLa.jpg" alt="01D870D5-61E1-411F-8ED3-A9A0E73FF778_1_105_c"><br>Posted-pricing algorithm 不同时刻不同定价。<br><img src="https://i.loli.net/2019/12/10/Kx5PSuFJior1Ozs.jpg" alt="8AF5457C-D5C1-4564-8F55-D32C1C78B4EE_1_105_c"></p>
+<p>主要是一个定价策略。</p>
+<p>… 最后也是不可避免的提到了一些 political 方面的事情，说 HK is very safe.</p>
+<h2 id="5-Siginal-Processing-Approaches-to-Sensing-without-Sensors-没有传感器的感知信号处理"><a href="#5-Siginal-Processing-Approaches-to-Sensing-without-Sensors-没有传感器的感知信号处理" class="headerlink" title="5. Siginal Processing Approaches to Sensing without Sensors 没有传感器的感知信号处理"></a>5. Siginal Processing Approaches to Sensing without Sensors 没有传感器的感知信号处理</h2><p>Alex X.Liu, IEEE Fellow, Michigan State University, USA</p>
+<p>不是本专业，也听不太懂。但是他的演示非常有趣，有个同学跑来跑去，然后电脑上显示一个信号的变化，可以给出现在他是在走路或者跑步。</p>
+<p><img src="https://i.loli.net/2019/12/10/FED2AfycLCTmJoS.jpg" alt="E6781B34-B032-4D5E-8FE3-1DEADCD9314D_1_105_c"><br>而这个信号是 WiFi信号？！</p>
+<p>感觉非常黑科技。</p>
+<p>步态特征基础上的运动姿态识别<br><img src="https://i.loli.net/2019/12/10/RJ1F7594e8Wif2b.jpg" alt="3B012C41-AB2F-4CF2-AC43-F41C9C3947FE_1_105_c"></p>
+<p>有个外国小哥提了一个问题非常好，就说这种技术，能否识机器人？恐怕要打个问号，它利用的是人的身体的电信号或者某些东西，这些对于机器人来说显然就不行了。</p>
+<h2 id="6-AI-Enabled-Experience-driven-Networking-Vision-State-of-the-Art-and-Future-Directions"><a href="#6-AI-Enabled-Experience-driven-Networking-Vision-State-of-the-Art-and-Future-Directions" class="headerlink" title="6. AI-Enabled Experience-driven Networking: Vision, State-of-the-Art and Future Directions"></a>6. AI-Enabled Experience-driven Networking: Vision, State-of-the-Art and Future Directions</h2><p>Jian Tang, IEEE Fellow, Syracuse University, USA 雪城大学</p>
+<p>看到雪城大学，首先想到安东尼大一大队获得 NCAA 冠军…</p>
+<p>跟想象中的不太一样，语速非常快，听了一会就跟不上。</p>
+<p>但是他讲了非常久… 感觉快一个小时</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/hyjz_iccc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/hyjz_iccc/" class="post-title-link" itemprop="url">ICCC 参会记录(day 1)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-07 08:47:50 / 修改时间：15:46:04" itemprop="dateCreated datePublished" datetime="2019-12-07T08:47:50+08:00">2019-12-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/参会记录/" itemprop="url" rel="index">
+                    <span itemprop="name">参会记录</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/hyjz_iccc/" class="post-meta-item leancloud_visitors" data-flag-title="ICCC 参会记录(day 1)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/hyjz_iccc/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/hyjz_iccc/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>5th IEEE|ICCC(International Conference of Computer and Communications)第五届IEEE计算机与通信国际会议</p>
+<p>成都，12月6-9号</p>
+<h2 id="1-Wireless-Technology-Game-Changing-Solution-for-Communicating-Sensing-and-Powering"><a href="#1-Wireless-Technology-Game-Changing-Solution-for-Communicating-Sensing-and-Powering" class="headerlink" title="1. Wireless Technology - Game-Changing Solution for Communicating, Sensing and Powering"></a>1. Wireless Technology - Game-Changing Solution for Communicating, Sensing and Powering</h2><p>Ke Wu, IEEE Fellow, Polytechnique Montreal, Canadav 加拿大蒙特利尔理工大学，参与华为5G标准制定</p>
+<p>无线科技，改变游戏规则的技术</p>
+<p>加拿大华裔教授，首先讲了一些学校概况，然后一张图讲了无线技术的发展历史。</p>
+<p>无线技术，横坐标方便性（覆盖范围），纵坐标比特率（传输速度）<br><img src="https://i.loli.net/2019/12/07/FKrU36mcLZogD2x.jpg" alt="IMG_0984.jpeg"><br>智能手机不智能，只是移动的互联网浏览器。下一代智能手机将是真正的「智能」。</p>
+<p><img src="https://i.loli.net/2019/12/07/9byOLohrQDKIqkV.png" alt></p>
+<p><img src="https://i.loli.net/2019/12/07/RDmr1gbXNsp5aw4.png" alt></p>
+<p>介绍了一些他们做的芯片，相应模块的功能。</p>
+<p>讲到摩尔定律， Moore’s Law and More and More，延伸摩尔，超越摩尔，这一点和GIIC广州张韵东讲的有一点类似，看来做芯片的人大家都喜欢提一提摩尔定律。</p>
+<p>btw，这个教授的英语是真的棒，全场最佳。</p>
+<h2 id="2-Video-Analytics-through-Edge-Computing"><a href="#2-Video-Analytics-through-Edge-Computing" class="headerlink" title="2. Video Analytics through Edge Computing"></a>2. Video Analytics through Edge Computing</h2><p>Guohong Cao, IEEE Fellow, The Pennsylvania State University, USA 宾夕法尼亚州立大学<br>通过边缘计算进行视频分析</p>
+<p>视频分析在 IoT 里面是最具有挑战的事情，用深度学习处理视频，需要大量的计算资源。</p>
+<p>当前的做法，进行帧分析，抽取视频里面的特定帧，进行目标检测，等等。</p>
+<table>
+<thead>
+<tr>
+<th>边缘计算</th>
+<th>云计算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>更快的反应:物理意义上，端到端处理，高带宽，低延时</td>
+<td>/</td>
+</tr>
+<tr>
+<td>如果大量的数据在边缘处理了，网络传输需要的带宽会下降</td>
+<td>/</td>
+</tr>
+<tr>
+<td>保护隐私，中心化的 IoT 系统引起人们的对于隐私问题的担忧</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p>挑战:</p>
+<ul>
+<li>哪些部门上载，哪些部分本地计算？</li>
+</ul>
+<p><img src="https://i.loli.net/2019/12/07/AdXkQifyecIhp25.jpg" alt><br><img src="https://i.loli.net/2019/12/07/pFrZY2hRc9NaxfQ.jpg" alt="62B67AF3-ED39-4DFA-8B9D-8C1CCEA39004_1_105_c"></p>
+<p>应用：</p>
+<p>犯罪调查，用于监控网络里<br>寻找丢失儿童，车辆，军事领域</p>
+<p><img src="https://i.loli.net/2019/12/07/okGTgHyYJOAuSxK.jpg" alt="E3A2EA87-E6EF-47B1-9DC7-5132362ADEC8_1_105_c"><br>本组工作：</p>
+<p>列了四篇论文，分别讲了这四篇论文对应的工作。</p>
+<ul>
+<li>TargetFinder</li>
+<li>一个自动的负载均衡策略，自动决定是否上载到中心服务器，或边缘服务器 which task should be upload, which task should be run locally</li>
+</ul>
+<h2 id="3-Medical-Healthcare-Platform-of-Dependable-Network-and-Deep-Learning-For-Medical-Big-Dataset"><a href="#3-Medical-Healthcare-Platform-of-Dependable-Network-and-Deep-Learning-For-Medical-Big-Dataset" class="headerlink" title="3. Medical Healthcare Platform of Dependable Network and Deep Learning For Medical Big Dataset"></a>3. Medical Healthcare Platform of Dependable Network and Deep Learning For Medical Big Dataset</h2><p>Ryuji KOHNO, IEEE Fellow, Yokohama National University, Japan 横滨国立大学</p>
+<p>来自日本的教授，首先简单介绍横滨</p>
+<p>从一个人口老龄化问题，引出自己的报告</p>
+<p>ubiquitous medical care 无处不在的医学关怀<br><img src="https://i.loli.net/2019/12/07/GWVE7lI3PD1MYRQ.jpg" alt="9FC452FE-7432-48CF-ACB8-6D9A97712F92_1_105_c"><br>花花绿绿的PPT，有点萌…  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/hyjl_gz2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1050,625 +1763,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/sqlite1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/sqlite1/" class="post-title-link" itemprop="url">SQLite基础</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-18 09:36:07" itemprop="dateCreated datePublished" datetime="2019-11-18T09:36:07+08:00">2019-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 16:52:43" itemprop="dateModified" datetime="2019-11-19T16:52:43+08:00">2019-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/sqlite1/" class="post-meta-item leancloud_visitors" data-flag-title="SQLite基础" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/sqlite1/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/sqlite1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>23</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="启动与关闭"><a href="#启动与关闭" class="headerlink" title="启动与关闭"></a>启动与关闭</h2><p>启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3</span><br></pre></td></tr></table></figure></p>
-<p>关闭<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">.quit</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/mysql2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/mysql2/" class="post-title-link" itemprop="url">MySQL 基础指令</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-18 08:55:18" itemprop="dateCreated datePublished" datetime="2019-11-18T08:55:18+08:00">2019-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 16:52:42" itemprop="dateModified" datetime="2019-11-19T16:52:42+08:00">2019-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/mysql2/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL 基础指令" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/mysql2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/mysql2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>531</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="启动和关闭-MySQL-服务器"><a href="#启动和关闭-MySQL-服务器" class="headerlink" title="启动和关闭 MySQL 服务器"></a>启动和关闭 MySQL 服务器</h2><p>启动<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="selector-class">.server</span> start</span><br></pre></td></tr></table></figure></p>
-<p>关闭服务器（需要输入密码）</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -<span class="selector-tag">p</span> shutdown</span><br></pre></td></tr></table></figure>
-<p>查看服务器是否启动</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ps</span> -ef | <span class="keyword">grep</span> mysqld</span><br></pre></td></tr></table></figure>
-<h2 id="管理-MySQL-服务器"><a href="#管理-MySQL-服务器" class="headerlink" title="管理 MySQL 服务器"></a>管理 MySQL 服务器</h2><p>登录服务器（前提是已经启动）<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql -u root -p</span></span><br></pre></td></tr></table></figure></p>
-<p>登出服务器</p>
-<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">quit</span></span><br></pre></td></tr></table></figure>
-<p>设置 root 密码 ：<br>终端输入</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root password <span class="number">123456</span></span><br></pre></td></tr></table></figure>
-<p>就已经把密码设置成123456了</p>
-<h2 id="基础操作指令"><a href="#基础操作指令" class="headerlink" title="基础操作指令"></a>基础操作指令</h2><p>列出数据库列表:</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; <span class="keyword">SHOW </span>DATABASES<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>会显示当前的已有的数据库列表：</p>
-<p>默认的数据库Database有<br>information_schema<br>mysql<br>performance_schema<br>sys<br>这四个<br>然后从 databese列表里面挑一个</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; <span class="keyword">use</span> <span class="title">mysql</span>;</span><br></pre></td></tr></table></figure>
-<p>这时候切换到database mysql里面。然后可以用</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; <span class="keyword">SHOW </span>TABLES<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>看一下这个数据库里面有哪几个表</p>
-<p>然后可以看一下一个表中有那几个列（比如从表db中查看）</p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; SHOW <span class="built_in">COLUMNS</span> FROM <span class="built_in">db</span>;</span><br></pre></td></tr></table></figure>
-<p>从这几行中我们可以搞清楚这几个概念的从属关系。 DATABASE -&gt; TABLES -&gt; COLUMNS</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ybrj2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/ybrj2/" class="post-title-link" itemprop="url">阅兵日记（二）  阅兵训练跨春秋，驻璧山下显风流</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-15 20:00:58" itemprop="dateCreated datePublished" datetime="2019-11-15T20:00:58+08:00">2019-11-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 17:00:49" itemprop="dateModified" datetime="2019-11-19T17:00:49+08:00">2019-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/阅兵日记/" itemprop="url" rel="index">
-                    <span itemprop="name">阅兵日记</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/ybrj2/" class="post-meta-item leancloud_visitors" data-flag-title="阅兵日记（二）  阅兵训练跨春秋，驻璧山下显风流" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ybrj2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ybrj2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://i.loli.net/2019/11/15/gvYIiGa4AJDdT2p.png" alt="航空博物馆"></p>
-<h2 id="2019-4-7-星期天-晴"><a href="#2019-4-7-星期天-晴" class="headerlink" title="2019.4.7 星期天 晴"></a>2019.4.7 星期天 晴</h2><p>一周没有看新闻了，所以一周没写日记。总结一下过去的一周。</p>
-<p>正步训练完全展开，目前一天的训练节奏变成了上午30分钟，下午20分钟军姿，剩下的时间就完全是正步训练。真的是太辛苦了。夜训时间也改成了每周一、二、四、五都训练。强度一天天加大，每天训练下来身上没有一块不疼的，好在这一周有清明假期，方队给我们放了两天假，周五、周六不用训练，周天训练。（正常我们的训练节奏是每周六天，清明放假这一周多休息一天）</p>
-<p>周五方队组织集体参观了中国航空博物馆，我们先祭奠了空军英烈，然后大家自由参观。走马观花了一下，飞机很多，但是感觉保存的不太好，就直接摆放在草地上经受风吹日晒，很多飞机和其他装备都已经锈迹斑斑。</p>
-<p>星期五晚上排名组织了加练。</p>
-<p>今天是星期天，一周的训练又开始了。新来的52名士官学员正式加入排面，我们排面也趁此机会调整了位置，我因为动作太差从10号的位置被调整到了27号，感觉自己快回家了……平常心，平常心。</p>
-<h2 id="2019-4-15-星期一-晴"><a href="#2019-4-15-星期一-晴" class="headerlink" title="2019.4.15 星期一  晴"></a>2019.4.15 星期一  晴</h2><p>训练节奏进展很快，几乎感觉不到时间的流逝，一周就已经过去了。从4.7号星期天到4.13号星期六，连续训练七天。开始练习一步两动、一步一动、快慢步，对于每步75cm的步幅也开始有要求。一个个科目快速推进，一波波疲惫感扑面而来。</p>
-<p>对我而言，目前最怕的就是站台阶上练踢腿，其次就是在台阶上站军姿。只用脚尖站在台阶上，不到半分钟脚就开始酸了，小腿就开始胀痛。第三是怕原地踢腿练习，这一直是弱项。</p>
-<p>好在现在踢腿练习没有刚开始那么多了，主要时间是一步一动和一步两动的练习，后天有一个高规格的考核，我也从27号重新调整回了10号，这次希望能保住这个位置，别在被调回去了。</p>
-<h2 id="2019-4-16-星期二-晴"><a href="#2019-4-16-星期二-晴" class="headerlink" title="2019.4.16 星期二 晴"></a>2019.4.16 星期二 晴</h2><p>天气在一天天变热，今天上午的训练一小会儿我们每个人的衬衣都湿透了。中间休息的时候，方队给我们准备了雪梨汤，我去喝了不少，上午收操的时候一口气喝光了大半壶水，走到食堂又喝了两碗汤。实在是太渴了。</p>
-<p>下午训练时，地面温度很高，皮鞋前面的脚尖感觉在被炙烤。明天徒步方指将挑四个排面进行单个军人受阅动作的考核，方队上下都非常紧张。训练和加练不断，周末好不容易缓一缓的身体这两天马上又变得非常疲惫，这个星期后面几天不知道怎么熬过去。</p>
-<p>今天有个好消息，有大领导来我们方队慰问，发了很多橘子和西瓜，目前宿舍的苹果橘子，安慕希，果粒橙，非常多。</p>
-<h2 id="2019-4-22-星期一-晴"><a href="#2019-4-22-星期一-晴" class="headerlink" title="2019.4.22 星期一 晴"></a>2019.4.22 星期一 晴</h2><p>上一周真是十分艰难的一周，为了迎接周三的考核，整周都在不断进行正步训练。周三考完之后全方队的成绩不理想，于是又是一波“报复”性的训练，训练强度突然被再次加强。中午午休起床时间从14：10提前到了13：40，晚上夜训的收操时间也从21；30推迟到了21：45.一向没什么伤病的我目前也是跟腱很疼，不能压脚尖，踢腿一压脚尖脚后跟上面就特别疼，然而脚尖压不平，教练班长不满意，一直批评我。</p>
-<p>昨天是星期天，没有加练。我在床上躺了一天，身体有所恢复，但是今天一训练就发现，休息还是不够，身体还是很疼。</p>
-<p>总教练表示目前我们迎来了第一个疲劳期，最近方队病号很多，不少发烧感冒的，一些同学得了乙流，被送去301医院隔离了，还有尿血的。好在我都没用这些症状。</p>
-<p>继续加油，挺进阅兵村。</p>
-<h2 id="2019-4-24-星期三-雨"><a href="#2019-4-24-星期三-雨" class="headerlink" title="2019.4.24 星期三 雨"></a>2019.4.24 星期三 雨</h2><p>第一次在训练场经历暴雨天气，上午训练到11点左右，风云突变，我以为我们方队会冒雨训练，但是可能目前感冒发烧的病号太多，方队领导协调了大巴车把我们拉了回去（训练场离宿舍3km）。</p>
-<p>最近训练状况不容乐观。从上往下，头需要收下颌，挺胸不够，胳膊肘容易变形，要没力气，踢腿时身体重心在后面，右腿膝盖压不死，脚尖压不平等等问题，感觉浑身没有一处动作是对的，各种动作要领在我的脑海里像一片迷雾笼罩。整个脑子几乎已成浆糊，动作有越做越差的趋势，今天早上去找班长请教动作，说着说着就哭了一下，我太难了。</p>
-<p>还是要稳住心态呐。不能慌，心态崩了就全完了。阅兵训练是一场马拉松，还有五个多月呢，坚持！</p>
-<h2 id="2019-4-28-星期天-晴"><a href="#2019-4-28-星期天-晴" class="headerlink" title="2019.4.28 星期天 晴"></a>2019.4.28 星期天 晴</h2><p>老爸利用一次在北京出差的机会来北京看我。今天和老爸在圆明园地铁站见面，刚好今天是清华校庆日，老爸作为教育工作者的当然想去凑这个热闹，在晓杰的带领下，进去转了一圈，然后和表哥三个人一起吃了顿饭。</p>
-<p>去年暑假在广州实习锻炼没回家，今年暑假，看来也是回不了家了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ybrj1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/ybrj1/" class="post-title-link" itemprop="url">阅兵日记（一） 一支穿云箭，千军万马来相见</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-15 18:57:33 / 修改时间：20:00:24" itemprop="dateCreated datePublished" datetime="2019-11-15T18:57:33+08:00">2019-11-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/阅兵日记/" itemprop="url" rel="index">
-                    <span itemprop="name">阅兵日记</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/ybrj1/" class="post-meta-item leancloud_visitors" data-flag-title="阅兵日记（一） 一支穿云箭，千军万马来相见" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ybrj1/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ybrj1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>阅兵归来，这几天整理了下卫生，打开自己的日记本，断断续续记了一些流水账，有个几万字吧。苦累的纪念，成长的见证。整理在此，与大家分享。争取每周能更新一篇，文中所涉及所有照片由王教练提供，未经许可请勿单独使用照片。</p>
-<p><img src="https://i.loli.net/2019/11/15/Myeluj6g4QoOf2N.jpg" alt></p>
-<h3 id="2019-3-17-星期天-晴"><a href="#2019-3-17-星期天-晴" class="headerlink" title="2019.3.17 星期天 晴"></a>2019.3.17 星期天 晴</h3><p>今天是进驻xxx的第三天，昨天进行了一天训练，教练们个个又高又壮，有现役的士官，多为中士，年纪应该和我差不多大，有退役的仪仗队队员，这些年纪应该会大一些，感觉我在这个地方完全就是个小矮子……</p>
-<p>昨天训练了一天，主要是练军姿，就一直站着，还挺累的。今天是星期天，以休息为主，主要是整理内务，叠被子，钉床单，去超市买了一瓶洗衣液和一条毛巾拿回来当枕巾。</p>
-<p>伙食真不赖，现在想起601的饭都不知道我当时是怎么吃下去。</p>
-<h3 id="2019-3-18-星期天-晴"><a href="#2019-3-18-星期天-晴" class="headerlink" title="2019.3.18 星期天 晴"></a>2019.3.18 星期天 晴</h3><p>今天训练继续以军姿，转体为主。我发现这些教练班长们个个口才都还挺好的，讲道理讲得很潇洒。训练场上也很文明，跟学校的教员一样。我妈还一直担心我表现不好会不会被打……我都多大人了，也当兵6年了，算是个小老兵，怎么可能被打，也太没面子了，现在训练都讲究科学，骂人几乎都没有的。</p>
-<p>今天我们方队另外两个单位的人来了，吃饭的时候大家都毫不掩饰得打量对方，颇有几分警惕和竞争的感觉，但是以后肯定都会成为很好的兄弟。</p>
-<h3 id="2019-3-21-星期四-晴-大风"><a href="#2019-3-21-星期四-晴-大风" class="headerlink" title="2019.3.21 星期四 晴 大风"></a>2019.3.21 星期四 晴 大风</h3><p>前两天节奏很紧张，没有时间写日记。前天（3.19）我们排了队形，我在第十一排面十号，算是比较靠后的位置，个子就这么高，也没办法。</p>
-<p>这几天就开始按照排面为单位组织训练了，军姿要求的时间越来越长，脚掌，背，胳膊都非常累。昨天我们又练了一个踏步分解动作，需要把腿抬起来定一会，我的单脚站立向来非常不稳，就一直打报告，难受。</p>
-<p>写字感觉手有点抖，字写得十分潦草，很多同学开始打退堂鼓，也不知道能不能撑到最后。坚持！坚持！</p>
-<p><img src="https://i.loli.net/2019/11/15/kiFct3AKdGpuf6q.png" alt></p>
-<h3 id="2019-3-24-星期天-晴"><a href="#2019-3-24-星期天-晴" class="headerlink" title="2019.3.24 星期天 晴"></a>2019.3.24 星期天 晴</h3><p>周五和周六的训练都非常辛苦，站军姿的时间已经增加到了五十分钟，站的时候帽线，胸线一拉，谁好谁坏一幕了然，完全站直重心放前脚掌不能动真的是太艰难了，每次都站到膝盖都弯不了，脚掌发麻。脖子上，衬衣的领上领下已经被晒得泾渭分明了。</p>
-<p>周日安排了外出。每班两人，班车把我们送到了北安河地铁站，然后坐十六号线到西苑，换乘四号线到圆明园转了一圈，乘坐游览电动车走马观花了一下。圆明园在英法联军的一场大火中，木质结构的中式建筑基本全部焚毁了，只有砖石结构的部分西洋建筑得以保存，这也成了圆明园的代表。来访圆明园的人大多神情肃穆，一片哀叹，有家长带小孩来学习历史的，很好。</p>
-<p>从圆明园东门出来，骑共享单车回南门坐地铁，发现走的这条路16年冬天来北京办护照的时候似乎走过，晚上党明光，保证陪我走的。</p>
-<p>继续坐四号线到终点站安和桥北。这有一个华联商场，给在营的朋友们买了水果，大宝，润唇膏（10月7号补充：从长沙到北京，大家都没想到当时北京那么干燥）等东西，给顺仔一对买了一小束花。见了顺仔，又是聊不完的话，不再细说。</p>
-<p>今天基地又来了一批新人，个子都比较高，听说最终只有28个替补名额，这样一来我们这就要淘汰50多个人，大家都有了不少压力，每个人都觉得自己将会是被淘汰的那个。我也非常担心，不过心态终是趋于平稳。尽力而为，拼尽全力就好，最后什么结果都不后悔就是了。</p>
-<h3 id="2019-3-25-星期一-晴"><a href="#2019-3-25-星期一-晴" class="headerlink" title="2019.3.25 星期一 晴"></a>2019.3.25 星期一 晴</h3><p>新一周的训练又开始啦，这周是三月份最后一个训练周了，下一周就进入四月份，要开始正步踢腿的练习了。对于正步，大家普遍都有一点恐惧，我参加过学校2014和2017两次年度阅兵，多少知道正步练习的艰难，能不能坚持下来，心里没一点底。</p>
-<p>今天上午站了50分钟军姿，下午站了1个小时，累坏了。</p>
-<p>泽君买了一把筋膜枪，一千五百多块钱。用了一下真的很好用，考虑要不要入手一个。301医院的医生来巡诊了一次。没什么不舒服的地方，就没去关注。</p>
-<h2 id="2019-3-31-星期天-晴"><a href="#2019-3-31-星期天-晴" class="headerlink" title="2019.3.31 星期天 晴"></a>2019.3.31 星期天 晴</h2><p>刚刚发现日记前几天写的都是2018，2019都过了4个月了。</p>
-<p>本以为下周才会开始的正步训练，在这周就已经全面开展。目前的节奏基本上就是上午下午各30分钟军姿，剩下时间就全是踢腿训练。我果然是晃得非常厉害，基本上每天都被班长批评，被批评到起飞，被批评到飞起，被批评到上天，被批评到爆炸。</p>
-<p>好在心态还不算太差，上一周一直是一种担心和忧虑，这周真正经历过之后就开始逐渐淡然，前两天做了一个梦，梦到自己撂挑子不干了，回学校了，但是回去之后两三天身体的疲惫就歇好了，然后就开始后悔，后悔退出了，其实顶一顶，两三天总是能顶的吧，每次都对自己说再坚持两天，几十个两天之后，差不多就该结束了。幸亏只是一个梦，我还能继续训练。</p>
-<p><img src="https://i.loli.net/2019/11/15/rhtbLQg3O2AIPsl.png" alt><br>​</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/py-sys/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/py-sys/" class="post-title-link" itemprop="url">Python 通过sys.argv控制台输入参数</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-15 16:41:44 / 修改时间：17:59:05" itemprop="dateCreated datePublished" datetime="2019-11-15T16:41:44+08:00">2019-11-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/py-sys/" class="post-meta-item leancloud_visitors" data-flag-title="Python 通过sys.argv控制台输入参数" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/py-sys/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/py-sys/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>716</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>通过python编写的大型代码往往需要在服务器中运行，而服务器中往往不会安装IDE，所以只能在控制台通过<code>python yourcode.py</code>使程序执行，如果程序中有参数需要调整，通过文本编辑器到程序里去调整参数十分麻烦，并且不能保证代码的一致性。</p>
-<p>所以就需要利用，控制台输入参数，参考代码</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) &gt;= <span class="number">3</span>:</span><br><span class="line">        <span class="selector-tag">a</span> = sys<span class="selector-class">.argv</span>[<span class="number">1</span>]</span><br><span class="line">        <span class="selector-tag">b</span> = sys<span class="selector-class">.argv</span>[<span class="number">2</span>]</span><br><span class="line">    elif len(sys.argv) == <span class="number">2</span>:</span><br><span class="line">        <span class="selector-tag">a</span> = sys<span class="selector-class">.argv</span>[<span class="number">1</span>]</span><br><span class="line">        <span class="selector-tag">b</span> = input(<span class="string">"请输入参数b "</span>)</span><br><span class="line">    elif len(sys.argv) == <span class="number">1</span>:</span><br><span class="line">        <span class="selector-tag">a</span> = input(<span class="string">"请输入参数a "</span>)</span><br><span class="line">        <span class="selector-tag">b</span> = input(<span class="string">"请输入参数b "</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="selector-tag">a</span> + b)</span><br><span class="line">    print(sys.argv)</span><br></pre></td></tr></table></figure>
-<p>我们在控制台执行这个程序</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">YaodeMacBook-<span class="symbol">Pro:</span>learnpy yaoli<span class="variable">$ </span>python3 raw_input_test.py <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="number">23</span></span><br><span class="line">[<span class="string">'raw_input_test.py'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>]</span><br></pre></td></tr></table></figure>
-<p>通过 <code>python3 raw_input_test.py 2 3</code> 命令执行了 <code>raw_input_test.py</code> 这个程序，其中2,3分别是 <code>sys.argv[1]</code> 和 <code>sys.argv[2]</code>，为什么不是 <code>sys.argv[0]</code>我们通过<code>print(sys.argv)</code> 发现其实 <code>sys.argv</code> 就是一个list，它的0号元素是这个程序的程序名。</p>
-<p>通过 <code>print(a+b)</code> 得出 <code>23</code>，我们发现这些参数的输入都是作为字符串变量导入的。</p>
-<p>同时以上参考代码，还具有如果输入参数不够两个，自动要求你继续输入的功能。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1714,20 +1813,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1785,13 +1884,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">67k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:47</span>
+    <span title="站点阅读时长">1:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

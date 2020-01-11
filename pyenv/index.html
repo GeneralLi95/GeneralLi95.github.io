@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="9qoov3_TfJJpNB8lTPmTyQIFty7THrrcKf5gynDis6c">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。 前几天修复了 一个 pytorch 不能自动下载 check">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怎样在 Mac 上安装一个最好的 Python 工作环境">
+<meta property="og:url" content="http://www.liyaolife.com/pyenv/index.html">
+<meta property="og:site_name" content="Yao Blog">
+<meta property="og:description" content="Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。 前几天修复了 一个 pytorch 不能自动下载 check">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2020/01/09/F9cHlR57tbuwymN.png">
+<meta property="og:updated_time" content="2020-01-11T02:40:04.402Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="怎样在 Mac 上安装一个最好的 Python 工作环境">
+<meta name="twitter:description" content="Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。 前几天修复了 一个 pytorch 不能自动下载 check">
+<meta name="twitter:image" content="https://i.loli.net/2020/01/09/F9cHlR57tbuwymN.png">
+
+<link rel="canonical" href="http://www.liyaolife.com/pyenv/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>怎样在 Mac 上安装一个最好的 Python 工作环境 | Yao Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yao Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">图书馆里的清洁工 少林寺里的扫地僧</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeneralLi95" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pyenv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          怎样在 Mac 上安装一个最好的 Python 工作环境
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-09 09:56:07" itemprop="dateCreated datePublished" datetime="2020-01-09T09:56:07+08:00">2020-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-11 10:40:04" itemprop="dateModified" datetime="2020-01-11T10:40:04+08:00">2020-01-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/pyenv/" class="post-meta-item leancloud_visitors" data-flag-title="怎样在 Mac 上安装一个最好的 Python 工作环境" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/pyenv/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/pyenv/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。<br><img src="https://i.loli.net/2020/01/09/F9cHlR57tbuwymN.png" alt="image.png"></p>
+<p>前几天修复了 一个 pytorch 不能自动下载 checkpoints 的问题，然后今天就发现 jupyter notebook 、 mkdocs 等命令都不管用了。今天下定决心开始重新布置本机的Python环境。</p>
+<h2 id="清除以往的Python版本"><a href="#清除以往的Python版本" class="headerlink" title="清除以往的Python版本"></a>清除以往的Python版本</h2><p>发现本机存在 3个 Python版本，Python官网下载的 3.6.5 版本，系统自带的2.7版本以及通过 brew 安装的 2.7版本。以及残存的通过 brew 安装3.6.5和3.7版本经过删除后的残余（大概几十KB）</p>
+<p>首先通过 <code>brew uninstall</code> 删除了所有通过 brew 安装的版本。比较方便。</p>
+<p>然后开始清理在官网下载的 3.6.5 版本。</p>
+<ol>
+<li>在应用程序删除 Python APP整个文件夹</li>
+<li>在 资源库/FrameWorks/ 里面删除 Python.frameworks</li>
+<li>用 磁盘清理软件清理</li>
+</ol>
+<h2 id="正确的方式安装-Python-版本"><a href="#正确的方式安装-Python-版本" class="headerlink" title="正确的方式安装 Python 版本"></a>正确的方式安装 Python 版本</h2><blockquote>
+<p>“The basic premise of all Python development is to never use the system Python. You do not want the Mac OS X ‘default Python’ to be ‘python3.’ You want to never care about default Python.”——Moshe Zadka</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">%</span><span class="bash"> brew install pyenv</span></span><br><span class="line">🍺  /usr/local/Cellar/pyenv/1.2.16: 671 files, 2.5MB</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% pyenv <span class="keyword">install</span> <span class="number">3.8</span><span class="number">.1</span></span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> openssl@<span class="number">1.1</span> <span class="keyword">from</span> homebrew</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> readline <span class="keyword">from</span> homebrew</span><br><span class="line">Downloading Python<span class="number">-3.8</span><span class="number">.1</span>.tar.xz...</span><br><span class="line">-&gt; https://www.python.org/<span class="keyword">ftp</span>/python/<span class="number">3.8</span><span class="number">.1</span>/Python<span class="number">-3.8</span><span class="number">.1</span>.tar.xz</span><br><span class="line">Installing Python<span class="number">-3.8</span><span class="number">.1</span>...</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> readline <span class="keyword">from</span> homebrew</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> zlib <span class="keyword">from</span> xcode sdk</span><br><span class="line">Installed Python<span class="number">-3.8</span><span class="number">.1</span> <span class="keyword">to</span> /<span class="keyword">Users</span>/yaoli/.pyenv/<span class="keyword">versions</span>/<span class="number">3.8</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+<p>还需要将 pyenv 加入到命令行设置文件里，原生命令行是 <strong>.bash_profile</strong>，zsh是 <strong>.zshrc</strong></p>
+<blockquote>
+<p>The power of pyenv comes from its control over our shell’s path. In order for it to work correctly, we need to add the following to our configuration file (.zshrc for me, possibly .bash_profile for you):</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv 1&gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span>\n  <span class="built_in">eval</span> <span class="string">"<span class="variable">$(pyenv init -)</span>"</span>\nfi<span class="string">' &gt;&gt; ~/.zshrc</span></span><br></pre></td></tr></table></figure>
+<p>然后</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">% pyenv <span class="keyword">global</span> <span class="number">3.8</span><span class="number">.1</span></span><br><span class="line">% pyenv <span class="built_in">version</span></span><br><span class="line"><span class="number">3.8</span><span class="number">.1</span> (<span class="keyword">set</span> <span class="keyword">by</span> /Users/yaoli/.pyenv/<span class="built_in">version</span>)</span><br></pre></td></tr></table></figure>
+<p>重启 terminal 或者 <code>exec $Shell</code></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">% pyenv versions</span><br><span class="line">system</span><br><span class="line">* 3.8.1 (<span class="builtin-name">set</span> by /Users/yaoli/.pyenv/version)</span><br><span class="line"></span><br><span class="line">% which python</span><br><span class="line">/Users/yaoli/.pyenv/shims/python</span><br><span class="line"></span><br><span class="line">% python -V</span><br><span class="line">Python 3.8.1</span><br><span class="line"></span><br><span class="line">% pip -V</span><br><span class="line">ip 19.2.3 <span class="keyword">from</span> /Users/yaoli/.pyenv/versions/3.8.1/lib/python3.8/site-packages/pip (python 3.8)</span><br></pre></td></tr></table></figure>
+<p>大功告成！</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><p><a href="https://opensource.com/article/19/5/python-3-default-mac" target="_blank" rel="noopener">The right and wrong way to set Python 3 as default on a Mac</a></p>
+</li>
+<li><p><a href="https://xkcd.com/1987/" target="_blank" rel="noopener">Python Environment</a></p>
+</li>
+<li><p><a href="https://realpython.com/intro-to-pyenv/" target="_blank" rel="noopener">Managing Multiple Python Versions With pyenv</a></p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/zsh/" rel="next" title="zsh 初探">
+                  <i class="fa fa-chevron-left"></i> zsh 初探
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/pandas/" rel="prev" title="pandas 学习">
+                  pandas 学习 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#清除以往的Python版本"><span class="nav-text">清除以往的Python版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正确的方式安装-Python-版本"><span class="nav-text">正确的方式安装 Python 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Li Yao"
+    src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Li Yao</p>
+  <div class="site-description" itemprop="description">图书馆里的扫地僧 少林寺里的清洁工</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GeneralLi95" title="GitHub &rarr; https://github.com/GeneralLi95" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nudtliyao@foxmail.com" title="E-Mail &rarr; mailto:nudtliyao@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6379926438" title="Weibo &rarr; https://weibo.com/6379926438" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/xiaoyaoyao95" title="Twitter &rarr; https://twitter.com/xiaoyaoyao95" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/nudtliyao" title="Instagram &rarr; https://instagram.com/nudtliyao" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/li-yao-89-61/activities" title="Zhihu &rarr; https://www.zhihu.com/people/li-yao-89-61/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-fa-zhihu"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/2ad44a001d34" title="Jianshu &rarr; https://www.jianshu.com/u/2ad44a001d34" rel="noopener" target="_blank"><i class="fa fa-fw fa-jianshu"></i>Jianshu</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Yao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">67k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:52</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'UDBji4Ik1sNs3spfpNN5hLtl-gzGzoHsz',
+    appKey: 'xXJt7xKWhDQTL58y0eTxw7uA',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

@@ -4,6 +4,123 @@
 
     
   <url>
+    <loc>http://liyaolife.compyenv/</loc>
+    <lastmod>2020-01-11T02:40:04.402Z</lastmod>
+    <data>
+        <display>
+        <title>怎样在 Mac 上安装一个最好的 Python 工作环境</title>
+        <pubTime>2020-01-09T01:56:07.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.liyaolife.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comzsh/</loc>
+    <lastmod>2020-01-11T02:22:10.805Z</lastmod>
+    <data>
+        <display>
+        <title>zsh 初探</title>
+        <pubTime>2020-01-08T07:23:44.000Z</pubTime>
+        
+        <tag>Shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Shell" url="http://www.liyaolife.com/categories/Shell/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comng_ml/ng_ml2/</loc>
+    <lastmod>2020-01-10T15:03:04.851Z</lastmod>
+    <data>
+        <display>
+        <title>ng_ml2</title>
+        <pubTime>2020-01-10T11:33:51.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comtianchi_ocean/</loc>
+    <lastmod>2020-01-10T11:04:02.561Z</lastmod>
+    <data>
+        <display>
+        <title>2020天池智慧海洋建设比赛</title>
+        <pubTime>2020-01-10T02:14:40.000Z</pubTime>
+        
+        <tag>天池</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Mining" url="http://www.liyaolife.com/categories/Data-Mining/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.compandas/</loc>
+    <lastmod>2020-01-10T02:46:33.837Z</lastmod>
+    <data>
+        <display>
+        <title>pandas 学习</title>
+        <pubTime>2020-01-09T15:45:56.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Pandas</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Mining" url="http://www.liyaolife.com/categories/Data-Mining/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.compyqt/</loc>
+    <lastmod>2020-01-08T07:36:23.984Z</lastmod>
+    <data>
+        <display>
+        <title>在Python下搭建QT+SIP+PyQt5环境</title>
+        <pubTime>2018-08-13T08:04:35.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.liyaolife.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.compytorch_error1/</loc>
     <lastmod>2020-01-06T09:13:24.526Z</lastmod>
     <data>
@@ -512,26 +629,6 @@
         
         <tag>基础编程</tag>
          
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://www.liyaolife.com/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.compyqt/</loc>
-    <lastmod>2019-11-19T08:59:07.758Z</lastmod>
-    <data>
-        <display>
-        <title>在Python下搭建QT+SIP+PyQt5环境</title>
-        <pubTime>2018-08-13T08:04:35.000Z</pubTime>
-        
         <tag>Python</tag>
          
          
