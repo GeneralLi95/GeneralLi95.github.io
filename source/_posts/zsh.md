@@ -21,8 +21,9 @@ YaodeMacBook-Pro: ~ $
 现在起手变成了(现在发现也不是每次打开都这样)
 
 ```
-yaoli@YaodeMBP: ~ $
+yaoli@YaodeMBP: ~ %
 ```
+$ 变成 %
 
 其他好处就是
 
