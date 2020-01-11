@@ -1,5 +1,5 @@
 ---
-title: Andrew Ng Machine Learning: 1 Intorduction
+title: Andrew Ng Machine Learning - 1 Intorduction
 date: 2019-12-28 23:07:34
 tags:
   - Andrew Ng Machine Learning
