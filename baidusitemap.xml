@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://liyaolife.comng_ml/ng_ml/</loc>
+    <lastmod>2020-01-11T02:43:33.802Z</lastmod>
+    <data>
+        <display>
+        <title>Andrew Ng Machine Learning - 1 Intorduction</title>
+        <pubTime>2019-12-28T15:07:34.000Z</pubTime>
+        
+        <tag>Andrew Ng Machine Learning</tag>
+         
+        <tag>MOOC</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.compyenv/</loc>
     <lastmod>2020-01-11T02:40:04.402Z</lastmod>
     <data>
@@ -161,21 +183,6 @@
              
               <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comng_ml/ng_ml/</loc>
-    <lastmod>2019-12-28T15:07:53.372Z</lastmod>
-    <data>
-        <display>
-        <title>斯坦福吴恩达机器学习</title>
-        <pubTime>2019-12-28T15:07:34.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
