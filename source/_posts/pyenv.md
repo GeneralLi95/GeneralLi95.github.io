@@ -81,7 +81,8 @@ ip 19.2.3 from /Users/yaoli/.pyenv/versions/3.8.1/lib/python3.8/site-packages/pi
 
 大功告成！
 
-
+---
+2020.1.11 发现 Python 3.8.1 目前还不支持 PyTorch，谨慎升级。我已经回退到 3.7.6。
 
 
 
