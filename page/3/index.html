@@ -21,7 +21,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
@@ -189,6 +189,352 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/learningrate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/learningrate/" class="post-title-link" itemprop="url">深度学习中的学习率变化和自适应学习率方法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-20 10:30:29" itemprop="dateCreated datePublished" datetime="2019-11-20T10:30:29+08:00">2019-11-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-26 17:00:41" itemprop="dateModified" datetime="2019-11-26T17:00:41+08:00">2019-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/learningrate/" class="post-meta-item leancloud_visitors" data-flag-title="深度学习中的学习率变化和自适应学习率方法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/learningrate/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/learningrate/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>声明：本文主要是以翻译Suki Lau的在Media博文 <a href="https://towardsdatascience.com/learning-rate-schedules-and-adaptive-learning-rate-methods-for-deep-learning-2c8f433990d1" target="_blank" rel="noopener">Learning Rate Schedules and Adaptive Learning Rate Methods for Deep Learning</a> 为基础，增加了个人的理解。</p>
+<hr>
+<p>学习率 learning rate 是深度中最重要的超参数之一，学习率大小决定了神经网络收敛的速度，学习率太大，可能导致收敛速度过快而震荡，学习率太小则可能导致收敛速度太慢。<br><img src="https://i.loli.net/2019/11/20/jpqVeSfFwrgkBO5.png" alt="学习率"></p>
+<p>所以在我们训练神经网络的时候，经常在刚开始采用较大的学习率，随着时间推进，学习率会逐渐减小。我们可以预设一个公式或自适应的学习率变化方法(learning rate schedules or adaptive learning rate methods)。本文在 CIFAR-10 数据集上训练一个神经网络，通过使用不同的学习率变化来比较他们之间的表现差别。</p>
+<h2 id="1-预设学习率变化"><a href="#1-预设学习率变化" class="headerlink" title="1 预设学习率变化"></a>1 预设学习率变化</h2><p>学习率时间表通过预设一个学习率变化的时间表来控制学习率的衰减。通常的方法包括<strong>时序衰减</strong>，<strong>按步衰减</strong>，<strong>指数衰减</strong>。为了证明，我们构建了一个训练在 CIFAR-10 数据集上的卷积神经网络，用随机梯度下降方法(SGD)来表现不同学习率时间表的性能。</p>
+<h3 id="1-1-固定学习率"><a href="#1-1-固定学习率" class="headerlink" title="1.1 固定学习率"></a>1.1 固定学习率</h3><p>固定学习率方法就是设置一个默认的学习率。在 Keras 的 SGD optimizer 中实现。动量和衰减率都设置为 0。 在这种情况下，选择一个合适的学习率是不容易的。这需要一定的经验和大量的实验。在这个例子中，学习率 <code>lr = 0.1</code> 展示了一个相对较好的结果。这可以作为这篇文章实验的一个基线。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keras.optimizers.SGD(<span class="attribute">lr</span>=0.1, <span class="attribute">momentum</span>=0.0, <span class="attribute">decay</span>=0.0, <span class="attribute">nesterov</span>=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/11/21/k2CWzNHb3vnlQoV.png" alt="固定学习率"></p>
+<h3 id="1-2-时序衰减学习率"><a href="#1-2-时序衰减学习率" class="headerlink" title="1.2 时序衰减学习率"></a>1.2 时序衰减学习率</h3><p>时序衰减学习率的数学公式是 $lr=lr_0/(1 + k_t)$ 这里 $lr$，和 $k$ 都是一个高参数，$t$ 是一个迭代次数。如果看 Keras 的源码，会发现 SGD optimizer 把衰减和学习率的更新通过在每个周期递减一个参数数值来更新。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr *= (<span class="number">1</span>. / (<span class="number">1</span>. + <span class="keyword">self</span>.decay * <span class="keyword">self</span>.iterations))</span><br></pre></td></tr></table></figure>
+<p>动量是 SGD optimizer 里的另外一个参数，我们可以通过调整它来获得更快的收敛速度。不像经典的 SGD 方法，动动量法可帮助参数矢量以恒定的梯度下降沿任意方向建立速度，从而防止振荡。一般动量选择的值是0.5-0.9之间。</p>
+<p>SGD optimizer 还有一个参数叫做 nesterov，默认情况下它的值是 false. Nesterov 动量是动量方法的一种变形，对凸函数具有更强的理论收敛保证。在实际操作中，它的效果比标准动量方法稍好。</p>
+<p>在 Keras 里我们可以实现时序衰减学习率通过在SGD optimizer 中设置初始学习率，衰减率和动量。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">learning_rate</span> = <span class="number">0.1</span></span><br><span class="line"><span class="attr">decay_rate</span> = learning_rate / epochs</span><br><span class="line"><span class="attr">momentum</span> = <span class="number">0.8</span></span><br><span class="line"><span class="attr">sgd</span> = SGD(lr=learning_rate, momentum=momentum, decay=decay_rate, nesterov=<span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-按步衰减"><a href="#1-3-按步衰减" class="headerlink" title="1.3 按步衰减"></a>1.3 按步衰减</h3><p>按步衰减学习率通过一个参数，每几个epoch下降一次。公式为:</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lr</span> = lr0 * <span class="keyword">drop</span>^<span class="built_in">floor</span>(epoch / epochs_drop)</span><br></pre></td></tr></table></figure>
+<p>一个常用降低学习率的方法是每隔10个 epoch，学习率降低为原来的一半。在 Keras 中实现这个方法，我们可以定义一个逐步递减函数，使用 LearningRateScheduler 回调，将逐步衰减函数作为参数，并将更新的学习率返回到 SGD optimizer中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">step_decay</span><span class="params">(epoch)</span>:</span></span><br><span class="line">   initial_lrate = <span class="number">0.1</span></span><br><span class="line">   drop = <span class="number">0.5</span></span><br><span class="line">   epochs_drop = <span class="number">10.0</span></span><br><span class="line">   lrate = initial_lrate * math.pow(drop,  </span><br><span class="line">           math.floor((<span class="number">1</span>+epoch)/epochs_drop))</span><br><span class="line">   <span class="keyword">return</span> lrate</span><br><span class="line">lrate = LearningRateScheduler(step_decay)</span><br></pre></td></tr></table></figure>
+<p>题外话，回调是要在训练过程的给定阶段应用的一组功能。 我们可以使用回调来获得训练期间模型的内部状态和统计信息。 在我们的示例中，我们通过扩展基类keras.callbacks.Callback来创建自定义回调，以记录训练过程中的丢失历史记录和学习率。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LossHistory</span>(<span class="title">keras</span>.<span class="title">callbacks</span>.<span class="title">Callback</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_train_begin</span><span class="params">(<span class="keyword">self</span>, logs=&#123;&#125;)</span></span><span class="symbol">:</span></span><br><span class="line">       <span class="keyword">self</span>.losses = []</span><br><span class="line">       <span class="keyword">self</span>.lr = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_epoch_end</span><span class="params">(<span class="keyword">self</span>, batch, logs=&#123;&#125;)</span></span><span class="symbol">:</span></span><br><span class="line">       <span class="keyword">self</span>.losses.append(logs.get(‘loss’))</span><br><span class="line">       <span class="keyword">self</span>.lr.append(step_decay(len(<span class="keyword">self</span>.losses)))</span><br></pre></td></tr></table></figure>
+<p>将所有内容放在一起，我们可以传递一个由LearningRateScheduler回调和我们的自定义回调组成的回调列表以适合模型。 然后，我们可以通过访问loss_history.lr和loss_history.losses可视化学习率进度表和损失历史记录。</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">loss_history</span> = LossHistory()</span><br><span class="line"><span class="attr">lrate</span> = LearningRateScheduler(step_decay)</span><br><span class="line"><span class="attr">callbacks_list</span> = [loss_history, lrate]</span><br><span class="line"><span class="attr">history</span> = model.fit(X_train, y_train,</span><br><span class="line">   <span class="attr">validation_data=(X_test,</span> y_test),</span><br><span class="line">   <span class="attr">epochs=epochs,</span></span><br><span class="line">   <span class="attr">batch_size=batch_size,</span></span><br><span class="line">   <span class="attr">callbacks=callbacks_list,</span></span><br><span class="line">   <span class="attr">verbose=2)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/11/26/XRicvsu5gEfJwm6.png" alt="按步衰减模型精度"></p>
+<p><img src="https://i.loli.net/2019/11/26/lPLmMX1Jxfipy68.png" alt="按步衰减的学习率"></p>
+<h3 id="1-4-指数衰减"><a href="#1-4-指数衰减" class="headerlink" title="1.4 指数衰减"></a>1.4 指数衰减</h3><p>指数衰减也是常用的学习率下降模式。数学公式是 <code>lr = lr0 * e^(−kt)</code>，这里<code>lr</code>,<code>k</code>都是超参数，<code>t</code>是循环次数。同样，我们可以通过定义指数衰减函数并将其传递给<code>LearningRateScheduler</code>来实现。 实际上，可以使用此方法在Keras中实现任何自定义衰减时间表。 唯一的区别是定义了不同的自定义衰减函数。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exp_decay</span><span class="params">(epoch)</span></span><span class="symbol">:</span></span><br><span class="line">   initial_lrate = <span class="number">0</span>.<span class="number">1</span></span><br><span class="line">   k = <span class="number">0</span>.<span class="number">1</span></span><br><span class="line">   lrate = initial_lrate * exp(-k*t)</span><br><span class="line">   <span class="keyword">return</span> lrate</span><br><span class="line">lrate = LearningRateScheduler(exp_decay)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/11/26/5v24fC6RodxQXlb.png" alt></p>
+<p><img src="https://i.loli.net/2019/11/26/vnHbEkyPfSlG1jL.png" alt></p>
+<p>现在让我们在示例中使用不同的学习率时间表来比较模型的准确性。</p>
+<p><img src="https://i.loli.net/2019/11/26/dzaVuJ9sirMDUgm.png" alt></p>
+<h2 id="2-自适应学习率方法"><a href="#2-自适应学习率方法" class="headerlink" title="2 自适应学习率方法"></a>2 自适应学习率方法</h2><p>使用学习速率计划的挑战在于，必须提前定义其超参数，并且它们在很大程度上取决于模型和问题的类型。另一个问题是，将相同的学习率应用于所有参数更新。如果数据稀疏，则可能需要在不同程度上更新参数。</p>
+<p>诸如Adagrad，Adadelta，RMSprop，Adam之类的自适应梯度下降算法提供了经典SGD的替代方法。这些按参数学习速率的方法提供了启发式方法，而无需为手动调整学习速率时间表的超参数而进行昂贵的工作。</p>
+<p>简而言之，Adagrad对较大的稀疏参数执行较大的更新，对较小的稀疏参数执行较小的更新。它在稀疏数据和训练大规模神经网络方面表现良好。但是，当训练深度神经网络时，其单调学习率通常证明过于激进，并且过早停止学习。 Adadelta是Adagrad的扩展，旨在降低其激进的，单调降低的学习率。 RMSprop以非常简单的方式调整Adagrad方法，以尝试降低其激进的，单调降低的学习率。亚当是对RMSProp优化器的更新，类似于具有动力的RMSprop。</p>
+<p>在Keras中，我们可以使用相应的优化器轻松实现这些自适应学习算法。通常建议将这些优化器的超参数保留为默认值（有时除外lr）。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">keras.optimizers.Adagrad(<span class="attribute">lr</span>=0.01, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br><span class="line">keras.optimizers.Adadelta(<span class="attribute">lr</span>=1.0, <span class="attribute">rho</span>=0.95, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br><span class="line">keras.optimizers.RMSprop(<span class="attribute">lr</span>=0.001, <span class="attribute">rho</span>=0.9, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br><span class="line">keras.optimizers.Adam(<span class="attribute">lr</span>=0.001, <span class="attribute">beta_1</span>=0.9, <span class="attribute">beta_2</span>=0.999, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br></pre></td></tr></table></figure>
+<p>现在让我们看看使用不同的自适应学习率方法的模型性能。 在我们的示例中，Adadelta提供了其他自适应学习率方法中最佳的模型精度。</p>
+<p><img src="https://i.loli.net/2019/11/26/PMzyi2NuXE5TrR9.png" alt></p>
+<p>最后，我们比较了我们讨论过的所有学习率计划和自适应学习率方法的性能。</p>
+<p><img src="https://i.loli.net/2019/11/26/itTkIjezbpqcdRD.png" alt></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在我研究过的许多示例中，自适应学习率方法比学习率表显示出更好的性能，并且在超参数设置中需要更少的精力。 我们还可以使用Keras中的LearningRateScheduler创建针对我们数据问题的自定义学习率计划。</p>
+<p>为了进一步阅读，Yoshua Bengio的论文为调整深度学习的学习速率提供了非常好的实用建议，例如如何设置初始学习速率，最小批量大小，时期数以及使用早期停止和动量。</p>
+<p><a href="https://github.com/sukilau/Ziff-deep-learning/blob/master/3-CIFAR10-lrate/CIFAR10-lrate.ipynb" target="_blank" rel="noopener">源代码</a></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://arxiv.org/pdf/1206.5533v2.pdf" target="_blank" rel="noopener">Practical Recommendations for Gradient-Based Training of Deep Architectures by Yoshua Bengio</a></li>
+<li><a href="http://cs231n.github.io/neural-networks-3/#sgd" target="_blank" rel="noopener">Convolutional Neural Networks for Visual Recognition</a></li>
+<li><a href="https://machinelearningmastery.com/using-learning-rate-schedules-deep-learning-models-python-keras/" target="_blank" rel="noopener">Using Learning Rate Schedules for Deep Learning Models in Python with Keras</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/deepland/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/deepland/" class="post-title-link" itemprop="url">DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-19 18:37:27" itemprop="dateCreated datePublished" datetime="2019-11-19T18:37:27+08:00">2019-11-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-29 21:50:14" itemprop="dateModified" datetime="2019-11-29T21:50:14+08:00">2019-11-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/deepland/" class="post-meta-item leancloud_visitors" data-flag-title="DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/deepland/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/deepland/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="如何复现此工作"><a href="#如何复现此工作" class="headerlink" title="如何复现此工作"></a>如何复现此工作</h2><h3 id="文件结构组织"><a href="#文件结构组织" class="headerlink" title="文件结构组织"></a>文件结构组织</h3><ul>
+<li>deepglobe_land<ul>
+<li>dataset<ul>
+<li>land_train  (存放下载下来的原始数据 )</li>
+<li>onechannel_label (内部数据通过运行 rgb2label.py 生成)</li>
+<li>voc_train_all.record (通过运行 create_tf_record_all.py 生成 )</li>
+</ul>
+</li>
+<li>ini_checkpoints<ul>
+<li>resnet_v2_101  (resnet_v2_101.ckpt and train.graph)</li>
+</ul>
+</li>
+<li>utils (工具包)</li>
+<li>rgb2label.py</li>
+<li>create_tf_record_all.py</li>
+<li>deeplab_model.py</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p><strong>create_tf_record_all.py</strong>  建立 tfrecord 文件，该代码执行后，直接将 land_train文件夹里的所有 id_sat.jpg 文件与 onechannel_label 里的 id_label 文件打包生成一个 voc_train_all.record文件，该文件中包含了数据集和验证集，不需要手动区分数据集验证集，训练过程中会随机选择一部分作为数据集，另一部分作为验证集。</p>
+</li>
+<li><p><strong>deeplab_model.py</strong>  deeplab模型基本不用动</p>
+</li>
+<li><p><strong>train.py</strong> 需要在里面进行一些参数设置，类别，训练集合验证集的数据比，这里我们设置训练集723张图片，验证集80张。</p>
+</li>
+</ol>
+<h3 id="代码执行顺序与注意事项"><a href="#代码执行顺序与注意事项" class="headerlink" title="代码执行顺序与注意事项"></a>代码执行顺序与注意事项</h3><ol>
+<li><p><strong>reg2label.py</strong> 数据标注文件 id_mask.png 是 RGB 三通道图像，输入训练集的时候必须首先转为单通道图像，故该代码用于执行，图像到单通道图像的转换，此处原始卫星图像 id_sat.jpg, 标注图像 id_mask.png，单通道标注图像 id_label.png 。  <strong>这段代码可以作为一段工具代码在其他地方使用。</strong></p>
+<p>代码中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">one_channel_label_path = <span class="string">'dataset/land_train'</span></span><br><span class="line">test_mask_path = <span class="string">'dataset/onechannel_label'</span></span><br></pre></td></tr></table></figure>
+<p>这两行指定了输入输出路径。</p>
+</li>
+</ol>
+<ol>
+<li><p><strong>create_tf_record_all.py</strong>  建立 tfrecord 文件，该代码执行后，直接将 land_train文件夹里的所有 id_sat.jpg 文件与 onechannel_label 里的 id_label 文件打包生成一个 voc_train_all.record文件，该文件中包含了数据集和验证集，不需要手动区分数据集验证集，训练过程中会随机选择一部分作为数据集，另一部分作为验证集。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">'--data_dir'</span>, type=str, default=<span class="string">'./dataset/'</span>,</span><br><span class="line">                    help=<span class="string">'Path to the directory containing the PASCAL VOC data.'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'--output_path'</span>, type=str, default=<span class="string">'./dataset'</span>,</span><br><span class="line">                    help=<span class="string">'Path to the directory to create TFRecords outputs.'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'--image_data_dir'</span>, type=str, default=<span class="string">'land_train'</span>,</span><br><span class="line">                    help=<span class="string">'The directory containing the image data.'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'--label_data_dir'</span>, type=str, default=<span class="string">'onechannel_label'</span>,</span><br><span class="line">                    help=<span class="string">'The directory containing the augmented label data.'</span>)</span><br></pre></td></tr></table></figure>
+<p> 这一段设置了默认的输入输出路径，如需修改可直接改源代码，或在命令行指定参数。</p>
+</li>
+</ol>
+<ol>
+<li><p><strong>train.py</strong> 需要在里面进行一些参数设置，类别，训练集合验证集的数据比，这里我们设置训练集723张图片，验证集80张。<br> <strong>参数解释</strong><br> <strong>epoch</strong>:</p>
+<blockquote>
+<p>In Deep Learning, an epoch is a hyperparameter which is defined before training a model. One epoch is when an entire dataset is passed both forward and backward through the neural network only once.</p>
+</blockquote>
+<p> 1个 epoch 意味着所有数据通过神经网络一遍<br> <strong>batch_size</strong>:</p>
+<blockquote>
+<p>A batch is the total number of training examples present in a single batch and an iteration is the number of batches needed to complete one epoch.</p>
+</blockquote>
+<p> 训练数据不可能一次性全部通过神经网络，所以需要分为不同的 batch。batch_size 大小将影响占用内存的数量。<br> <strong>iteration</strong>:</p>
+<blockquote>
+<p>If we divide a dataset of 2000 training examples into 500 batches, then 4 iterations will complete 1 epoch</p>
+</blockquote>
+<p> 迭代几个循环</p>
+<p> <strong>max_iter</strong>:</p>
+<p> 最大迭代次数，也是训练停止的条件。</p>
+<p> <strong>learning rate</strong>:</p>
+<blockquote>
+<p>Learning rate might be the most important hyper parameter in deep learning, as learning rate decides how much gradient to be back propagated.</p>
+</blockquote>
+<p> 学习率，决定模型收敛速度的一个重要超参数，学习率大，下降快，但可能陷入震荡，学习率小，下降慢，却容易获得收敛。<br> <img src="https://i.loli.net/2019/11/20/jpqVeSfFwrgkBO5.png" alt="学习率"></p>
+<p> <strong>learning_rate_policy</strong>:<br> 学习率函数，可选参数为 poly(polynomial function 多项式函数), piece wise</p>
+</li>
+</ol>
+<h3 id="支撑代码"><a href="#支撑代码" class="headerlink" title="支撑代码"></a>支撑代码</h3><ol>
+<li><strong>utils</strong> 自定义的 package，包含两个工具文件</li>
+</ol>
+<ol>
+<li><p><strong>deeplab_model.py</strong>  deeplab模型基本不用动<br> 函数 <strong>atrous_spatial_pyramid_pooling</strong>:空洞卷积空间金字塔池化<br> atrous_rate 空洞卷积膨胀率，空洞卷积的核心指标。</p>
+<p> 函数 <strong>deeplab_v3_plus_generator</strong> deeplabv3+ 网络生成器</p>
+<p> 函数 <strong>deeplabv3_plus_model_fn</strong> 模型方程</p>
+</li>
+</ol>
+<hr>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><ul>
+<li><a href="https://github.com/rishizek/tensorflow-deeplab-v3-plus" target="_blank" rel="noopener">rishizek’s repo tensorflow-deeplab-v3-plus</a></li>
+<li><a href="http://openaccess.thecvf.com/content_cvpr_2018_workshops/w4/html/Demir_DeepGlobe_2018_A_CVPR_2018_paper.html" target="_blank" rel="noopener">DeepGlobe_2018_A_CVPR_2018_paper</a></li>
+<li><a href="http://deepglobe.org/" target="_blank" rel="noopener">deepglobe</a>.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1231,284 +1577,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tfod1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/tfod1/" class="post-title-link" itemprop="url">物体检测TensorFlow Object Detection API （一）安装</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-10 14:55:35" itemprop="dateCreated datePublished" datetime="2018-08-10T14:55:35+08:00">2018-08-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 16:58:32" itemprop="dateModified" datetime="2019-11-19T16:58:32+08:00">2019-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/tfod1/" class="post-meta-item leancloud_visitors" data-flag-title="物体检测TensorFlow Object Detection API （一）安装" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tfod1/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tfod1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片-标签<span class="number">1</span>，标签<span class="number">2</span>，标签<span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>这种类型的数据，我们最终的目的，也是测试的图片，打标签，姑且将其认为属于图片分类任务。</p>
-<p>而另外一种数据</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">图片中的某一块-标签<span class="number">1</span></span><br><span class="line">图片中的另一块-标签<span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p>这种任务，我们的目的是在某张图片中检测（查找）某物体。</p>
-<p>TensorFlow Object Detection API 是 TensorFlow models 里的一个 research project 其中预设了很多网络模型可供我们直接调用和调参，也可以根据其自定义模型。大大简化了我们进行实验的流程。然而，即便如此，TensorFlow 依然不是一个新 friendly 的一个项目。在开发过程中可能遇到各种各样的问题。在此做此记录。<br>——2018.8.10</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>此处参考了 <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md" target="_blank" rel="noopener"> Installation</a> TensorFlow models 官方 GitHub doc.</p>
-<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><ul>
-<li>Protobuf &gt;= 3.0.0</li>
-<li>Python-tk</li>
-<li>Pillow</li>
-<li>lxml</li>
-<li>tf Slim</li>
-<li>Jupyter notebook</li>
-<li>matplotlib</li>
-<li>TensorFlow</li>
-<li>Cython</li>
-<li>contextlib2</li>
-<li>cocoapi</li>
-</ul>
-<p>TensorFlow 如何安装不再说明，Protobuf 可通过 brew 安装。<br>coco api 选装<br>其余通过 pip 安装</p>
-<p>其中 probuf 被用来设置模型和训练参数，在正式使用前，需要将 protobuf 库进行编译</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> From tensorflow/models/research/</span></span><br><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br></pre></td></tr></table></figure>
-<p>注意看好路径。</p>
-<p>jupyter notebook 是交互式的笔记本应用，可以边写代码边记笔记。非常实用的工具，使用它可以看作者预设的一个最简单的模型。</p>
-<h3 id="将-slim-directories-加入-PYTHONPATH"><a href="#将-slim-directories-加入-PYTHONPATH" class="headerlink" title="将 slim directories 加入 PYTHONPATH"></a>将 slim directories 加入 PYTHONPATH</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From tensorflow/models/research/</span></span><br><span class="line">export PYTHONPATH=<span class="variable">$PYTHONPATH</span><span class="symbol">:`pwd`</span><span class="symbol">:`pwd`/slim</span></span><br></pre></td></tr></table></figure>
-<p>任何位置使用此 api 都要首先运行此命令。</p>
-<p>如果没有运行此命令可能会出现</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ModuleNotFoundError: No module named 'object_detection'</span><br></pre></td></tr></table></figure>
-<p>这样的错误</p>
-<h3 id="测试安装效果"><a href="#测试安装效果" class="headerlink" title="测试安装效果"></a>测试安装效果</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python object_detection/builders/model_builder_test.py</span><br></pre></td></tr></table></figure>
-<p>因为在本人机器上 python 命令默认调用 python2， python3 命令才会调用 python3 所以在测试命令改为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 object_detection/builders/model_builder_test.py</span><br></pre></td></tr></table></figure>
-<p>如果出现以下场景，表明运行成功。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/11400909-ef5f5ca8c03c5218.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p>代表安装成功了。</p>
-<blockquote>
-<p>一件趣事：<br>在测试这个8月6号，7号测试时候，总是出现错误，后来发现是一处 xrange（python2）用法没有改成 range。 然后我把它改了就能运行了，发了 pull request 被 Google 的哥哥回复了，说他们正在更新一个大版本，里面已经改了这个错误，然后 8月8号就确实更新了一个新版本，改了很多地方。</p>
-</blockquote>
-<hr>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tsfl2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/tsfl2/" class="post-title-link" itemprop="url">TensorBoard使用示例</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-25 11:28:01" itemprop="dateCreated datePublished" datetime="2018-07-25T11:28:01+08:00">2018-07-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 16:58:45" itemprop="dateModified" datetime="2019-11-19T16:58:45+08:00">2019-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/tsfl2/" class="post-meta-item leancloud_visitors" data-flag-title="TensorBoard使用示例" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tsfl2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tsfl2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>为了更方便TensorFlow程序的理解、调试与优化，Google发布了一套叫做TensorBoard的可视化工具，可以用TensorBoard来展现TensorFlow的图像，绘制图像生成的定量指标图以及附加数据。</p>
-<p>TensorBoard设置完成之后的样子应该如下图：<br><img src="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist_tensorboard.png" alt></p>
-<p>其基本原理见<a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/how_tos/summaries_and_tensorboard.html" target="_blank" rel="noopener">TensorBoard中文手册</a>，内有详细的介绍。</p>
-<p>本文参考了<a href="https://www.cnblogs.com/fydeblog/p/7429344.html" target="_blank" rel="noopener">放羊的水瓶的博文</a>。</p>
-<p>下面通过三个例程，来讲解其使用：</p>
-<h2 id="例程1-矩阵相乘-tfboard1-py"><a href="#例程1-矩阵相乘-tfboard1-py" class="headerlink" title="例程1  矩阵相乘 tfboard1.py"></a>例程1  矩阵相乘 tfboard1.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'graph'</span>) <span class="keyword">as</span> scope:</span><br><span class="line">    matrix1 = tf.constant([[<span class="number">3.</span>, <span class="number">3.</span>]], name = <span class="string">'matrix'</span>)   <span class="comment"># 一行两列</span></span><br><span class="line">    matrix2 = tf.constant([[<span class="number">2.</span>], [<span class="number">2.</span>]], name = <span class="string">'matrix2'</span>) <span class="comment"># 两行一列</span></span><br><span class="line">    product = tf.matmul(matrix1, matrix2, name = <span class="string">'product'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs1/"</span>, sess.graph)</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess.run(init)</span><br></pre></td></tr></table></figure>
-<p>tf.name_scope函数是作用域名，上述代码斯即在graph作用域op下，又有三个op（分别是matrix1，matrix2，product),用tf函数内部的name参数命名，这样会在tensorboard中显示。</p>
-<p>运行上述代码后，在项目所在目录会生成”logs1”目录（可以自定义名字），然后在命令行运行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir logs1</span><br></pre></td></tr></table></figure>
-<p>即可在本机6006端口调用TensorBoard。可以通过浏览器打开使用。</p>
-<h2 id="例程2-线性拟合（一）-tfboard2-py"><a href="#例程2-线性拟合（一）-tfboard2-py" class="headerlink" title="例程2 线性拟合（一） tfboard2.py"></a>例程2 线性拟合（一） tfboard2.py</h2><p>例程1中没有任何训练过程，比较简单，下面通过这个例子来画出它的张量流动图。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备原始数据</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'data'</span>):</span><br><span class="line">    x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">    y_data = <span class="number">0.3</span>*x_data + <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数设置</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'parameters'</span>):</span><br><span class="line">    weight = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">    bias = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 得到 y_prediction</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'y_prediction'</span>):</span><br><span class="line">    y_prediction = weight*x_data + bias</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算损失率compute the loss</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'loss'</span>):</span><br><span class="line">    loss = tf.reduce_mean(tf.square(y_data - y_prediction))</span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'train'</span>):</span><br><span class="line">    train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'init'</span>):</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs2/"</span>,sess.graph)</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">101</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    <span class="keyword">if</span> step%<span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">        print(step, <span class="string">'weight'</span>, sess.run(weight), <span class="string">'bias:'</span>, sess.run(bias))</span><br></pre></td></tr></table></figure>
-<h2 id="例程3-线性拟合（二）-tfboard3-py"><a href="#例程3-线性拟合（二）-tfboard3-py" class="headerlink" title="例程3 线性拟合（二） tfboard3.py"></a>例程3 线性拟合（二） tfboard3.py</h2><p>对例程二代码进行修改，尝试tensorboard的其他功能，例如scalars,distributions,histograms,这些功能对于分析学习算法的性能有很大帮助。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'data'</span>):</span><br><span class="line">    x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">    y_data = <span class="number">0.3</span>*x_data + <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'paremeters'</span>):</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'weights'</span>):</span><br><span class="line">        weight = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">        tf.summary.histogram(<span class="string">'weight'</span>, weight)</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'biases'</span>):</span><br><span class="line">        bias = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">        tf.summary.histogram(<span class="string">'bias'</span>, bias)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'y_prediction'</span>):</span><br><span class="line">    y_prediction = weight*x_data + bias</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'loss'</span>):</span><br><span class="line">    loss = tf.reduce_mean(tf.square(y_data - y_prediction))</span><br><span class="line">    tf.summary.scalar(<span class="string">'loss'</span>, loss)</span><br><span class="line"></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'train'</span>):</span><br><span class="line">    train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'init'</span>):</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">merged = tf.summary.merge_all()</span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs3/"</span>, sess.graph)</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">101</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    rs = sess.run(merged)</span><br><span class="line">    writer.add_summary(rs, step)</span><br></pre></td></tr></table></figure>
-<hr>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1559,7 +1627,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1572,7 +1640,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1630,18 +1698,18 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">67k</span>
+    <span title="站点总字数">68k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:52</span>
+    <span title="站点阅读时长">1:53</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
   </div>
 
         
@@ -1667,7 +1735,7 @@
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
 
 
@@ -1692,6 +1760,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 

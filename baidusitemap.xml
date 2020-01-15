@@ -4,6 +4,88 @@
 
     
   <url>
+    <loc>http://liyaolife.compandas/</loc>
+    <lastmod>2020-01-15T08:12:49.876Z</lastmod>
+    <data>
+        <display>
+        <title>pandas 学习</title>
+        <pubTime>2020-01-09T15:45:56.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Pandas</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Mining" url="http://www.liyaolife.com/categories/Data-Mining/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comlightgbm/</loc>
+    <lastmod>2020-01-15T08:06:25.907Z</lastmod>
+    <data>
+        <display>
+        <title>lightgbm笔记</title>
+        <pubTime>2020-01-14T14:43:15.000Z</pubTime>
+        
+        <tag>天池</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Mining" url="http://www.liyaolife.com/categories/Data-Mining/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.compyenv/</loc>
+    <lastmod>2020-01-14T14:42:42.718Z</lastmod>
+    <data>
+        <display>
+        <title>怎样在 Mac 上安装一个最好的 Python 工作环境</title>
+        <pubTime>2020-01-09T01:56:07.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.liyaolife.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.commkdocs/</loc>
+    <lastmod>2020-01-11T03:05:47.290Z</lastmod>
+    <data>
+        <display>
+        <title>mkdocs 使用</title>
+        <pubTime>2020-01-11T02:59:12.000Z</pubTime>
+        
+        <tag>mkdocs</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.liyaolife.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comng_ml/ng_ml/</loc>
     <lastmod>2020-01-11T02:43:33.802Z</lastmod>
     <data>
@@ -19,26 +101,6 @@
            
              
               <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.compyenv/</loc>
-    <lastmod>2020-01-11T02:40:04.402Z</lastmod>
-    <data>
-        <display>
-        <title>怎样在 Mac 上安装一个最好的 Python 工作环境</title>
-        <pubTime>2020-01-09T01:56:07.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://www.liyaolife.com/categories/Python/"/>
           
         </display>
     </data>
@@ -89,28 +151,6 @@
         <pubTime>2020-01-10T02:14:40.000Z</pubTime>
         
         <tag>天池</tag>
-         
-         
-           
-             
-              <breadCrumb title="Data Mining" url="http://www.liyaolife.com/categories/Data-Mining/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.compandas/</loc>
-    <lastmod>2020-01-10T02:46:33.837Z</lastmod>
-    <data>
-        <display>
-        <title>pandas 学习</title>
-        <pubTime>2020-01-09T15:45:56.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>Pandas</tag>
          
          
            

@@ -51,22 +51,20 @@
   };
 </script>
 
-  <meta name="description" content="Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。 前几天修复了 一个 pytorch 不能自动下载 check">
-<meta name="keywords" content="Python">
+  <meta name="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+<meta name="keywords" content="天池">
 <meta property="og:type" content="article">
-<meta property="og:title" content="怎样在 Mac 上安装一个最好的 Python 工作环境">
-<meta property="og:url" content="http://www.liyaolife.com/pyenv/index.html">
+<meta property="og:title" content="lightgbm笔记">
+<meta property="og:url" content="http://www.liyaolife.com/lightgbm/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。 前几天修复了 一个 pytorch 不能自动下载 check">
+<meta property="og:description" content="图书馆里的扫地僧 少林寺里的清洁工">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2020/01/09/F9cHlR57tbuwymN.png">
-<meta property="og:updated_time" content="2020-01-14T14:42:42.718Z">
+<meta property="og:updated_time" content="2020-01-15T08:06:25.907Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="怎样在 Mac 上安装一个最好的 Python 工作环境">
-<meta name="twitter:description" content="Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。 前几天修复了 一个 pytorch 不能自动下载 check">
-<meta name="twitter:image" content="https://i.loli.net/2020/01/09/F9cHlR57tbuwymN.png">
+<meta name="twitter:title" content="lightgbm笔记">
+<meta name="twitter:description" content="图书馆里的扫地僧 少林寺里的清洁工">
 
-<link rel="canonical" href="http://www.liyaolife.com/pyenv/">
+<link rel="canonical" href="http://www.liyaolife.com/lightgbm/">
 
 
 <script id="page-configurations">
@@ -80,7 +78,7 @@
   };
 </script>
 
-  <title>怎样在 Mac 上安装一个最好的 Python 工作环境 | Yao Blog</title>
+  <title>lightgbm笔记 | Yao Blog</title>
   
 
 
@@ -197,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pyenv/">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/lightgbm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -210,7 +208,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          怎样在 Mac 上安装一个最好的 Python 工作环境
+          lightgbm笔记
         </h1>
 
         <div class="post-meta">
@@ -220,14 +218,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-01-09 09:56:07" itemprop="dateCreated datePublished" datetime="2020-01-09T09:56:07+08:00">2020-01-09</time>
+              <time title="创建时间：2020-01-14 22:43:15" itemprop="dateCreated datePublished" datetime="2020-01-14T22:43:15+08:00">2020-01-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-14 22:42:42" itemprop="dateModified" datetime="2020-01-14T22:42:42+08:00">2020-01-14</time>
+                <time title="修改时间：2020-01-15 16:06:25" itemprop="dateModified" datetime="2020-01-15T16:06:25+08:00">2020-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,14 +233,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Data-Mining/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Mining</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/pyenv/" class="post-meta-item leancloud_visitors" data-flag-title="怎样在 Mac 上安装一个最好的 Python 工作环境" title="阅读次数">
+            <span id="/lightgbm/" class="post-meta-item leancloud_visitors" data-flag-title="lightgbm笔记" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -257,8 +255,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/pyenv/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/pyenv/" itemprop="commentCount"></span>
+    <a title="valine" href="/lightgbm/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/lightgbm/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -268,14 +266,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>0</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -287,42 +285,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。<br><img src="https://i.loli.net/2020/01/09/F9cHlR57tbuwymN.png" alt="image.png"></p>
-<p>前几天修复了 一个 pytorch 不能自动下载 checkpoints 的问题，然后今天就发现 jupyter notebook 、 mkdocs 等命令都不管用了。今天下定决心开始重新布置本机的Python环境。</p>
-<h2 id="清除以往的Python版本"><a href="#清除以往的Python版本" class="headerlink" title="清除以往的Python版本"></a>清除以往的Python版本</h2><p>发现本机存在 3个 Python版本，Python官网下载的 3.6.5 版本，系统自带的2.7版本以及通过 brew 安装的 2.7版本。以及残存的通过 brew 安装3.6.5和3.7版本经过删除后的残余（大概几十KB）</p>
-<p>首先通过 <code>brew uninstall</code> 删除了所有通过 brew 安装的版本。比较方便。</p>
-<p>然后开始清理在官网下载的 3.6.5 版本。</p>
-<ol>
-<li>在应用程序删除 Python APP整个文件夹</li>
-<li>在 资源库/FrameWorks/ 里面删除 Python.frameworks</li>
-<li>用 磁盘清理软件清理</li>
-</ol>
-<h2 id="正确的方式安装-Python-版本"><a href="#正确的方式安装-Python-版本" class="headerlink" title="正确的方式安装 Python 版本"></a>正确的方式安装 Python 版本</h2><blockquote>
-<p>“The basic premise of all Python development is to never use the system Python. You do not want the Mac OS X ‘default Python’ to be ‘python3.’ You want to never care about default Python.”——Moshe Zadka</p>
-</blockquote>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% brew install pyenv</span><br><span class="line">🍺  <span class="regexp">/usr/</span>local<span class="regexp">/Cellar/</span>pyenv<span class="regexp">/1.2.16: 671 files, 2.5MB</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% pyenv <span class="keyword">install</span> <span class="number">3.8</span><span class="number">.1</span></span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> openssl@<span class="number">1.1</span> <span class="keyword">from</span> homebrew</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> readline <span class="keyword">from</span> homebrew</span><br><span class="line">Downloading Python<span class="number">-3.8</span><span class="number">.1</span>.tar.xz...</span><br><span class="line">-&gt; https://www.python.org/<span class="keyword">ftp</span>/python/<span class="number">3.8</span><span class="number">.1</span>/Python<span class="number">-3.8</span><span class="number">.1</span>.tar.xz</span><br><span class="line">Installing Python<span class="number">-3.8</span><span class="number">.1</span>...</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> readline <span class="keyword">from</span> homebrew</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> zlib <span class="keyword">from</span> xcode sdk</span><br><span class="line">Installed Python<span class="number">-3.8</span><span class="number">.1</span> <span class="keyword">to</span> /<span class="keyword">Users</span>/yaoli/.pyenv/<span class="keyword">versions</span>/<span class="number">3.8</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
-<p>还需要将 pyenv 加入到命令行设置文件里，原生命令行是 <strong>.bash_profile</strong>，zsh是 <strong>.zshrc</strong></p>
-<blockquote>
-<p>The power of pyenv comes from its control over our shell’s path. In order for it to work correctly, we need to add the following to our configuration file (.zshrc for me, possibly .bash_profile for you):</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv 1&gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span>\n  <span class="built_in">eval</span> <span class="string">"<span class="variable">$(pyenv init -)</span>"</span>\nfi<span class="string">' &gt;&gt; ~/.zshrc</span></span><br></pre></td></tr></table></figure>
-<p>然后</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">% pyenv <span class="keyword">global</span> <span class="number">3.8</span><span class="number">.1</span></span><br><span class="line">% pyenv <span class="built_in">version</span></span><br><span class="line"><span class="number">3.8</span><span class="number">.1</span> (<span class="keyword">set</span> <span class="keyword">by</span> /Users/yaoli/.pyenv/<span class="built_in">version</span>)</span><br></pre></td></tr></table></figure>
-<p>重启 terminal 或者 <code>exec $Shell</code></p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">% pyenv versions</span><br><span class="line">system</span><br><span class="line">* 3.8.1 (<span class="builtin-name">set</span> by /Users/yaoli/.pyenv/version)</span><br><span class="line"></span><br><span class="line">% which python</span><br><span class="line">/Users/yaoli/.pyenv/shims/python</span><br><span class="line"></span><br><span class="line">% python -V</span><br><span class="line">Python 3.8.1</span><br><span class="line"></span><br><span class="line">% pip -V</span><br><span class="line">ip 19.2.3 <span class="keyword">from</span> /Users/yaoli/.pyenv/versions/3.8.1/lib/python3.8/site-packages/pip (python 3.8)</span><br></pre></td></tr></table></figure>
-<p>大功告成！</p>
-<hr>
-<p>2020.1.11 发现 Python 3.8.1 目前还不支持 PyTorch，谨慎升级。我已经回退到 3.7.6。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><p><a href="https://opensource.com/article/19/5/python-3-default-mac" target="_blank" rel="noopener">The right and wrong way to set Python 3 as default on a Mac</a></p>
-</li>
-<li><p><a href="https://xkcd.com/1987/" target="_blank" rel="noopener">Python Environment</a></p>
-</li>
-<li><p><a href="https://realpython.com/intro-to-pyenv/" target="_blank" rel="noopener">Managing Multiple Python Versions With pyenv</a></p>
-</li>
-</ol>
-
+        
     </div>
 
     
@@ -332,24 +295,21 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/天池/" rel="tag"><i class="fa fa-tag"></i> 天池</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/zsh/" rel="next" title="zsh 初探">
-                  <i class="fa fa-chevron-left"></i> zsh 初探
+                <a href="/mkdocs/" rel="next" title="mkdocs 使用">
+                  <i class="fa fa-chevron-left"></i> mkdocs 使用
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/pandas/" rel="prev" title="pandas 学习">
-                  pandas 学习 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -389,7 +349,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#清除以往的Python版本"><span class="nav-text">清除以往的Python版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正确的方式安装-Python-版本"><span class="nav-text">正确的方式安装 Python 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

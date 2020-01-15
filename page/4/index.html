@@ -21,7 +21,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
@@ -189,6 +189,284 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tfod1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/tfod1/" class="post-title-link" itemprop="url">物体检测TensorFlow Object Detection API （一）安装</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-10 14:55:35" itemprop="dateCreated datePublished" datetime="2018-08-10T14:55:35+08:00">2018-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 16:58:32" itemprop="dateModified" datetime="2019-11-19T16:58:32+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/tfod1/" class="post-meta-item leancloud_visitors" data-flag-title="物体检测TensorFlow Object Detection API （一）安装" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/tfod1/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/tfod1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片-标签<span class="number">1</span>，标签<span class="number">2</span>，标签<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>这种类型的数据，我们最终的目的，也是测试的图片，打标签，姑且将其认为属于图片分类任务。</p>
+<p>而另外一种数据</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">图片中的某一块-标签<span class="number">1</span></span><br><span class="line">图片中的另一块-标签<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>这种任务，我们的目的是在某张图片中检测（查找）某物体。</p>
+<p>TensorFlow Object Detection API 是 TensorFlow models 里的一个 research project 其中预设了很多网络模型可供我们直接调用和调参，也可以根据其自定义模型。大大简化了我们进行实验的流程。然而，即便如此，TensorFlow 依然不是一个新 friendly 的一个项目。在开发过程中可能遇到各种各样的问题。在此做此记录。<br>——2018.8.10</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>此处参考了 <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md" target="_blank" rel="noopener"> Installation</a> TensorFlow models 官方 GitHub doc.</p>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><ul>
+<li>Protobuf &gt;= 3.0.0</li>
+<li>Python-tk</li>
+<li>Pillow</li>
+<li>lxml</li>
+<li>tf Slim</li>
+<li>Jupyter notebook</li>
+<li>matplotlib</li>
+<li>TensorFlow</li>
+<li>Cython</li>
+<li>contextlib2</li>
+<li>cocoapi</li>
+</ul>
+<p>TensorFlow 如何安装不再说明，Protobuf 可通过 brew 安装。<br>coco api 选装<br>其余通过 pip 安装</p>
+<p>其中 probuf 被用来设置模型和训练参数，在正式使用前，需要将 protobuf 库进行编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> From tensorflow/models/research/</span></span><br><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br></pre></td></tr></table></figure>
+<p>注意看好路径。</p>
+<p>jupyter notebook 是交互式的笔记本应用，可以边写代码边记笔记。非常实用的工具，使用它可以看作者预设的一个最简单的模型。</p>
+<h3 id="将-slim-directories-加入-PYTHONPATH"><a href="#将-slim-directories-加入-PYTHONPATH" class="headerlink" title="将 slim directories 加入 PYTHONPATH"></a>将 slim directories 加入 PYTHONPATH</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># From tensorflow/models/research/</span></span><br><span class="line">export PYTHONPATH=<span class="variable">$PYTHONPATH</span><span class="symbol">:`pwd`</span><span class="symbol">:`pwd`/slim</span></span><br></pre></td></tr></table></figure>
+<p>任何位置使用此 api 都要首先运行此命令。</p>
+<p>如果没有运行此命令可能会出现</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ModuleNotFoundError: No module named 'object_detection'</span><br></pre></td></tr></table></figure>
+<p>这样的错误</p>
+<h3 id="测试安装效果"><a href="#测试安装效果" class="headerlink" title="测试安装效果"></a>测试安装效果</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python object_detection/builders/model_builder_test.py</span><br></pre></td></tr></table></figure>
+<p>因为在本人机器上 python 命令默认调用 python2， python3 命令才会调用 python3 所以在测试命令改为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 object_detection/builders/model_builder_test.py</span><br></pre></td></tr></table></figure>
+<p>如果出现以下场景，表明运行成功。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/11400909-ef5f5ca8c03c5218.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>代表安装成功了。</p>
+<blockquote>
+<p>一件趣事：<br>在测试这个8月6号，7号测试时候，总是出现错误，后来发现是一处 xrange（python2）用法没有改成 range。 然后我把它改了就能运行了，发了 pull request 被 Google 的哥哥回复了，说他们正在更新一个大版本，里面已经改了这个错误，然后 8月8号就确实更新了一个新版本，改了很多地方。</p>
+</blockquote>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/tsfl2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/tsfl2/" class="post-title-link" itemprop="url">TensorBoard使用示例</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-25 11:28:01" itemprop="dateCreated datePublished" datetime="2018-07-25T11:28:01+08:00">2018-07-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 16:58:45" itemprop="dateModified" datetime="2019-11-19T16:58:45+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/tsfl2/" class="post-meta-item leancloud_visitors" data-flag-title="TensorBoard使用示例" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/tsfl2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/tsfl2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>为了更方便TensorFlow程序的理解、调试与优化，Google发布了一套叫做TensorBoard的可视化工具，可以用TensorBoard来展现TensorFlow的图像，绘制图像生成的定量指标图以及附加数据。</p>
+<p>TensorBoard设置完成之后的样子应该如下图：<br><img src="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist_tensorboard.png" alt></p>
+<p>其基本原理见<a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/how_tos/summaries_and_tensorboard.html" target="_blank" rel="noopener">TensorBoard中文手册</a>，内有详细的介绍。</p>
+<p>本文参考了<a href="https://www.cnblogs.com/fydeblog/p/7429344.html" target="_blank" rel="noopener">放羊的水瓶的博文</a>。</p>
+<p>下面通过三个例程，来讲解其使用：</p>
+<h2 id="例程1-矩阵相乘-tfboard1-py"><a href="#例程1-矩阵相乘-tfboard1-py" class="headerlink" title="例程1  矩阵相乘 tfboard1.py"></a>例程1  矩阵相乘 tfboard1.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'graph'</span>) <span class="keyword">as</span> scope:</span><br><span class="line">    matrix1 = tf.constant([[<span class="number">3.</span>, <span class="number">3.</span>]], name = <span class="string">'matrix'</span>)   <span class="comment"># 一行两列</span></span><br><span class="line">    matrix2 = tf.constant([[<span class="number">2.</span>], [<span class="number">2.</span>]], name = <span class="string">'matrix2'</span>) <span class="comment"># 两行一列</span></span><br><span class="line">    product = tf.matmul(matrix1, matrix2, name = <span class="string">'product'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs1/"</span>, sess.graph)</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess.run(init)</span><br></pre></td></tr></table></figure>
+<p>tf.name_scope函数是作用域名，上述代码斯即在graph作用域op下，又有三个op（分别是matrix1，matrix2，product),用tf函数内部的name参数命名，这样会在tensorboard中显示。</p>
+<p>运行上述代码后，在项目所在目录会生成”logs1”目录（可以自定义名字），然后在命令行运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir logs1</span><br></pre></td></tr></table></figure>
+<p>即可在本机6006端口调用TensorBoard。可以通过浏览器打开使用。</p>
+<h2 id="例程2-线性拟合（一）-tfboard2-py"><a href="#例程2-线性拟合（一）-tfboard2-py" class="headerlink" title="例程2 线性拟合（一） tfboard2.py"></a>例程2 线性拟合（一） tfboard2.py</h2><p>例程1中没有任何训练过程，比较简单，下面通过这个例子来画出它的张量流动图。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备原始数据</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'data'</span>):</span><br><span class="line">    x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">    y_data = <span class="number">0.3</span>*x_data + <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数设置</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'parameters'</span>):</span><br><span class="line">    weight = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">    bias = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 得到 y_prediction</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'y_prediction'</span>):</span><br><span class="line">    y_prediction = weight*x_data + bias</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算损失率compute the loss</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'loss'</span>):</span><br><span class="line">    loss = tf.reduce_mean(tf.square(y_data - y_prediction))</span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'train'</span>):</span><br><span class="line">    train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'init'</span>):</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs2/"</span>,sess.graph)</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">101</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    <span class="keyword">if</span> step%<span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">        print(step, <span class="string">'weight'</span>, sess.run(weight), <span class="string">'bias:'</span>, sess.run(bias))</span><br></pre></td></tr></table></figure>
+<h2 id="例程3-线性拟合（二）-tfboard3-py"><a href="#例程3-线性拟合（二）-tfboard3-py" class="headerlink" title="例程3 线性拟合（二） tfboard3.py"></a>例程3 线性拟合（二） tfboard3.py</h2><p>对例程二代码进行修改，尝试tensorboard的其他功能，例如scalars,distributions,histograms,这些功能对于分析学习算法的性能有很大帮助。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'data'</span>):</span><br><span class="line">    x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">    y_data = <span class="number">0.3</span>*x_data + <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'paremeters'</span>):</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'weights'</span>):</span><br><span class="line">        weight = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">        tf.summary.histogram(<span class="string">'weight'</span>, weight)</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">'biases'</span>):</span><br><span class="line">        bias = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">        tf.summary.histogram(<span class="string">'bias'</span>, bias)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'y_prediction'</span>):</span><br><span class="line">    y_prediction = weight*x_data + bias</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'loss'</span>):</span><br><span class="line">    loss = tf.reduce_mean(tf.square(y_data - y_prediction))</span><br><span class="line">    tf.summary.scalar(<span class="string">'loss'</span>, loss)</span><br><span class="line"></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'train'</span>):</span><br><span class="line">    train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'init'</span>):</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">merged = tf.summary.merge_all()</span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs3/"</span>, sess.graph)</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">101</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    rs = sess.run(merged)</span><br><span class="line">    writer.add_summary(rs, step)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1316,401 +1594,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/dmtrans-pre/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/dmtrans-pre/" class="post-title-link" itemprop="url">《Data Mining》翻译前期准备</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-04-22 18:12:30" itemprop="dateCreated datePublished" datetime="2018-04-22T18:12:30+08:00">2018-04-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 15:49:00" itemprop="dateModified" datetime="2019-11-14T15:49:00+08:00">2019-11-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DataMining/" itemprop="url" rel="index">
-                    <span itemprop="name">DataMining</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/dmtrans-pre/" class="post-meta-item leancloud_visitors" data-flag-title="《Data Mining》翻译前期准备" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/dmtrans-pre/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/dmtrans-pre/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="全书概览"><a href="#全书概览" class="headerlink" title="全书概览"></a>全书概览</h2><p>《Data Mining》一书由Charu C.Aggarwal所著，出版于2015年4月14日，目前没有引进中国，亚马逊原版教材售价约为350元（会员价，非会员1000+）。豆瓣无评分，亚马逊评分4星（5星满分），从CSDN社区一些讨论情况来看，普遍认为本书质量较高。故我们选取本书进行翻译，旨在帮助更多中国学习者阅读优秀教材。</p>
-<p>全书共有20章，743页，内容详细，逻辑严谨，其中包含大量图表与公式。</p>
-<h2 id="协作方案"><a href="#协作方案" class="headerlink" title="协作方案"></a>协作方案</h2><p>Markdown是当前比较流行的轻量级标记语言，适合快速简便的编辑出高质量的文本。</p>
-<p>本团队采用Markdown进行写作。目前有30左右加入团队。<br>初步分工</p>
-<ul>
-<li>20-23人进行专职翻译</li>
-<li>将全书分为3个部分，由3人担任小组长，负责督促本组的进度</li>
-<li>3人负责翻译过程中的技术支持</li>
-<li>3人负责最终成书的统稿校对</li>
-</ul>
-<p>按照自愿报名原则，鼓励能者多劳，即一人可以参加全部上述四个流程。</p>
-<h2 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h2><ol>
-<li>Markdown使用，考虑到本团队所有成员均为985院校硕（博）士，初步认为即使没有Markdown基础，也可以快速上手</li>
-<li>英语水平，提倡采用Google翻译，毕竟是人类智慧的精华，但是要求机翻之后必须有检查。</li>
-<li>公式编辑，Markdown支持LaTeX的公式书写，所以本书公式全部采用LaTeX语法进行书写，部分同学可能不太熟悉，由技术团队提供支持</li>
-<li>图、表插入，为了节省时间，本书不再对原书图表进行重绘，图表以及其编号保持与原书一致。但是Markdown中的图表与Word不一样，不是嵌在文件中的，而是一个路径指向一个图片文件，这种做法在生成PDF之后倒看不出来，但是直接分享.md源文件时就会出现问题（比如，写一个Python或者C程序中读取了一个文件，是通过一个路径指向这个文件，那么分享的时候需要把这个文件也带上）。目前在互联网博客中，主流的解决方案是采用图床（相当于一个云盘，把图片存里面）然后在Markdown文件中放该图片对应的url地址。这部分解决起来稍麻烦，在前期工作中可以先跳过，主要翻译文字和公式。</li>
-</ol>
-<h2 id="进度安排"><a href="#进度安排" class="headerlink" title="进度安排"></a>进度安排</h2><p>全书翻译计划时间为4周。2018.4.23-2018.5.20</p>
-<ul>
-<li>4.23-5.6，主要进行翻译核心工作，文字和公式部分的翻译。</li>
-<li>5.7-5.13，主要进行统稿工作。汇总各人的工作，帮助部分同学解决图片插入问题。形成初稿。</li>
-<li>5.14-5.20，主要进行校对工作。检查翻译质量，校对公式正误，最终成书。</li>
-</ul>
-<h2 id="具体分工"><a href="#具体分工" class="headerlink" title="具体分工"></a>具体分工</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">章节</th>
-<th style="text-align:center">负责人</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">李尧</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">程琳</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">朱广阳</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">曹春，张巍烨</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">徐建秋</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">杨天威，刘丹阳</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">张万龙</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">司呈呈</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">王俊</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">刘立新，于雷</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">彭龙，吴旭桥</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">张伟，朱锦锟</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:center">李建鹏</td>
-</tr>
-<tr>
-<td style="text-align:center">14</td>
-<td style="text-align:center">逯旺旺，李泰立</td>
-</tr>
-<tr>
-<td style="text-align:center">15</td>
-<td style="text-align:center">贺亮，蒋孝卿</td>
-</tr>
-<tr>
-<td style="text-align:center">16</td>
-<td style="text-align:center">张宇</td>
-</tr>
-<tr>
-<td style="text-align:center">17</td>
-<td style="text-align:center">朱向典</td>
-</tr>
-<tr>
-<td style="text-align:center">18</td>
-<td style="text-align:center">杨山，刘仲康</td>
-</tr>
-<tr>
-<td style="text-align:center">19</td>
-<td style="text-align:center">赵纳森，王建秋</td>
-</tr>
-<tr>
-<td style="text-align:center">20</td>
-<td style="text-align:center">宋宇</td>
-</tr>
-</tbody>
-</table>
-<p>其余人员</p>
-<table>
-<thead>
-<tr>
-<th>小组长</th>
-<th>技术组</th>
-<th>校对组</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>李尧（1-6章）</td>
-<td>李尧</td>
-<td>刘蕾</td>
-</tr>
-<tr>
-<td>王俊（7-13章）</td>
-<td>程琳</td>
-<td>孙旭</td>
-</tr>
-<tr>
-<td>蒋孝卿（14-20章）</td>
-<td>陈南宇</td>
-<td>李楚茵</td>
-</tr>
-<tr>
-<td></td>
-<td>柯达</td>
-<td>李润浩</td>
-</tr>
-<tr>
-<td></td>
-<td>程煜</td>
-<td>杨刚</td>
-</tr>
-</tbody>
-</table>
-<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p> 电子书网站：<a href="https://dm-trans.github.io/DM-trans/" target="_blank" rel="noopener">数据挖掘</a></p>
-<p> 2019.11.14 由于七牛云的图床挂掉了，这个网站目前很多图片已经无法显示，不失是一种遗憾。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/Hexo5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo5/" class="post-title-link" itemprop="url">Hexo博客搭建（五）SEO优化</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-04-02 20:29:45" itemprop="dateCreated datePublished" datetime="2018-04-02T20:29:45+08:00">2018-04-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-28 10:38:17" itemprop="dateModified" datetime="2019-11-28T10:38:17+08:00">2019-11-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/Hexo5/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建（五）SEO优化" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/Hexo5/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Hexo5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="与GitHub仓库互联"><a href="#与GitHub仓库互联" class="headerlink" title="与GitHub仓库互联"></a>与GitHub仓库互联</h1><p>直到目前，我们的blog还只是一个本地的小家伙，像一个没有出过门的孩子，只能在localhost:4000里面查看。别人是看不到的。那么如何把它部署到线上？</p>
-<p>一般建网站的都需要租服务器，买VPS，亚马逊，阿里云等等，还要花一笔小钱。</p>
-<p>好在我们有GitHub。</p>
-<p>GitHub提供里代码托管服务，作为全世界最大的程序员社区，自然不缺乏脑洞清奇的人，很多人在上面做各种各样的事情，这是后话。</p>
-<p>如果是首次使用GitHub，配置过程是比较复杂的，可先看一下 <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰的git教程</a>。</p>
-<p>假定我们已经配好了环境，那么就很容易了。</p>
-<p>在GitHub上面新建一个repo，注意项目名称为  “用户名.github.io”否则之后是无法访问的，一个账户只能建一个github pages。之后将之前的public文件夹里的内容都同步到这个项目的master分支，之后浏览器访问用户名.github.io就能看到hexo的博客界面了。</p>
-<p>比如我的repo 名字是<br><img src="http://upload-images.jianshu.io/upload_images/11400909-2489f8b1cadd7dc0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br>那我在浏览器地址栏输入 generalli95.github.io就可以访问我的网页了！</p>
-<p>使用git 命令去push需要先hexo generate，还是略显麻烦，hexo提供了一个插件hexo-deployer-git可以打包git命令。</p>
-<p>插件安装,命令行先cd到blog，然后输入下面命令。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure></p>
-<p>然后在博客的配置文件_config.yml，添加<br><img src="http://upload-images.jianshu.io/upload_images/11400909-4bab54cc5b099520.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<font color="red">注意：把repo:后面换成自己的repo名字！</font>
-
-<p>然后hexo generate之后，再hexo deploy就可以自动部署了，支持短命令，hexo g -d,相当于前两个命令的合体！</p>
-<h1 id="换上自己的域名"><a href="#换上自己的域名" class="headerlink" title="换上自己的域名"></a>换上自己的域名</h1><p>得益于当年的中二岁月……申请github的时候非要起个什么英文名字，然后……自己都打不对自己的网页全名，因为实在是太长了？</p>
-<p>所以，要不自己注册个域名，这样显得很酷炫，而且说不定哪天域名还能卖个好价钱，想想还真得好激动呢（白日梦）。</p>
-<h2 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h2><p>购买域名的具体操作。推荐先看一下这篇文章： <a href="https://zhuanlan.zhihu.com/p/27349039" target="_blank" rel="noopener">推荐几家域名注册服务商</a>。<br>我是在Godaddy上注册的域名，网站有中文版支持支付宝支付还是很友好的。域名前两年有活动，前两年109块，后面每年100多一点，价格不贵。并且这可能也是我们这个博客搭建过程中唯一需要花钱的地方。</p>
-<h2 id="设置DNS解析"><a href="#设置DNS解析" class="headerlink" title="设置DNS解析"></a>设置DNS解析</h2><p>实际上这也不是一个必须的服务，但是由于Godaddy是一个国外厂商，直接使用它的DNS速度有影响，所以为了保证域名在国内的解析速度。推荐使用DNSPod的DNS解析服务。</p>
-<p><font color="red">DNSPod</font>已经被腾讯云收购，所以用微信可以直接登录。<br>登录DNSPod之后按照提示，再到Godaddy里面把DNS修改一下。<br><img src="http://upload-images.jianshu.io/upload_images/11400909-1c39056181935b67.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p>然后为了使GitHub接收这个域名，还需要博客的根目录下添加一个名为CNAME的文件（不要加.txt）。<br>这个文件放到主题文件夹的source里面，文件里面放你的域名（去掉www），比如我的网站，文件里面就放一句话：liyaolife.com<br>然后在如上图所示界面里面，添加两条记录，一个主机记录写@，另一个写www，这样无论用户输入<a href="http://www.liyaolife.com">www.liyaolife.com</a> 还是只输入 liyaolife.com 都可以直接定位到我的网站了，记录值放自己的GitHub Pages地址。</p>
-<p>OK，现在可以把这个URL转到微信群里面跟爸爸妈妈还有小伙伴们炫耀一番了。</p>
-<hr>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1761,7 +1644,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1774,7 +1657,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1832,18 +1715,18 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">67k</span>
+    <span title="站点总字数">68k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:52</span>
+    <span title="站点阅读时长">1:53</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
   </div>
 
         
@@ -1869,7 +1752,7 @@
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
 
 
