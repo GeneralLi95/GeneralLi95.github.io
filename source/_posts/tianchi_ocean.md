@@ -16,7 +16,7 @@ mathjax:
 捕鱼方法: wiki: [Fishing Techniques](https://en.wikipedia.org/wiki/Fishing_techniques)
 * 拖网作业 wiki [Trawling](https://en.wikipedia.org/wiki/Trawling) 也称 Dragging
 * 围网作业 wiki: [Seine fishning](https://en.wikipedia.org/wiki/Seine_fishing) 也称 Purse seine 或Seineingg
-* 流刺网作业 wiki: [gillnetting](http://www.dfw.state.or.us/fish/OSCRP/CRM/docs/Selective_Fisheries_JN_071220.pdf)
+* 流刺网作业 wiki: [gillnetting](https://en.wikipedia.org/wiki/Gillnetting)
 
 ![Salmon-Gillnetting.jpg](https://i.loli.net/2020/01/10/XPpt5yvYMzenHOw.jpg)
 
@@ -27,7 +27,7 @@ mathjax:
 1. [Quality and status of fish stocks in lakes: gillnetting, seining, trawling and hydroacoustics as sampling methods](https://link.springer.com/article/10.1007/s10750-010-0385-6)
 2. [Fisheries Techniques: Second edition](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Fisheries+Techniques%3A+Second+edition&btnG=)
 3. [Gillnetting – how it works](https://skipperotto.com/gillnetting-how-it-works/)
-4. [Finfish Capture Techniques](https://www.montereyfish.com/finfish-techniques) 详细介绍了捕鱼作业的各种技术手段，不仅是题目列举的两个，还有其他几种，图片比较多，写论文 的 background 的时候可以参考。
+4. [Finfish Capture Techniques](https://www.montereyfish.com/finfish-techniques) 详细介绍了鳍雨捕鱼作业的各种技术手段，不仅是题目列举的两个，还有其他几种，图片比较多，写论文 的 background 的时候可以参考。
 
 ## 数据
 
@@ -46,3 +46,20 @@ y: 渔船在平面坐标系的y轴坐标
 方向：渔船当前时刻航首向，单位度
 time：数据上报时刻，单位月日 时：分
 type：渔船label，作业类型
+
+
+## 论文草稿
+
+Fishing Techniques Classification based on Beidou Tracking and Machine Learning
+
+北斗导航信息广泛应用于中国渔业。在海洋上，渔民无法通过蜂窝移动网络来进行定位与传递信息。因此，中国政府要求所有渔船安装北斗系统以此来对他们进行管理和保护。海洋捕鱼方式经过长期的发展，有很多种，比如a,b,c。最常见的是某三种。不同的捕鱼技术有其各自的原理，特点和适用场景。
+Fishermen can't locate themselves and communication with the land through cellular mobile networks. So Satellite positioning navigation system
+
+After long-term development, there are many types of marine fishing methods, such as a, b, and c. The most common are some three. Different fishing techniques have their own principles, characteristics and application scenarios
+
+在本文中，我们通过对渔船的轨迹信息的挖掘，分析出其捕鱼作业的方式。
+
+
+## 参考文献
+1. Li, Xingxing, et al. "Precise positioning with current multi-constellation global navigation satellite systems: GPS, GLONASS, Galileo and BeiDou." Scientific reports 5 (2015): 8328.
+2. Simmonds, John, and David N. MacLennan. Fisheries acoustics: theory and practice. John Wiley & Sons, 2008.
