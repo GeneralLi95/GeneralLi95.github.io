@@ -2,7 +2,7 @@
 title: 《Data Mining》翻译前期准备
 date: 2018-04-22 18:12:30
 tags: 《数据挖掘》翻译
-categories: DataMining
+categories: Data Mining
 catalog: true
 ---
 ## 全书概览
