@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://liyaolife.comng_ml/ng_ml2/</loc>
-    <lastmod>2020-02-15T13:05:00.035Z</lastmod>
+    <lastmod>2020-02-15T13:11:34.238Z</lastmod>
     <data>
         <display>
         <title>Andrew Ng Machine Learning - 2 Linear regression with one variable</title>
@@ -19,6 +19,26 @@
            
              
               <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comdmtrans-pre/</loc>
+    <lastmod>2020-02-15T13:11:29.341Z</lastmod>
+    <data>
+        <display>
+        <title>《Data Mining》翻译前期准备</title>
+        <pubTime>2018-04-22T10:12:30.000Z</pubTime>
+        
+        <tag>《数据挖掘》翻译</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Mining" url="http://www.liyaolife.com/categories/Data-Mining/"/>
           
         </display>
     </data>
@@ -993,26 +1013,6 @@
            
              
               <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comdmtrans-pre/</loc>
-    <lastmod>2019-11-14T07:49:00.235Z</lastmod>
-    <data>
-        <display>
-        <title>《Data Mining》翻译前期准备</title>
-        <pubTime>2018-04-22T10:12:30.000Z</pubTime>
-        
-        <tag>《数据挖掘》翻译</tag>
-         
-         
-           
-             
-              <breadCrumb title="DataMining" url="http://www.liyaolife.com/categories/DataMining/"/>
           
         </display>
     </data>
