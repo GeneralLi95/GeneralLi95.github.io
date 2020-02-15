@@ -4,8 +4,72 @@
 
     
   <url>
+    <loc>http://liyaolife.comng_ml/ng_ml2/</loc>
+    <lastmod>2020-02-15T13:05:00.035Z</lastmod>
+    <data>
+        <display>
+        <title>Andrew Ng Machine Learning - 2 Linear regression with one variable</title>
+        <pubTime>2020-01-10T11:33:51.000Z</pubTime>
+        
+        <tag>Andrew Ng Machine Learning</tag>
+         
+        <tag>MOOC</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comng_ml/ng_ml/</loc>
+    <lastmod>2020-02-15T13:01:02.333Z</lastmod>
+    <data>
+        <display>
+        <title>Andrew Ng Machine Learning - 1 Intorduction</title>
+        <pubTime>2019-12-28T15:07:34.000Z</pubTime>
+        
+        <tag>Andrew Ng Machine Learning</tag>
+         
+        <tag>MOOC</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comtianchi_ocean/</loc>
+    <lastmod>2020-01-29T13:03:24.021Z</lastmod>
+    <data>
+        <display>
+        <title>2020天池智慧海洋建设比赛</title>
+        <pubTime>2020-01-10T02:14:40.000Z</pubTime>
+        
+        <tag>天池</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Mining" url="http://www.liyaolife.com/categories/Data-Mining/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.compandas/</loc>
-    <lastmod>2020-01-15T08:12:49.876Z</lastmod>
+    <lastmod>2020-01-18T08:21:44.053Z</lastmod>
     <data>
         <display>
         <title>pandas 学习</title>
@@ -27,7 +91,7 @@
     
   <url>
     <loc>http://liyaolife.comlightgbm/</loc>
-    <lastmod>2020-01-15T08:06:25.907Z</lastmod>
+    <lastmod>2020-01-15T14:31:03.894Z</lastmod>
     <data>
         <display>
         <title>lightgbm笔记</title>
@@ -86,28 +150,6 @@
 
     
   <url>
-    <loc>http://liyaolife.comng_ml/ng_ml/</loc>
-    <lastmod>2020-01-11T02:43:33.802Z</lastmod>
-    <data>
-        <display>
-        <title>Andrew Ng Machine Learning - 1 Intorduction</title>
-        <pubTime>2019-12-28T15:07:34.000Z</pubTime>
-        
-        <tag>Andrew Ng Machine Learning</tag>
-         
-        <tag>MOOC</tag>
-         
-         
-           
-             
-              <breadCrumb title="机器学习" url="http://www.liyaolife.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://liyaolife.comzsh/</loc>
     <lastmod>2020-01-11T02:22:10.805Z</lastmod>
     <data>
@@ -121,41 +163,6 @@
            
              
               <breadCrumb title="Shell" url="http://www.liyaolife.com/categories/Shell/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comng_ml/ng_ml2/</loc>
-    <lastmod>2020-01-10T15:03:04.851Z</lastmod>
-    <data>
-        <display>
-        <title>ng_ml2</title>
-        <pubTime>2020-01-10T11:33:51.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comtianchi_ocean/</loc>
-    <lastmod>2020-01-10T11:04:02.561Z</lastmod>
-    <data>
-        <display>
-        <title>2020天池智慧海洋建设比赛</title>
-        <pubTime>2020-01-10T02:14:40.000Z</pubTime>
-        
-        <tag>天池</tag>
-         
-         
-           
-             
-              <breadCrumb title="Data Mining" url="http://www.liyaolife.com/categories/Data-Mining/"/>
           
         </display>
     </data>
