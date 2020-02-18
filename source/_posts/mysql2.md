@@ -3,9 +3,9 @@ title: MySQL 基础指令
 date: 2019-11-18 08:55:18
 tags:
   - MySQL
-  - 数据库
+  -  Database
 categories:
-  - 数据库
+  - Database
 mathjax:
 ---
 

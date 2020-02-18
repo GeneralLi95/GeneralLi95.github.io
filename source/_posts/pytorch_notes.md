@@ -4,7 +4,8 @@ date: 2019-12-19 15:03:17
 tags:
   - PyTorch
 categories:
-  - 机器学习
+  - Machine Learning
+  - Deep Learning 
 mathjax: True
 ---
 ## 1. 网络层参数理解

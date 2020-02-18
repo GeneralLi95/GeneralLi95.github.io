@@ -2,10 +2,11 @@
 title: 深度学习常用数据集总结
 date: 2019-11-20 11:07:06
 tags:
-  - 数据集
-  - 深度学习
+  - Dataset
+  - Deep Learning
 categories:
-  - 深度学习
+  - Machine Learning
+  - Deep Learning
 mathjax:
 ---
 

@@ -4,7 +4,8 @@ date: 2019-12-26 10:42:17
 tags:
   - PyTorch
 categories:
-  - 机器学习
+  - Machine Learning
+  - Deep Learning
 mathjax:
 ---
 

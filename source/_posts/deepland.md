@@ -2,11 +2,14 @@
 title: DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记
 date: 2019-11-19 18:37:27
 tags:
-  - 深度学习
-  - 图像分割
+  - Machine Learning
+  - Image Segmentation
   - TensorFlow
+  - Deep Learning
+  - Computer Vision
 categories:
-  - 深度学习
+  - Machine Learning
+  - Deep Learning
 mathjax:
 ---
 ## 如何复现此工作

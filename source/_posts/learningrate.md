@@ -2,10 +2,10 @@
 title: 深度学习中的学习率变化和自适应学习率方法
 date: 2019-11-20 10:30:29
 tags:
-  - 深度学习
-  - 学习率
+  - Deep Learning
+  - Learning Rate
 categories:
-  - 深度学习
+  - Deep Learning
 mathjax: true
 ---
 

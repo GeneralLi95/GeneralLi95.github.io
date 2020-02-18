@@ -4,8 +4,9 @@ catalog: true
 date: 2019-11-15 10:02:06
 tags:
   - Python
-  - 基础编程
-categories: Python
+categories:
+  - Programming Lauguage
+  - Python
 mathjax:
 ---
 

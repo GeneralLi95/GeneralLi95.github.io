@@ -3,11 +3,12 @@ title: LeNet 笔记
 date: 2019-12-10 19:19:26
 tags:
   - PyTorch
-  - 机器学习
-  - 深度学习
-  - 神经网络
+  - Machine Learning
+  - Deep Learning
+  - Nerual Network
 categories:
-  - 机器学习
+  - Machine Learning
+  - Deep Learning
 mathjax:
 ---
 ## LeNet

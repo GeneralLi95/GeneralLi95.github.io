@@ -3,9 +3,9 @@ title: SQLite基础
 date: 2019-11-18 09:36:07
 tags:
   - SQLite
-  - 数据库
+  - Database
 categories:
-  - 数据库
+  - Database
 mathjax:
 ---
 

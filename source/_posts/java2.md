@@ -3,8 +3,9 @@ title: Java HelloWorld项目创建
 date: 2018-05-19 13:42:39
 tags:
   - Java
-  - 基础编程
-categories: Java
+categories:
+  - Programming Lauguage
+  - Java
 ---
 # HelloWorld项目创建
 

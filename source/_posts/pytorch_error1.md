@@ -4,7 +4,8 @@ date: 2020-01-06 16:20:57
 tags:
   - PyTorch
 categories:
-  - 机器学习
+  - Machine Learning
+  - Deep Learning
 mathjax:
 ---
 为了解决前文中提到的 cudnn.benchmark = True 的情况下的报错，我在实验室的两台新的服务器都新建路虚拟环境，升级了 torch 版本到1.3.1，升级后在61服务器可以正常使用，在57服务器，该虚拟环境中无法正常使用GPU，运行时  device 显示的是 'cpu'。

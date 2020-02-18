@@ -2,9 +2,11 @@
 title: tensorflow安装CPU指令集（AVX2）警告解决方案
 date: 2018-05-25 09:19:08
 tags:
-  - 机器学习
+  - Machine Learning
   - TensorFlow
-categories: 机器学习
+categories:
+  - Machine Learning
+  - Deep Learning
 catalog: true
 ---
 

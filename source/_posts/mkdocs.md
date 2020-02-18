@@ -4,7 +4,7 @@ date: 2020-01-11 10:59:12
 tags:
   - mkdocs
 categories:
-  - Python
+  - Software
 mathjax:
 ---
 mkdoc 基于 Python 的轻量级的网站生成利器，可以用来做手册、博客、等等。

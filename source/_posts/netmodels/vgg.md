@@ -2,12 +2,13 @@
 title: VGG 笔记
 date: 2019-12-12 17:24:16
 tags:
-  - 机器学习
-  - 深度学习
-  - 神经网络
   - PyTorch
+  - Machine Learning
+  - Deep Learning
+  - Nerual Network
 categories:
-  - 机器学习
+  - Machine Learning
+  - Deep Learning
 mathjax:
 ---
 ## VGG Net

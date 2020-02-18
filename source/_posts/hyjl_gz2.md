@@ -3,7 +3,7 @@ title: GIIC-新一代人工智能产业发展论坛(day2)
 date: 2019-11-24 08:58:00
 tags:
   - 参会记录
-  - 人工智能
+  - Artificaial Intelligence
 categories:
   - 参会记录
 mathjax:

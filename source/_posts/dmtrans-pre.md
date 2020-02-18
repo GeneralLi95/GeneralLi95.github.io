@@ -1,5 +1,5 @@
 ---
-title: 《Data Mining》翻译前期准备
+title: 《Data Mining》翻译工作安排
 date: 2018-04-22 18:12:30
 tags: 《数据挖掘》翻译
 categories: Data Mining

@@ -3,11 +3,13 @@ title: 物体检测TensorFlow Object Detection API （二）使用 Jupyter Noteb
 date: 2018-08-10 14:55:41
 catalog: true
 tags:
-    - TensorFlow
-    - 机器学习
-    - 计算机视觉
-    - 目标检测
-categories: 机器学习
+  - TensorFlow
+  - Deep Learning
+  - Computer Vision
+  - Object Detection
+categories:
+  - Machine Learning
+  - Deep Learning
 ---
 
 jupyter notebooks 之前也被称为 iPython 笔记本，提供了在同一环境中执行数据可视化的功能，是数据科学家最常用的工具之一。

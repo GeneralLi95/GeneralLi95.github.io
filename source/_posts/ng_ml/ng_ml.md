@@ -5,7 +5,8 @@ tags:
   - Andrew Ng Machine Learning
   - MOOC
 categories:
-  - 机器学习
+  - Machine Learning
+  - Stanford Andrew Ng Machine Learning Course
 mathjax:
 ---
 

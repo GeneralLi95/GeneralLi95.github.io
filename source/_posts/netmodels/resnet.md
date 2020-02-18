@@ -2,12 +2,13 @@
 title: ResNet 笔记
 date: 2019-12-17 08:57:34
 tags:
-  - 机器学习
-  - 深度学习
-  - 神经网络
   - PyTorch
+  - Machine Learning
+  - Deep Learning
+  - Nerual Network
 categories:
-  - 机器学习
+  - Machine Learning
+  - Deep Learning
 mathjax: True
 ---
 ## ResNet

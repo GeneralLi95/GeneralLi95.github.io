@@ -2,9 +2,9 @@
 title: 北京理工大学慕课「Python与机器学习」笔记
 date: 2017-11-24 16:34:05
 tags:
-  - 机器学习
+  - Machine Learning
 categories:
-  - 机器学习
+  - Machine Learning 
 mathjax:
 ---
 

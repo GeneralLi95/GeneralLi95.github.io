@@ -3,8 +3,9 @@ title: MySQL安装与初始化
 date: 2018-06-05 12:51:38
 tags:
   - MySQL
-  - 数据库
-categories: 数据库
+  - Database
+categories:
+  - Database 
 catalog: true
 ---
 
