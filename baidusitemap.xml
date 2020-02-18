@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://liyaolife.comng_ml/ng_ml/</loc>
+    <lastmod>2020-02-18T14:40:18.154Z</lastmod>
+    <data>
+        <display>
+        <title>Andrew Ng Machine Learning - 1 Intorduction</title>
+        <pubTime>2019-12-28T15:07:34.000Z</pubTime>
+        
+        <tag>Andrew Ng Machine Learning</tag>
+         
+        <tag>MOOC</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://www.liyaolife.com/categories/Machine-Learning/"/>
+          
+             
+              <breadCrumb title="Stanford Andrew Ng Machine Learning Course" url="http://www.liyaolife.com/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comng_ml/ng_ml2/</loc>
     <lastmod>2020-02-18T14:36:04.014Z</lastmod>
     <data>
@@ -42,31 +67,6 @@
            
              
               <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comng_ml/ng_ml/</loc>
-    <lastmod>2020-02-18T11:42:33.633Z</lastmod>
-    <data>
-        <display>
-        <title>Andrew Ng Machine Learning - 1 Intorduction</title>
-        <pubTime>2019-12-28T15:07:34.000Z</pubTime>
-        
-        <tag>Andrew Ng Machine Learning</tag>
-         
-        <tag>MOOC</tag>
-         
-         
-           
-             
-              <breadCrumb title="Machine Learning" url="http://www.liyaolife.com/categories/Machine-Learning/"/>
-          
-             
-              <breadCrumb title="Stanford Andrew Ng Machine Learning Course" url="http://www.liyaolife.com/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/"/>
           
         </display>
     </data>
