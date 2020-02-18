@@ -52,7 +52,7 @@
 </script>
 
   <meta name="description" content="在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是 1图片-标签1，标签2，标签3 这种类型的数据，我们最终的目的，也是测试的图片，打标签，姑且将其认为属于图片分类任务。 而另外一种数据 12图片中的某一块-标签1图片中的另一块-标签2 这种任务，我们的目的是在某张图片中检测（查找）某物体。 TensorFlow Object Detection API 是 TensorF">
-<meta name="keywords" content="TensorFlow,机器学习,计算机视觉,目标检测">
+<meta name="keywords" content="Deep Learning,TensorFlow,Computer Vision,Object Detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="物体检测TensorFlow Object Detection API （一）安装">
 <meta property="og:url" content="http://www.liyaolife.com/tfod1/index.html">
@@ -60,7 +60,7 @@
 <meta property="og:description" content="在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是 1图片-标签1，标签2，标签3 这种类型的数据，我们最终的目的，也是测试的图片，打标签，姑且将其认为属于图片分类任务。 而另外一种数据 12图片中的某一块-标签1图片中的另一块-标签2 这种任务，我们的目的是在某张图片中检测（查找）某物体。 TensorFlow Object Detection API 是 TensorF">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11400909-ef5f5ca8c03c5218.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-11-19T08:58:32.132Z">
+<meta property="og:updated_time" content="2020-02-18T08:03:17.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="物体检测TensorFlow Object Detection API （一）安装">
 <meta name="twitter:description" content="在计算机视觉任务中，区分一下图像分类和物体检测，一部分任务的数据标注形式是 1图片-标签1，标签2，标签3 这种类型的数据，我们最终的目的，也是测试的图片，打标签，姑且将其认为属于图片分类任务。 而另外一种数据 12图片中的某一块-标签1图片中的另一块-标签2 这种任务，我们的目的是在某张图片中检测（查找）某物体。 TensorFlow Object Detection API 是 TensorF">
@@ -227,7 +227,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 16:58:32" itemprop="dateModified" datetime="2019-11-19T16:58:32+08:00">2019-11-19</time>
+                <time title="修改时间：2020-02-18 16:03:17" itemprop="dateModified" datetime="2020-02-18T16:03:17+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,8 +235,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
                   </a>
                 </span>
             </span>
@@ -339,10 +345,10 @@
       <footer class="post-footer">
           
           <div class="post-tags">
+              <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
               <a href="/tags/TensorFlow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
-              <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
-              <a href="/tags/计算机视觉/" rel="tag"><i class="fa fa-tag"></i> 计算机视觉</a>
-              <a href="/tags/目标检测/" rel="tag"><i class="fa fa-tag"></i> 目标检测</a>
+              <a href="/tags/Computer-Vision/" rel="tag"><i class="fa fa-tag"></i> Computer Vision</a>
+              <a href="/tags/Object-Detection/" rel="tag"><i class="fa fa-tag"></i> Object Detection</a>
           </div>
 
         
@@ -415,20 +421,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -486,13 +492,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">71k</span>
+    <span title="站点总字数">72k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:58</span>
+    <span title="站点阅读时长">2:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

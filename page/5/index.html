@@ -193,6 +193,296 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/java1/" class="post-title-link" itemprop="url">Mac Java环境配置</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-19 13:42:32" itemprop="dateCreated datePublished" datetime="2018-05-19T13:42:32+08:00">2018-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-18 15:55:35" itemprop="dateModified" datetime="2020-02-18T15:55:35+08:00">2020-02-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming-Lauguage/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming Lauguage</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming-Lauguage/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/java1/" class="post-meta-item leancloud_visitors" data-flag-title="Mac Java环境配置" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/java1/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/java1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MAC-Java环境配置"><a href="#MAC-Java环境配置" class="headerlink" title="MAC Java环境配置"></a>MAC Java环境配置</h1><h2 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK"></a>1. 安装JDK</h2><p>JDK全称Java Development Kit，Java开发工具包，是Java开发的核心。<br>之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。<br>终端输入</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java -<span class="built_in">version</span></span><br></pre></td></tr></table></figure>
+<p>显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。<br><img src="http://upload-images.jianshu.io/upload_images/11400909-e41bcc47495420eb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h2 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2. 配置环境变量"></a>2. 配置环境变量</h2><p>配置环境变量前先得到JAVA_HOME的位置。<br>依旧：终端输入：</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/jav<span class="built_in">a_home</span></span><br></pre></td></tr></table></figure>
+<p>可返回JAVA_HOME的位置路径，把这个路径记下来，马上要用</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1.<span class="number">8.0</span>_151.jdk<span class="regexp">/Contents/</span>Home</span><br></pre></td></tr></table></figure>
+<p>环境变量一共有三个东西需要配置：<br>JAVA_HOME<br>CLASS_PATH<br>PATH<br>在windows 系统里是在我的电脑属性高级设置里分别设置，macOS里依然是通过命令行设置。<br>终端输入：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">vim</span> /etc/<span class="keyword">profile</span></span><br></pre></td></tr></table></figure>
+<p>然后后需要输入密码。接下来按i，显示insert，进入输入模式。然后输入下面配置：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"</span></span><br><span class="line"><span class="keyword">export</span> JAVA_HOME</span><br><span class="line">CLASS_PATH=i<span class="string">"$JAVA_HOME/lib"</span></span><br><span class="line">PATH=<span class="string">".$PATH:$JAVA_HOME/bin"</span></span><br></pre></td></tr></table></figure>
+<p>然后按esc，进入保存。<br>输入<figure class="highlight plain"><figcaption><span>保存</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;font color=red&gt;</span><br><span class="line">这里注意一下，JAVA_HOME的路径不要照着网上教程全抄了，把自己刚刚存下来的路径copy过来，毕竟安装的JDK版本不一致的时候，路径当中有的文件的名字是不一致的。</span><br><span class="line">&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">接下来 输入</span><br></pre></td></tr></table></figure></p>
+<p>source /etc/profile<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行<span class="keyword">profile</span>配置文件</span><br><span class="line"></span><br><span class="line">检查环境</span><br><span class="line">输入</span><br></pre></td></tr></table></figure></p>
+<p>echo $JAVA_HOME<br><code>`</code><br>得到配置的路径，说明配置完毕。</p>
+<blockquote>
+<p>5.14 日更新：<br>发现该环境变量配置之后，终端许多命令无法执行，比如python3,pip以及hexo命令，这是无法忍受的。所以又强行把它改了回去，得以恢复。<br>后发现IntelliJ IDEA会自带Java环境，在不设置这个环境变量的情况下，Java的hello world还是跑起来了。<br>所以真的是<strong>生命在与折腾！</strong></p>
+</blockquote>
+<h2 id="选择IDE"><a href="#选择IDE" class="headerlink" title="选择IDE"></a>选择IDE</h2><p>有些人可能建议初学者用记事本写代码，我感觉初学者最重要的应该是马上跑起来一个程序得到及时的反馈，所以我还是习惯用IDE。</p>
+<p>Java的IDE也挺多的，比较有名的是Eclipse和IntelliJ IDEA两款，作为一个初学者，当然一个也没用过，前者开源后者付费。考虑到后者是JetBrains的产品，他们公司的Pycharm和Webstorm我是用过并且非常喜欢的，所以上手IntelliJ IDEA可能会比较容易的，另外JetBrains也向学生提供了免费的序列号。所以不需要考虑付费的问题。</p>
+<p>综上所述、采用IntelliJ IDEA。</p>
+<blockquote>
+<p>5.18日更新，观看了浙江大学翁凯教授的Java教程，方知Eclipse软件本身就是用Java编写的，所以要配置好Java环境才能运行这个IDE。这也是为什么网上那么多教程起手就是配环境了。</p>
+</blockquote>
+<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/54-run/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/54-run/" class="post-title-link" itemprop="url">年度最强制作背后两三事</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-07 22:37:12" itemprop="dateCreated datePublished" datetime="2018-05-07T22:37:12+08:00">2018-05-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-19 17:11:09" itemprop="dateModified" datetime="2019-11-19T17:11:09+08:00">2019-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生活杂记/" itemprop="url" rel="index">
+                    <span itemprop="name">生活杂记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/54-run/" class="post-meta-item leancloud_visitors" data-flag-title="年度最强制作背后两三事" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/54-run/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/54-run/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>近人有言曰：文明其精神，野蛮其体魄。此言是也。欲文明其精神，先自野蛮其体魄；苟野蛮其体魄矣，则文明之精神随之。——毛泽东1917年《体育之研究》</p>
+</blockquote>
+<p>年度最强制作——NUDT首届纪念五四环校长跑2017落下帷幕。今年跟着研委会的大佬们一起参与了活动组织，活干的不多，感悟倒还是有一点（毕竟天生就是这么个多愁善感的人）。</p>
+<hr>
+<ol>
+<li><p>研委会组织架构完善且合理，各位boss大佬运筹帷幄，指挥有方。在此次活动中八大部门分工合理，各司其职。在同一个部门的人员可能还不是互相认识的情况下，能够有序得进展活动，我还是非常佩服的。</p>
+<p> 一次活动要考虑的事情比想象中的多很多。统计报名表、号码布制作、开闭幕式组织、邀请领导、裁判员、成绩统计、封路、宣传、赞助。特别意外的是居然还想到了调整宿舍楼的热水供应时间以及安排官方配速员带跑，可以说是很贴心了，从热水供应这方面来讲可以说超过长沙马拉松了（说多了都是泪）。总之，学到了。</p>
+</li>
+<li><p>作为研委会第二大部们——文体部（第一大可能是随时随地都在拉人的外联部吧），本部门主要负责统计报名表、号码布制作发放、检录区、起跑区的组织，开闭幕式音响设备借还与调试。</p>
+<p> 部长安排我在检录区工作。5.3星期四联系了各大队负责此比赛的骨干，要求各自指定一名同学在检录区与本部门人员对接。下午17：20召集这几名同学，在广场划分了检录区，与一个学弟一起拿胶带在地上贴了记号，以为是一件大活，结果基本上十分钟搞定了。各大队的负责同学都很nice，协调过程轻松且愉快。</p>
+</li>
+<li><p>5.4星期五12：30进行彩排，彩排过程中莫名被叫去帮另一个部门贴开幕式入场队伍在地上的标记，而他们居然没有准备黄胶带，打电话由舍友骑自行车送来了前一日在广场使用的黄胶带，完成此活。在此过程中，领对讲机的时候被大佬叫了好几次都没发现（毕竟我在操场另一侧贴胶带呀）……感觉不太好。</p>
+<p> 同时被通知要离开检录处，去负责开闭幕式入场方阵组织。</p>
+</li>
+<li><p>5.5星期六中午饭后，骑车去南门拿一块检录区的牌子。17：00，替因事不在的部长参加赛前最后一次协调会，再次明确了本部门的人员与任务。</p>
+<p> 之后收到外联部联系的赞助商提供的帐篷，以为对方会安排人员帮忙搭帐篷。结果并没有。于是开始喊人来搬帐篷搭帐篷，偶遇来跑步的两位本队同学，叫来帮忙，研委会其他各部门都来了人帮忙，这种小棚子果然很好搭，当然感觉也很不稳，晚上下雨，一直担心帐篷会不会被风吹倒……</p>
+<p> 一起搞帐篷的好几个同学都不认识，但是知道是环校长跑的活，所以都来干。集体荣誉感激励人奉献。当然我也去帮其他部门搬了水。两位本队来跑步的同学还没感谢，改日请喝饮料。</p>
+</li>
+<li><p>5.5晚上19：00收到消息，有个别大队号码布有缺失，找同学联系广告店补做，怕来不及，所以同时联系其他大队看有没有多发的空的。广告店服务到位，很快补做好，20：30去取，顺手拿了支马克笔回来。这支笔后来发挥大作用了吧……现场写了几个号码布。</p>
+<p>经验：发放号码布之后应要求各单位点好数目，以免快比赛了又有不够的，准备空白号码布和马克笔，对于丢失和后报名的同学开个后门。</p>
+</li>
+<li><p>5.6早5：30起床，到办公室领早饭，对讲机。调音响设备遇到严重bug，一根线接头断了，导致无法放音乐。问题之大，引发严重关切，一群boss都围过来了，负责的学弟表情很难看。打电话求助大四学弟，看队内卡拉OK系统是否能借根线，学弟表示无能为力，一时竟不知该如何是好。</p>
+<p> 最终，还是靠专业的力量，部门玩乐队的同学回队拿了自己的一根线，解决问题。最佳表现投他一票。</p>
+<p> 教训：设备本该提前一天调好，结果5.5号不是工作日，找不到拿钥匙的班长，所以没有调试，加之5.4号彩排的时候设备正常，所以也没有太关注。<br> 经验：不应该图方便把设备放在近但却钥匙不在自己手里的仓库里，这种重要的东西还是要随时能自己掌握，应该放办公室。无论如何前一天都要再调一遍的。</p>
+</li>
+<li><p>8：00按计划集合了开幕式方阵，集中讲了注意事项，并要求10：10于入场处参加闭幕式（闭幕式计划10：30开始）。开幕式一切正常。</p>
+</li>
+<li><p>开幕式结束后协助进行了一些封路、打杂的工作。</p>
+</li>
+<li><p>比赛结束了，闭幕式流程改变，之前先表演节目再运动员入场，改为先运动员入场再表演节目了，而表演节目的时间本来就是计划给分数统计、运动员换衣服、集合的。所以9：50临时通知各大队迅速召集人来参加闭幕式。有几个大队迅速到了，个别大队到了之前说好的10：10也没把人集合齐（现场场面似乎看上去是没有组织的临时凑人）。地方生方阵直接散了……散了……</p>
+<p> 所以，闭幕式比开幕式少了一个方阵。作为方阵组织负责人，略显狼狈。</p>
+<p> 经验教训：从组织角度，运动员刚刚跑完就需要立马换衣服参加闭幕式似有不妥，地方生分布于各分委会，没有统一负责人，参赛尚由一名同学逐一通知，赛后散了也确实叫人无能为力。从我角度：彩排后接手此任务时没有把相应的联系渠道接手，计划有变后不能及时联系到关键人员。所以建立顺畅的沟通渠道非常重要。    </p>
+</li>
+<li><p>闭幕式进行时，与检录处兄弟一起拆帐篷，收拾垃圾，闭幕式结束，合影，搬器材，活动结束。</p>
+</li>
+</ol>
+<hr>
+<p>活动收获很多，组织经验，友谊，在朋友圈看了很多同学的愉快的体验，感觉还不错。多少有些意犹未尽，思来想去：一是还是没有收获最想要的，二是没有能参赛是一大遗憾。</p>
+<p>自大三之后，曾想之后再也不做什么骨干。年纪大了几岁，发现更难寻志同道合之友。意外加入研委会文体部，一次活动，收获几个朋友，不失为一快事。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/dmtrans-pre/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -207,7 +497,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/dmtrans-pre/" class="post-title-link" itemprop="url">《Data Mining》翻译前期准备</a>
+            <a href="/dmtrans-pre/" class="post-title-link" itemprop="url">《Data Mining》翻译工作安排</a>
         </h1>
 
         <div class="post-meta">
@@ -224,7 +514,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-15 21:11:29" itemprop="dateModified" datetime="2020-02-15T21:11:29+08:00">2020-02-15</time>
+                <time title="修改时间：2020-02-18 15:54:49" itemprop="dateModified" datetime="2020-02-18T15:54:49+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,7 +529,7 @@
             </span>
 
           
-            <span id="/dmtrans-pre/" class="post-meta-item leancloud_visitors" data-flag-title="《Data Mining》翻译前期准备" title="阅读次数">
+            <span id="/dmtrans-pre/" class="post-meta-item leancloud_visitors" data-flag-title="《Data Mining》翻译工作安排" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1160,7 +1450,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-19 16:52:29" itemprop="dateModified" datetime="2019-11-19T16:52:29+08:00">2019-11-19</time>
+                <time title="修改时间：2020-02-18 15:47:53" itemprop="dateModified" datetime="2020-02-18T15:47:53+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1168,8 +1458,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
             </span>
@@ -1631,20 +1921,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1702,13 +1992,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">71k</span>
+    <span title="站点总字数">72k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:58</span>
+    <span title="站点阅读时长">2:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

@@ -193,6 +193,274 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ng_ml/ng_ml/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/ng_ml/ng_ml/" class="post-title-link" itemprop="url">Andrew Ng Machine Learning - 1 Intorduction</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-28 23:07:34" itemprop="dateCreated datePublished" datetime="2019-12-28T23:07:34+08:00">2019-12-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-18 12:20:48" itemprop="dateModified" datetime="2020-02-18T12:20:48+08:00">2020-02-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/" itemprop="url" rel="index">
+                    <span itemprop="name">Stanford Andrew Ng Machine Learning Course</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/ng_ml/ng_ml/" class="post-meta-item leancloud_visitors" data-flag-title="Andrew Ng Machine Learning - 1 Intorduction" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ng_ml/ng_ml/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ng_ml/ng_ml/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>开始在 Coursera上学习 斯坦福吴恩达的机器学习教程，是侧重神经网络的新版，不是侧重 SVM 的旧版。</p>
+<h2 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h2><p>首先 Ng 欢迎来到课程，介绍什么是 Machine Learning 这个视频很有名了，在两个版本中都介绍了这一部分。举了一些例子，包括他的学生做的直升飞机，无人车什么的。不再详述。</p>
+<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><p>分类 机器学习 按照大类可分为两类 Supervised Learning 和 Unsupervised Learning，即监督学习和无监督学习。那么当下比较火的是 自监督学习。不知道应该属于两者中的哪一类。</p>
+<p>在监督学习部分，举了几个例子</p>
+<ul>
+<li>房价预测的例子，线性回归模型， Regression problem</li>
+<li><p>breast cancer（malignant, benign) 乳腺癌，恶性与良性的判断，Classification problem</p>
+<p>quiz:</p>
+<p>You’re running a company, and you want to develop learning algorithms to address each of two problems. Problem 1:You have a large inventory of identical items. You want to predict how many of these items will sell over the next 3 months.</p>
+<p>Problem 2: You’d like software to examine individual customer accounts, and for each account decide if it has been hacked/compromised. Should you treat these as classification or as regression problems?</p>
+</li>
+<li><p>Treat both as classification problems.</p>
+</li>
+<li>Treat problem 1 as a classification problem, problem 2 as a regression problem.</li>
+<li><strong>Treat problem 1 as a regression problem, problem 2 as a classification problem.</strong></li>
+<li>Treat both as regression problems.</li>
+</ul>
+<p>这个问题就是给两个问题判断属于哪一类，第一类是预测投资对后三个月的销售影像，典型的回归问题，第二个是用程序检测用户账户是否被入侵，典型的分类问题。</p>
+<h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><p>无监督学习，举了几个例子，谷歌新闻 group them into cohesive news stories，将新闻按主题大致分类。基因检测。列举了一些无监督学习的应用，如组织计算机集群，社交网络分析，用户属性分类，太空数据分析等等。</p>
+<p>然后是经典的鸡尾酒会例子，两个人，两个麦克风。距离不同。</p>
+<blockquote>
+<p>cohesive 内聚，凝聚的<br>genomics 基因<br>cocktail party 鸡尾酒会</p>
+</blockquote>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>辅助材料给出了 监督学习、回归问题、分类问题的定义</p>
+<blockquote>
+<p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
+</blockquote>
+<blockquote>
+<p>Supervised learning problems are categorized into “regression” and “classification” problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.</p>
+</blockquote>
+<h2 id="小测试"><a href="#小测试" class="headerlink" title="小测试"></a>小测试</h2><ol>
+<li>A computer program is said to learn from experience E with respect to some task T and some performance measure P if its performance on T, as measured by P, improves with experience E. Suppose we feed a learning algorithm a lot of historical weather data, and have it learn to predict weather. What would be a reasonable choice for P?</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pytorch_error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/pytorch_error/" class="post-title-link" itemprop="url">Pytorch THCudaCheck FAIL 错误</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-26 10:42:17" itemprop="dateCreated datePublished" datetime="2019-12-26T10:42:17+08:00">2019-12-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-18 15:52:22" itemprop="dateModified" datetime="2020-02-18T15:52:22+08:00">2020-02-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/pytorch_error/" class="post-meta-item leancloud_visitors" data-flag-title="Pytorch THCudaCheck FAIL 错误" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/pytorch_error/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/pytorch_error/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>331</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">THCudaCheck FAIL <span class="attribute">file</span>=/pytorch/aten/src/THC/THCGeneral.cpp <span class="attribute">line</span>=405 <span class="attribute">error</span>=11 : invalid argument</span><br></pre></td></tr></table></figure></p>
+<p>经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和 CUDA 的版本与 torch 的版本共同相关，另外 cudnn.benchmark 默认是 Flase。所以隐藏的很深。</p>
+<p>关于 cudnn.benchmark 的作用可以参考这个 <a href="https://zhuanlan.zhihu.com/p/73711222" target="_blank" rel="noopener">知乎:torch.backends.cudnn.benchmark ?!</a>，关于这个bug的更多解释可以看这个 <a href="https://discuss.pytorch.org/t/a-error-when-using-gpu/32761" target="_blank" rel="noopener">A error when using GPU</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/virtualenv/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,7 +492,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-26 10:12:41" itemprop="dateModified" datetime="2019-12-26T10:12:41+08:00">2019-12-26</time>
+                <time title="修改时间：2020-02-18 15:46:48" itemprop="dateModified" datetime="2020-02-18T15:46:48+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,7 +500,13 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
+                  <a href="/categories/Programming-Lauguage/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming Lauguage</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming-Lauguage/Python/" itemprop="url" rel="index">
                     <span itemprop="name">Python</span>
                   </a>
                 </span>
@@ -351,7 +625,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-26 18:56:34" itemprop="dateModified" datetime="2019-12-26T18:56:34+08:00">2019-12-26</time>
+                <time title="修改时间：2020-02-18 16:01:54" itemprop="dateModified" datetime="2020-02-18T16:01:54+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -359,8 +633,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
                   </a>
                 </span>
             </span>
@@ -506,7 +786,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-30 11:42:52" itemprop="dateModified" datetime="2019-12-30T11:42:52+08:00">2019-12-30</time>
+                <time title="修改时间：2020-02-18 12:22:48" itemprop="dateModified" datetime="2020-02-18T12:22:48+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -514,8 +794,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
                   </a>
                 </span>
             </span>
@@ -646,7 +932,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 09:44:40" itemprop="dateModified" datetime="2019-12-27T09:44:40+08:00">2019-12-27</time>
+                <time title="修改时间：2020-02-18 12:23:02" itemprop="dateModified" datetime="2020-02-18T12:23:02+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -654,8 +940,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
                   </a>
                 </span>
             </span>
@@ -794,7 +1086,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 09:44:38" itemprop="dateModified" datetime="2019-12-27T09:44:38+08:00">2019-12-27</time>
+                <time title="修改时间：2020-02-18 12:22:19" itemprop="dateModified" datetime="2020-02-18T12:22:19+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -802,8 +1094,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
                   </a>
                 </span>
             </span>
@@ -1219,7 +1517,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-26 09:23:06" itemprop="dateModified" datetime="2019-11-26T09:23:06+08:00">2019-11-26</time>
+                <time title="修改时间：2020-02-18 16:06:46" itemprop="dateModified" datetime="2020-02-18T16:06:46+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1407,298 +1705,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/hyjl_gz/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/hyjl_gz/" class="post-title-link" itemprop="url">GIIC-新一代人工智能产业发展论坛(day 1)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-23 12:41:22" itemprop="dateCreated datePublished" datetime="2019-11-23T12:41:22+08:00">2019-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-19 15:02:29" itemprop="dateModified" datetime="2019-12-19T15:02:29+08:00">2019-12-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/参会记录/" itemprop="url" rel="index">
-                    <span itemprop="name">参会记录</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/hyjl_gz/" class="post-meta-item leancloud_visitors" data-flag-title="GIIC-新一代人工智能产业发展论坛(day 1)" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/hyjl_gz/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/hyjl_gz/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>GIIC-第三届全球智能工业大会暨博览会暨全球创新技术成果转移大会<br>The 3rd Global Intelligent Industry Conference &amp; Exposition &amp; Global Innovative Technology Exchange Conference</p>
-<p><img src="https://i.loli.net/2019/11/26/2FZ3BdtTfO9gejD.png" alt><br>主题论坛一： 新一代人工智能产业发展论坛<br>主持人：罗海波，中科院沈阳自动化研究所副总工程师，教授</p>
-<h2 id="1-AI-芯片技术发展趋势展望-Technology-Prospection-of-New-Generation-of-AI-chips"><a href="#1-AI-芯片技术发展趋势展望-Technology-Prospection-of-New-Generation-of-AI-chips" class="headerlink" title="1.  AI 芯片技术发展趋势展望 Technology Prospection of New Generation of AI chips"></a>1.  AI 芯片技术发展趋势展望 Technology Prospection of New Generation of AI chips</h2><p>张韵东，北京中星微电子公司董事长兼总经理</p>
-<p>中星微，数字多媒体芯片技术国家重点实验室<br><img src="https://i.loli.net/2019/11/26/oMvR4IiAlWkH1Et.jpg" alt="IMG_0801.jpeg"></p>
-<p>###背景综述<br>讲了几年半导体行业的销售额增长，中国对半导体的需求仍大于自己的销售。</p>
-<p>####物联网AI技术发展趋势</p>
-<p>传感智能化  网络泛在化（网络无所不在）  处理多元化（处理大量出现在边缘）</p>
-<p>####困难与挑战(四个)：</p>
-<p>如何以单芯片兼顾以大数据驱动的深度学习算法和以人工滤波器特征提取及模板匹配为代表的传统智能算法</p>
-<h4 id="企业介绍"><a href="#企业介绍" class="headerlink" title="企业介绍"></a>企业介绍</h4><p><strong>DPS (Digital Pixel Sensor)数字像素传感器</strong>（对比 CMOS 光学器件），大大提升传感器产生数据的帧率，信噪比，带宽。突破了模拟像素读取数据速度不不够的瓶颈</p>
-<p>星光智能系列深度学习处理器</p>
-<h3 id="智能摩尔技术路线"><a href="#智能摩尔技术路线" class="headerlink" title="智能摩尔技术路线"></a>智能摩尔技术路线</h3><p>摩尔定律达到量子瓶颈的情况下，后摩尔时代的思考。延伸摩尔(More)，超越摩尔(More than)</p>
-<p>智能摩尔技术路线： 物理和信号层面达到极限，信息层面的技术创先还没有达到极限。</p>
-<p>下面主要讲了他们的这个技术路线的内容。</p>
-<p>##2. 机载嵌入式实时自动目标识别系统与技术 Airborne Embed Real-time Automatic Target Recognition System and Technique<br>罗海波，中国科学院沈阳自动化研究所副总工程师，教授</p>
-<p>模板匹配 -&gt;  机器学习</p>
-<h3 id="模板匹配方法：面临的难题：异源图像匹配，大视角变换。"><a href="#模板匹配方法：面临的难题：异源图像匹配，大视角变换。" class="headerlink" title="模板匹配方法：面临的难题：异源图像匹配，大视角变换。"></a>模板匹配方法：面临的难题：异源图像匹配，大视角变换。</h3><p>特征提取，Hausdoff 距离来评价匹配度</p>
-<h3 id="机器学习方法进行自动目标识别"><a href="#机器学习方法进行自动目标识别" class="headerlink" title="机器学习方法进行自动目标识别"></a>机器学习方法进行自动目标识别</h3><p>比较了几种机器学习方法，演示了几个结果，主要是现有模型的应用，都是一些成熟的结果。装载在无人机就可以拿到很好的效果。感觉团队的主要贡献和真正自己的东西应该还是在模板匹配研究这一块。</p>
-<h3 id="硬件、算法"><a href="#硬件、算法" class="headerlink" title="硬件、算法"></a>硬件、算法</h3><p>机载不可能挂载服务器，用FPGA，DSP</p>
-<p>介绍了几种芯片，特性</p>
-<p>介绍了基于华为昇腾310芯片的自研「达芬奇」架构</p>
-<h3 id="新一代自动目标识别"><a href="#新一代自动目标识别" class="headerlink" title="新一代自动目标识别"></a>新一代自动目标识别</h3><p>李群理论</p>
-<h3 id="介绍自己的研究所"><a href="#介绍自己的研究所" class="headerlink" title="介绍自己的研究所"></a>介绍自己的研究所</h3><p>沈阳自动化研究所，1958年创立，三个研究方向：机器人、智能制造、光电信息</p>
-<p>##3. 边缘端视觉计算 Vision Computing on Edge<br>程健，中国科学院自动化研究所研究员</p>
-<blockquote>
-<p>什么是边缘计算?<br>靠近数据源的边缘地带来完成的运算程序，约等于 临近计算 或者 接近计算。</p>
-</blockquote>
-<p><strong>和传统的中心化思维不同，他的主要计算节点以及应用分布式部署在靠近终端的数据中心，这使得在服务的响应性能，还是可靠性方面都高于传统中心化的云计算概念。</strong></p>
-<h3 id="边缘端的计算挑战"><a href="#边缘端的计算挑战" class="headerlink" title="边缘端的计算挑战"></a>边缘端的计算挑战</h3><p>计算资源受限</p>
-<p>离数据近</p>
-<p>移动设备：算不好</p>
-<p>穿戴设备：算不了</p>
-<p>AlexNet 8层</p>
-<p>神经网络存在计算密集、存储密集特点，中间结果数据量大，前向计算时，57.3%能耗花费在数据搬运。</p>
-<h3 id="轻量化的解决方案"><a href="#轻量化的解决方案" class="headerlink" title="轻量化的解决方案"></a>轻量化的解决方案</h3><ul>
-<li>低秩分解</li>
-<li>剪枝</li>
-<li>量化</li>
-</ul>
-<p>轻量级 AI 推理引擎： QEngine</p>
-<p>介绍了一些有趣的应用</p>
-<p>自研了一款芯片</p>
-<h3 id="未来展望"><a href="#未来展望" class="headerlink" title="未来展望"></a>未来展望</h3><ul>
-<li>自动轻量化方法</li>
-<li>无监督/小样本学习的加速和压缩</li>
-<li>软硬协同</li>
-<li>面向任务<h2 id="4-飞桨产业级深度学习平台及其行业应用"><a href="#4-飞桨产业级深度学习平台及其行业应用" class="headerlink" title="4. 飞桨产业级深度学习平台及其行业应用"></a>4. 飞桨产业级深度学习平台及其行业应用</h2>马艳军，百度深度学习技术平台部总监，博士</li>
-</ul>
-<p><img src="https://i.loli.net/2019/11/26/BAQRflbLEs6Cux9.png" alt><br>先讲 AI 的发展历程<br>深度学习：06年算法进展，</p>
-<p>深度学习框架的重要性。以深度学习框架为核心的人工智能产业生态</p>
-<p>国内外深度学习框架现状。讲了讲飞桨的诞生历史。</p>
-<p>深度学习大规模产业化面临的挑战。开发效率低、训练困难、部署陈本高。</p>
-<p>多端多平台部署的高性能推理引擎。产业级开源模型库。</p>
-<p>深度学习应用于传统行业的三大难题：</p>
-<ol>
-<li>问题定义、技术选型</li>
-<li>验证成本高</li>
-<li>特定的性能限制</li>
-</ol>
-<p>面向场景的端到端开发套件。 前：数据标注工具箱、数据增强工具箱。后：部署集成工具。</p>
-<h2 id="5-基于学者网的知识图谱构建"><a href="#5-基于学者网的知识图谱构建" class="headerlink" title="5 基于学者网的知识图谱构建"></a>5 基于学者网的知识图谱构建</h2><p>汤庸，华南师范大学计算机学院院长</p>
-<p>学者网可以做什么，全程基本上都在介绍学者网，知识图谱的内容似乎并没有讲多少。</p>
-<h2 id="6-新一代计算视觉框架：基于脉冲事件的视觉计算"><a href="#6-新一代计算视觉框架：基于脉冲事件的视觉计算" class="headerlink" title="6 新一代计算视觉框架：基于脉冲事件的视觉计算"></a>6 新一代计算视觉框架：基于脉冲事件的视觉计算</h2><p>王岩，澳大利亚麦考瑞大学教授</p>
-<p>听不动了。这个没听</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/dataset/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/dataset/" class="post-title-link" itemprop="url">深度学习常用数据集总结</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-20 11:07:06" itemprop="dateCreated datePublished" datetime="2019-11-20T11:07:06+08:00">2019-11-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-21 23:30:19" itemprop="dateModified" datetime="2019-12-21T23:30:19+08:00">2019-12-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/dataset/" class="post-meta-item leancloud_visitors" data-flag-title="深度学习常用数据集总结" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/dataset/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/dataset/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>462</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>深度学习常用数据集总结</p>
-<h2 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h2><p><a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener">CIFAR-10</a><br>包含50K训练图片和10k测试图片。所有图片大小32x32，<br><img src="https://i.loli.net/2019/12/02/2vNbTFxY5lPynoG.png" alt="CIFAR10"></p>
-<p><a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener">CIFAR-100</a><br>CIFAR-10的拓展，有100个类别。</p>
-<p><a href="http://weegee.vision.ucmerced.edu/datasets/landuse.html" target="_blank" rel="noopener">UCM 数据集</a><br>UC Merced Land Use Dataset，2010年10月28号发布，包含21类土地利用分类数据。每类100张，共2100张。</p>
-<p><a href="https://www.kaggle.com/alxmamaev/flowers-recognition/" target="_blank" rel="noopener">Kaggle Flowers Recognition</a><br>包含4242张花的数据集。</p>
-<p><a href="https://captain-whu.github.io/DOTA" target="_blank" rel="noopener">DOTA数据集</a><br>DOTA: A Large-scale Dataset for Object DeTection in Aerial Images<br>航空影像目标检测</p>
-<p><a href="https://captain-whu.github.io/iSAID/evaluation.html" target="_blank" rel="noopener">iSAID</a><br>iSAID: A Large-scale Dataset for Instance Segmentation in Aerial Images<br>航空影像实例分割</p>
-<h2 id="语音"><a href="#语音" class="headerlink" title="语音"></a>语音</h2><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><p><a href="https://wordnet.princeton.edu/download" target="_blank" rel="noopener">WordNet</a><br>普林斯顿大学发布的英语词汇数据库，收录了超过十万个实词。在WordNet中意义相近的词组成同义词组，而同义词组之间则以上-下义，同义-反义，整体-部分以及蕴含等语义关系连接在一起，构成一个由同义词组作为节点，语义关系作为边的网状结构。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1749,20 +1755,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1820,13 +1826,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">71k</span>
+    <span title="站点总字数">72k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:58</span>
+    <span title="站点阅读时长">2:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

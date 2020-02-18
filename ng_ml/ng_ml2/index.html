@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。">
+  <meta name="description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 Model Representation">
 <meta name="keywords" content="Andrew Ng Machine Learning,MOOC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Andrew Ng Machine Learning - 2 Linear regression with one variable">
 <meta property="og:url" content="http://www.liyaolife.com/ng_ml/ng_ml2/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。">
+<meta property="og:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 Model Representation">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-15T13:11:34.238Z">
+<meta property="og:updated_time" content="2020-02-18T04:21:07.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Andrew Ng Machine Learning - 2 Linear regression with one variable">
-<meta name="twitter:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。">
+<meta name="twitter:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 Model Representation">
 
 <link rel="canonical" href="http://www.liyaolife.com/ng_ml/ng_ml2/">
 
@@ -225,7 +225,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-15 21:11:34" itemprop="dateModified" datetime="2020-02-15T21:11:34+08:00">2020-02-15</time>
+                <time title="修改时间：2020-02-18 12:21:07" itemprop="dateModified" datetime="2020-02-18T12:21:07+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,8 +233,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/" itemprop="url" rel="index">
+                    <span itemprop="name">Stanford Andrew Ng Machine Learning Course</span>
                   </a>
                 </span>
             </span>
@@ -266,7 +272,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>115</span>
+              <span>134</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -286,7 +292,7 @@
 
       
         <p>本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。</p>
-
+<h2 id="Model-Representation"><a href="#Model-Representation" class="headerlink" title="Model Representation"></a>Model Representation</h2>
     </div>
 
     
@@ -354,6 +360,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-Representation"><span class="nav-text">Model Representation</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -369,20 +376,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -440,13 +447,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">71k</span>
+    <span title="站点总字数">72k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:58</span>
+    <span title="站点阅读时长">2:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
