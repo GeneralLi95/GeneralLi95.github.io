@@ -51,20 +51,20 @@
   };
 </script>
 
-  <meta name="description" content="今天才发现不知道什么时候我的 shell 环境莫名其妙变成了 zsh。 今天了解了一下 zsh，也叫 Z shell 是一种将 macOS 原生终端的 bash 命令行打包起来，然后增加了很多新的不错的特性的命令行。 直观体会是 首先简洁，以前的我命令行起手是 1YaodeMacBook-Pro: ~ $ 现在起手变成了(现在发现也不是每次打开都这样) 1yaoli@YaodeMBP: ~ % $">
-<meta name="keywords" content="Shell">
+  <meta name="description" content="发现 GitHub 的头像一直无法显示，包括自己的和他人的。虽然这看似是一个无关紧要的问题，但是会影响 网页浏览 和 Atom git 界面的美观，逼死强迫症。 查阅资料发现，github 的头像存储在其分服务器下面，所以单单将 github.com 加到 PAC 规则里面是不够的，还需要将其他一些服务器也加进去。 目前我的 PAC 列表如下： 123456789101112! Put user">
+<meta name="keywords" content="Proxy,GitHub">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zsh 初探">
-<meta property="og:url" content="http://www.liyaolife.com/zsh/index.html">
+<meta property="og:title" content="GitHub 头像无法显示的问题">
+<meta property="og:url" content="http://www.liyaolife.com/github_avatar/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="今天才发现不知道什么时候我的 shell 环境莫名其妙变成了 zsh。 今天了解了一下 zsh，也叫 Z shell 是一种将 macOS 原生终端的 bash 命令行打包起来，然后增加了很多新的不错的特性的命令行。 直观体会是 首先简洁，以前的我命令行起手是 1YaodeMacBook-Pro: ~ $ 现在起手变成了(现在发现也不是每次打开都这样) 1yaoli@YaodeMBP: ~ % $">
+<meta property="og:description" content="发现 GitHub 的头像一直无法显示，包括自己的和他人的。虽然这看似是一个无关紧要的问题，但是会影响 网页浏览 和 Atom git 界面的美观，逼死强迫症。 查阅资料发现，github 的头像存储在其分服务器下面，所以单单将 github.com 加到 PAC 规则里面是不够的，还需要将其他一些服务器也加进去。 目前我的 PAC 列表如下： 123456789101112! Put user">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-16T10:22:03.757Z">
+<meta property="og:updated_time" content="2020-02-18T09:57:22.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zsh 初探">
-<meta name="twitter:description" content="今天才发现不知道什么时候我的 shell 环境莫名其妙变成了 zsh。 今天了解了一下 zsh，也叫 Z shell 是一种将 macOS 原生终端的 bash 命令行打包起来，然后增加了很多新的不错的特性的命令行。 直观体会是 首先简洁，以前的我命令行起手是 1YaodeMacBook-Pro: ~ $ 现在起手变成了(现在发现也不是每次打开都这样) 1yaoli@YaodeMBP: ~ % $">
+<meta name="twitter:title" content="GitHub 头像无法显示的问题">
+<meta name="twitter:description" content="发现 GitHub 的头像一直无法显示，包括自己的和他人的。虽然这看似是一个无关紧要的问题，但是会影响 网页浏览 和 Atom git 界面的美观，逼死强迫症。 查阅资料发现，github 的头像存储在其分服务器下面，所以单单将 github.com 加到 PAC 规则里面是不够的，还需要将其他一些服务器也加进去。 目前我的 PAC 列表如下： 123456789101112! Put user">
 
-<link rel="canonical" href="http://www.liyaolife.com/zsh/">
+<link rel="canonical" href="http://www.liyaolife.com/github_avatar/">
 
 
 <script id="page-configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>zsh 初探 | Yao Blog</title>
+  <title>GitHub 头像无法显示的问题 | Yao Blog</title>
   
 
 
@@ -195,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/zsh/">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/github_avatar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -208,7 +208,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          zsh 初探
+          GitHub 头像无法显示的问题
         </h1>
 
         <div class="post-meta">
@@ -217,30 +217,24 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-01-08 15:23:44" itemprop="dateCreated datePublished" datetime="2020-01-08T15:23:44+08:00">2020-01-08</time>
+              <time title="创建时间：2020-02-18 17:49:12 / 修改时间：17:57:22" itemprop="dateCreated datePublished" datetime="2020-02-18T17:49:12+08:00">2020-02-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-16 18:22:03" itemprop="dateModified" datetime="2020-02-16T18:22:03+08:00">2020-02-16</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Shell/" itemprop="url" rel="index">
-                    <span itemprop="name">Shell</span>
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/zsh/" class="post-meta-item leancloud_visitors" data-flag-title="zsh 初探" title="阅读次数">
+            <span id="/github_avatar/" class="post-meta-item leancloud_visitors" data-flag-title="GitHub 头像无法显示的问题" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -255,8 +249,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/zsh/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/zsh/" itemprop="commentCount"></span>
+    <a title="valine" href="/github_avatar/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/github_avatar/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -266,7 +260,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>478</span>
+              <span>572</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -285,26 +279,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天才发现不知道什么时候我的 shell 环境莫名其妙变成了 zsh。</p>
-<p>今天了解了一下 zsh，也叫 Z shell 是一种将 macOS 原生终端的 bash 命令行打包起来，然后增加了很多新的不错的特性的命令行。</p>
-<p>直观体会是 首先简洁，以前的我命令行起手是</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YaodeMacBook-Pro: ~ <span class="symbol">$</span></span><br></pre></td></tr></table></figure>
-<p>现在起手变成了(现在发现也不是每次打开都这样)</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaoli<span class="meta">@YaodeMBP</span>: ~ %</span><br></pre></td></tr></table></figure>
-<p>$ 变成 %</p>
-<p>其他好处就是</p>
-<ul>
-<li>完全兼容 Bash</li>
-<li>更强大的补全功能 cd 之后可以按多次 tab 键，而不用按 ls 键来显示所有的内容，另外可以智能切换目录比如你要进入一个很深的目录，<code>/var/log/nginx/error/lastyear/may/first/monday</code> 用zsh可以这样输入<code>cd /v/l/n/e/l/m/f/m</code></li>
-<li>命令选项补齐，比如输入 docker，按 tab 会显示出 docker 都有哪些命令选项。</li>
-<li>大小写自动更正</li>
-<li>各种各样丰富多彩的主题   </li>
-</ul>
-<p>设置文件 位于 <code>~/.zshrc</code></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="https://www.howtogeek.com/362409/what-is-zsh-and-why-should-you-use-it-instead-of-bash/" target="_blank" rel="noopener">What is ZSH, and Why Should You Use It Instead of Bash?</a></li>
-<li><a href="https://www.zhihu.com/question/29977255" target="_blank" rel="noopener">mac 装了 oh my zsh 后比用 bash 具体好在哪儿？</a></li>
-</ol>
+        <p>发现 GitHub 的头像一直无法显示，包括自己的和他人的。虽然这看似是一个无关紧要的问题，但是会影响 网页浏览 和 Atom git 界面的美观，逼死强迫症。</p>
+<p>查阅资料发现，github 的头像存储在其分服务器下面，所以单单将 github.com 加到 PAC 规则里面是不够的，还需要将其他一些服务器也加进去。</p>
+<p>目前我的 PAC 列表如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">! Put user rules <span class="built_in">line</span> by <span class="built_in">line</span> in this <span class="keyword">file</span>.</span><br><span class="line">! See http<span class="variable">s:</span>//adblockplus.org/<span class="keyword">en</span>/<span class="built_in">filter</span>-cheatsheet ||coursera.org</span><br><span class="line">||github.<span class="keyword">com</span></span><br><span class="line">||atom.io</span><br><span class="line">||raw.githubusercontent.<span class="keyword">com</span></span><br><span class="line">||avatars0.githubusercontent.<span class="keyword">com</span></span><br><span class="line">||avatars1.githubusercontent.<span class="keyword">com</span></span><br><span class="line">||avatars2.githubusercontent.<span class="keyword">com</span></span><br><span class="line">||avatars3.githubusercontent.<span class="keyword">com</span></span><br><span class="line">||avatars4.githubusercontent.<span class="keyword">com</span></span><br><span class="line">||avatars5.githubusercontent.<span class="keyword">com</span></span><br><span class="line">||avatars6.githubusercontent.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
+<p>其中后面带 githubusercontent 的即存储头像的地址。</p>
 
     </div>
 
@@ -315,24 +294,22 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Shell/" rel="tag"><i class="fa fa-tag"></i> Shell</a>
+              <a href="/tags/Proxy/" rel="tag"><i class="fa fa-tag"></i> Proxy</a>
+              <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/pytorch_error1/" rel="next" title="torch.cuda.is_available() False 问题">
-                  <i class="fa fa-chevron-left"></i> torch.cuda.is_available() False 问题
+                <a href="/atom_apm/" rel="next" title="Atom 包管理器 apm 更换国内源">
+                  <i class="fa fa-chevron-left"></i> Atom 包管理器 apm 更换国内源
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/pyenv/" rel="prev" title="怎样在 Mac 上安装一个最好的 Python 工作环境">
-                  怎样在 Mac 上安装一个最好的 Python 工作环境 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -372,7 +349,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

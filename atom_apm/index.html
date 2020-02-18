@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="今日发现 Atom 更新包无论如何总是失败。报错类型是下面这杨 123456npm ERR! code Z_BUF_ERRORnpm ERR! errno -5npm ERR! zlib: unexpected end of filenpm ERR! A complete log of this run can be found in:npm ERR!     /Users/yaoli/.atom">
+  <meta name="description" content="今日发现 Atom 更新包无论如何总是失败。报错类型是下面这样 123456npm ERR! code Z_BUF_ERRORnpm ERR! errno -5npm ERR! zlib: unexpected end of filenpm ERR! A complete log of this run can be found in:npm ERR!     /Users/yaoli/.atom">
 <meta name="keywords" content="Atom">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Atom 包管理器 apm 更换国内源">
 <meta property="og:url" content="http://www.liyaolife.com/atom_apm/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="今日发现 Atom 更新包无论如何总是失败。报错类型是下面这杨 123456npm ERR! code Z_BUF_ERRORnpm ERR! errno -5npm ERR! zlib: unexpected end of filenpm ERR! A complete log of this run can be found in:npm ERR!     /Users/yaoli/.atom">
+<meta property="og:description" content="今日发现 Atom 更新包无论如何总是失败。报错类型是下面这样 123456npm ERR! code Z_BUF_ERRORnpm ERR! errno -5npm ERR! zlib: unexpected end of filenpm ERR! A complete log of this run can be found in:npm ERR!     /Users/yaoli/.atom">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-18T07:48:56.141Z">
+<meta property="og:updated_time" content="2020-02-18T09:47:29.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Atom 包管理器 apm 更换国内源">
-<meta name="twitter:description" content="今日发现 Atom 更新包无论如何总是失败。报错类型是下面这杨 123456npm ERR! code Z_BUF_ERRORnpm ERR! errno -5npm ERR! zlib: unexpected end of filenpm ERR! A complete log of this run can be found in:npm ERR!     /Users/yaoli/.atom">
+<meta name="twitter:description" content="今日发现 Atom 更新包无论如何总是失败。报错类型是下面这样 123456npm ERR! code Z_BUF_ERRORnpm ERR! errno -5npm ERR! zlib: unexpected end of filenpm ERR! A complete log of this run can be found in:npm ERR!     /Users/yaoli/.atom">
 
 <link rel="canonical" href="http://www.liyaolife.com/atom_apm/">
 
@@ -219,7 +219,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-02-18 12:12:36 / 修改时间：15:48:56" itemprop="dateCreated datePublished" datetime="2020-02-18T12:12:36+08:00">2020-02-18</time>
+              <time title="创建时间：2020-02-18 12:12:36 / 修改时间：17:47:29" itemprop="dateCreated datePublished" datetime="2020-02-18T12:12:36+08:00">2020-02-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,7 +260,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>214</span>
+              <span>500</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -279,8 +279,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今日发现 Atom 更新包无论如何总是失败。报错类型是下面这杨</p>
+        <p>今日发现 Atom 更新包无论如何总是失败。报错类型是下面这样</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">ERR</span>! code Z_BUF_ERROR</span><br><span class="line">npm <span class="keyword">ERR</span>! errno -5</span><br><span class="line">npm <span class="keyword">ERR</span>! zlib: unexpected end of <span class="keyword">file</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">ERR</span>! A complete <span class="keyword">log</span> of this <span class="keyword">run</span> can be found <span class="keyword">in</span>:</span><br><span class="line">npm <span class="keyword">ERR</span>!     /Users/yaoli/.atom/.apm/_logs/2020-02-17T09_39_31_164Z-debug.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<p>尝试了清除 npm cache 重装 发现并没有用，设置代理也一直未成功，另外由于梯子的不稳定性，设置代理后如果梯子挂掉了，仍然是不能用。</p>
+<p>所以最后查阅资料，采用了更换淘宝源的办法。</p>
+<blockquote>
+<p>Atom的插件实际上在npm上，npm的官方源在国内访问起来是非常缓慢的。但是，国内有许多镜像源可以使用，如淘宝源(<a href="http://registry.npm.taobao.org/)，CNPM（http://r.cnpmjs.org）" target="_blank" rel="noopener">http://registry.npm.taobao.org/)，CNPM（http://r.cnpmjs.org）</a></p>
+</blockquote>
+<p>执行如下命令</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apm config <span class="keyword">set</span> <span class="keyword">registry</span> <span class="keyword">http</span>://<span class="keyword">registry</span>.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>即完成了对 npm 源的替换。Atom 终于可以正常使用了。</p>
 
     </div>
 
@@ -306,6 +314,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/github_avatar/" rel="prev" title="GitHub 头像无法显示的问题">
+                  GitHub 头像无法显示的问题 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -360,7 +371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -373,7 +384,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -431,13 +442,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">72k</span>
+    <span title="站点总字数">77k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:08</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>

@@ -193,6 +193,126 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pytorch_error1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Li Yao">
+      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yao Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/pytorch_error1/" class="post-title-link" itemprop="url">torch.cuda.is_available() False 问题</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-06 16:20:57" itemprop="dateCreated datePublished" datetime="2020-01-06T16:20:57+08:00">2020-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-18 15:52:20" itemprop="dateModified" datetime="2020-02-18T15:52:20+08:00">2020-02-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/pytorch_error1/" class="post-meta-item leancloud_visitors" data-flag-title="torch.cuda.is_available() False 问题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/pytorch_error1/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/pytorch_error1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>541</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>为了解决前文中提到的 cudnn.benchmark = True 的情况下的报错，我在实验室的两台新的服务器都新建路虚拟环境，升级了 torch 版本到1.3.1，升级后在61服务器可以正常使用，在57服务器，该虚拟环境中无法正常使用GPU，运行时  device 显示的是 ‘cpu’。</p>
+<p>具体表现为</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; import torch</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; torch.backends.cudnn.enabled</span></span><br><span class="line">True</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; torch.cuda.is_available()</span></span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+<p>Google 检索关键字 torch.cuda.is_available = false<br>发现遇到这个问题的人不少，很多种解法，做玄乎的是重启服务器就好，大部分说法是更新 CUDA 的版本和 NVIDIA Driver 版本，而受限于网络，离线环境下这两个版本我是不敢轻易更新的，之前服务器安装的时候，联网都要折腾好几天。而这个时候，考虑到服务器还有很多人在用，这个也不像虚拟环境那样可以轻松安装，所以暂时先不考虑，目前的折中做法只能是只在 61服务器上用 或者在57服务器上将 cudnn.benchmark 设置成 false ，有时候科研当中也是充满了无奈啊，不过时间已经不允许在这些上面浪费太多了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ng_ml/ng_ml/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,7 +344,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 12:20:48" itemprop="dateModified" datetime="2020-02-18T12:20:48+08:00">2020-02-18</time>
+                <time title="修改时间：2020-02-18 19:27:52" itemprop="dateModified" datetime="2020-02-18T19:27:52+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,14 +391,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>5.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>9 分钟</span>
             </span>
 
         </div>
@@ -292,12 +412,12 @@
       
           <p>开始在 Coursera上学习 斯坦福吴恩达的机器学习教程，是侧重神经网络的新版，不是侧重 SVM 的旧版。</p>
 <h2 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h2><p>首先 Ng 欢迎来到课程，介绍什么是 Machine Learning 这个视频很有名了，在两个版本中都介绍了这一部分。举了一些例子，包括他的学生做的直升飞机，无人车什么的。不再详述。</p>
-<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><p>分类 机器学习 按照大类可分为两类 Supervised Learning 和 Unsupervised Learning，即监督学习和无监督学习。那么当下比较火的是 自监督学习。不知道应该属于两者中的哪一类。</p>
+<h2 id="1-1-Supervised-Learning"><a href="#1-1-Supervised-Learning" class="headerlink" title="1.1 Supervised Learning"></a>1.1 Supervised Learning</h2><p>分类 机器学习 按照大类可分为两类 Supervised Learning 和 Unsupervised Learning，即监督学习和无监督学习。那么当下比较火的是 自监督学习。不知道应该属于两者中的哪一类。</p>
 <p>在监督学习部分，举了几个例子</p>
 <ul>
 <li>房价预测的例子，线性回归模型， Regression problem</li>
 <li><p>breast cancer（malignant, benign) 乳腺癌，恶性与良性的判断，Classification problem</p>
-<p>quiz:</p>
+<p><strong>quiz:</strong></p>
 <p>You’re running a company, and you want to develop learning algorithms to address each of two problems. Problem 1:You have a large inventory of identical items. You want to predict how many of these items will sell over the next 3 months.</p>
 <p>Problem 2: You’d like software to examine individual customer accounts, and for each account decide if it has been hacked/compromised. Should you treat these as classification or as regression problems?</p>
 </li>
@@ -308,20 +428,81 @@
 <li>Treat both as regression problems.</li>
 </ul>
 <p>这个问题就是给两个问题判断属于哪一类，第一类是预测投资对后三个月的销售影像，典型的回归问题，第二个是用程序检测用户账户是否被入侵，典型的分类问题。</p>
-<h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><p>无监督学习，举了几个例子，谷歌新闻 group them into cohesive news stories，将新闻按主题大致分类。基因检测。列举了一些无监督学习的应用，如组织计算机集群，社交网络分析，用户属性分类，太空数据分析等等。</p>
-<p>然后是经典的鸡尾酒会例子，两个人，两个麦克风。距离不同。</p>
+<h2 id="1-2-Unsupervised-Learning"><a href="#1-2-Unsupervised-Learning" class="headerlink" title="1.2 Unsupervised Learning"></a>1.2 Unsupervised Learning</h2><p>无监督学习，举了几个例子，谷歌新闻 group them into cohesive news stories，将新闻按主题大致分类。基因检测。列举了一些无监督学习的应用，如组织计算机集群，社交网络分析，用户属性分类，太空数据分析等等。</p>
+<p>然后是经典的鸡尾酒会例子，两个人，两个麦克风。距离不同。两个人同时数1到10.通过无监督学习将这两个声音区分开。<br><img src="https://i.loli.net/2020/02/18/iId41FlgpqMWExk.png" alt="image.png"></p>
+<p>同时这里介绍了编程软件 Octave。可以简单认为是一个免费的 Matlab。</p>
 <blockquote>
 <p>cohesive 内聚，凝聚的<br>genomics 基因<br>cocktail party 鸡尾酒会</p>
 </blockquote>
-<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>辅助材料给出了 监督学习、回归问题、分类问题的定义</p>
+<p><strong>Quiz</strong></p>
+<p>Of the following examples, which would you address using an unsupervised learning algorithm? (Check all that apply.)</p>
+<ul>
+<li>Given email labeled as spam/not spam, learn a spam filter.</li>
+<li><strong>Given a set of news articles found on the web, group them into sets of articles about the same stories.</strong></li>
+<li><strong>Given a database of customer data, automatically discover market segments and group customers into different market segments.</strong></li>
+<li>Given a dataset of patients diagnosed as either having diabetes or not, learn to classify new patients as having diabetes or not.</li>
+</ul>
+<p>这个问题是判断监督学习与无监督学习，都是课程视频里面讲过的例子，答案显而易见。</p>
+<h2 id="1-3-Review"><a href="#1-3-Review" class="headerlink" title="1.3 Review"></a>1.3 Review</h2><p>辅助材料给出了 监督学习、回归问题、分类问题的定义</p>
 <blockquote>
 <p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
 </blockquote>
 <blockquote>
 <p>Supervised learning problems are categorized into “regression” and “classification” problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.</p>
 </blockquote>
-<h2 id="小测试"><a href="#小测试" class="headerlink" title="小测试"></a>小测试</h2><ol>
-<li>A computer program is said to learn from experience E with respect to some task T and some performance measure P if its performance on T, as measured by P, improves with experience E. Suppose we feed a learning algorithm a lot of historical weather data, and have it learn to predict weather. What would be a reasonable choice for P?</li>
+<h2 id="1-4-章节测试"><a href="#1-4-章节测试" class="headerlink" title="1.4 章节测试"></a>1.4 章节测试</h2><ol>
+<li><p>A computer program is said to learn from experience E with respect to some task T and some performance measure P if its performance on T, as measured by P, improves with experience E. Suppose we feed a learning algorithm a lot of historical weather data, and have it learn to predict weather. In this setting, what is T?</p>
+<ul>
+<li>None of these.</li>
+<li>The probability of it correctly predicting a future date’s weather.</li>
+<li><strong>The weather prediction task.</strong></li>
+<li>The process of the algorithm examining a large amount of historical weather data.</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>Suppose you are working on weather prediction, and use a learning algorithm to predict tomorrow’s temperature (in degrees Centigrade/Fahrenheit). Would you treat this as a classification or a regression problem?</p>
+<ul>
+<li>Classification</li>
+<li><p><strong>Regression</strong></p>
+<p>预测明日温度，应属于 Regression ，而第6小问，预测明天5点是否会下雨，是 Classification</p>
+</li>
+</ul>
+</li>
+<li><p>Suppose you are working on stock market prediction, and you would like to predict the price of a particular stock tomorrow (measured in dollars). You want to use a learning algorithm for this. Would you treat this as a classification or a regression problem?</p>
+<ul>
+<li><strong>Regression</strong></li>
+<li>Classification</li>
+</ul>
+</li>
+<li><p>Some of the problems below are best addressed using a supervised learning algorithm, and the others with an unsupervised learning algorithm. Which of the following would you apply supervised learning to? (Select all that apply.) In each case, assume some appropriate dataset is available for your algorithm to learn from.</p>
+</li>
+</ol>
+<pre><code>* Given a large dataset of medical records from patients suffering from heart disease, try to learn whether there might be different clusters of such patients for which we might tailor separate treatments.
+* Given data on how 1000 medical patients respond to an experimental drug (such as effectiveness of the treatment, side effects, etc.), discover whether there are different categories or &quot;types&quot; of patients in terms of how they respond to the drug, and if so what these categories are.
+* Have a computer examine an audio clip of a piece of music, and classify whether or not there are vocals (i.e., a human voice singing) in that audio clip, or if it is a clip of only musical instruments (and no vocals).
+* **Given genetic (DNA) data from a person, predict the odds of him/her developing diabetes over the next 10 years.**
+* **In farming, given data on crop yields over the last 50 years, learn to predict next year&apos;s crop yields.**
+* Examine a web page, and classify whether the content on the web page should be considered &quot;child friendly&quot; (e.g., non-pornographic, etc.) or &quot;adult.&quot;
+* Take a collection of 1000 essays written on the US Economy, and find a way to automatically group these essays into a small number of groups of essays that are somehow &quot;similar&quot; or &quot;related&quot;.
+* **Examine the statistics of two football teams, and predict which team will win tomorrow&apos;s match (given historical data of teams&apos; wins/losses to learn from).**
+* Examine a large collection of emails that are known to be spam email, to discover if there are sub-types of spam mail.
+&lt;font color = #FF7F00&gt;这道题每次新做都会有一些新的选项，我做了三遍应该穷尽了大部分选项，很有迷惑性的一道题，一般看到给出了大量数据，尤其是以时间为先做的数据的时候往往容易直接选成 Regression，但是实际上，第一个选项要分 cluster，第二个选项， different categories，以及最后一个垃圾短信的，课程中垃圾短信是一个 Regression，而这个选项是寻找垃圾短信的 sub-types。确实很有迷惑性。&lt;/font&gt;
+</code></pre><ol>
+<li><p>Which of these is a reasonable definition of machine learning?</p>
+<ul>
+<li>Machine learning is the science of programming computers.</li>
+<li>Machine learning is the field of allowing robots to act intelligently.</li>
+<li>Machine learning learns from labeled data.</li>
+<li><strong>Machine learning is the field of study that gives computers the ability to learn without being explicitly programmed.</strong></li>
+</ul>
+</li>
+<li><p>Suppose you are working on weather prediction, and you would like to predict whether or not it will be raining at 5pm tomorrow. You want to use a learning algorithm for this. Would you treat this as a classification or a regression problem?</p>
+<ul>
+<li><strong>Classification</strong></li>
+<li>Regression</li>
+</ul>
+</li>
 </ol>
 
       
@@ -1482,229 +1663,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/hyjl_gz2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/hyjl_gz2/" class="post-title-link" itemprop="url">GIIC-新一代人工智能产业发展论坛(day2)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-24 08:58:00" itemprop="dateCreated datePublished" datetime="2019-11-24T08:58:00+08:00">2019-11-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 16:06:46" itemprop="dateModified" datetime="2020-02-18T16:06:46+08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/参会记录/" itemprop="url" rel="index">
-                    <span itemprop="name">参会记录</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/hyjl_gz2/" class="post-meta-item leancloud_visitors" data-flag-title="GIIC-新一代人工智能产业发展论坛(day2)" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/hyjl_gz2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/hyjl_gz2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>GIIC-第三届全球智能工业大会暨博览会暨全球创新技术成果转移大会<br>The 3rd Global Intelligent Industry Conference &amp; Exposition &amp; Global Innovative Technology Exchange Conference</p>
-<p>主题论坛一： 新一代人工智能产业发展论坛(day2)<br>主持人：许勇，华南理工大学研究生院教授，副院长</p>
-<h2 id="7-视觉计算关键技术及应用-The-Key-Technologies-and-Applications-of-Visual-Computing"><a href="#7-视觉计算关键技术及应用-The-Key-Technologies-and-Applications-of-Visual-Computing" class="headerlink" title="7 视觉计算关键技术及应用 The Key Technologies and Applications of Visual Computing"></a>7 视觉计算关键技术及应用 The Key Technologies and Applications of Visual Computing</h2><p>许勇 许勇，华南理工大学研究生院教授，副院长<br>广东省大数据中心 主任<br>CCF 广州 主席</p>
-<p>90% 的大数据是图像/视频数据</p>
-<p>人工智能有哪些类型：</p>
-<ul>
-<li>弱人工智能</li>
-<li>通用人工智能</li>
-<li>强人工智能</li>
-</ul>
-<p>讲了一些背景知识，人工智能的发展历史，当前需要解决的问题。</p>
-<h3 id="图像复原"><a href="#图像复原" class="headerlink" title="图像复原"></a>图像复原</h3><p>去躁<br>去模糊<br>增强（不清晰到清晰）<br>视频去模糊<br>图像恢复（去雾）<br>去雨<br>图像恢复（去反光）<br>去反射</p>
-<h3 id="图像理解"><a href="#图像理解" class="headerlink" title="图像理解"></a>图像理解</h3><ul>
-<li>稀疏编码与字典学习</li>
-<li>大规模场景的人群运动分割<ul>
-<li>逃跑场景检测</li>
-<li>公共场合监控与报警</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://i.loli.net/2019/11/26/wmqDzC2YPlkB6xb.png" alt="视觉对象重检追踪和行为分析"></p>
-<p><img src="https://i.loli.net/2019/11/26/Rwxsf1ASy6MTi9L.jpg" alt="人群逃跑行为检测"></p>
-<p>这里讲的一些应用举例还是比较有意思的，对于人流的分析，可以辅助一些流量决策，比如地铁站的多部扶梯，哪些上行哪些下行，可以根据人群流量特征进行规划调度。</p>
-<h3 id="视频理解"><a href="#视频理解" class="headerlink" title="视频理解"></a>视频理解</h3><p>在哪里？做什么？</p>
-<p>同时定位视频中的行为（事件）并进行文字描述<br>难点：</p>
-<ul>
-<li>时序行为定位</li>
-<li>行为描述</li>
-</ul>
-<p>算法：双向SST + LSTM</p>
-<p>目前困难：缺乏中文视频描述的训练集</p>
-<p>应用前景：视频搜索</p>
-<h3 id="书法评价大数据"><a href="#书法评价大数据" class="headerlink" title="书法评价大数据"></a>书法评价大数据</h3><p>一个书法评分的应用</p>
-<h3 id="介绍课题组其他研究"><a href="#介绍课题组其他研究" class="headerlink" title="介绍课题组其他研究"></a>介绍课题组其他研究</h3><p>广东省人民政府大数据科学研究中心项</p>
-<p>云脑智能交通分析</p>
-<blockquote>
-<p>核心挑战-存储瓶颈，智能瓶颈</p>
-</blockquote>
-<h2 id="8-大规模科技知识图谱构建及其在科技情报领域的应用"><a href="#8-大规模科技知识图谱构建及其在科技情报领域的应用" class="headerlink" title="8 大规模科技知识图谱构建及其在科技情报领域的应用"></a>8 大规模科技知识图谱构建及其在科技情报领域的应用</h2><p>王德庆， 北京航空航天大学计算机学院特聘研究员，国家科技资源共享服务工程技术研究中心总工</p>
-<h3 id="传统智库vs新型智库"><a href="#传统智库vs新型智库" class="headerlink" title="传统智库vs新型智库"></a>传统智库vs新型智库</h3><p>传统智库，以人为中心，数据为辅，咨询报告的产生往往消耗大量人力物力</p>
-<p>新型智库，传统智库的升级版，海量数据为主、人工为辅</p>
-<h3 id="案例一：知兔——基于科技大数据的智能服务平台"><a href="#案例一：知兔——基于科技大数据的智能服务平台" class="headerlink" title="案例一：知兔——基于科技大数据的智能服务平台"></a>案例一：知兔——基于科技大数据的智能服务平台</h3><p>整合：人才、机构、科研成果<br>提供：科研评价，成果转化<br>对人才，了解本领域学术热点等等<br>对企业，找到领域的优秀人、较好的技术</p>
-<p>核心竞争力：</p>
-<ul>
-<li>全</li>
-<li>准（智能画像）</li>
-<li>变（更新及时：每个月活跃度指标，时效性高）</li>
-<li>信（高可信交易）</li>
-</ul>
-<p>知兔APP：动态指数评价 + 知识服务，小程序：知兔空间</p>
-<p>这个知兔空间小程序还挺有意思，这个知识图谱做的不错，体验了一下，查了查自己的老师，显示的信息还是比较全面的。</p>
-<h3 id="案例二：科技情报监测预警（科技部）"><a href="#案例二：科技情报监测预警（科技部）" class="headerlink" title="案例二：科技情报监测预警（科技部）"></a>案例二：科技情报监测预警（科技部）</h3><p>数据信息</p>
-<p>AI分类体系</p>
-<h3 id="案例三：科技成果转化，产业链图谱"><a href="#案例三：科技成果转化，产业链图谱" class="headerlink" title="案例三：科技成果转化，产业链图谱"></a>案例三：科技成果转化，产业链图谱</h3><p>科技-&gt;产业界</p>
-<p>问题难点：两套语言体系</p>
-<p>用图谱的方式显示产业的上下游有何种东西</p>
-<h2 id="9-视觉与语言结合的研究-Vision-Language-：From-Caption-to-Grounding"><a href="#9-视觉与语言结合的研究-Vision-Language-：From-Caption-to-Grounding" class="headerlink" title="9 视觉与语言结合的研究 Vision  + Language ：From Caption to Grounding"></a>9 视觉与语言结合的研究 Vision  + Language ：From Caption to Grounding</h2><p>马林，腾讯 AI Lab 计算机视觉中心专家研究员</p>
-<p><img src="https://i.loli.net/2019/11/26/d1NgpSiKLzDknUs.png" alt><br>视觉 非结构化 -&gt; 语言 结构化</p>
-<table>
-<thead>
-<tr>
-<th>Vision</th>
-<th>Language</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>非机构化</td>
-<td>结构化</td>
-</tr>
-</tbody>
-</table>
-<p>朋友圈：文字+图片  视觉和语言伴生存在</p>
-<h3 id="Caption"><a href="#Caption" class="headerlink" title="Caption"></a>Caption</h3><p>一个图像（视频）： 一个或者多个句子来描述<br>Encoder-Decoder Structure</p>
-<p>产生的语句是 fitting 数据集的，所以</p>
-<h3 id="Grounding"><a href="#Grounding" class="headerlink" title="Grounding"></a>Grounding</h3><p>Caption的反任务，给定语句，在视频中找出与之语义一致的片段。检索视频？速度如何？</p>
-<p>i-LSTM</p>
-<p>SCDM</p>
-<p>更复杂场景： Weakly-Supervised Spatio-Temporal Grounding</p>
-<p>这是本次会议里面，学术性相对比较高的一个报告。做的的确是深度学习领域的前沿研究。难度也比较大。</p>
-<h2 id="10-AI赋能空间光学遥感"><a href="#10-AI赋能空间光学遥感" class="headerlink" title="10 AI赋能空间光学遥感"></a>10 AI赋能空间光学遥感</h2><p>李维，中国空间技术研究院高级工程师、博士</p>
-<h3 id="遥感与智能"><a href="#遥感与智能" class="headerlink" title="遥感与智能"></a>遥感与智能</h3><p>介绍了一下研究所，研究成果，典型产品<br>高分二号，高景一号，珠海一号，资源三号多光谱<br>高分四号，世界上最好的静轨相机</p>
-<h3 id="传统智能遥感技术"><a href="#传统智能遥感技术" class="headerlink" title="传统智能遥感技术"></a>传统智能遥感技术</h3><p>农业、水、森林、城市</p>
-<p>城市遥感：数据资源三号，目标房屋、道路、提取，判断政府与土地政策的决策差</p>
-<ul>
-<li>遥感数据小样本</li>
-<li>在轨资源受限</li>
-<li>智能模型鲁棒性查</li>
-</ul>
-<p>出乎意料的是，李维博士把当前基于深度学习的遥感技术也作为传统遥感技术，那么看来这个分类标准就是以他们提出的在轨智能遥感技术作为基准，其他的都是传统遥感技术。</p>
-<p>他演示了一些基于深度学习的技术结果。和昨天中科院沈阳自动化研究所的老师的结果有很多相似之处，基本上都是现有深度网络模型的一些应用范例。</p>
-<h3 id="在轨智能遥感技术"><a href="#在轨智能遥感技术" class="headerlink" title="在轨智能遥感技术"></a>在轨智能遥感技术</h3><p>利用生成对抗网络来实现样本生成</p>
-<p>目标背景合成仿真遥感图样制作</p>
-<p>在轨遥感像质状态智能监测补偿技术<br><img src="https://i.loli.net/2019/11/26/NWaAnZBcRHSfe1y.jpg" alt="IMG_0839.jpeg"></p>
-<p>##11 基于神经网络的新一代人工智能及其在心理学中的应用 The New Generation of Artificaial Intelligence Based on Neural Networks and Using that in Psychology<br>Ardavan Karbasi, 深圳智慧林网络科技有限公司-美籍专家、技术总监、博士</p>
-<p>英文报告，内容比较由浅入深<br>主要是一些情绪发现的内容</p>
-<p>##12 AI Core 赋能场景应用<br>刘梦涛，广州广电运通金融电子股份有限公司研究员副总工程师</p>
-<p>从企业角度、行业解决方案应用角度</p>
-<p>算法如何接入数据、算法如何应用行业</p>
-<p>业务 -&gt; 技术 -&gt; 数据  三者如何连接</p>
-<ul>
-<li><p>从 ATM 到 AI<br>戴口罩、墨镜取款行为的识别，是否有人在偷瞄这种识别。</p>
-</li>
-<li><p>银行网点内的监测</p>
-</li>
-<li><p>智能安检一体机</p>
-</li>
-<li><p>智慧园区  可以视为一个放大的银行网点</p>
-</li>
-<li><p>未来酒店</p>
-</li>
-</ul>
-<p>这位讲者是一名企业家，主要讲了一些他们公司做的内容。一些应用。其中说的是，客户不关心技术细节，需要你提供全套服务。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1755,7 +1713,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1768,7 +1726,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1826,13 +1784,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">72k</span>
+    <span title="站点总字数">77k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:08</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
