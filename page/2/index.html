@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>Yao Blog</title>
+  <title>归档 | Yao Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116714676-1"></script>
     <script>
@@ -90,6 +90,15 @@
     </script>
 
 
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8f8d97cfe412b0747bae34fbfba6e0f6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -193,1482 +202,230 @@
           <div class="content">
             
 
-  <div class="posts-expand">
+  
+  
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pytorch_error1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/pytorch_error1/" class="post-title-link" itemprop="url">torch.cuda.is_available() False 问题</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-06 16:20:57" itemprop="dateCreated datePublished" datetime="2020-01-06T16:20:57+08:00">2020-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 15:52:20" itemprop="dateModified" datetime="2020-02-18T15:52:20+08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/pytorch_error1/" class="post-meta-item leancloud_visitors" data-flag-title="torch.cuda.is_available() False 问题" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/pytorch_error1/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/pytorch_error1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>541</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        <span class="collection-header">还行! 目前共计 50 篇日志。 继续努力。</span>
+      </div>
 
       
-          <p>为了解决前文中提到的 cudnn.benchmark = True 的情况下的报错，我在实验室的两台新的服务器都新建路虚拟环境，升级了 torch 版本到1.3.1，升级后在61服务器可以正常使用，在57服务器，该虚拟环境中无法正常使用GPU，运行时  device 显示的是 ‘cpu’。</p>
-<p>具体表现为</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; import torch</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; torch.backends.cudnn.enabled</span></span><br><span class="line">True</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; torch.cuda.is_available()</span></span><br><span class="line">False</span><br></pre></td></tr></table></figure>
-<p>Google 检索关键字 torch.cuda.is_available = false<br>发现遇到这个问题的人不少，很多种解法，做玄乎的是重启服务器就好，大部分说法是更新 CUDA 的版本和 NVIDIA Driver 版本，而受限于网络，离线环境下这两个版本我是不敢轻易更新的，之前服务器安装的时候，联网都要折腾好几天。而这个时候，考虑到服务器还有很多人在用，这个也不像虚拟环境那样可以轻松安装，所以暂时先不考虑，目前的折中做法只能是只在 61服务器上用 或者在57服务器上将 cudnn.benchmark 设置成 false ，有时候科研当中也是充满了无奈啊，不过时间已经不允许在这些上面浪费太多了。</p>
-
-      
+    <div class="collection-year">
+      <h1 class="collection-header">2020</h1>
     </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2020-01-06T16:20:57+08:00"
+              content="2020-01-06">
+          01-06
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/pytorch_error1/" itemprop="url">
+            <span itemprop="name">torch.cuda.is_available() False 问题</span>
+          </a>
+      </h2>
+
+    </header>
   </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ng_ml/ng_ml/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/ng_ml/ng_ml/" class="post-title-link" itemprop="url">Andrew Ng Machine Learning - 1 Intorduction</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-28 23:07:34" itemprop="dateCreated datePublished" datetime="2019-12-28T23:07:34+08:00">2019-12-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 19:42:33" itemprop="dateModified" datetime="2020-02-18T19:42:33+08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/" itemprop="url" rel="index">
-                    <span itemprop="name">Stanford Andrew Ng Machine Learning Course</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/ng_ml/ng_ml/" class="post-meta-item leancloud_visitors" data-flag-title="Andrew Ng Machine Learning - 1 Intorduction" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ng_ml/ng_ml/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ng_ml/ng_ml/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>开始在 Coursera上学习 斯坦福吴恩达的机器学习教程，是侧重神经网络的新版，不是侧重 SVM 的旧版。</p>
-<h2 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h2><p>首先 Ng 欢迎来到课程，介绍什么是 Machine Learning 这个视频很有名了，在两个版本中都介绍了这一部分。举了一些例子，包括他的学生做的直升飞机，无人车什么的。不再详述。</p>
-<h2 id="1-1-Supervised-Learning"><a href="#1-1-Supervised-Learning" class="headerlink" title="1.1 Supervised Learning"></a>1.1 Supervised Learning</h2><p>分类 机器学习 按照大类可分为两类 Supervised Learning 和 Unsupervised Learning，即监督学习和无监督学习。那么当下比较火的是 自监督学习。不知道应该属于两者中的哪一类。</p>
-<p>在监督学习部分，举了几个例子</p>
-<ul>
-<li>房价预测的例子，线性回归模型， Regression problem</li>
-<li><p>breast cancer（malignant, benign) 乳腺癌，恶性与良性的判断，Classification problem</p>
-<p><strong>quiz:</strong></p>
-<p>You’re running a company, and you want to develop learning algorithms to address each of two problems. Problem 1:You have a large inventory of identical items. You want to predict how many of these items will sell over the next 3 months.</p>
-<p>Problem 2: You’d like software to examine individual customer accounts, and for each account decide if it has been hacked/compromised. Should you treat these as classification or as regression problems?</p>
-</li>
-<li><p>Treat both as classification problems.</p>
-</li>
-<li>Treat problem 1 as a classification problem, problem 2 as a regression problem.</li>
-<li><strong>Treat problem 1 as a regression problem, problem 2 as a classification problem.</strong></li>
-<li>Treat both as regression problems.</li>
-</ul>
-<p>这个问题就是给两个问题判断属于哪一类，第一类是预测投资对后三个月的销售影像，典型的回归问题，第二个是用程序检测用户账户是否被入侵，典型的分类问题。</p>
-<h2 id="1-2-Unsupervised-Learning"><a href="#1-2-Unsupervised-Learning" class="headerlink" title="1.2 Unsupervised Learning"></a>1.2 Unsupervised Learning</h2><p>无监督学习，举了几个例子，谷歌新闻 group them into cohesive news stories，将新闻按主题大致分类。基因检测。列举了一些无监督学习的应用，如组织计算机集群，社交网络分析，用户属性分类，太空数据分析等等。</p>
-<p>然后是经典的鸡尾酒会例子，两个人，两个麦克风。距离不同。两个人同时数1到10.通过无监督学习将这两个声音区分开。<br><img src="https://i.loli.net/2020/02/18/iId41FlgpqMWExk.png" alt="image.png"></p>
-<p>同时这里介绍了编程软件 Octave。可以简单认为是一个免费的 Matlab。</p>
-<blockquote>
-<p>cohesive 内聚，凝聚的<br>genomics 基因<br>cocktail party 鸡尾酒会</p>
-</blockquote>
-<p><strong>Quiz</strong></p>
-<p>Of the following examples, which would you address using an unsupervised learning algorithm? (Check all that apply.)</p>
-<ul>
-<li>Given email labeled as spam/not spam, learn a spam filter.</li>
-<li><strong>Given a set of news articles found on the web, group them into sets of articles about the same stories.</strong></li>
-<li><strong>Given a database of customer data, automatically discover market segments and group customers into different market segments.</strong></li>
-<li>Given a dataset of patients diagnosed as either having diabetes or not, learn to classify new patients as having diabetes or not.</li>
-</ul>
-<p>这个问题是判断监督学习与无监督学习，都是课程视频里面讲过的例子，答案显而易见。</p>
-<h2 id="1-3-Review"><a href="#1-3-Review" class="headerlink" title="1.3 Review"></a>1.3 Review</h2><p>辅助材料给出了 监督学习、回归问题、分类问题的定义</p>
-<blockquote>
-<p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
-</blockquote>
-<blockquote>
-<p>Supervised learning problems are categorized into “regression” and “classification” problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.</p>
-</blockquote>
-<h2 id="1-4-章节测试"><a href="#1-4-章节测试" class="headerlink" title="1.4 章节测试"></a>1.4 章节测试</h2><ol>
-<li><p>A computer program is said to learn from experience E with respect to some task T and some performance measure P if its performance on T, as measured by P, improves with experience E. Suppose we feed a learning algorithm a lot of historical weather data, and have it learn to predict weather. In this setting, what is T?</p>
-<ul>
-<li>None of these.</li>
-<li>The probability of it correctly predicting a future date’s weather.</li>
-<li><strong>The weather prediction task.</strong></li>
-<li>The process of the algorithm examining a large amount of historical weather data.</li>
-</ul>
-</li>
-</ol>
-<ol>
-<li><p>Suppose you are working on weather prediction, and use a learning algorithm to predict tomorrow’s temperature (in degrees Centigrade/Fahrenheit). Would you treat this as a classification or a regression problem?</p>
-<ul>
-<li>Classification</li>
-<li><p><strong>Regression</strong></p>
-<p>预测明日温度，应属于 Regression ，而第6小问，预测明天5点是否会下雨，是 Classification</p>
-</li>
-</ul>
-</li>
-<li><p>Suppose you are working on stock market prediction, and you would like to predict the price of a particular stock tomorrow (measured in dollars). You want to use a learning algorithm for this. Would you treat this as a classification or a regression problem?</p>
-<ul>
-<li><strong>Regression</strong></li>
-<li>Classification</li>
-</ul>
-</li>
-<li><p>Some of the problems below are best addressed using a supervised learning algorithm, and the others with an unsupervised learning algorithm. Which of the following would you apply supervised learning to? (Select all that apply.) In each case, assume some appropriate dataset is available for your algorithm to learn from.</p>
-</li>
-</ol>
-<pre><code>* Given a large dataset of medical records from patients suffering from heart disease, try to learn whether there might be different clusters of such patients for which we might tailor separate treatments.
-* Given data on how 1000 medical patients respond to an experimental drug (such as effectiveness of the treatment, side effects, etc.), discover whether there are different categories or &quot;types&quot; of patients in terms of how they respond to the drug, and if so what these categories are.
-* Have a computer examine an audio clip of a piece of music, and classify whether or not there are vocals (i.e., a human voice singing) in that audio clip, or if it is a clip of only musical instruments (and no vocals).
-* **Given genetic (DNA) data from a person, predict the odds of him/her developing diabetes over the next 10 years.**
-* **In farming, given data on crop yields over the last 50 years, learn to predict next year&apos;s crop yields.**
-* Examine a web page, and classify whether the content on the web page should be considered &quot;child friendly&quot; (e.g., non-pornographic, etc.) or &quot;adult.&quot;
-* Take a collection of 1000 essays written on the US Economy, and find a way to automatically group these essays into a small number of groups of essays that are somehow &quot;similar&quot; or &quot;related&quot;.
-* **Examine the statistics of two football teams, and predict which team will win tomorrow&apos;s match (given historical data of teams&apos; wins/losses to learn from).**
-* Examine a large collection of emails that are known to be spam email, to discover if there are sub-types of spam mail.
-&lt;font color = #FF7F00&gt;这道题每次新做都会有一些新的选项，我做了三遍应该穷尽了大部分选项，很有迷惑性的一道题，一般看到给出了大量数据，尤其是以时间为先做的数据的时候往往容易直接选成 Regression，但是实际上，第一个选项要分 cluster，第二个选项， different categories，以及最后一个垃圾短信的，课程中垃圾短信是一个 Regression，而这个选项是寻找垃圾短信的 sub-types。实很有迷惑性。&lt;/font&gt;
-</code></pre><ol>
-<li><p>Which of these is a reasonable definition of machine learning?</p>
-<ul>
-<li>Machine learning is the science of programming computers.</li>
-<li>Machine learning is the field of allowing robots to act intelligently.</li>
-<li>Machine learning learns from labeled data.</li>
-<li><strong>Machine learning is the field of study that gives computers the ability to learn without being explicitly programmed.</strong></li>
-</ul>
-</li>
-<li><p>Suppose you are working on weather prediction, and you would like to predict whether or not it will be raining at 5pm tomorrow. You want to use a learning algorithm for this. Would you treat this as a classification or a regression problem?</p>
-<ul>
-<li><strong>Classification</strong></li>
-<li>Regression</li>
-</ul>
-</li>
-</ol>
-
-      
+    <div class="collection-year">
+      <h1 class="collection-header">2019</h1>
     </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-28T23:07:34+08:00"
+              content="2019-12-28">
+          12-28
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/ng_ml/ng_ml/" itemprop="url">
+            <span itemprop="name">Andrew Ng Machine Learning - 1 Intorduction</span>
+          </a>
+      </h2>
+
+    </header>
   </article>
-  
-  
-  
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pytorch_error/">
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-26T10:42:17+08:00"
+              content="2019-12-26">
+          12-26
+        </time>
+      </div>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/pytorch_error/" class="post-title-link" itemprop="url">Pytorch THCudaCheck FAIL 错误</a>
-        </h1>
+      <h2 class="post-title">
+          <a class="post-title-link" href="/pytorch_error/" itemprop="url">
+            <span itemprop="name">Pytorch THCudaCheck FAIL 错误</span>
+          </a>
+      </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+    </header>
+  </article>
 
-              <time title="创建时间：2019-12-26 10:42:17" itemprop="dateCreated datePublished" datetime="2019-12-26T10:42:17+08:00">2019-12-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 15:52:22" itemprop="dateModified" datetime="2020-02-18T15:52:22+08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-            </span>
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-          
-            <span id="/pytorch_error/" class="post-meta-item leancloud_visitors" data-flag-title="Pytorch THCudaCheck FAIL 错误" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/pytorch_error/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/pytorch_error/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>331</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-25T23:25:16+08:00"
+              content="2019-12-25">
+          12-25
+        </time>
+      </div>
 
-        </div>
-      </header>
+      <h2 class="post-title">
+          <a class="post-title-link" href="/virtualenv/" itemprop="url">
+            <span itemprop="name">Python 虚拟环境</span>
+          </a>
+      </h2>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    </header>
+  </article>
 
-      
-          <p>在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">THCudaCheck FAIL <span class="attribute">file</span>=/pytorch/aten/src/THC/THCGeneral.cpp <span class="attribute">line</span>=405 <span class="attribute">error</span>=11 : invalid argument</span><br></pre></td></tr></table></figure></p>
-<p>经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和 CUDA 的版本与 torch 的版本共同相关，另外 cudnn.benchmark 默认是 Flase。所以隐藏的很深。</p>
-<p>关于 cudnn.benchmark 的作用可以参考这个 <a href="https://zhuanlan.zhihu.com/p/73711222" target="_blank" rel="noopener">知乎:torch.backends.cudnn.benchmark ?!</a>，关于这个bug的更多解释可以看这个 <a href="https://discuss.pytorch.org/t/a-error-when-using-gpu/32761" target="_blank" rel="noopener">A error when using GPU</a></p>
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-19T15:03:17+08:00"
+              content="2019-12-19">
+          12-19
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/pytorch_notes/" itemprop="url">
+            <span itemprop="name">PyTorch 笔记</span>
+          </a>
+      </h2>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-17T08:57:34+08:00"
+              content="2019-12-17">
+          12-17
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/netmodels/resnet/" itemprop="url">
+            <span itemprop="name">ResNet 笔记</span>
+          </a>
+      </h2>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-12T17:24:16+08:00"
+              content="2019-12-12">
+          12-12
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/netmodels/vgg/" itemprop="url">
+            <span itemprop="name">VGG 笔记</span>
+          </a>
+      </h2>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-10T19:19:26+08:00"
+              content="2019-12-10">
+          12-10
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/netmodels/lenet/" itemprop="url">
+            <span itemprop="name">LeNet 笔记</span>
+          </a>
+      </h2>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-08T09:32:40+08:00"
+              content="2019-12-08">
+          12-08
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/hyjz_iccc2/" itemprop="url">
+            <span itemprop="name">ICCC参会记录 (day 2)</span>
+          </a>
+      </h2>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-07T08:47:50+08:00"
+              content="2019-12-07">
+          12-07
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/hyjz_iccc/" itemprop="url">
+            <span itemprop="name">ICCC 参会记录(day 1)</span>
+          </a>
+      </h2>
+
+    </header>
+  </article>
+
+
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/virtualenv/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/virtualenv/" class="post-title-link" itemprop="url">Python 虚拟环境</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-25 23:25:16" itemprop="dateCreated datePublished" datetime="2019-12-25T23:25:16+08:00">2019-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 15:46:48" itemprop="dateModified" datetime="2020-02-18T15:46:48+08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming-Lauguage/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming Lauguage</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming-Lauguage/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/virtualenv/" class="post-meta-item leancloud_visitors" data-flag-title="Python 虚拟环境" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/virtualenv/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/virtualenv/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>909</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>以前在自己的 mac 笔记本跑代码一直用的一套环境，什么都往里面装，基本上没用过虚拟环境。最近在服务器上跑代码，因为多人共用，自己需要更新软件包，又不能影响别人，所以新建虚拟环境是最好的选择。</p>
-<h2 id="管理虚拟环境"><a href="#管理虚拟环境" class="headerlink" title="管理虚拟环境"></a>管理虚拟环境</h2><h3 id="使用-virtualenv"><a href="#使用-virtualenv" class="headerlink" title="使用 virtualenv"></a>使用 virtualenv</h3><p>先安装 virtualenv<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install virtualenv</span></span><br></pre></td></tr></table></figure></p>
-<p>为某个项目建立虚拟环境<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> project_folder</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> virtualenv venv</span></span><br></pre></td></tr></table></figure></p>
-<p>启动虚拟环境<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> venv/bin/activate</span></span><br></pre></td></tr></table></figure></p>
-<p>关闭虚拟环境<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> deactivate</span></span><br></pre></td></tr></table></figure></p>
-<p>导出 requirements<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip freeze &gt; requirements.txt</span></span><br></pre></td></tr></table></figure></p>
-<p>根据 requirements 安装 packages<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install -r requirements.txt</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="使用-virtualenv-clone-来-copy-一个虚拟环境"><a href="#使用-virtualenv-clone-来-copy-一个虚拟环境" class="headerlink" title="使用 virtualenv-clone 来 copy 一个虚拟环境"></a>使用 virtualenv-clone 来 copy 一个虚拟环境</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pip install virtualenv-clone</span><br><span class="line">$ virtualenv-<span class="keyword">clone</span> <span class="title">venvA</span> venvB</span><br></pre></td></tr></table></figure>
-<p>这里 venvA 是源，venvB是目标</p>
-<p>在操作过程中，我发现，copy过去的虚拟环境，文件夹名字是不一样了，但是启动进去后命令行最前面的括弧里的小名字还是和原来的一样，需要手动改一下 bin/activate 里面的这一块描述，总之不麻烦。</p>
-<h3 id="使用-virtualenvwrapper"><a href="#使用-virtualenvwrapper" class="headerlink" title="使用 virtualenvwrapper"></a>使用 virtualenvwrapper</h3><p>virtualenvwrapper 功能等于 virtualenv + virtualenv-clone  从建立虚拟环境，到克隆都有一系列命令，这里列出一个克隆命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cpvirtualenv ENVNAME [TARGETENVNAME]</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="使用-Anaconda-管理虚拟环境"><a href="#使用-Anaconda-管理虚拟环境" class="headerlink" title="使用 Anaconda 管理虚拟环境"></a>使用 Anaconda 管理虚拟环境</h3><p>前面的三个包都是在 pip 情况下的虚拟环境管理方法，使用conda的话是另外一套体系了。(conda 的并列级别是 pip</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="https://docs.python-guide.org/dev/virtualenvs/" target="_blank" rel="noopener">The Hitchhiker’s Guide to Python:Pipenv &amp; Virtual Environments</a></li>
-<li><a href="https://askubuntu.com/questions/737098/create-a-copy-of-virtualenv-locally-without-pip-install" target="_blank" rel="noopener">stackExchange:Create a copy of virtualenv locally without pip install</a></li>
-<li><a href="https://stackoverflow.com/questions/7438681/how-to-duplicate-virtualenv" target="_blank" rel="noopener">stackoverflow:How to duplicate virtualenv</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pytorch_notes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/pytorch_notes/" class="post-title-link" itemprop="url">PyTorch 笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-19 15:03:17" itemprop="dateCreated datePublished" datetime="2019-12-19T15:03:17+08:00">2019-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 16:01:54" itemprop="dateModified" datetime="2020-02-18T16:01:54+08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/pytorch_notes/" class="post-meta-item leancloud_visitors" data-flag-title="PyTorch 笔记" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/pytorch_notes/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/pytorch_notes/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-网络层参数理解"><a href="#1-网络层参数理解" class="headerlink" title="1. 网络层参数理解"></a>1. 网络层参数理解</h2><h3 id="卷积层参数解释"><a href="#卷积层参数解释" class="headerlink" title="卷积层参数解释"></a>卷积层参数解释</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Conv2d(in_channels, out_channels, kernel_size, <span class="attribute">stride</span>=1, <span class="attribute">padding</span>=0, <span class="attribute">dilation</span>=1, <span class="attribute">groups</span>=1, <span class="attribute">bias</span>=<span class="literal">True</span>, <span class="attribute">padding_mode</span>=<span class="string">'zeros'</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>in_channel</strong>(int) - Number of channels in the input image，输入图片通道，RGB图片3通道</li>
-<li><strong>out_channels</strong> (int) – Number of channels produced by the convolution, 卷积的输出通道，表示有多少个 filter 对输入进行滤波，同时输出N个结果</li>
-<li><strong>kernel_size</strong> (int or tuple) - Size of the convolving kernel 卷积核的大小</li>
-<li><strong>stride</strong>(int or tuple, optional) - Stride of the convolution(Default 1) 卷积核滑动的步幅，默认1</li>
-<li><strong>padding</strong>(int or tuple,optional) - Zero-padding added to both sides of the input. Default: 0，输入两侧填充的0的个数</li>
-<li><strong>dilation</strong>(int or tuple, optional) - Spacing between kernel elements. Default: 1，内核元素之间的间距，默认1</li>
-<li><strong>groups</strong> (int,optional) – Number of blocked connections from input channels to output channels. Default: 1 从输入通道到输出通道的阻塞连接数，默认1</li>
-<li><strong>bias</strong> (bool,optional) – If True, adds a learnable bias to the output. Default: True 向输出添加可学习的偏见，默认 True</li>
-</ul>
-<h3 id="全连接层参数解释"><a href="#全连接层参数解释" class="headerlink" title="全连接层参数解释"></a>全连接层参数解释</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Linear(in_features, out_features, <span class="attribute">bias</span>=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<p>对应公式：<br>$$y = x A^T + b$$</p>
-<p><strong>in_features</strong> - size of each input samples 输入的样本大小<br><strong>out_features</strong> - size of each output samples 输出的样本大小<br><strong>bias</strong> If set to False, the layer wiil not learn an additive bias. Default True如果设置为false, 图形不会学习偏差</p>
-<h2 id="2-Transforms-in-pytorch-手册阅读"><a href="#2-Transforms-in-pytorch-手册阅读" class="headerlink" title="2. Transforms in pytorch 手册阅读"></a>2. Transforms in pytorch 手册阅读</h2><blockquote>
-<p>Data augmentation is the process of artificially enlarging your training dataset using carefully chosen transforms.<br>When used appropriately, data augmentation can make your trained models more robust and capable of achieving higher accuracy without requiring larger dataset.<br>For those who are familiar with it, data augmentation is very similar to regularization in that it can prevent over-fitting compared to another identical model learning on the same dataset for the same number of epochs.<br>Two very useful transforms of this type that are commonly used in computer vision are random flipping and random cropping.<br>In torchvision, random flipping can be achieved with a random horizontal flip and random vertical flip transforms while random cropping can be achieved using the random crop transform.</p>
-</blockquote>
-<p>Data augmentation 数据增强，人工一些精巧的变换来增强数据集。以前一直没把数据增强当回事，觉得是一些奇淫巧技，结果直到自己的 cifar 识别率一直达不到别人的同样水平，最后发现二者的差别就在于有没有用数据增强，加了一个随机水平翻转增强后最终准确率大大提高了有将近10个百分点(80% -&gt; 90%)，看来这一块必须得重视。当成一个通用技巧来看。</p>
-<p>Transforms 对图像进行变换，有各种方法</p>
-<h3 id="裁剪-Crop"><a href="#裁剪-Crop" class="headerlink" title="裁剪 Crop"></a>裁剪 Crop</h3><ul>
-<li><code>torchvision.transforms.RandomCrop(size, padding=None, pad_if_needed=False, fill=0, padding_mode=&#39;constant&#39;)</code><br>在随机位置裁剪原图像，<ul>
-<li>size 裁剪大小，两种结果，如果是 sequence，则为(h,w),高*宽，如果只有一个数字int，则裁剪为正方形。</li>
-<li>padding，填充，可以是 sequence 或者 int。默认不填充，当为int时，上下左右同时填充，当有两个数的sequence时，第一个数表示左右填充值是多少，第二个说表示上下填充值是多少，当有四个数时，则分别为左、上、右、下（顺时针方向）</li>
-</ul>
-</li>
-<li><code>torchvision.transforms.RandomResizedCrop(size, scale=(0.08, 1.0), ratio=(0.75, 1.3333333333333333), interpolation=2)</code><br>  *<h3 id="翻转和旋转-Flip-and-Rotation"><a href="#翻转和旋转-Flip-and-Rotation" class="headerlink" title="翻转和旋转 Flip and Rotation"></a>翻转和旋转 Flip and Rotation</h3><ul>
-<li>torchvision.transforms.RandomHorizontalFlip(p=0.5) 水平翻转图像，默认概率为0.5，决定这个图像是否被翻转</li>
-<li>torchvision.transforms.RandomResizedCrop(size, scale=(0.08, 1.0), ratio=(0.75, 1.3333333333333333), interpolation=2)裁剪为随机大小和纵横比</li>
-</ul>
-</li>
-</ul>
-<h3 id="标准化-Normalize"><a href="#标准化-Normalize" class="headerlink" title="标准化 Normalize"></a>标准化 Normalize</h3><ul>
-<li>torchvision.transforms.Normalize(mean, std, inplace=False)<br>对数据按通道进行标准化，即先减均值，再除以标准差。<br>$$input[channel1] = \frac{input[channel1] - mean[channel1]}{std[channel1]}$$<ul>
-<li>mean(sequence)，每个channel的均值</li>
-<li>std(sequence)，每个channel的标准差</li>
-</ul>
-</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://stackoverflow.com/questions/56675943/what-is-the-meaning-of-parameters-involved-in-torch-nn-conv2d" target="_blank" rel="noopener">stackoverflow: what is the what is the meaning of parameters involved in torch.nn.conv2d
-</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/53367135" target="_blank" rel="noopener">知乎:PyTorch 学习笔记（三）：transforms的二十二个方法</a></li>
-<li><a href="https://www.aiworkbox.com/lessons/augment-the-cifar10-dataset-using-the-randomhorizontalflip-and-randomcrop-transforms" target="_blank" rel="noopener">Augment the CIFAR10 Dataset Using the RandomHorizontalFlip and RandomCrop Transforms</a></li>
-<li><a href="https://pytorch.org/docs/stable/torchvision/transforms.html" target="_blank" rel="noopener">TorchVision 官方手册 Transforms 部分</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/netmodels/resnet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/netmodels/resnet/" class="post-title-link" itemprop="url">ResNet 笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-17 08:57:34" itemprop="dateCreated datePublished" datetime="2019-12-17T08:57:34+08:00">2019-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 12:22:48" itemprop="dateModified" datetime="2020-02-18T12:22:48+08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/netmodels/resnet/" class="post-meta-item leancloud_visitors" data-flag-title="ResNet 笔记" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/netmodels/resnet/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/netmodels/resnet/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>731</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><p>论文提出  何恺明(微软研究院)   2015<br><a href="http://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf" target="_blank" rel="noopener">Deep residual learning for image recognition</a></p>
-<h3 id="批标准化层-BN"><a href="#批标准化层-BN" class="headerlink" title="批标准化层 BN"></a>批标准化层 BN</h3><p>Batch Normalization Google2015年提出<br><a href="https://arxiv.org/pdf/1502.03167v3.pdf" target="_blank" rel="noopener">Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</a><br><strong>为何需要 BN</strong><br>解决 <em>Internal Covariate Shift(ICS)</em> 问题。在统计及其学习中的一个经典假设是”源空间(source domain)和目标空间(target domain)的数据分布(distribution)是一致的。如果不一致就会出席一些新的问题，比如 transfer learning/domain adaptation等，而 covariate shift 就是分布不一致假设之下的一个分支问题，它是指源空间和目标攻坚的条件概率是一致的，但是其边缘概率不同。即对所有的 $x \in \mathcal{X}, P_s(Y|X = x)=P_t(Y|X=x)$ 但是 $P_s(X) \neq P_t(X)$。显然对于神经网络的各层输出，由于经过了层内的操作，其分布与各层对应的输入信号分布不同，而且差异会随着网络深度增大而增大，可是他们所能“指示”的标注样本(label)仍然是不变的，所以这就符合 covariate shift 的定义。由于是对层间信号的分析，所以也是 “internal”。<br>**</p>
-<p><img src="https://i.loli.net/2019/12/17/4Bo1XFyHfLwcelW.png" alt="BN操作(从论文中截图)"></p>
-<h3 id="ResNet-大小"><a href="#ResNet-大小" class="headerlink" title="ResNet 大小"></a>ResNet 大小</h3><p>模型大小反应了参数数量，参数越多，模型大小越大。所以层数月深，模型大小越大。</p>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>大小</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ResNet18</td>
-<td>44.8MB</td>
-</tr>
-<tr>
-<td>ResNet34</td>
-<td>85.2Mb</td>
-</tr>
-<tr>
-<td>ResNet50</td>
-<td>94.4MB</td>
-</tr>
-<tr>
-<td>ResNet101</td>
-<td>170.6MB</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/netmodels/vgg/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/netmodels/vgg/" class="post-title-link" itemprop="url">VGG 笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-12 17:24:16" itemprop="dateCreated datePublished" datetime="2019-12-12T17:24:16+08:00">2019-12-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 12:23:02" itemprop="dateModified" datetime="2020-02-18T12:23:02+08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/netmodels/vgg/" class="post-meta-item leancloud_visitors" data-flag-title="VGG 笔记" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/netmodels/vgg/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/netmodels/vgg/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>679</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="VGG-Net"><a href="#VGG-Net" class="headerlink" title="VGG Net"></a>VGG Net</h2><p>论文提出 Oxford Visual Geometry Group 2014年</p>
-<p><a href="https://arxiv.org/pdf/1409.1556.pdf%20http://arxiv.org/abs/1409.1556.pdf" target="_blank" rel="noopener">Very Deep Convolutional Networks for Large-Scale Image Recognition</a><br><img src="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png" alt="VGG16"></p>
-<p>VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的输入图片的局部大小)，采用堆积的小卷积核是由于采用大的卷积核，因为多层非线性层可以增加网络深度来保证学习更复杂的模式，而且代价还更小(参数更少)。</p>
-<p>下面这张图解释了为什么使用2个3x3的卷积核可以代替5x5的卷积核。<br><img src="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png" alt></p>
-<h3 id="VGG-模型大小"><a href="#VGG-模型大小" class="headerlink" title="VGG 模型大小"></a>VGG 模型大小</h3><table>
-<thead>
-<tr>
-<th>模型</th>
-<th>大小</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>VGG11</td>
-<td>37MB</td>
-</tr>
-<tr>
-<td>VGG13</td>
-<td>37.7MB</td>
-</tr>
-<tr>
-<td>VGG16</td>
-<td>59MB</td>
-</tr>
-</tbody>
-</table>
-<h2 id="VGG优缺点"><a href="#VGG优缺点" class="headerlink" title="VGG优缺点"></a>VGG优缺点</h2><h3 id="VGG优点"><a href="#VGG优点" class="headerlink" title="VGG优点"></a>VGG优点</h3><ul>
-<li>VGGNet 的结构非常简洁，整个网络都使用了同样大小的卷积核尺寸(3x3)和最大池化尺寸(2x2)</li>
-<li>几个小滤波器(3x3)卷积层的组合比一个大滤波器(5x5)或(7x7)卷积层更好</li>
-<li>验证了通过不断增加网络结构可以提高性能</li>
-</ul>
-<h3 id="VGG缺点"><a href="#VGG缺点" class="headerlink" title="VGG缺点"></a>VGG缺点</h3><ul>
-<li>VGG耗费更多计算资源，并且使用了更多的参数，导致更多的内存占用(140M)。其中绝大多数参数来自于第一个全连接层。</li>
-<li>VGG参数空间很大，最终的model有500M+，而AlexNet只有200M，GoogLeNet更少，所以训练一个VGG需要更长的时间。<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2></li>
-</ul>
-<p><a href="https://www.quora.com/What-is-the-VGG-neural-network" target="_blank" rel="noopener">Quora: What is the VGG neural network</a></p>
-<p><a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Szegedy_Rethinking_the_Inception_CVPR_2016_paper.pdf" target="_blank" rel="noopener">Paper: Rethinking the Inception Architecture for Computer Vision</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/41423739" target="_blank" rel="noopener">知乎: 一文读懂VGG网络</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/netmodels/lenet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/netmodels/lenet/" class="post-title-link" itemprop="url">LeNet 笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-10 19:19:26" itemprop="dateCreated datePublished" datetime="2019-12-10T19:19:26+08:00">2019-12-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 12:22:19" itemprop="dateModified" datetime="2020-02-18T12:22:19+08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/netmodels/lenet/" class="post-meta-item leancloud_visitors" data-flag-title="LeNet 笔记" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/netmodels/lenet/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/netmodels/lenet/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="LeNet"><a href="#LeNet" class="headerlink" title="LeNet"></a>LeNet</h2><p>论文提出，Yann LeCun 1998年<br><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf" target="_blank" rel="noopener">Gradient-Based Learning Applied to Document Recognition.pdf</a></p>
-<p>网络结构<br><img src="https://i.loli.net/2019/12/10/Do7F938hGXu2QJt.png" alt="LeNet"></p>
-<p><img src="https://i.loli.net/2019/12/19/LWsHUaEjAYxyd4b.png" alt="LeNet5 结构总结"><br>LeNet的模型 ckpt.pth 只有 250 KB。<br>论文中采用的激活函数为 tanh，目前主流实现中的激活函数都是 ReLU</p>
-<p>PyTorch 网络结构代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>)</span><br><span class="line">        self.pool = nn.MaxPool2d(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">6</span>, <span class="number">16</span>, <span class="number">5</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>, <span class="number">120</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">120</span>, <span class="number">84</span>)</span><br><span class="line">        self.fc3 = nn.Linear(<span class="number">84</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.pool(F.relu(self.conv1(x)))</span><br><span class="line">        x = self.pool(F.relu(self.conv2(x)))</span><br><span class="line">        x = x.view(<span class="number">-1</span>, <span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>)</span><br><span class="line">        x = F.relu(self.fc1(x))</span><br><span class="line">        x = F.relu(self.fc2(x))</span><br><span class="line">        x = self.fc3(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
-<p><code>__init__</code> 定义操作，<code>forward</code> 里是网络流程，拆分看就是</p>
-<p>conv1 -&gt; relu -&gt; pool -&gt; conv2 -&gt;relu -&gt; pool -&gt; fc1 -&gt; relu -&gt; fc2 -&gt; relu -&gt; fc3</p>
-<p>最初用于手写体字母识别，后被证明适合于图像分类。</p>
-<p><strong>view的作用</strong></p>
-<p>view相当于对一个tensor的reshape，典型的例子是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">a = torch.tensor(<span class="number">1</span>, <span class="number">16</span>)</span><br><span class="line">a = a.view(<span class="number">4</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>-1</strong> 参数的作用，在不知道行有多少，但是知道列的情况下，可以用-1代替（但是注意要能整除），相当于告诉系统有多少列让系统自动帮你计算有多少行。</p>
-<blockquote>
-<p>If there is any situation that you don’t know how many rows you want but are sure of the number of columns, then you can specify this with a -1. (Note that you can extend this to tensors with more dimensions. Only one of the axis value can be -1). This is a way of telling the library: “give me a tensor that has these many columns and you compute the appropriate number of rows that is necessary to make this happen”.<br>This can be seen in the neural network code that you have given above. After the line x = self.pool(F.relu(self.conv2(x))) in the forward function, you will have a 16 depth feature map. You have to flatten this to give it to the fully connected layer. So you tell pytorch to reshape the tensor you obtained to have specific number of columns and tell it to decide the number of rows by itself.</p>
-</blockquote>
-<h2 id="神经网络的几个层详解："><a href="#神经网络的几个层详解：" class="headerlink" title="神经网络的几个层详解："></a>神经网络的几个层详解：</h2><h3 id="卷积层-conv"><a href="#卷积层-conv" class="headerlink" title="卷积层 conv"></a>卷积层 conv</h3><p>CNN的第一层一般是卷积层(conv)。一般采用 filter 也可称为 neuron 或者 kernel，我感觉叫 kernel好一点，卷积核。kernel 一般为 3<em>3 或者 5</em>5 大小的窗口，在整个图像进行滑动。这个窗口区域就是 CNN 的感受野(receptive field)， kernel 一般会对有一组数字对应（不是说kernel本身的矩阵)，也就是权重(weight)或者参数(parameters)。其中 kernel 的depth对应输入图像的depth。filter的结果对应 activetion map 或者feature map。</p>
-<h3 id="池化层-pool"><a href="#池化层-pool" class="headerlink" title="池化层 pool"></a>池化层 pool</h3><p>用 feature map 作为输入，用不含参数的 filter (小方框自由设计尺寸)，对其进行扫描，平移，跳格。filter 没有参数，但是要对方框内的数值做做大值(max pooling)或均值(average pooling)保留，抹去方框内其他值，实现压缩浓缩；把流行的值形成的matrix 也就是压缩后的 feature map 传给下一层 hidden layer。<br>下采样也是一种池化。</p>
-<p>池化的作用是减小计算量，减小内存消耗，提高感受野的大小，减少参数数量，增加平移不变性。</p>
-<h3 id="激活函数层-relu"><a href="#激活函数层-relu" class="headerlink" title="激活函数层 relu"></a>激活函数层 relu</h3><p>激活函数 activation function，也叫激励函数，一般用relu作为激励函数</p>
-<p>激励函数是为了增加神经网络的非线性，如果不使用非线性激活函数，则分类器永远是线性的，即使是在更多维的空间内也是线性的，而线性模型的表达能力是不够的。所以必须引入非线性激励函数，常用的非线性激励函数有sigmoid、tanh、ReLU。目前在深度学习中用的最多的就是 ReLU。</p>
-<p>ReLU更容易学习优化，因为其分段线性的性质，导致其前传，后传，求导都是分段线性。而传统的 sigmoid 函数，由于两端饱和，在传播过程中容易丢弃信息。</p>
-<p>Rectified Linear Units<br><img src="https://i.loli.net/2019/12/10/dnZh3HFN7eVUbzq.png" alt></p>
-<h3 id="全连接层-fc"><a href="#全连接层-fc" class="headerlink" title="全连接层 fc"></a>全连接层 fc</h3><p>Fully Connected Layer，全连接层，简写为fc。在整个神经网络中起到「分类器」的作用。卷积层、池化层和激活函数层等操作是将原始数据映射到隐层特征空间，全连接层则起到将学到的「分布式特征表示」映射到样本标记空间的作用。</p>
-<p>由于目前全连接层参数冗余(仅全连接层参数就可占整个神经网络参数80%左右)，一些性能优异的网络模型如 ResNet 和 GoogLeNet 等均采用全局平均池化(global average pooling, GAP) 取代 FC 来融合学到的深度特征，最后仍用 softmax 等损失函数作为网络目标函数来指导学习过程。需要指出的是，用 GAP 替代 FC 的网络通常有较好的预测性能。</p>
-<p>即使 FC 越来越不被看好，有研究发现，FC 可在模型能力迁移过程中充当「防火墙」。如果目标域与源域图像差异较大，不含 FC 的网络微调后的结果差于含 FC 的网络。因此 FC 可以视为模型表示能力的「防火墙」，说明冗余的参数并非一无是处。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://www.zhihu.com/question/41037974" target="_blank" rel="noopener">魏秀参：全连接层有什么用?</a></li>
-<li><a href="https://stackoverflow.com/questions/42479902/how-does-the-view-method-work-in-pytorch" target="_blank" rel="noopener">stackoverflow:How does the “view” method work in PyTorch?</a></li>
-<li><a href="https://engmrk.com/lenet-5-a-classic-cnn-architecture/" target="_blank" rel="noopener">LeNet-5 – A Classic CNN Architecture</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/hyjz_iccc2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/hyjz_iccc2/" class="post-title-link" itemprop="url">ICCC参会记录 (day 2)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-08 09:32:40" itemprop="dateCreated datePublished" datetime="2019-12-08T09:32:40+08:00">2019-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-10 15:24:37" itemprop="dateModified" datetime="2019-12-10T15:24:37+08:00">2019-12-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/参会记录/" itemprop="url" rel="index">
-                    <span itemprop="name">参会记录</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/hyjz_iccc2/" class="post-meta-item leancloud_visitors" data-flag-title="ICCC参会记录 (day 2)" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/hyjz_iccc2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/hyjz_iccc2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>822</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>第二天的会议来的人大概只有40%，似乎有许多人跑去看熊猫了…</p>
-<p>主持是 北京邮电大学的吴湛击教授</p>
-<h2 id="4-Online-Resource-Allocation-with-Supply-Costs-Pricing-Competitve-Analysis-and-Applications"><a href="#4-Online-Resource-Allocation-with-Supply-Costs-Pricing-Competitve-Analysis-and-Applications" class="headerlink" title="4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and Applications"></a>4. Online Resource Allocation with Supply Costs: Pricing, Competitve Analysis, and Applications</h2><p>Danny Hin-Kwok TSANG, IEEE Fellow, Hong Kong University of Science and Technology</p>
-<p>首先介绍了自己报告的 co-author，这个比较少见。</p>
-<p>核心问题：如何最有效的分配计算资源来保证最大化的社会效益。</p>
-<p><img src="https://i.loli.net/2019/12/10/1HRkvGMsXmSiWLa.jpg" alt="01D870D5-61E1-411F-8ED3-A9A0E73FF778_1_105_c"><br>Posted-pricing algorithm 不同时刻不同定价。<br><img src="https://i.loli.net/2019/12/10/Kx5PSuFJior1Ozs.jpg" alt="8AF5457C-D5C1-4564-8F55-D32C1C78B4EE_1_105_c"></p>
-<p>主要是一个定价策略。</p>
-<p>… 最后也是不可避免的提到了一些 political 方面的事情，说 HK is very safe.</p>
-<h2 id="5-Siginal-Processing-Approaches-to-Sensing-without-Sensors-没有传感器的感知信号处理"><a href="#5-Siginal-Processing-Approaches-to-Sensing-without-Sensors-没有传感器的感知信号处理" class="headerlink" title="5. Siginal Processing Approaches to Sensing without Sensors 没有传感器的感知信号处理"></a>5. Siginal Processing Approaches to Sensing without Sensors 没有传感器的感知信号处理</h2><p>Alex X.Liu, IEEE Fellow, Michigan State University, USA</p>
-<p>不是本专业，也听不太懂。但是他的演示非常有趣，有个同学跑来跑去，然后电脑上显示一个信号的变化，可以给出现在他是在走路或者跑步。</p>
-<p><img src="https://i.loli.net/2019/12/10/FED2AfycLCTmJoS.jpg" alt="E6781B34-B032-4D5E-8FE3-1DEADCD9314D_1_105_c"><br>而这个信号是 WiFi信号？！</p>
-<p>感觉非常黑科技。</p>
-<p>步态特征基础上的运动姿态识别<br><img src="https://i.loli.net/2019/12/10/RJ1F7594e8Wif2b.jpg" alt="3B012C41-AB2F-4CF2-AC43-F41C9C3947FE_1_105_c"></p>
-<p>有个外国小哥提了一个问题非常好，就说这种技术，能否识机器人？恐怕要打个问号，它利用的是人的身体的电信号或者某些东西，这些对于机器人来说显然就不行了。</p>
-<h2 id="6-AI-Enabled-Experience-driven-Networking-Vision-State-of-the-Art-and-Future-Directions"><a href="#6-AI-Enabled-Experience-driven-Networking-Vision-State-of-the-Art-and-Future-Directions" class="headerlink" title="6. AI-Enabled Experience-driven Networking: Vision, State-of-the-Art and Future Directions"></a>6. AI-Enabled Experience-driven Networking: Vision, State-of-the-Art and Future Directions</h2><p>Jian Tang, IEEE Fellow, Syracuse University, USA 雪城大学</p>
-<p>看到雪城大学，首先想到安东尼大一大队获得 NCAA 冠军…</p>
-<p>跟想象中的不太一样，语速非常快，听了一会就跟不上。</p>
-<p>但是他讲了非常久… 感觉快一个小时</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/hyjz_iccc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Li Yao">
-      <meta itemprop="description" content="图书馆里的扫地僧 少林寺里的清洁工">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/hyjz_iccc/" class="post-title-link" itemprop="url">ICCC 参会记录(day 1)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-07 08:47:50 / 修改时间：15:46:04" itemprop="dateCreated datePublished" datetime="2019-12-07T08:47:50+08:00">2019-12-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/参会记录/" itemprop="url" rel="index">
-                    <span itemprop="name">参会记录</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/hyjz_iccc/" class="post-meta-item leancloud_visitors" data-flag-title="ICCC 参会记录(day 1)" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/hyjz_iccc/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/hyjz_iccc/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>5th IEEE|ICCC(International Conference of Computer and Communications)第五届IEEE计算机与通信国际会议</p>
-<p>成都，12月6-9号</p>
-<h2 id="1-Wireless-Technology-Game-Changing-Solution-for-Communicating-Sensing-and-Powering"><a href="#1-Wireless-Technology-Game-Changing-Solution-for-Communicating-Sensing-and-Powering" class="headerlink" title="1. Wireless Technology - Game-Changing Solution for Communicating, Sensing and Powering"></a>1. Wireless Technology - Game-Changing Solution for Communicating, Sensing and Powering</h2><p>Ke Wu, IEEE Fellow, Polytechnique Montreal, Canadav 加拿大蒙特利尔理工大学，参与华为5G标准制定</p>
-<p>无线科技，改变游戏规则的技术</p>
-<p>加拿大华裔教授，首先讲了一些学校概况，然后一张图讲了无线技术的发展历史。</p>
-<p>无线技术，横坐标方便性（覆盖范围），纵坐标比特率（传输速度）<br><img src="https://i.loli.net/2019/12/07/FKrU36mcLZogD2x.jpg" alt="IMG_0984.jpeg"><br>智能手机不智能，只是移动的互联网浏览器。下一代智能手机将是真正的「智能」。</p>
-<p><img src="https://i.loli.net/2019/12/07/9byOLohrQDKIqkV.png" alt></p>
-<p><img src="https://i.loli.net/2019/12/07/RDmr1gbXNsp5aw4.png" alt></p>
-<p>介绍了一些他们做的芯片，相应模块的功能。</p>
-<p>讲到摩尔定律， Moore’s Law and More and More，延伸摩尔，超越摩尔，这一点和GIIC广州张韵东讲的有一点类似，看来做芯片的人大家都喜欢提一提摩尔定律。</p>
-<p>btw，这个教授的英语是真的棒，全场最佳。</p>
-<h2 id="2-Video-Analytics-through-Edge-Computing"><a href="#2-Video-Analytics-through-Edge-Computing" class="headerlink" title="2. Video Analytics through Edge Computing"></a>2. Video Analytics through Edge Computing</h2><p>Guohong Cao, IEEE Fellow, The Pennsylvania State University, USA 宾夕法尼亚州立大学<br>通过边缘计算进行视频分析</p>
-<p>视频分析在 IoT 里面是最具有挑战的事情，用深度学习处理视频，需要大量的计算资源。</p>
-<p>当前的做法，进行帧分析，抽取视频里面的特定帧，进行目标检测，等等。</p>
-<table>
-<thead>
-<tr>
-<th>边缘计算</th>
-<th>云计算</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>更快的反应:物理意义上，端到端处理，高带宽，低延时</td>
-<td>/</td>
-</tr>
-<tr>
-<td>如果大量的数据在边缘处理了，网络传输需要的带宽会下降</td>
-<td>/</td>
-</tr>
-<tr>
-<td>保护隐私，中心化的 IoT 系统引起人们的对于隐私问题的担忧</td>
-<td>/</td>
-</tr>
-</tbody>
-</table>
-<p>挑战:</p>
-<ul>
-<li>哪些部门上载，哪些部分本地计算？</li>
-</ul>
-<p><img src="https://i.loli.net/2019/12/07/AdXkQifyecIhp25.jpg" alt><br><img src="https://i.loli.net/2019/12/07/pFrZY2hRc9NaxfQ.jpg" alt="62B67AF3-ED39-4DFA-8B9D-8C1CCEA39004_1_105_c"></p>
-<p>应用：</p>
-<p>犯罪调查，用于监控网络里<br>寻找丢失儿童，车辆，军事领域</p>
-<p><img src="https://i.loli.net/2019/12/07/okGTgHyYJOAuSxK.jpg" alt="E3A2EA87-E6EF-47B1-9DC7-5132362ADEC8_1_105_c"><br>本组工作：</p>
-<p>列了四篇论文，分别讲了这四篇论文对应的工作。</p>
-<ul>
-<li>TargetFinder</li>
-<li>一个自动的负载均衡策略，自动决定是否上载到中心服务器，或边缘服务器 which task should be upload, which task should be run locally</li>
-</ul>
-<h2 id="3-Medical-Healthcare-Platform-of-Dependable-Network-and-Deep-Learning-For-Medical-Big-Dataset"><a href="#3-Medical-Healthcare-Platform-of-Dependable-Network-and-Deep-Learning-For-Medical-Big-Dataset" class="headerlink" title="3. Medical Healthcare Platform of Dependable Network and Deep Learning For Medical Big Dataset"></a>3. Medical Healthcare Platform of Dependable Network and Deep Learning For Medical Big Dataset</h2><p>Ryuji KOHNO, IEEE Fellow, Yokohama National University, Japan 横滨国立大学</p>
-<p>来自日本的教授，首先简单介绍横滨</p>
-<p>从一个人口老龄化问题，引出自己的报告</p>
-<p>ubiquitous medical care 无处不在的医学关怀<br><img src="https://i.loli.net/2019/12/07/GWVE7lI3PD1MYRQ.jpg" alt="9FC452FE-7432-48CF-ACB8-6D9A97712F92_1_105_c"><br>花花绿绿的PPT，有点萌…  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
+  
+  
+  
 
   
   <nav class="pagination">
