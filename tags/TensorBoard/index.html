@@ -25,8 +25,8 @@
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
@@ -78,6 +78,16 @@
 
   <title>标签: TensorBoard | Yao Blog</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116714676-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-116714676-1');
+      }
+    </script>
 
 
 
@@ -142,7 +152,7 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -158,11 +168,6 @@
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
   </ul>
@@ -273,8 +278,7 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+          <a href="/archives">
           <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
@@ -301,20 +305,14 @@
         <a href="mailto:nudtliyao@foxmail.com" title="E-Mail &rarr; mailto:nudtliyao@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/6379926438" title="Weibo &rarr; https://weibo.com/6379926438" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://twitter.com/xiaoyaoyao95" title="Twitter &rarr; https://twitter.com/xiaoyaoyao95" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
         <a href="https://instagram.com/nudtliyao" title="Instagram &rarr; https://instagram.com/nudtliyao" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
       </span>
-      <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/li-yao-89-61/activities" title="Zhihu &rarr; https://www.zhihu.com/people/li-yao-89-61/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-fa-zhihu"></i>Zhihu</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.jianshu.com/u/2ad44a001d34" title="Jianshu &rarr; https://www.jianshu.com/u/2ad44a001d34" rel="noopener" target="_blank"><i class="fa fa-fw fa-jianshu"></i>Jianshu</a>
-      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -335,7 +333,7 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2017 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>

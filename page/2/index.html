@@ -25,8 +25,8 @@
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
@@ -78,6 +78,16 @@
 
   <title>Yao Blog</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116714676-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-116714676-1');
+      }
+    </script>
 
 
 
@@ -142,7 +152,7 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -158,11 +168,6 @@
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
   </ul>
@@ -344,7 +349,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 19:27:52" itemprop="dateModified" datetime="2020-02-18T19:27:52+08:00">2020-02-18</time>
+                <time title="修改时间：2020-02-18 19:42:33" itemprop="dateModified" datetime="2020-02-18T19:42:33+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -487,7 +492,7 @@
 * Take a collection of 1000 essays written on the US Economy, and find a way to automatically group these essays into a small number of groups of essays that are somehow &quot;similar&quot; or &quot;related&quot;.
 * **Examine the statistics of two football teams, and predict which team will win tomorrow&apos;s match (given historical data of teams&apos; wins/losses to learn from).**
 * Examine a large collection of emails that are known to be spam email, to discover if there are sub-types of spam mail.
-&lt;font color = #FF7F00&gt;这道题每次新做都会有一些新的选项，我做了三遍应该穷尽了大部分选项，很有迷惑性的一道题，一般看到给出了大量数据，尤其是以时间为先做的数据的时候往往容易直接选成 Regression，但是实际上，第一个选项要分 cluster，第二个选项， different categories，以及最后一个垃圾短信的，课程中垃圾短信是一个 Regression，而这个选项是寻找垃圾短信的 sub-types。确实很有迷惑性。&lt;/font&gt;
+&lt;font color = #FF7F00&gt;这道题每次新做都会有一些新的选项，我做了三遍应该穷尽了大部分选项，很有迷惑性的一道题，一般看到给出了大量数据，尤其是以时间为先做的数据的时候往往容易直接选成 Regression，但是实际上，第一个选项要分 cluster，第二个选项， different categories，以及最后一个垃圾短信的，课程中垃圾短信是一个 Regression，而这个选项是寻找垃圾短信的 sub-types。实很有迷惑性。&lt;/font&gt;
 </code></pre><ol>
 <li><p>Which of these is a reasonable definition of machine learning?</p>
 <ul>
@@ -1711,8 +1716,7 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+          <a href="/archives">
           <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
@@ -1739,20 +1743,14 @@
         <a href="mailto:nudtliyao@foxmail.com" title="E-Mail &rarr; mailto:nudtliyao@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/6379926438" title="Weibo &rarr; https://weibo.com/6379926438" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://twitter.com/xiaoyaoyao95" title="Twitter &rarr; https://twitter.com/xiaoyaoyao95" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
         <a href="https://instagram.com/nudtliyao" title="Instagram &rarr; https://instagram.com/nudtliyao" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
       </span>
-      <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/li-yao-89-61/activities" title="Zhihu &rarr; https://www.zhihu.com/people/li-yao-89-61/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-fa-zhihu"></i>Zhihu</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.jianshu.com/u/2ad44a001d34" title="Jianshu &rarr; https://www.jianshu.com/u/2ad44a001d34" rel="noopener" target="_blank"><i class="fa fa-fw fa-jianshu"></i>Jianshu</a>
-      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -1773,7 +1771,7 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2017 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
