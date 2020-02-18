@@ -6,7 +6,6 @@ node_modules/
 public/
 .deploy*/
 themes/landscape
-_config.yml/
 _config.yml
 package-lock.json
 package.json
