@@ -51,18 +51,33 @@
   };
 </script>
 
-  <meta name="description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 Model Representation hypothesis 假设terminology 术语  以房价预测 Housing Prices 开">
+  <meta name="description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 2.1 Model Representation hypothesis 假设terminology 术语  以房价预测 Housing Pric">
 <meta name="keywords" content="Andrew Ng Machine Learning,MOOC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Andrew Ng Machine Learning - 2 Linear regression with one variable">
 <meta property="og:url" content="http://www.liyaolife.com/ng_ml/ng_ml2/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 Model Representation hypothesis 假设terminology 术语  以房价预测 Housing Prices 开">
+<meta property="og:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 2.1 Model Representation hypothesis 假设terminology 术语  以房价预测 Housing Pric">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-18T14:36:04.014Z">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/F7ouwtfCk5Tjiga.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/xqal1GmMAQsEiX2.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/VAWfwnGziKTjRxl.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/AK4CsdXQpN3HG7x.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/xfBJWAMpEPUONsT.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/b6Qw5e4kxALZ2Mf.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/EqnX5URdZVHK4bN.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/V6fa3DBHTCymUFK.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/RuQOv6yzEbZaiMD.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/7kQpWXAIU6GgouN.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/QOy5aolrA168DP3.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/mEBtPCvz54Gh1eQ.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/pRO9rDBC85zqA2W.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/21/aIeTfuiDLPkAUM5.png">
+<meta property="og:updated_time" content="2020-02-21T15:45:00.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Andrew Ng Machine Learning - 2 Linear regression with one variable">
-<meta name="twitter:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 Model Representation hypothesis 假设terminology 术语  以房价预测 Housing Prices 开">
+<meta name="twitter:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 2.1 Model Representation hypothesis 假设terminology 术语  以房价预测 Housing Pric">
+<meta name="twitter:image" content="https://i.loli.net/2020/02/21/F7ouwtfCk5Tjiga.png">
 
 <link rel="canonical" href="http://www.liyaolife.com/ng_ml/ng_ml2/">
 
@@ -240,7 +255,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 22:36:04" itemprop="dateModified" datetime="2020-02-18T22:36:04+08:00">2020-02-18</time>
+                <time title="修改时间：2020-02-21 23:45:00" itemprop="dateModified" datetime="2020-02-21T23:45:00+08:00">2020-02-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,14 +302,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>179</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -307,11 +322,71 @@
 
       
         <p>本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。</p>
-<h2 id="Model-Representation"><a href="#Model-Representation" class="headerlink" title="Model Representation"></a>Model Representation</h2><blockquote>
+<h2 id="2-1-Model-Representation"><a href="#2-1-Model-Representation" class="headerlink" title="2.1 Model Representation"></a>2.1 Model Representation</h2><blockquote>
 <p>hypothesis 假设<br>terminology 术语</p>
 </blockquote>
-<p>以房价预测 Housing Prices 开始</p>
-
+<p>以房价预测 Housing Prices 开始，属于监督学习，Regression<br><img src="https://i.loli.net/2020/02/21/F7ouwtfCk5Tjiga.png" alt><br><img src="https://i.loli.net/2020/02/21/xqal1GmMAQsEiX2.png" alt><br>这一小节主要就讲了我们如何表示一个模型，输入，输出，函数等一些概念。</p>
+<h2 id="2-2-Cost-function"><a href="#2-2-Cost-function" class="headerlink" title="2.2 Cost function"></a>2.2 Cost function</h2><h3 id="2-2-1-Definetion-of-the-cost-function"><a href="#2-2-1-Definetion-of-the-cost-function" class="headerlink" title="2.2.1 Definetion of the cost function"></a>2.2.1 Definetion of the cost function</h3><p>假设：<br>$$h_{\theta}(x) = \theta_0+\theta_1x$$<br>$\theta_0$ 和 $\theta_1$ 即为这个模型的参数，也即需要学习得出的量。<br>在一元线性回归中，我们希望找出 $\theta_0$ 和 $\theta_1$，使得拟合的曲线非常适合数据。那么问题可以转坏为一个求最小化的问题，即求<br>$$min_{\theta_0,\theta_1}(h_\theta(x)-y)^2$$<br>取最小值时的 $\theta_0$ 和 $\theta_1$。</p>
+<p>$$min_{\theta_0,\theta_1} \frac{1}{2m}\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2$$</p>
+<p>所以我们列出 Cost function ，损失函数<br>$$J(\theta_0,\theta_1) =  \frac{1}{2m}\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2$$<br>我们所求即<br>$$min_{\theta_0,\theta_1}J(\theta_0,\theta_1)$$<br>这种损失函数也称为 Square error function，平方误差函数。对于大多数Regression问题中，Square error function works well。</p>
+<h3 id="2-2-2-Why-we-use-cost-function"><a href="#2-2-2-Why-we-use-cost-function" class="headerlink" title="2.2.2 Why we use cost function"></a>2.2.2 Why we use cost function</h3><p>首先做了一个假设，假设$\theta_0=0$,来简化问题。<br><img src="https://i.loli.net/2020/02/21/VAWfwnGziKTjRxl.png" alt><br>$h_\theta(x)$是对于固定的 $\theta$ ，是一个$x$的函数，$J(\theta_1)$是一个关于$\theta$的函数。<br><strong>quiz:</strong><br><img src="https://i.loli.net/2020/02/21/AK4CsdXQpN3HG7x.png" alt><br>注意 $J(\theta_1)$ 是关于 $\theta$的函数，所以$J(0)$，对应的$h(x)$，就是x轴，所以结果是 $(1+2^2+3^2)/6=14/6$<br><img src="https://i.loli.net/2020/02/21/xfBJWAMpEPUONsT.png" alt><br>这张图表示了$J(\theta_1)$变化曲线，可见$\theta_1=1$的时候$J(\theta_1)=0$，完美拟合。</p>
+<h3 id="2-2-3-Deeper-and-better-intuition-about-cost-function"><a href="#2-2-3-Deeper-and-better-intuition-about-cost-function" class="headerlink" title="2.2.3 Deeper and better intuition about cost function"></a>2.2.3 Deeper and better intuition about cost function</h3><blockquote>
+<p>intuition 直觉<br>contour plot 等高线</p>
+</blockquote>
+<p>上一小节讨论了简化的损失函数，即在$\theta_0=0$的情况下，这一节开始讨论包含 $\theta_0$的情况下的损失函数。当只有一个参数($\theta_1$)的时候，损失函数$J(\theta)$的曲线是一个二次函数。而当有两个参数的时候，损失函数的表式编程了一个三维曲面。而将三维曲面二维化的方式就是等高线<code>contour plot</code>。在具有更多参数的时候，损失函数将会是高维曲面，无法直观看出来。<br><img src="https://i.loli.net/2020/02/21/b6Qw5e4kxALZ2Mf.png" alt><br><img src="https://i.loli.net/2020/02/21/EqnX5URdZVHK4bN.png" alt></p>
+<h2 id="2-3-Parameter-Learning"><a href="#2-3-Parameter-Learning" class="headerlink" title="2.3 Parameter Learning"></a>2.3 Parameter Learning</h2><h3 id="2-3-1-Gradient-Descent"><a href="#2-3-1-Gradient-Descent" class="headerlink" title="2.3.1 Gradient Descent"></a>2.3.1 Gradient Descent</h3><blockquote>
+<p>optimum 最佳<br>dirivative 偏导</p>
+</blockquote>
+<p>损失函数如何求取最佳的 $\theta$组合，通过图像绘制是一种方法，但是高维损失函数无法直接绘出。所以需要有自动化的方法。本节介绍一种方法，Gradient Descent 梯度下降法。这是在深度学习中广泛使用的函数最优化方法，并非只用在线性回归的损失函数上。<br>在已知$J(\theta_0,\theta_1)$，也可能是$J(\theta_0,\theta_1,…,\theta_n)$，的情况下求$minJ(\theta_0,\theta_1)$</p>
+<p>Outline：</p>
+<ul>
+<li>Start with some $\theta_0, \theta_1$</li>
+<li>Keep changing $\theta_0,\theta_1$ to reduce $J(\theta_0,\theta_1)$ until we hopefully end up at a minimum</li>
+</ul>
+<p>在三维曲面上，损失函数的曲线，像地形，寻找最小值的过程像一个下山的过程，梯度下降法就是寻找最快下山路径的算法。这里存在一些问题，地形可能存在，「鞍点」local optimum，即局部最佳值，选取不同的初始值，可能会走入不同的局部最佳值。</p>
+<p><img src="https://i.loli.net/2020/02/21/V6fa3DBHTCymUFK.png" alt></p>
+<blockquote>
+<p>Gradient descent algorithm<br>repeat until convergence<br>$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_0} J(\theta_0,\theta_1)$ （for $j=0$ and $j=1$)</p>
+</blockquote>
+<p>$\alpha $在此处即为 learning rate，学习率，后面会讲到。<br><img src="https://i.loli.net/2020/02/21/RuQOv6yzEbZaiMD.png" alt></p>
+<p>注意，要两个值都计算完了再更新，而不是计算一个更新一个。</p>
+<blockquote>
+<p>:= 是在 Pascal 语言当中作为 赋值语句用的<br>simultaneous 同时的，并发的</p>
+</blockquote>
+<p><strong>quiz</strong><br><img src="https://i.loli.net/2020/02/21/7kQpWXAIU6GgouN.png" alt></p>
+<p>刚开始还以为这道题涉及求导，后来发现这道题根本不需要求导，直接带入就出来了。选第二项。</p>
+<h3 id="2-3-2-Gradient-Descent-Intuition"><a href="#2-3-2-Gradient-Descent-Intuition" class="headerlink" title="2.3.2 Gradient Descent Intuition"></a>2.3.2 Gradient Descent Intuition</h3><blockquote>
+<p>Intuition 直觉</p>
+</blockquote>
+<p>前一部分讲了梯度下降法的定义，这一部分进一步讲了其原理。<br><img src="https://i.loli.net/2020/02/21/QOy5aolrA168DP3.png" alt></p>
+<p>一步步拆解了梯度下降法的一个原理，在曲线右侧，斜率为正，更新后$\theta_1$减小，向左移动，在曲线左侧，斜率为负，更新后负负得正,$\theta_1$增加，向右移动。而每次移动多少，除了受斜率影响，还会受系数 $\alpha$ 影响，做个 $\alpha$，即成为学习率。显然，如果学习率太小，则每次移动速度会非常小，收敛速度很慢，如果学习率很大，则收敛速度会过快，甚至<code>over shoot</code></p>
+<p><strong>quiz</strong><br><img src="https://i.loli.net/2020/02/21/mEBtPCvz54Gh1eQ.png" alt></p>
+<ul>
+<li><strong>Leave $\theta_1$ unchanged</strong></li>
+<li>Change $\theta_1$ in a random direction</li>
+<li>Move $\theta_1$ in the direction of the global minimum of $J(\theta_1)$</li>
+<li>Derease $\theta_1$<br>按照公式此处$\theta_1$<br>按照公式此处$\theta_1$偏导数是0，所以不会变。这也显示了它可能会陷入局部最优解。</li>
+</ul>
+<p>先暂时不考虑局部最优解问题，由于每次更新后，偏导数（即斜率）是越来越小的，所以梯度下降法的 steps，会随之变小，即使学习率$\alpha$是固定的。</p>
+<h3 id="2-3-2-Gradient-For-Linear-regression"><a href="#2-3-2-Gradient-For-Linear-regression" class="headerlink" title="2.3.2 Gradient For Linear regression"></a>2.3.2 Gradient For Linear regression</h3><blockquote>
+<p>convex funciton 凸函数，关于凸函数，高中数学的定义讲的十分混乱，有非常多的版本，这里我们采用和课程一致的，也是维基百科的版本，即二阶导数大于零，bowl shape function 碗型函数</p>
+</blockquote>
+<p>前一部分都是定性的讲解梯度下降法的原理，这一部分开始带入一元线性回归的损失函数，来实际使用一下梯度下降法。<br><img src="https://i.loli.net/2020/02/21/pRO9rDBC85zqA2W.png" alt><br>前文已经提到，一元线性回归的损失函数为</p>
+<p>$$J(\theta_0,\theta_1) =  \frac{1}{2m}\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2$$<br>将$h_{\theta}(x) = \theta_0 + \theta_1 x$ 代入，可得<br>$$J(\theta_0,\theta_1) =  \frac{1}{2m}\sum^m_{i=1}(\theta_0 + \theta_1 x^{(i)}-y^{(i)})^2$$<br>分别对 $\theta_0$ 和 $\theta_1$求偏导可得</p>
+<p>$$\frac{\partial}{\partial_{\theta_0}}J(\theta_0,\theta_1) =  \frac{1}{m}\sum^m_{i=1}(\theta_0 + \theta_1 x^{(i)}-y^{(i)})$$<br>$$\frac{\partial}{\partial_{\theta_1}}J(\theta_0,\theta_1) =  \frac{1}{m}\sum^m_{i=1}(\theta_0 + \theta_1 x^{(i)}-y^{(i)})x^{(i)}$$<br>即如下图所示的推导<br><img src="https://i.loli.net/2020/02/21/aIeTfuiDLPkAUM5.png" alt><br>继而，迭代公式即</p>
+<p>$$\theta_0 :=\theta_0 - \alpha \frac{1}{m}\sum^m_{i=1}(\theta_0 + \theta_1 x^{(i)}-y^{(i)})$$</p>
+<p>$$\theta_1 := \theta_1 - \alpha \frac{1}{m}\sum^m_{i=1}(\theta_0 + \theta_1 x^{(i)}-y^{(i)})x^{(i)}$$</p>
+<p>暂时不考虑局部最优解问题，因为线性回归问题的损失函数都是<code>convex functinon</code>凸函数，也即碗型函数。这些函数没有 <code>local optimum</code>，只有一个 <code>global optimum</code>。</p>
+<p>‘Batch’ 批处理，梯度下降的每次迭代都要用到所有训练数据，因为计算损失函数的时候需要代入所有的 x,y 值。在线性回归问题中，batch 是所有数据，在其他一些机器学习问题中，batch 有时候是整个训练集的子集。</p>
+<p><strong>quiz:</strong></p>
+<p>Which of the following are true statements? Select all that apply.</p>
+<ul>
+<li>To make gradient descent converge, we must slowly decrease $\alpha$ over time.</li>
+<li>Gradient descent is guaranteed to find the global minimum for any function $J(\theta_0,\theta_1)$</li>
+<li><strong>Gradient descent can converge even if $\alpha$ is kept fixed. (But $\alpha$ cannot be too large, or else it may fail to converge.)</strong></li>
+<li><strong>For the specific choice of cost function $J(\theta_0,\theta_1)$ used in linear regression, there are no local optima (other than the global optimum).</strong></li>
+</ul>
+<h2 id="2-4-Test"><a href="#2-4-Test" class="headerlink" title="2.4 Test"></a>2.4 Test</h2>
     </div>
 
     
@@ -379,7 +454,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-Representation"><span class="nav-text">Model Representation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Model-Representation"><span class="nav-text">2.1 Model Representation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Cost-function"><span class="nav-text">2.2 Cost function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-Definetion-of-the-cost-function"><span class="nav-text">2.2.1 Definetion of the cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-Why-we-use-cost-function"><span class="nav-text">2.2.2 Why we use cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-Deeper-and-better-intuition-about-cost-function"><span class="nav-text">2.2.3 Deeper and better intuition about cost function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Parameter-Learning"><span class="nav-text">2.3 Parameter Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-Gradient-Descent"><span class="nav-text">2.3.1 Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-Gradient-Descent-Intuition"><span class="nav-text">2.3.2 Gradient Descent Intuition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-Gradient-For-Linear-regression"><span class="nav-text">2.3.2 Gradient For Linear regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-Test"><span class="nav-text">2.4 Test</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -469,13 +544,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">77k</span>
+    <span title="站点总字数">81k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:08</span>
+    <span title="站点阅读时长">2:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -531,6 +606,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 

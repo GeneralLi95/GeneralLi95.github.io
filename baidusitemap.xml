@@ -4,40 +4,24 @@
 
     
   <url>
-    <loc>http://liyaolife.comHexo6/</loc>
-    <lastmod>2020-02-21T03:02:35.913Z</lastmod>
+    <loc>http://liyaolife.comng_ml/ng_ml2/</loc>
+    <lastmod>2020-02-21T15:45:00.800Z</lastmod>
     <data>
         <display>
-        <title>博客最新设置</title>
-        <pubTime>2020-02-18T14:24:15.000Z</pubTime>
+        <title>Andrew Ng Machine Learning - 2 Linear regression with one variable</title>
+        <pubTime>2020-01-10T11:33:51.000Z</pubTime>
         
-        <tag>Hexo</tag>
+        <tag>Andrew Ng Machine Learning</tag>
+         
+        <tag>MOOC</tag>
          
          
            
              
-              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
+              <breadCrumb title="Machine Learning" url="http://www.liyaolife.com/categories/Machine-Learning/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://liyaolife.comzsh/</loc>
-    <lastmod>2020-02-20T03:59:20.340Z</lastmod>
-    <data>
-        <display>
-        <title>zsh 初探</title>
-        <pubTime>2020-01-08T07:23:44.000Z</pubTime>
-        
-        <tag>Shell</tag>
-         
-         
-           
              
-              <breadCrumb title="Shell" url="http://www.liyaolife.com/categories/Shell/"/>
+              <breadCrumb title="Stanford Andrew Ng Machine Learning Course" url="http://www.liyaolife.com/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/"/>
           
         </display>
     </data>
@@ -46,7 +30,7 @@
     
   <url>
     <loc>http://liyaolife.comng_ml/ng_ml/</loc>
-    <lastmod>2020-02-18T14:51:58.685Z</lastmod>
+    <lastmod>2020-02-21T10:02:51.548Z</lastmod>
     <data>
         <display>
         <title>Andrew Ng Machine Learning - 1 Intorduction</title>
@@ -69,25 +53,41 @@
     </url>
 
     
+    
   <url>
-    <loc>http://liyaolife.comng_ml/ng_ml2/</loc>
-    <lastmod>2020-02-18T14:36:04.014Z</lastmod>
+    <loc>http://liyaolife.comHexo6/</loc>
+    <lastmod>2020-02-21T03:02:35.913Z</lastmod>
     <data>
         <display>
-        <title>Andrew Ng Machine Learning - 2 Linear regression with one variable</title>
-        <pubTime>2020-01-10T11:33:51.000Z</pubTime>
+        <title>博客最新设置</title>
+        <pubTime>2020-02-18T14:24:15.000Z</pubTime>
         
-        <tag>Andrew Ng Machine Learning</tag>
-         
-        <tag>MOOC</tag>
+        <tag>Hexo</tag>
          
          
            
              
-              <breadCrumb title="Machine Learning" url="http://www.liyaolife.com/categories/Machine-Learning/"/>
+              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comzsh/</loc>
+    <lastmod>2020-02-20T03:59:20.340Z</lastmod>
+    <data>
+        <display>
+        <title>zsh 初探</title>
+        <pubTime>2020-01-08T07:23:44.000Z</pubTime>
+        
+        <tag>Shell</tag>
+         
+         
+           
              
-              <breadCrumb title="Stanford Andrew Ng Machine Learning Course" url="http://www.liyaolife.com/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/"/>
+              <breadCrumb title="Shell" url="http://www.liyaolife.com/categories/Shell/"/>
           
         </display>
     </data>
