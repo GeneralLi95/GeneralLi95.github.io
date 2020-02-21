@@ -4,6 +4,47 @@
 
     
   <url>
+    <loc>http://liyaolife.comHexo6/</loc>
+    <lastmod>2020-02-21T03:02:35.913Z</lastmod>
+    <data>
+        <display>
+        <title>博客最新设置</title>
+        <pubTime>2020-02-18T14:24:15.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://liyaolife.comzsh/</loc>
+    <lastmod>2020-02-20T03:59:20.340Z</lastmod>
+    <data>
+        <display>
+        <title>zsh 初探</title>
+        <pubTime>2020-01-08T07:23:44.000Z</pubTime>
+        
+        <tag>Shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Shell" url="http://www.liyaolife.com/categories/Shell/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comng_ml/ng_ml/</loc>
     <lastmod>2020-02-18T14:51:58.685Z</lastmod>
     <data>
@@ -47,26 +88,6 @@
           
              
               <breadCrumb title="Stanford Andrew Ng Machine Learning Course" url="http://www.liyaolife.com/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comHexo6/</loc>
-    <lastmod>2020-02-18T14:29:52.638Z</lastmod>
-    <data>
-        <display>
-        <title>博客最新设置</title>
-        <pubTime>2020-02-18T14:24:15.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo" url="http://www.liyaolife.com/categories/Hexo/"/>
           
         </display>
     </data>
@@ -232,9 +253,9 @@
         <title>物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo</title>
         <pubTime>2018-08-10T06:55:41.000Z</pubTime>
         
-        <tag>TensorFlow</tag>
-         
         <tag>Deep Learning</tag>
+         
+        <tag>TensorFlow</tag>
          
         <tag>Computer Vision</tag>
          
@@ -261,9 +282,9 @@
         <title>物体检测TensorFlow Object Detection API （一）安装</title>
         <pubTime>2018-08-10T06:55:35.000Z</pubTime>
         
-        <tag>TensorFlow</tag>
-         
         <tag>Deep Learning</tag>
+         
+        <tag>TensorFlow</tag>
          
         <tag>Computer Vision</tag>
          
@@ -747,13 +768,13 @@
         <title>DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记</title>
         <pubTime>2019-11-19T10:37:27.000Z</pubTime>
         
+        <tag>Deep Learning</tag>
+         
         <tag>Machine Learning</tag>
          
         <tag>Image Segmentation</tag>
          
         <tag>TensorFlow</tag>
-         
-        <tag>Deep Learning</tag>
          
         <tag>Computer Vision</tag>
          
@@ -778,9 +799,9 @@
         <title>深度学习常用数据集总结</title>
         <pubTime>2019-11-20T03:07:06.000Z</pubTime>
         
-        <tag>Deep Learning</tag>
-         
         <tag>Dataset</tag>
+         
+        <tag>Deep Learning</tag>
          
          
            
@@ -803,9 +824,9 @@
         <title>VGG 笔记</title>
         <pubTime>2019-12-12T09:24:16.000Z</pubTime>
         
-        <tag>Machine Learning</tag>
-         
         <tag>Deep Learning</tag>
+         
+        <tag>Machine Learning</tag>
          
         <tag>PyTorch</tag>
          
@@ -832,9 +853,9 @@
         <title>ResNet 笔记</title>
         <pubTime>2019-12-17T00:57:34.000Z</pubTime>
         
-        <tag>Machine Learning</tag>
-         
         <tag>Deep Learning</tag>
+         
+        <tag>Machine Learning</tag>
          
         <tag>PyTorch</tag>
          
@@ -861,9 +882,9 @@
         <title>LeNet 笔记</title>
         <pubTime>2019-12-10T11:19:26.000Z</pubTime>
         
-        <tag>Machine Learning</tag>
-         
         <tag>Deep Learning</tag>
+         
+        <tag>Machine Learning</tag>
          
         <tag>PyTorch</tag>
          
@@ -892,26 +913,6 @@
         
         <tag>Proxy</tag>
          
-        <tag>Shell</tag>
-         
-         
-           
-             
-              <breadCrumb title="Shell" url="http://www.liyaolife.com/categories/Shell/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liyaolife.comzsh/</loc>
-    <lastmod>2020-02-16T10:22:03.757Z</lastmod>
-    <data>
-        <display>
-        <title>zsh 初探</title>
-        <pubTime>2020-01-08T07:23:44.000Z</pubTime>
-        
         <tag>Shell</tag>
          
          

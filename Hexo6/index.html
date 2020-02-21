@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="一直觉得 Next 主题的博客首页内容过多，显示了文章所有内容显得有些太长，所以今天更新，博客首页设置为 Archive 内容。即归档。 设置办法：  将 Next 主题页 index.swig 内容由 archive 替代。为了保存原来内容，将 原来 index.swig 文件另存为 inde_old.swig。 在博客根目录 _config.yml 中将 index_generater 下 p">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-18T14:29:52.638Z">
+<meta property="og:updated_time" content="2020-02-21T03:02:35.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客最新设置">
 <meta name="twitter:description" content="一直觉得 Next 主题的博客首页内容过多，显示了文章所有内容显得有些太长，所以今天更新，博客首页设置为 Archive 内容。即归档。 设置办法：  将 Next 主题页 index.swig 内容由 archive 替代。为了保存原来内容，将 原来 index.swig 文件另存为 inde_old.swig。 在博客根目录 _config.yml 中将 index_generater 下 p">
@@ -163,7 +163,7 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -179,6 +179,11 @@
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-友邻">
+
+    <a href="/friend/" rel="section"><i class="fa fa-fw fa-link"></i>友邻</a>
 
   </li>
   </ul>
@@ -227,10 +232,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-18 22:24:15 / 修改时间：22:29:52" itemprop="dateCreated datePublished" datetime="2020-02-18T22:24:15+08:00">2020-02-18</time>
+              <time title="创建时间：2020-02-18 22:24:15" itemprop="dateCreated datePublished" datetime="2020-02-18T22:24:15+08:00">2020-02-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 11:02:35" itemprop="dateModified" datetime="2020-02-21T11:02:35+08:00">2020-02-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -270,7 +281,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>237</span>
+              <span>382</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -293,9 +304,13 @@
 <p>设置办法：</p>
 <ol>
 <li>将 Next 主题页 index.swig 内容由 archive 替代。为了保存原来内容，将 原来 index.swig 文件另存为 inde_old.swig。</li>
-<li>在博客根目录 <code>_config.yml</code> 中将 <code>index_generater</code> 下 per_page 内容改为 20，这样首页即展示 20 个博文的标题</li>
+<li>在博客根目录 <code>_config.yml</code> 中将 <code>index_generater</code> 下 per_page 内容改为 25，这样首页即展示 25 个博文的标题</li>
 </ol>
-<p>其他内容：<br>增加了 License，修复了百度与 Google 统计。</p>
+<p>其他内容：</p>
+<ol>
+<li>增加了 License，修复了百度与 Google 统计。</li>
+<li>Sidebar 新增「友邻」，设置方法：在 Next 主题 <code>_config.yml</code> Menu 下新增 「友邻」，指定其位置位于博客根目录 <code>source\friend</code>，指定其图标为 <code>link</code>，在指定位置 新建 <code>index.md</code>，即可，此处这个文档的 font-matter 不能和普通 post 一样，否则会出现一些错误。</li>
+</ol>
 
     </div>
 
@@ -441,7 +456,7 @@
   &copy; 2017 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Li Yao</span>
     <span class="post-meta-divider">|</span>
