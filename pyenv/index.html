@@ -183,6 +183,11 @@
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
+        <li class="menu-item menu-item-读书">
+
+    <a href="https://liyaolife.com/kindle/" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>读书</a>
+
+  </li>
         <li class="menu-item menu-item-友邻">
 
     <a href="/friend/" rel="section"><i class="fa fa-fw fa-link"></i>友邻</a>
@@ -321,7 +326,7 @@
 <h2 id="正确的方式安装-Python-版本"><a href="#正确的方式安装-Python-版本" class="headerlink" title="正确的方式安装 Python 版本"></a>正确的方式安装 Python 版本</h2><blockquote>
 <p>“The basic premise of all Python development is to never use the system Python. You do not want the Mac OS X ‘default Python’ to be ‘python3.’ You want to never care about default Python.”——Moshe Zadka</p>
 </blockquote>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% brew install pyenv</span><br><span class="line">🍺  <span class="regexp">/usr/</span>local<span class="regexp">/Cellar/</span>pyenv<span class="regexp">/1.2.16: 671 files, 2.5MB</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">%</span><span class="bash"> brew install pyenv</span></span><br><span class="line">🍺  /usr/local/Cellar/pyenv/1.2.16: 671 files, 2.5MB</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% pyenv <span class="keyword">install</span> <span class="number">3.8</span><span class="number">.1</span></span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> openssl@<span class="number">1.1</span> <span class="keyword">from</span> homebrew</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> readline <span class="keyword">from</span> homebrew</span><br><span class="line">Downloading Python<span class="number">-3.8</span><span class="number">.1</span>.tar.xz...</span><br><span class="line">-&gt; https://www.python.org/<span class="keyword">ftp</span>/python/<span class="number">3.8</span><span class="number">.1</span>/Python<span class="number">-3.8</span><span class="number">.1</span>.tar.xz</span><br><span class="line">Installing Python<span class="number">-3.8</span><span class="number">.1</span>...</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> readline <span class="keyword">from</span> homebrew</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> zlib <span class="keyword">from</span> xcode sdk</span><br><span class="line">Installed Python<span class="number">-3.8</span><span class="number">.1</span> <span class="keyword">to</span> /<span class="keyword">Users</span>/yaoli/.pyenv/<span class="keyword">versions</span>/<span class="number">3.8</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
 <p>还需要将 pyenv 加入到命令行设置文件里，原生命令行是 <strong>.bash_profile</strong>，zsh是 <strong>.zshrc</strong></p>
 <blockquote>
