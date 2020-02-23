@@ -140,4 +140,5 @@ Which of the following are true statements? Select all that apply.
 * **Gradient descent can converge even if $\alpha$ is kept fixed. (But $\alpha$ cannot be too large, or else it may fail to converge.)**
 * **For the specific choice of cost function $J(\theta_0,\theta_1)$ used in linear regression, there are no local optima (other than the global optimum).**
 
+这道题让选正确表述，前面都已经写得比较细了，一个是即使学习率固定，梯度下降法的步长依然会依次减小。另外一个是对于现行回归问题，没有局部最优，只有全局最优，所以不需要考虑「鞍点」的问题。
 ## 2.4 Test
