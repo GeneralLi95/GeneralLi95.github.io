@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
@@ -24,7 +24,7 @@
     scheme: 'Gemini',
     version: '7.5.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":true,"show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -73,7 +73,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/02/21/mEBtPCvz54Gh1eQ.png">
 <meta property="og:image" content="https://i.loli.net/2020/02/21/pRO9rDBC85zqA2W.png">
 <meta property="og:image" content="https://i.loli.net/2020/02/21/aIeTfuiDLPkAUM5.png">
-<meta property="og:updated_time" content="2020-02-21T15:45:00.800Z">
+<meta property="og:updated_time" content="2020-02-23T13:03:32.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Andrew Ng Machine Learning - 2 Linear regression with one variable">
 <meta name="twitter:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 2.1 Model Representation hypothesis 假设terminology 术语  以房价预测 Housing Pric">
@@ -260,7 +260,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-21 23:45:00" itemprop="dateModified" datetime="2020-02-21T23:45:00+08:00">2020-02-21</time>
+                <time title="修改时间：2020-02-23 21:03:32" itemprop="dateModified" datetime="2020-02-23T21:03:32+08:00">2020-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -391,6 +391,7 @@
 <li><strong>Gradient descent can converge even if $\alpha$ is kept fixed. (But $\alpha$ cannot be too large, or else it may fail to converge.)</strong></li>
 <li><strong>For the specific choice of cost function $J(\theta_0,\theta_1)$ used in linear regression, there are no local optima (other than the global optimum).</strong></li>
 </ul>
+<p>这道题让选正确表述，前面都已经写得比较细了，一个是即使学习率固定，梯度下降法的步长依然会依次减小。另外一个是对于现行回归问题，没有局部最优，只有全局最优，所以不需要考虑「鞍点」的问题。</p>
 <h2 id="2-4-Test"><a href="#2-4-Test" class="headerlink" title="2.4 Test"></a>2.4 Test</h2>
     </div>
 
