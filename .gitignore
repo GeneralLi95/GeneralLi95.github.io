@@ -12,3 +12,4 @@ package.json
 source/img
 source/_posts/assets
 themes/next-7.7.1
+.vscode
