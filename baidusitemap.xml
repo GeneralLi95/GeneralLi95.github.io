@@ -4,8 +4,107 @@
 
     
   <url>
+    <loc>http://liyaolife.comng_ml/ng_ml_code/</loc>
+    <lastmod>2020-03-02T11:11:25.763Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning 编程作业 1 Linear Regression</title>
+        <pubTime>2020-03-02T11:09:51.000Z</pubTime>
+        
+        <tag>Andrew Ng Machine Learning</tag>
+         
+        <tag>MATLAB</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://www.liyaolife.com/categories/Machine-Learning/"/>
+          
+             
+              <breadCrumb title="Stanford Andrew Ng Machine Learning Course" url="http://www.liyaolife.com/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comng_ml/ng_ml4/</loc>
+    <lastmod>2020-03-02T10:27:25.453Z</lastmod>
+    <data>
+        <display>
+        <title>Andrew Ng Machine Learning - 4 Linear Regression with Multiple Variables</title>
+        <pubTime>2020-02-26T09:37:46.000Z</pubTime>
+        
+        <tag>Andrew Ng Machine Learning</tag>
+         
+        <tag>MOOC</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://www.liyaolife.com/categories/Machine-Learning/"/>
+          
+             
+              <breadCrumb title="Stanford Andrew Ng Machine Learning Course" url="http://www.liyaolife.com/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comatom_vscode/</loc>
+    <lastmod>2020-02-28T08:32:38.560Z</lastmod>
+    <data>
+        <display>
+        <title>从 Atom 到 VS Code</title>
+        <pubTime>2020-02-24T13:56:23.000Z</pubTime>
+        
+        <tag>Atom</tag>
+         
+        <tag>VS Code</tag>
+         
+         
+           
+             
+              <breadCrumb title="Software" url="http://www.liyaolife.com/categories/Software/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liyaolife.comng_ml/ng_ml3/</loc>
+    <lastmod>2020-02-26T09:36:59.767Z</lastmod>
+    <data>
+        <display>
+        <title>Andrew Ng Machine Learning - 3 Linear Algebra Review</title>
+        <pubTime>2020-02-24T13:56:05.000Z</pubTime>
+        
+        <tag>Andrew Ng Machine Learning</tag>
+         
+        <tag>MOOC</tag>
+         
+        <tag>Linear Algebra</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://www.liyaolife.com/categories/Machine-Learning/"/>
+          
+             
+              <breadCrumb title="Stanford Andrew Ng Machine Learning Course" url="http://www.liyaolife.com/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liyaolife.comng_ml/ng_ml2/</loc>
-    <lastmod>2020-02-23T13:03:32.302Z</lastmod>
+    <lastmod>2020-02-26T09:28:52.645Z</lastmod>
     <data>
         <display>
         <title>Andrew Ng Machine Learning - 2 Linear regression with one variable</title>

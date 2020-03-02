@@ -73,7 +73,8 @@
 <meta property="og:image" content="https://i.loli.net/2020/02/21/mEBtPCvz54Gh1eQ.png">
 <meta property="og:image" content="https://i.loli.net/2020/02/21/pRO9rDBC85zqA2W.png">
 <meta property="og:image" content="https://i.loli.net/2020/02/21/aIeTfuiDLPkAUM5.png">
-<meta property="og:updated_time" content="2020-02-23T13:03:32.302Z">
+<meta property="og:image" content="https://i.loli.net/2020/02/26/eOTamsXcpL5FJdv.png">
+<meta property="og:updated_time" content="2020-02-26T09:28:52.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Andrew Ng Machine Learning - 2 Linear regression with one variable">
 <meta name="twitter:description" content="本节开始以 Linear regression with one variable(一元线性回归)为例，讲述机器学习的基本概念。包括 Model （模型）， Cost Function （损失函数），Parameter Learning （参数学习）等。 2.1 Model Representation hypothesis 假设terminology 术语  以房价预测 Housing Pric">
@@ -260,7 +261,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-23 21:03:32" itemprop="dateModified" datetime="2020-02-23T21:03:32+08:00">2020-02-23</time>
+                <time title="修改时间：2020-02-26 17:28:52" itemprop="dateModified" datetime="2020-02-26T17:28:52+08:00">2020-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -307,14 +308,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.3k</span>
+              <span>7.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>13 分钟</span>
             </span>
 
         </div>
@@ -392,7 +393,91 @@
 <li><strong>For the specific choice of cost function $J(\theta_0,\theta_1)$ used in linear regression, there are no local optima (other than the global optimum).</strong></li>
 </ul>
 <p>这道题让选正确表述，前面都已经写得比较细了，一个是即使学习率固定，梯度下降法的步长依然会依次减小。另外一个是对于现行回归问题，没有局部最优，只有全局最优，所以不需要考虑「鞍点」的问题。</p>
-<h2 id="2-4-Test"><a href="#2-4-Test" class="headerlink" title="2.4 Test"></a>2.4 Test</h2>
+<h2 id="2-4-Test"><a href="#2-4-Test" class="headerlink" title="2.4 Test"></a>2.4 Test</h2><p>1.Consider the problem of predicting how well a student does in her second year of college/university, given how well she did in her first year.<br>Specifically, let x be equal to the number of “A” grades (including A-. A and A+ grades) that a student receives in their first year of college (freshmen year). We would like to predict the value of y, which we define as the number of “A” grades they get in their second year (sophomore year).<br>Refer to the following training set of a small sample of different students’ performances (note that this training set may also be referenced in other questions in this quiz). Here each row is one training example. Recall that in linear regression, our hypothesis is $h_\theta(x) = \theta_0 + \theta_1x$, and we use mm to denote the number of training examples.</p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>For the training set given above, what is the value of mm? In the box below, please enter your answer (which should be a number between 0 and 10).<br><strong>Answer:4</strong><br>这一题求 m，其实就是找有几个样本，不需要计算直接得到4.<br>2.Consider the following training set of $m = 4$ training examples:</p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Consider the linear regression model $h_\theta(x) = \theta_0 + \theta_1x$. What are the values of $\theta_0$ and $\theta_1$ that you would expect to obtain upon running gradient descent on this model? (Linear regression will be able to fit this data perfectly.)</p>
+<ul>
+<li><strong>$\theta_0 = 0, \theta_1 = 0.5$</strong></li>
+<li>$\theta_0 = 1, \theta_1 = 0.5$</li>
+<li>$\theta_0 = 0.5, \theta_1 = 0.5$</li>
+<li>$\theta_0 = 1, \theta_1 = 1$</li>
+<li>$\theta_0 = 0.5, \theta_1 = 0.5$</li>
+</ul>
+<p>这道题在坐标图上一画就很直观。<br>3.Suppose we set $\theta_0 = -1, \theta_1 = 2$ in the linear regression hypothesis from Q1. What is $h_{\theta}(6)$?<br>    <strong>Answer: 11</strong><br>$2 \times 6-1 =11$</p>
+<p>4.In the given figure, the cost function $J(\theta_0,\theta_1)$ has been plotted against $\theta_0$ and $theta_1$, as shown in ‘Plot 2’. The contour plot for the same cost function is given in ‘Plot 1’. Based on the figure, choose the correct options (check all that apply).<br><img src="https://i.loli.net/2020/02/26/eOTamsXcpL5FJdv.png" alt></p>
+<ul>
+<li>Point P (The global minimum of plot 2) corresponds to point C of Plot 1.</li>
+<li><strong>If we start from point B, gradient descent with a well-chosen learning rate will eventually help us reach at or near point A, as the value of cost function $J(\theta_0,\theta_1)$ is minimum at A.</strong></li>
+<li>If we start from point B, gradient descent with a well-chosen learning rate will eventually help us reach at or near point A, as the value of cost function $J(\theta_0,\theta_1)$ is maximum at point A.</li>
+<li><strong>Point P (the global minimum of plot 2) corresponds to point A of Plot 1.</strong></li>
+<li>If we start from point B, gradient descent with a well-chosen learning rate will eventually help us reach at or near point C, as the value of cost function $J(\theta_0,\theta_1)$ is minimum at point C.</li>
+</ul>
+<p>这道题考察对于损失函数的理解。</p>
+<p>5.Suppose that for some linear regression problem (say, predicting housing prices as in the lecture), we have some training set, and for our training set we managed to find some $\theta_0$, $\theta_1$ such that $J(\theta_0, \theta_1)=0$.<br>Which of the statements below must then be true? (Check all that apply.)</p>
+<ul>
+<li>For this to be true, we must have $\theta_0 = 0$ and $\theta_1 = 0$ so that $h_\theta(x) = 0$</li>
+<li>This is not possible: By the definition of $J(\theta_0, \theta_1)$, it is not possible for there to exist $\theta_0$ and $\theta_1$ so that $J(\theta_0, \theta_1) = 0$</li>
+<li><strong>For these values of $\theta_0$ and $\theta_1$ that satisfy $J(\theta_0, \theta_1) = 0$, we have that $h_\theta(x^{(i)}) = y^{(i)}$ for every training example $(x^{(i)}, y^{(i)})$</strong></li>
+<li>We can perfectly predict the value of yy even for new examples that we have not yet seen.(e.g., we can perfectly predict prices of even new houses that we have not yet seen.)</li>
+<li>Gradient descent is likely to get stuck at a local minimum and fail to find the global minimum.</li>
+<li>For this to be true, we must have $y^{(i)} = 0$ for every value of $i = 1, 2, \ldots, m$.</li>
+<li>For this to be true, we must have $\theta_0 = 0$ and $\theta_1 = 0$ so that $h_\theta(x) = 0$</li>
+<li><strong>Our training set can be fit perfectly by a straight line, i.e., all of our training examples lie perfectly on some straight line.</strong></li>
+</ul>
+<p>这道题损失函数是零，说明，所有点都与拟合线重合，对于一元回归问题，一定是直线。</p>
+
     </div>
 
     
@@ -475,7 +560,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,7 +573,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -550,13 +635,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">81k</span>
+    <span title="站点总字数">88k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:15</span>
+    <span title="站点阅读时长">2:27</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
