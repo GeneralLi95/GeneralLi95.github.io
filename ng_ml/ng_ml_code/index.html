@@ -51,18 +51,21 @@
   };
 </script>
 
-  <meta name="description" content="图书馆里的扫地僧 少林寺里的清洁工">
+  <meta name="description" content="这一部分是 Andrew Ng Machine Learning 课程的第一次编程作业，位于课程第二周。编程内容为 Linear Regression。 第一周作业包含文件:12345678910111213ex1.m - Octave/MATLAB script that steps you through the exerciseex1 multi.m - Octave/MATLAB scri">
 <meta name="keywords" content="Andrew Ng Machine Learning,MATLAB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machine Learning 编程作业 1 Linear Regression">
 <meta property="og:url" content="http://www.liyaolife.com/ng_ml/ng_ml_code/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="图书馆里的扫地僧 少林寺里的清洁工">
+<meta property="og:description" content="这一部分是 Andrew Ng Machine Learning 课程的第一次编程作业，位于课程第二周。编程内容为 Linear Regression。 第一周作业包含文件:12345678910111213ex1.m - Octave/MATLAB script that steps you through the exerciseex1 multi.m - Octave/MATLAB scri">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-02T11:11:25.763Z">
+<meta property="og:image" content="https://i.loli.net/2020/03/03/r8ZeN1akbQTh6Wv.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/03/6I4LpBaO1ocZQzC.png">
+<meta property="og:updated_time" content="2020-03-03T15:56:05.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning 编程作业 1 Linear Regression">
-<meta name="twitter:description" content="图书馆里的扫地僧 少林寺里的清洁工">
+<meta name="twitter:description" content="这一部分是 Andrew Ng Machine Learning 课程的第一次编程作业，位于课程第二周。编程内容为 Linear Regression。 第一周作业包含文件:12345678910111213ex1.m - Octave/MATLAB script that steps you through the exerciseex1 multi.m - Octave/MATLAB scri">
+<meta name="twitter:image" content="https://i.loli.net/2020/03/03/r8ZeN1akbQTh6Wv.png">
 
 <link rel="canonical" href="http://www.liyaolife.com/ng_ml/ng_ml_code/">
 
@@ -237,10 +240,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-02 19:09:51 / 修改时间：19:11:25" itemprop="dateCreated datePublished" datetime="2020-03-02T19:09:51+08:00">2020-03-02</time>
+              <time title="创建时间：2020-03-02 19:09:51" itemprop="dateCreated datePublished" datetime="2020-03-02T19:09:51+08:00">2020-03-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-03 23:56:05" itemprop="dateModified" datetime="2020-03-03T23:56:05+08:00">2020-03-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -286,14 +295,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -305,7 +314,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>这一部分是 Andrew Ng Machine Learning 课程的第一次编程作业，位于课程第二周。编程内容为 Linear Regression。</p>
+<p>第一周作业包含文件:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ex1.m - Octave/MATLAB<span class="built_in"> script </span>that steps you through the exercise</span><br><span class="line">ex1 multi.m - Octave/MATLAB<span class="built_in"> script </span><span class="keyword">for</span> the later parts of the exercise</span><br><span class="line">ex1data1.txt - Dataset <span class="keyword">for</span> linear regression with one variable</span><br><span class="line">ex1data2.txt - Dataset <span class="keyword">for</span> linear regression with multiple variables</span><br><span class="line">submit.m - Submission<span class="built_in"> script </span>that sends your solutions <span class="keyword">to</span> our servers</span><br><span class="line">[*] warmUpExercise.m -<span class="built_in"> Simple </span>example function <span class="keyword">in</span> Octave/MATLAB</span><br><span class="line">[*] plotData.m - Function <span class="keyword">to</span> display the dataset</span><br><span class="line">[*] computeCost.m - Function <span class="keyword">to</span> compute the cost of linear regression</span><br><span class="line">[*] gradientDescent.m - Function <span class="keyword">to</span> <span class="builtin-name">run</span> gradient descent</span><br><span class="line">[†] computeCostMulti.m - Cost function <span class="keyword">for</span> multiple variables</span><br><span class="line">[†] gradientDescentMulti.m - Gradient descent <span class="keyword">for</span> multiple variables</span><br><span class="line">[†] featureNormalize.m - Function <span class="keyword">to</span> normalize features</span><br><span class="line">[†] normalEqn.m - Function <span class="keyword">to</span> compute the normal equations</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>为需要完成的部分，† 为选做内容。</li>
+</ul>
+<p>其中 <code>ex1.m</code> 和 <code>ex1_multi.m</code> 设置了读取数据和调用函数的代码，所以我们只需要根据要求写最核心的代码即可。</p>
+<h2 id="1-Simple-Octave-MATLAB-function"><a href="#1-Simple-Octave-MATLAB-function" class="headerlink" title="1. Simple Octave / MATLAB function"></a>1. Simple Octave / MATLAB function</h2><p>这是最简单的一个，主要是尝试一下，跟一般编程的 hello world 一样，在 <code>warmExercise.m</code> 书一个</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="built_in">eye</span>(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<p>即可，输入后在 Command Window 会输出一个 5x5 的单位矩阵。然后在 Command Window 输入 submit，实际上相当于执行 <code>submit.m</code>，然后输入课程账号的邮箱和 课程生成 Token 密钥即可，提交，流程上还是非常方便的。</p>
+<h2 id="2-Linear-regression-with-one-variable"><a href="#2-Linear-regression-with-one-variable" class="headerlink" title="2. Linear regression with one variable"></a>2. Linear regression with one variable</h2><p>下面开始编写一元线性回归，课程方还是给了一个背景，要预测一个餐厅的一车食物的利润。其中数据存放在 <code>ex1data1.txt</code> 里，是许多航数据，没行以逗号分隔两个数，显然一列是 x 一列是 y 咯。关于读数据的操作存放在 <code>ex1.m</code>里，不需要我们修改。研究一下代码，其中读数据的部分是</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = load(<span class="string">'ex1data1.txt'</span>);</span><br><span class="line">X = data(:, <span class="number">1</span>); y = data(:, <span class="number">2</span>);</span><br><span class="line">m = <span class="built_in">length</span>(y); <span class="comment">% number of training examples</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-1-Plotting-the-Data"><a href="#2-1-Plotting-the-Data" class="headerlink" title="2.1 Plotting the Data"></a>2.1 Plotting the Data</h3><p>做一下数据可视化，在正式计算前，做一下数据可视化可以帮助理解数据。一个 <code>plotData.m</code> 脚本需要我们来填充，但是在文档里已经给出了代码，直接填上。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plot(x, y, <span class="string">'rx'</span>, <span class="string">'MarkerSize'</span>, <span class="number">10</span>); <span class="comment">% Plot the data</span></span><br><span class="line">ylabel(<span class="string">'Profit in $10,000s'</span>); <span class="comment">% Set the y-axis label</span></span><br><span class="line">xlabel(<span class="string">'Population of City in 10,000s'</span>); <span class="comment">% Set the x-axis label</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>rx</code> 是指散点为红色的 <code>x</code> 点<br>然后执行 <code>ex1.m</code> 得到如下图所示</p>
+<p><img src="https://i.loli.net/2020/03/03/r8ZeN1akbQTh6Wv.png" alt></p>
+<h3 id="2-2-Gradient-Descent"><a href="#2-2-Gradient-Descent" class="headerlink" title="2.2 Gradient Descent"></a>2.2 Gradient Descent</h3><p>开始写梯度下降法的代码</p>
+<h4 id="2-2-1-Update-Equations"><a href="#2-2-1-Update-Equations" class="headerlink" title="2.2.1 Update Equations"></a>2.2.1 Update Equations</h4><p>首先根据损失函数的公式<br>$$J(\theta_0,\theta_1) =  \frac{1}{2m}\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2$$<br>其中<br>$$h_{\theta}(x) =\theta ^T x= \theta_0+\theta_1x$$<br>求偏导之后，得到迭代公式<br>$$\theta_0 := \theta_0 - \alpha \frac{1}{m}\sum^m_{i=1}(\theta_0 + \theta_1 x^{(i)}-y^{(i)})$$<br>$$\theta_1 := \theta_1 - \alpha \frac{1}{m}\sum^m_{i=1}(\theta_0 + \theta_1 x^{(i)}-y^{(i)})x^{(i)}$$</p>
+<h4 id="2-2-2-Implementation"><a href="#2-2-2-Implementation" class="headerlink" title="2.2.2 Implementation"></a>2.2.2 Implementation</h4><p>在 <code>ex1.m</code> 里面，已经将线性回归用到的数据读入了，现在需要在程序中体现$\theta$，需要增加一维数据，编程不可能设未知量，必须指定初始值，这也是梯度下降法的要求。这一部分代码也是给出的</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X = [ones(m, <span class="number">1</span>), data(:,<span class="number">1</span>)]; <span class="comment">% Add a column of ones to x</span></span><br><span class="line">theta = <span class="built_in">zeros</span>(<span class="number">2</span>, <span class="number">1</span>); <span class="comment">% initialize fitting parameters</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% Some gradient descent settings</span></span><br><span class="line">iterations = <span class="number">1500</span>;</span><br><span class="line">alpha = <span class="number">0.01</span>;</span><br></pre></td></tr></table></figure>
+<p>注意此处将 X 变量拓展为二维其中一维即为 $x_0$，$x_0$是为了凑向量和 $\theta_0$相乘的，默认是1 是,迭代次数设置为1500次，学习率设置为0.01。</p>
+<h4 id="2-2-3-Computing-the-cost-J-theta"><a href="#2-2-3-Computing-the-cost-J-theta" class="headerlink" title="2.2.3 Computing the cost $J(\theta)$"></a>2.2.3 Computing the cost $J(\theta)$</h4><p>计算损失函数 $J(\theta)$<br>这是一个需要自己写的代码了，完善 <code>computeCost.m</code>，前面公式已经给出了，所以需要写代码将公式翻译出来。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : m</span><br><span class="line">    J = J + (theta(<span class="number">1</span>) + theta(<span class="number">2</span>)*X(<span class="built_in">i</span>,<span class="number">2</span>) - y(<span class="built_in">i</span>))^<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">J = J /(<span class="number">2</span>*m);</span><br></pre></td></tr></table></figure></p>
+<p>用向量的方式来写这个，不需要使用 for 循环即直接完成。用到的 <code>.^</code> 为向量的平方，即将所有元素乘方。<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">J = sum( (<span class="name">X</span> * theta - y).^2) / (2 * m)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>注意 MATLAB 的数组是从首位下标是1，不是0，写习惯了Python，真不习惯 MATLAB，首次运行的结果应该是 32.07，写到这一步，我们即可再提交一次。</p>
+<h4 id="2-2-4-Gradient-descent"><a href="#2-2-4-Gradient-descent" class="headerlink" title="2.2.4 Gradient descent"></a>2.2.4 Gradient descent</h4><p>梯度下降，计算完损失函数之后需要更新 $\theta$，下面开始写更新的代码，更新的代码位于 <code>gradientDescent.m</code>里，也是翻译公式。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sum1 = <span class="number">0</span>;</span><br><span class="line">sum2 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:m</span><br><span class="line">    sum1 = sum1 + theta(<span class="number">1</span>) + theta(<span class="number">2</span>)*X(<span class="built_in">i</span>,<span class="number">2</span>) - y(<span class="built_in">i</span>);</span><br><span class="line">    sum2 = sum2 + (theta(<span class="number">1</span>) + theta(<span class="number">2</span>)*X(<span class="built_in">i</span>,<span class="number">2</span>) - y(<span class="built_in">i</span>))*X(<span class="built_in">i</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">theta(<span class="number">1</span>) = theta(<span class="number">1</span>) - alpha / m * sum1;</span><br><span class="line">theta(<span class="number">2</span>) = theta(<span class="number">2</span>) - alpha / m * sum2;</span><br></pre></td></tr></table></figure>
+<p>运行 <code>ex1.m</code>得到下图。</p>
+<p>在这种写法之外，其实刚才的乘法还可以通过一种向量计算来完成即</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">H = X * theta</span><br><span class="line">   T = [<span class="number">0</span> ; <span class="number">0</span>];</span><br><span class="line">   <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : m,</span><br><span class="line">      T = T + (H(<span class="built_in">i</span>) - y(<span class="built_in">i</span>)) * X(<span class="built_in">i</span>, :)';</span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">   theta = theta - alpha * T / m;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/03/03/6I4LpBaO1ocZQzC.png" alt></p>
+<p>再次 submit，至此，这次的编程作业即完成。后面的内容皆为选做。</p>
+
     </div>
 
     
@@ -370,6 +409,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Simple-Octave-MATLAB-function"><span class="nav-text">1. Simple Octave / MATLAB function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Linear-regression-with-one-variable"><span class="nav-text">2. Linear regression with one variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Plotting-the-Data"><span class="nav-text">2.1 Plotting the Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Gradient-Descent"><span class="nav-text">2.2 Gradient Descent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-Update-Equations"><span class="nav-text">2.2.1 Update Equations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-Implementation"><span class="nav-text">2.2.2 Implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-Computing-the-cost-J-theta"><span class="nav-text">2.2.3 Computing the cost $J(\theta)$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-Gradient-descent"><span class="nav-text">2.2.4 Gradient descent</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -459,13 +499,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">88k</span>
+    <span title="站点总字数">92k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:27</span>
+    <span title="站点阅读时长">2:33</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -521,6 +561,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
