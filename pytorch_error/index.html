@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误1THCudaCheck FAIL file=/pytorch/aten/src/THC/THCGeneral.cpp line=405 error=11 : invalid argument 经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和">
-<meta name="keywords" content="PyTorch">
+  <meta name="description" content="在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误1THCudaCheck FAIL file&#x3D;&#x2F;pytorch&#x2F;aten&#x2F;src&#x2F;THC&#x2F;THCGeneral.cpp line&#x3D;405 error&#x3D;11 : invalid argument经查 发现是 cudnn.benchmark &#x3D; True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pytorch THCudaCheck FAIL 错误">
 <meta property="og:url" content="http://www.liyaolife.com/pytorch_error/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误1THCudaCheck FAIL file=/pytorch/aten/src/THC/THCGeneral.cpp line=405 error=11 : invalid argument 经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-18T07:52:22.677Z">
+<meta property="og:description" content="在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误1THCudaCheck FAIL file&#x3D;&#x2F;pytorch&#x2F;aten&#x2F;src&#x2F;THC&#x2F;THCGeneral.cpp line&#x3D;405 error&#x3D;11 : invalid argument经查 发现是 cudnn.benchmark &#x3D; True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-12-26T02:42:17.000Z">
+<meta property="article:modified_time" content="2020-02-18T07:52:22.677Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pytorch THCudaCheck FAIL 错误">
-<meta name="twitter:description" content="在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误1THCudaCheck FAIL file=/pytorch/aten/src/THC/THCGeneral.cpp line=405 error=11 : invalid argument 经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和">
 
 <link rel="canonical" href="http://www.liyaolife.com/pytorch_error/">
 
@@ -311,8 +311,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">THCudaCheck FAIL <span class="attribute">file</span>=/pytorch/aten/src/THC/THCGeneral.cpp <span class="attribute">line</span>=405 <span class="attribute">error</span>=11 : invalid argument</span><br></pre></td></tr></table></figure></p>
-<p>经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和 CUDA 的版本与 torch 的版本共同相关，另外 cudnn.benchmark 默认是 Flase。所以隐藏的很深。</p>
+        <p>在服务器 (GTX 2080 Ti) 上跑代码的时候出现错误<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">THCudaCheck FAIL <span class="attribute">file</span>=/pytorch/aten/src/THC/THCGeneral.cpp <span class="attribute">line</span>=405 <span class="attribute">error</span>=11 : invalid argument</span><br></pre></td></tr></table></figure><br>经查 发现是 cudnn.benchmark = True 时发生的，将 torch 更新到 1.0 以上版本后解决问题。这个问题并不常见，因为和 CUDA 的版本与 torch 的版本共同相关，另外 cudnn.benchmark 默认是 Flase。所以隐藏的很深。</p>
 <p>关于 cudnn.benchmark 的作用可以参考这个 <a href="https://zhuanlan.zhihu.com/p/73711222" target="_blank" rel="noopener">知乎:torch.backends.cudnn.benchmark ?!</a>，关于这个bug的更多解释可以看这个 <a href="https://discuss.pytorch.org/t/a-error-when-using-gpu/32761" target="_blank" rel="noopener">A error when using GPU</a></p>
 
     </div>
@@ -470,13 +469,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -506,9 +505,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

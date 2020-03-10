@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,18 +52,18 @@
 </script>
 
   <meta name="description" content="安装git, node, hexomacOS和Linux中都自带git，使用macOS的强烈建议安装brew，之后使用brew命令安装各种东西都很方便。 假定现在brew和git已经装好了。下面安装node，打开终端 1$ brew install node OK，node装好了，之后使用node自带的包管理器(node package management?)安装hexo。 1$ npm ins">
-<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo博客搭建（二）从最简单的开始">
 <meta property="og:url" content="http://www.liyaolife.com/Hexo2/index.html">
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="安装git, node, hexomacOS和Linux中都自带git，使用macOS的强烈建议安装brew，之后使用brew命令安装各种东西都很方便。 假定现在brew和git已经装好了。下面安装node，打开终端 1$ brew install node OK，node装好了，之后使用node自带的包管理器(node package management?)安装hexo。 1$ npm ins">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11400909-abee9df147ccfa44.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-11-14T08:21:03.590Z">
+<meta property="article:published_time" content="2018-03-27T03:16:36.000Z">
+<meta property="article:modified_time" content="2019-11-14T08:21:03.590Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客搭建（二）从最简单的开始">
-<meta name="twitter:description" content="安装git, node, hexomacOS和Linux中都自带git，使用macOS的强烈建议安装brew，之后使用brew命令安装各种东西都很方便。 假定现在brew和git已经装好了。下面安装node，打开终端 1$ brew install node OK，node装好了，之后使用node自带的包管理器(node package management?)安装hexo。 1$ npm ins">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/11400909-abee9df147ccfa44.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 <link rel="canonical" href="http://www.liyaolife.com/Hexo2/">
@@ -324,12 +324,11 @@
 <p>总之不管使用什么编辑器，Markdown的语法都是一样的。<br>使用Markdown编辑好，保存。重新hexo s 即可刷新本地的网页。</p>
 <h2 id="使用MWeb与七牛云图床优化写作体验"><a href="#使用MWeb与七牛云图床优化写作体验" class="headerlink" title="使用MWeb与七牛云图床优化写作体验"></a>使用MWeb与七牛云图床优化写作体验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">该部分不是必须的，可以跳过。</span><br></pre></td></tr></table></figure>
 <p>MWeb作为Mac APP store里面非常优秀的Markdown编辑器。使用MWeb，具体方法，打开MWeb之后Command+E，进入外部模式，跟IDE打开project一样打开blog/soure即可，本地编辑，保存，命令行一键发布，简直不能再爽了。</p>
-<p><font color="red">图床是什么鬼，为什么要使用图床？</font><br>当我们在本地做一个Word或者PPT文档的时候，图片的插入非常方便，只要拖进去就行了。</p>
+<p><font color=red>图床是什么鬼，为什么要使用图床？</font><br>当我们在本地做一个Word或者PPT文档的时候，图片的插入非常方便，只要拖进去就行了。</p>
 <p>但是也存在一个问题，插入图片越多，文档就越大，打开时间也就越长，一台老机子开一个Word有时候需要30s以上，网页虽然道理不太一样，但是大体也是图片越多，打开越慢。</p>
 <p>HTML语言里面，图片都是作为标签引用。有过公众号运营的同学可能有体会，插入图片需要先上传到公众号相册，然后再在相册里面选一下。非常麻烦。那能否直接插入图片？</p>
 <p>答案必须是Yes。</p>
-<p>这时候图床就派上用场了，拖进去，上传，复制Markdown，这时候你的文档里面是一个<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="selector-attr">[]</span>(<span class="attribute">http</span>:<span class="comment">//p6atp7tts.bkt.clouddn.com/15222405680070.jpg)</span></span><br></pre></td></tr></table></figure></p>
-<p>这样的东西，相当于图片变成了一个源。</p>
+<p>这时候图床就派上用场了，拖进去，上传，复制Markdown，这时候你的文档里面是一个<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="selector-attr">[]</span>(<span class="attribute">http</span>:<span class="comment">//p6atp7tts.bkt.clouddn.com/15222405680070.jpg)</span></span><br></pre></td></tr></table></figure><br>这样的东西，相当于图片变成了一个源。</p>
 <p>Hexo博客其实本身不存在这个问题，因为拖进去的图片会被保存下来，一起上传到GitHub repo里面，相当于自动完成了这个过程。但是这样博客的迁移性就不太好，如果要随便迁移，比如要迁移到微信公众号或CSDN，这个方法就比较有用了。关于MWeb和七牛的配置具体可见下面两个资源。<br><a href="https://blog.csdn.net/crazy1235/article/details/78570367" target="_blank" rel="noopener">MWeb</a> ，<a href="https://www.cnblogs.com/colder219/p/6266296.html" target="_blank" rel="noopener">七牛云图床</a></p>
 <p>还有一篇文章，介绍的比较详细，可以看出MWeb+七牛到底有什么好处。<br><a href="https://www.jianshu.com/p/c859ead1b493" target="_blank" rel="noopener">一个码子工作者的正确书写发文姿势</a></p>
 <hr>
@@ -491,13 +490,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -527,9 +526,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

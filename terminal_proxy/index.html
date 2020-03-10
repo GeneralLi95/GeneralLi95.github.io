@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -51,18 +51,19 @@
   };
 </script>
 
-  <meta name="description" content="在配置科学上网的时候，无论 PAC 模式还是还是全局模式，在终端都是不适用的。终端需要单独设置代理(类似 Telegram，或者 Foxamail 里面为某个邮箱单独设置代理)。 方法，修改 .bash_profile ，如果 bash 已经更新为 zsh 的话，修改 .zshrc 文件 在其中加入 123# http://127.0.0.1:1080 替换成自己的 IP 和端口alias gop">
-<meta name="keywords" content="Proxy,Shell">
+  <meta name="description" content="在配置科学上网的时候，无论 PAC 模式还是还是全局模式，在终端都是不适用的。终端需要单独设置代理(类似 Telegram，或者 Foxamail 里面为某个邮箱单独设置代理)。 方法，修改 .bash_profile ，如果 bash 已经更新为 zsh 的话，修改 .zshrc 文件 在其中加入 123# http:&#x2F;&#x2F;127.0.0.1:1080 替换成自己的 IP 和端口alias gop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac 设置终端代理">
 <meta property="og:url" content="http://www.liyaolife.com/terminal_proxy/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="在配置科学上网的时候，无论 PAC 模式还是还是全局模式，在终端都是不适用的。终端需要单独设置代理(类似 Telegram，或者 Foxamail 里面为某个邮箱单独设置代理)。 方法，修改 .bash_profile ，如果 bash 已经更新为 zsh 的话，修改 .zshrc 文件 在其中加入 123# http://127.0.0.1:1080 替换成自己的 IP 和端口alias gop">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-16T15:24:50.964Z">
+<meta property="og:description" content="在配置科学上网的时候，无论 PAC 模式还是还是全局模式，在终端都是不适用的。终端需要单独设置代理(类似 Telegram，或者 Foxamail 里面为某个邮箱单独设置代理)。 方法，修改 .bash_profile ，如果 bash 已经更新为 zsh 的话，修改 .zshrc 文件 在其中加入 123# http:&#x2F;&#x2F;127.0.0.1:1080 替换成自己的 IP 和端口alias gop">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-16T13:30:28.000Z">
+<meta property="article:modified_time" content="2020-02-16T15:24:50.964Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Proxy">
+<meta property="article:tag" content="Shell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac 设置终端代理">
-<meta name="twitter:description" content="在配置科学上网的时候，无论 PAC 模式还是还是全局模式，在终端都是不适用的。终端需要单独设置代理(类似 Telegram，或者 Foxamail 里面为某个邮箱单独设置代理)。 方法，修改 .bash_profile ，如果 bash 已经更新为 zsh 的话，修改 .zshrc 文件 在其中加入 123# http://127.0.0.1:1080 替换成自己的 IP 和端口alias gop">
 
 <link rel="canonical" href="http://www.liyaolife.com/terminal_proxy/">
 
@@ -304,8 +305,7 @@
 <p>在其中加入</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># http:<span class="comment">//127.0.0.1:1080 替换成自己的 IP 和端口</span></span></span><br><span class="line">alias goproxy='export http_proxy=http://127.0.0.1:<span class="number">1080</span> https_proxy=http://127.0.0.1:<span class="number">1080</span>'</span><br><span class="line">alias disproxy='unset http_proxy https_proxy'</span><br></pre></td></tr></table></figure>
 <p>注意是 http 协议代理端口，不是 socks 端口。编辑完成后保存退出。</p>
-<p>使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure></p>
-<p>或者重启电脑，使新的配置文件生效。接下来使用方法</p>
+<p>使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure><br>或者重启电脑，使新的配置文件生效。接下来使用方法</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启代理</span></span><br><span class="line">% setproxy    </span><br><span class="line">HTTP<span class="built_in"> Proxy </span>on</span><br><span class="line"><span class="comment"># 关闭代理</span></span><br><span class="line">% unsetproxy  </span><br><span class="line">HTTP<span class="built_in"> Proxy </span>off</span><br></pre></td></tr></table></figure>
 <p>不过，发现即使设置代理之后 ping google.com 还是不行，查了资料之后发现，ping 命令走的是 icmp 协议，http 是应用层协议，而 icmp 是网络层协议。配置的应用层协议不会影响网络层协议，所以即使配置代理之后还是 ping 不通 Google。需要安装 httping 工具。不再赘述。</p>
 
@@ -465,13 +465,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -501,9 +501,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

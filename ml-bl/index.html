@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="1 绪论机器学习分类   监督学习 无监督学习训练集无人为标注结果  强化学习  半监督学习 深度学习当下最火的机器学习应用   Python Scikit-Learn库 scikit-learn常用算法的调用方法     应用 算法     分类(classfication) 异常检测、图像识别等 KNN，SVM，etc   聚类(clustering) 图像分割、群体划分等 K-Means，谱">
-<meta name="keywords" content="Machine Learning">
+  <meta name="description" content="1 绪论机器学习分类   监督学习 无监督学习训练集无人为标注结果  强化学习  半监督学习 深度学习当下最火的机器学习应用   Python Scikit-Learn库 scikit-learn常用算法的调用方法      应用 算法     分类(classfication) 异常检测、图像识别等 KNN，SVM，etc   聚类(clustering) 图像分割、群体划分等 K-Means，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="北京理工大学慕课「Python与机器学习」笔记">
 <meta property="og:url" content="http://www.liyaolife.com/ml-bl/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="1 绪论机器学习分类   监督学习 无监督学习训练集无人为标注结果  强化学习  半监督学习 深度学习当下最火的机器学习应用   Python Scikit-Learn库 scikit-learn常用算法的调用方法     应用 算法     分类(classfication) 异常检测、图像识别等 KNN，SVM，etc   聚类(clustering) 图像分割、群体划分等 K-Means，谱">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-18T07:47:53.636Z">
+<meta property="og:description" content="1 绪论机器学习分类   监督学习 无监督学习训练集无人为标注结果  强化学习  半监督学习 深度学习当下最火的机器学习应用   Python Scikit-Learn库 scikit-learn常用算法的调用方法      应用 算法     分类(classfication) 异常检测、图像识别等 KNN，SVM，etc   聚类(clustering) 图像分割、群体划分等 K-Means，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-11-24T08:34:05.000Z">
+<meta property="article:modified_time" content="2020-02-18T07:47:53.636Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="北京理工大学慕课「Python与机器学习」笔记">
-<meta name="twitter:description" content="1 绪论机器学习分类   监督学习 无监督学习训练集无人为标注结果  强化学习  半监督学习 深度学习当下最火的机器学习应用   Python Scikit-Learn库 scikit-learn常用算法的调用方法     应用 算法     分类(classfication) 异常检测、图像识别等 KNN，SVM，etc   聚类(clustering) 图像分割、群体划分等 K-Means，谱">
 
 <link rel="canonical" href="http://www.liyaolife.com/ml-bl/">
 
@@ -319,6 +319,7 @@
 </blockquote>
 <p>Python Scikit-Learn库</p>
 <p>scikit-learn常用算法的调用方法</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -350,6 +351,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="2-sklearn-安装"><a href="#2-sklearn-安装" class="headerlink" title="2 sklearn 安装"></a>2 sklearn 安装</h2><p>scikit-learn简称，是在Numpy、Scipy和matplotlib基础上开发而成，因此使用sklearn库之前需要先安装前几个库</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Numpy（Numerical Python）是一个开源的Python科学计算库</span><br><span class="line"></span><br><span class="line"><span class="keyword">Scipy库是sklearn库的基础，它是基于Numpy的一个集成了多种数学算法和函数的Python模块</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">matplotlib是基于Numpy的一套Python工具包，提供了大量的数据绘图工具</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">安装顺序</span></span><br><span class="line"><span class="keyword">Numpy</span></span><br><span class="line"><span class="keyword">Scipy</span></span><br><span class="line"><span class="keyword">matplotlib</span></span><br><span class="line"><span class="keyword">sklearn</span></span><br></pre></td></tr></table></figure>
 <p>由于mac系统自带的Python是2.7，自带的包也是只支持2.x版本的，要使用Python3的话需要重新安装这几个包。</p>
@@ -358,6 +360,7 @@
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip3 <span class="keyword">install </span>numpy <span class="comment">#安装支持Python3的的Numpy包</span></span><br><span class="line">pip3 <span class="keyword">install </span><span class="keyword">scipy </span><span class="comment">#安装支持Python3的scipy包</span></span><br><span class="line">pip3 <span class="keyword">install </span>matplotlib  <span class="comment">#安装支持Python3 的matplotlib包</span></span><br><span class="line">pip3 <span class="keyword">install </span>sklearn  <span class="comment">#安装sklearn包</span></span><br></pre></td></tr></table></figure>
 <p>数据下载 ：uzi数据集</p>
 <h2 id="3-sklearn库中的标准数据集及基本功能"><a href="#3-sklearn库中的标准数据集及基本功能" class="headerlink" title="3 sklearn库中的标准数据集及基本功能"></a>3 sklearn库中的标准数据集及基本功能</h2><p>数据集总览</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -373,20 +376,20 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>小数据集|波士顿房价数据集|load_boston()|回归|506<em>13<br> |鸢尾花数据集|load_iris()|分类|150</em>4<br> |糖尿病数据集|load_diabetes()|回归|442<em>10<br> |手写数字数据集|load_digits()|分类|5620</em>64<br>大数据集|Olivetti脸部图像数据集|fetch_olivetti_faces()|降维|400 <em> 64 </em> 64<br> | 新闻分类数据集|fetch——20newsgroups（）|分类|-<br> |带标签的人脸数据集|fetch_lfw_people()|分类；降维|-<br>  |路透社新闻语料数据集|fetch_revl()|分类|804414*47236</p>
 <p><em>注：小数据集可以直接使用，大数据集要在调用程序时自动下载（一次即可）</em></p>
 <p>波士顿房价数据集：<br>包含506组数据，每条数据包含房屋以及房屋周围的详细信息。其中包括城镇犯罪率、一氧化碳浓度、住宅平均房间数、到中心去域的加权距离以及自主房平均房价等。因此，波士顿房价数据集能够应用到回归问题上。</p>
 <p>例如<br>使用<br><code>sklearn.datasets.load_bosten</code>即可加载相关数据集<br>重要参数<br><code>return_X_y</code>:表示是否返回target(即价格），默认为FALSE，只返回data(即属性）</p>
 <p>波士顿房价数据集-加载示例</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; from sklearn.datasets import load_boston</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; boston = load_boston()</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(boston.data.shape)</span></span><br><span class="line">(506,13)</span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; from sklearn.datasets import load_boston</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; boston = load_boston()</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(boston.data.shape)</span><br><span class="line">(<span class="number">506</span>,<span class="number">13</span>)</span><br></pre></td></tr></table></figure>
 <p>示例二</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; from sklearn.datasets import load_boston</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; data,target = load_boston(return_X_y=True)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(data.shape)</span></span><br><span class="line">(506,13)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(target.shape)</span></span><br><span class="line">506</span><br></pre></td></tr></table></figure>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">data</span>,<span class="keyword">target</span> = load_boston(return_X_y=True)</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="keyword">data</span>.<span class="built_in">shape</span>)</span><br><span class="line">(<span class="number">506</span>,<span class="number">13</span>)</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="keyword">target</span>.<span class="built_in">shape</span>)</span><br><span class="line"><span class="number">506</span></span><br></pre></td></tr></table></figure>
 <p>手写数字数据集<br>包括1797个0-9的手写数字数据，每个数字由8*8大小的矩阵构成，矩阵中值得范围是0-16，代表颜色的深度。</p>
 <p>示例</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; from sklearn.datasets import load_digits</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; digits = load_digits()</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(digits.data.shape)</span></span><br><span class="line">(1797,64)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(digits.target.shape)</span></span><br><span class="line">(1797,)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(digits.images.shape)</span></span><br><span class="line">(1797.8.8)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; import matplotlib.pyplot as plt</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; plt.matshow(digits.images[0])</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; plt.show()</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="sklearn库的基本功能"><a href="#sklearn库的基本功能" class="headerlink" title="sklearn库的基本功能"></a>sklearn库的基本功能</h3><p>sklearn库的功能分为6大部分，分别用于完成分类任务、回归任务、聚类任务、降维任务、模型选择以及数据的预处理。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; from sklearn.datasets import load_digits</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; digits = load_digits()</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(digits.data.shape)</span><br><span class="line">(<span class="number">1797</span>,<span class="number">64</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(digits.target.shape)</span><br><span class="line">(<span class="number">1797</span>,)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(digits.images.shape)</span><br><span class="line">(<span class="number">1797.8</span>.<span class="number">8</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; import matplotlib.pyplot as plt</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; plt.matshow(digits.images[<span class="number">0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; plt.show()</span><br></pre></td></tr></table></figure></h2><h3 id="sklearn库的基本功能"><a href="#sklearn库的基本功能" class="headerlink" title="sklearn库的基本功能"></a>sklearn库的基本功能</h3><p>sklearn库的功能分为6大部分，分别用于完成分类任务、回归任务、聚类任务、降维任务、模型选择以及数据的预处理。</p>
 <p>分类任务</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -421,7 +424,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>回归任务</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -460,7 +465,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>聚类任务</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -499,7 +506,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>降维任务</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -538,6 +547,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="4-无监督学习"><a href="#4-无监督学习" class="headerlink" title="4 无监督学习"></a>4 无监督学习</h2><p>利用无标签的数据学习数据的分布或数据与数据之间的关系。</p>
 <p><em>有监督学习和无监督学习的最大区别在于数据是否有标签</em><br>无监督学习最常用的场景是聚类和降维。</p>
 <p><strong>聚类，就是根据数据的“相似性”将数据分为多类的过程。</strong><br>so，如何定义相似性？<br>根据两个样本之间的距离。</p>
@@ -550,6 +560,7 @@
 <p>以同样的数据集应用于不同的算法可能会得到不同的结果，这是由算法特性决定的。</p>
 <p>sklearn.cluster<br>数据标准输入格式：[样本个数，特征个数]定义的矩阵形式。<br>相似度矩阵输入格式</p>
 <p>sklearn.cluster几个有代表性的聚类方法的参数与特性</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -586,6 +597,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>降维，就是在保证数据所具有的代表性特性或者分布的情况下，将高维数据转化为低位数据的过程。</strong></p>
 <p>通常用于：</p>
 <blockquote>
@@ -593,6 +605,7 @@
 </blockquote>
 <p>降维过程也可以理解为对数据集的组成成分进行分解（decomposition）的过程，因此sklearn为降维模块命名为decomposition，在对降维算法调用需要使用sklearn.decomposition模块。</p>
 <p>sklearn.decomposition里的几个常用降维算法</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -629,6 +642,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="5-K-means-聚类算法"><a href="#5-K-means-聚类算法" class="headerlink" title="5 K-means 聚类算法"></a>5 K-means 聚类算法</h2><p>以k为参数，把n个对象分成k个簇，使簇内具有较高的相似度，而簇间的相似度较低</p>
 <blockquote>
 <p>1.随机选择k个点作为初始的聚类中心<br>2.对于剩下的点，根据其与聚类中心的距离，将其归入最近的簇<br>3.对每个簇，计算所有点的均值作为新的聚类中心<br>4.重复2、3直到聚类中心不再发生改变</p>
@@ -715,7 +729,29 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-绪论"><span class="nav-text">1 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-sklearn-安装"><span class="nav-text">2 sklearn 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-sklearn库中的标准数据集及基本功能"><span class="nav-text">3 sklearn库中的标准数据集及基本功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sklearn库的基本功能"><span class="nav-text">sklearn库的基本功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-无监督学习"><span class="nav-text">4 无监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-K-means-聚类算法"><span class="nav-text">5 K-means 聚类算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-DBSCAN-密度聚类算法"><span class="nav-text">6 DBSCAN 密度聚类算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-主成成分分析（PCA）降维算法"><span class="nav-text">7 主成成分分析（PCA）降维算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-非负矩阵分解（NMF）-降维方法"><span class="nav-text">8 非负矩阵分解（NMF） 降维方法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-绪论"><span class="nav-text">1 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-sklearn-安装"><span class="nav-text">2 sklearn 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-sklearn库中的标准数据集及基本功能"><span class="nav-text">3 sklearn库中的标准数据集及基本功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-text">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+&gt;&gt;&gt; from sklearn.datasets import load_digits
+&gt;&gt;&gt; digits &#x3D; load_digits()
+&gt;&gt;&gt; print(digits.data.shape)
+(1797,64)
+&gt;&gt;&gt; print(digits.target.shape)
+(1797,)
+&gt;&gt;&gt; print(digits.images.shape)
+(1797.8.8)
+&gt;&gt;&gt; import matplotlib.pyplot as plt
+&gt;&gt;&gt; plt.matshow(digits.images[0])
+&gt;&gt;&gt; plt.show()
+</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sklearn库的基本功能"><span class="nav-text">sklearn库的基本功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-无监督学习"><span class="nav-text">4 无监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-K-means-聚类算法"><span class="nav-text">5 K-means 聚类算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-DBSCAN-密度聚类算法"><span class="nav-text">6 DBSCAN 密度聚类算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-主成成分分析（PCA）降维算法"><span class="nav-text">7 主成成分分析（PCA）降维算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-非负矩阵分解（NMF）-降维方法"><span class="nav-text">8 非负矩阵分解（NMF） 降维方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -805,13 +841,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -841,9 +877,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

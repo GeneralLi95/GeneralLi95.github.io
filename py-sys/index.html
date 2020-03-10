@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="通过python编写的大型代码往往需要在服务器中运行，而服务器中往往不会安装IDE，所以只能在控制台通过python yourcode.py使程序执行，如果程序中有参数需要调整，通过文本编辑器到程序里去调整参数十分麻烦，并且不能保证代码的一致性。 所以就需要利用，控制台输入参数，参考代码 123456789101112131415import sysif __name__ == &quot;__main__">
-<meta name="keywords" content="Python">
+  <meta name="description" content="通过python编写的大型代码往往需要在服务器中运行，而服务器中往往不会安装IDE，所以只能在控制台通过python yourcode.py使程序执行，如果程序中有参数需要调整，通过文本编辑器到程序里去调整参数十分麻烦，并且不能保证代码的一致性。 所以就需要利用，控制台输入参数，参考代码 123456789101112131415import sysif __name__ &#x3D;&#x3D; &quot;__main__">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 通过sys.argv控制台输入参数">
 <meta property="og:url" content="http://www.liyaolife.com/py-sys/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="通过python编写的大型代码往往需要在服务器中运行，而服务器中往往不会安装IDE，所以只能在控制台通过python yourcode.py使程序执行，如果程序中有参数需要调整，通过文本编辑器到程序里去调整参数十分麻烦，并且不能保证代码的一致性。 所以就需要利用，控制台输入参数，参考代码 123456789101112131415import sysif __name__ == &quot;__main__">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-18T07:50:51.118Z">
+<meta property="og:description" content="通过python编写的大型代码往往需要在服务器中运行，而服务器中往往不会安装IDE，所以只能在控制台通过python yourcode.py使程序执行，如果程序中有参数需要调整，通过文本编辑器到程序里去调整参数十分麻烦，并且不能保证代码的一致性。 所以就需要利用，控制台输入参数，参考代码 123456789101112131415import sysif __name__ &#x3D;&#x3D; &quot;__main__">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-11-15T08:41:44.000Z">
+<meta property="article:modified_time" content="2020-02-18T07:50:51.118Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python 通过sys.argv控制台输入参数">
-<meta name="twitter:description" content="通过python编写的大型代码往往需要在服务器中运行，而服务器中往往不会安装IDE，所以只能在控制台通过python yourcode.py使程序执行，如果程序中有参数需要调整，通过文本编辑器到程序里去调整参数十分麻烦，并且不能保证代码的一致性。 所以就需要利用，控制台输入参数，参考代码 123456789101112131415import sysif __name__ == &quot;__main__">
 
 <link rel="canonical" href="http://www.liyaolife.com/py-sys/">
 
@@ -313,9 +313,9 @@
       
         <p>通过python编写的大型代码往往需要在服务器中运行，而服务器中往往不会安装IDE，所以只能在控制台通过<code>python yourcode.py</code>使程序执行，如果程序中有参数需要调整，通过文本编辑器到程序里去调整参数十分麻烦，并且不能保证代码的一致性。</p>
 <p>所以就需要利用，控制台输入参数，参考代码</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) &gt;= <span class="number">3</span>:</span><br><span class="line">        <span class="selector-tag">a</span> = sys<span class="selector-class">.argv</span>[<span class="number">1</span>]</span><br><span class="line">        <span class="selector-tag">b</span> = sys<span class="selector-class">.argv</span>[<span class="number">2</span>]</span><br><span class="line">    elif len(sys.argv) == <span class="number">2</span>:</span><br><span class="line">        <span class="selector-tag">a</span> = sys<span class="selector-class">.argv</span>[<span class="number">1</span>]</span><br><span class="line">        <span class="selector-tag">b</span> = input(<span class="string">"请输入参数b "</span>)</span><br><span class="line">    elif len(sys.argv) == <span class="number">1</span>:</span><br><span class="line">        <span class="selector-tag">a</span> = input(<span class="string">"请输入参数a "</span>)</span><br><span class="line">        <span class="selector-tag">b</span> = input(<span class="string">"请输入参数b "</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="selector-tag">a</span> + b)</span><br><span class="line">    print(sys.argv)</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(sys.<span class="built_in">argv</span>) &gt;= <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">a</span> = sys.<span class="built_in">argv</span>[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">b</span> = sys.<span class="built_in">argv</span>[<span class="number">2</span>]</span><br><span class="line">    elif <span class="built_in">len</span>(sys.<span class="built_in">argv</span>) == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">a</span> = sys.<span class="built_in">argv</span>[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">b</span> = <span class="built_in">input</span>(<span class="string">"请输入参数b "</span>)</span><br><span class="line">    elif <span class="built_in">len</span>(sys.<span class="built_in">argv</span>) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">a</span> = <span class="built_in">input</span>(<span class="string">"请输入参数a "</span>)</span><br><span class="line">        <span class="keyword">b</span> = <span class="built_in">input</span>(<span class="string">"请输入参数b "</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span>(<span class="keyword">a</span> + <span class="keyword">b</span>)</span><br><span class="line">    <span class="keyword">print</span>(sys.<span class="built_in">argv</span>)</span><br></pre></td></tr></table></figure>
 <p>我们在控制台执行这个程序</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">YaodeMacBook-<span class="symbol">Pro:</span>learnpy yaoli<span class="variable">$ </span>python3 raw_input_test.py <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="number">23</span></span><br><span class="line">[<span class="string">'raw_input_test.py'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">YaodeMacBook-<span class="symbol">Pro:</span>learnpy yaoli<span class="variable">$ </span>python3 raw_input_test.py <span class="number">2 3</span></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="number">23</span></span><br><span class="line">[<span class="string">'raw_input_test.py'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>]</span><br></pre></td></tr></table></figure>
 <p>通过 <code>python3 raw_input_test.py 2 3</code> 命令执行了 <code>raw_input_test.py</code> 这个程序，其中2,3分别是 <code>sys.argv[1]</code> 和 <code>sys.argv[2]</code>，为什么不是 <code>sys.argv[0]</code>我们通过<code>print(sys.argv)</code> 发现其实 <code>sys.argv</code> 就是一个list，它的0号元素是这个程序的程序名。</p>
 <p>通过 <code>print(a+b)</code> 得出 <code>23</code>，我们发现这些参数的输入都是作为字符串变量导入的。</p>
 <p>同时以上参考代码，还具有如果输入参数不够两个，自动要求你继续输入的功能。</p>
@@ -475,13 +475,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -511,9 +511,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

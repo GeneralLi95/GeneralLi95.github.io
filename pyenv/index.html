@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,18 +52,18 @@
 </script>
 
   <meta name="description" content="Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。 前几天修复了 一个 pytorch 不能自动下载 check">
-<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="怎样在 Mac 上安装一个最好的 Python 工作环境">
 <meta property="og:url" content="http://www.liyaolife.com/pyenv/index.html">
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。 前几天修复了 一个 pytorch 不能自动下载 check">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/01/09/F9cHlR57tbuwymN.png">
-<meta property="og:updated_time" content="2020-02-18T07:50:22.071Z">
+<meta property="article:published_time" content="2020-01-09T01:56:07.000Z">
+<meta property="article:modified_time" content="2020-02-18T07:50:22.071Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="怎样在 Mac 上安装一个最好的 Python 工作环境">
-<meta name="twitter:description" content="Python 环境的布置真的是个大难题，mac 内置 python2.7，可以通过 brew 安装 python3，也可以在官网原生安装 python3，有的是用 anaconda 一套全搞定，有的是用 pip 来管理，总之电脑上的 python 环境就像一条大蛇，很容易失控。就像下面这张图画的，在不同位置乱成一锅粥，也会引起一些冲突。 前几天修复了 一个 pytorch 不能自动下载 check">
 <meta name="twitter:image" content="https://i.loli.net/2020/01/09/F9cHlR57tbuwymN.png">
 
 <link rel="canonical" href="http://www.liyaolife.com/pyenv/">
@@ -326,13 +326,13 @@
 <h2 id="正确的方式安装-Python-版本"><a href="#正确的方式安装-Python-版本" class="headerlink" title="正确的方式安装 Python 版本"></a>正确的方式安装 Python 版本</h2><blockquote>
 <p>“The basic premise of all Python development is to never use the system Python. You do not want the Mac OS X ‘default Python’ to be ‘python3.’ You want to never care about default Python.”——Moshe Zadka</p>
 </blockquote>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% brew install pyenv</span><br><span class="line">🍺  <span class="regexp">/usr/</span>local<span class="regexp">/Cellar/</span>pyenv<span class="regexp">/1.2.16: 671 files, 2.5MB</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% pyenv <span class="keyword">install</span> <span class="number">3.8</span><span class="number">.1</span></span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> openssl@<span class="number">1.1</span> <span class="keyword">from</span> homebrew</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> readline <span class="keyword">from</span> homebrew</span><br><span class="line">Downloading Python<span class="number">-3.8</span><span class="number">.1</span>.tar.xz...</span><br><span class="line">-&gt; https://www.python.org/<span class="keyword">ftp</span>/python/<span class="number">3.8</span><span class="number">.1</span>/Python<span class="number">-3.8</span><span class="number">.1</span>.tar.xz</span><br><span class="line">Installing Python<span class="number">-3.8</span><span class="number">.1</span>...</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> readline <span class="keyword">from</span> homebrew</span><br><span class="line">python-<span class="keyword">build</span>: <span class="keyword">use</span> zlib <span class="keyword">from</span> xcode sdk</span><br><span class="line">Installed Python<span class="number">-3.8</span><span class="number">.1</span> <span class="keyword">to</span> /<span class="keyword">Users</span>/yaoli/.pyenv/<span class="keyword">versions</span>/<span class="number">3.8</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% brew install pyenv</span><br><span class="line">🍺  /usr/local/Cellar/pyenv/<span class="number">1.2</span><span class="number">.16</span>: <span class="number">671</span> files, <span class="number">2.5</span>MB</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% pyenv install <span class="number">3.8</span><span class="number">.1</span></span><br><span class="line">python-build: use <span class="symbol">openssl@</span><span class="number">1.1</span> <span class="keyword">from</span> homebrew</span><br><span class="line">python-build: use readline <span class="keyword">from</span> homebrew</span><br><span class="line">Downloading Python<span class="number">-3.8</span><span class="number">.1</span>.tar.xz...</span><br><span class="line">-&gt; https:<span class="comment">//www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz</span></span><br><span class="line">Installing Python<span class="number">-3.8</span><span class="number">.1</span>...</span><br><span class="line">python-build: use readline <span class="keyword">from</span> homebrew</span><br><span class="line">python-build: use zlib <span class="keyword">from</span> xcode sdk</span><br><span class="line">Installed Python<span class="number">-3.8</span><span class="number">.1</span> to /Users/yaoli/.pyenv/versions/<span class="number">3.8</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
 <p>还需要将 pyenv 加入到命令行设置文件里，原生命令行是 <strong>.bash_profile</strong>，zsh是 <strong>.zshrc</strong></p>
 <blockquote>
 <p>The power of pyenv comes from its control over our shell’s path. In order for it to work correctly, we need to add the following to our configuration file (.zshrc for me, possibly .bash_profile for you):</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv 1&gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span>\n  <span class="built_in">eval</span> <span class="string">"<span class="variable">$(pyenv init -)</span>"</span>\nfi<span class="string">' &gt;&gt; ~/.zshrc</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv <span class="number">1</span>&gt;/dev/<span class="literal">null</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span>; then\n  eval <span class="string">"$(pyenv init -)"</span>\nfi<span class="string">' &gt;&gt; ~/.zshrc</span></span><br></pre></td></tr></table></figure>
 <p>然后</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">% pyenv <span class="keyword">global</span> <span class="number">3.8</span><span class="number">.1</span></span><br><span class="line">% pyenv <span class="built_in">version</span></span><br><span class="line"><span class="number">3.8</span><span class="number">.1</span> (<span class="keyword">set</span> <span class="keyword">by</span> /Users/yaoli/.pyenv/<span class="built_in">version</span>)</span><br></pre></td></tr></table></figure>
 <p>重启 terminal 或者 <code>exec $Shell</code></p>
@@ -505,13 +505,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -541,9 +541,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,18 +52,18 @@
 </script>
 
   <meta name="description" content="MAC Java环境配置1. 安装JDKJDK全称Java Development Kit，Java开发工具包，是Java开发的核心。之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。终端输入 1Java -version 显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。 2. 配置环境变量配置环境变量前先得到JAVA_HOME">
-<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac Java环境配置">
 <meta property="og:url" content="http://www.liyaolife.com/java1/index.html">
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="MAC Java环境配置1. 安装JDKJDK全称Java Development Kit，Java开发工具包，是Java开发的核心。之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。终端输入 1Java -version 显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。 2. 配置环境变量配置环境变量前先得到JAVA_HOME">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11400909-e41bcc47495420eb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-02-18T07:55:35.617Z">
+<meta property="article:published_time" content="2018-05-19T05:42:32.000Z">
+<meta property="article:modified_time" content="2020-02-18T07:55:35.617Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac Java环境配置">
-<meta name="twitter:description" content="MAC Java环境配置1. 安装JDKJDK全称Java Development Kit，Java开发工具包，是Java开发的核心。之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。终端输入 1Java -version 显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。 2. 配置环境变量配置环境变量前先得到JAVA_HOME">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/11400909-e41bcc47495420eb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 <link rel="canonical" href="http://www.liyaolife.com/java1/">
@@ -323,10 +323,18 @@
 <p>环境变量一共有三个东西需要配置：<br>JAVA_HOME<br>CLASS_PATH<br>PATH<br>在windows 系统里是在我的电脑属性高级设置里分别设置，macOS里依然是通过命令行设置。<br>终端输入：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">vim</span> /etc/<span class="keyword">profile</span></span><br></pre></td></tr></table></figure>
 <p>然后后需要输入密码。接下来按i，显示insert，进入输入模式。然后输入下面配置：</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"</span></span><br><span class="line"><span class="keyword">export</span> JAVA_HOME</span><br><span class="line">CLASS_PATH=i<span class="string">"$JAVA_HOME/lib"</span></span><br><span class="line">PATH=<span class="string">".$PATH:$JAVA_HOME/bin"</span></span><br></pre></td></tr></table></figure>
-<p>然后按esc，进入保存。<br>输入<figure class="highlight plain"><figcaption><span>保存</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;font color=red&gt;</span><br><span class="line">这里注意一下，JAVA_HOME的路径不要照着网上教程全抄了，把自己刚刚存下来的路径copy过来，毕竟安装的JDK版本不一致的时候，路径当中有的文件的名字是不一致的。</span><br><span class="line">&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">接下来 输入</span><br></pre></td></tr></table></figure></p>
-<p>source /etc/profile<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行<span class="keyword">profile</span>配置文件</span><br><span class="line"></span><br><span class="line">检查环境</span><br><span class="line">输入</span><br></pre></td></tr></table></figure></p>
-<p>echo $JAVA_HOME<br><code>`</code><br>得到配置的路径，说明配置完毕。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">JAVA_HOME</span>=<span class="string">"/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"</span></span><br><span class="line"><span class="builtin-name">export</span> JAVA_HOME</span><br><span class="line"><span class="attribute">CLASS_PATH</span>=i"$JAVA_HOME/lib"</span><br><span class="line"><span class="attribute">PATH</span>=<span class="string">".<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin"</span></span><br></pre></td></tr></table></figure>
+<p>然后按esc，进入保存。<br>输入<code>:wq!</code> 保存</p>
+<font color=red>
+这里注意一下，JAVA_HOME的路径不要照着网上教程全抄了，把自己刚刚存下来的路径copy过来，毕竟安装的JDK版本不一致的时候，路径当中有的文件的名字是不一致的。
+</font>
+
+<p>接下来 输入</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="regexp">/etc/</span>profile</span><br></pre></td></tr></table></figure>
+<p>运行profile配置文件</p>
+<p>检查环境<br>输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></span><br></pre></td></tr></table></figure>
+<p>得到配置的路径，说明配置完毕。</p>
 <blockquote>
 <p>5.14 日更新：<br>发现该环境变量配置之后，终端许多命令无法执行，比如python3,pip以及hexo命令，这是无法忍受的。所以又强行把它改了回去，得以恢复。<br>后发现IntelliJ IDEA会自带Java环境，在不设置这个环境变量的情况下，Java的hello world还是跑起来了。<br>所以真的是<strong>生命在与折腾！</strong></p>
 </blockquote>
@@ -494,13 +502,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -530,9 +538,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

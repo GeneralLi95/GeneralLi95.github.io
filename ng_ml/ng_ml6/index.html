@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,13 +52,12 @@
 </script>
 
   <meta name="description" content="在这一章和上一章中间还有一章是讲 MATLAB 编程的，跳过，不做笔记了，这个没什么好笔记的。 这一章开始讲逻辑回归分析 Logistic Regression。 6.1 Classification and Repressentation6.1.1 Classification从这一节开始讨论分类问题，并介绍一种新的算法——逻辑回归，这也是目前最受欢迎和广泛使用的学习算法之一。 刚开始是二分类(">
-<meta name="keywords" content="Andrew Ng Machine Learning,MOOC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Andrew Ng Machine Learning - 6 Logistic Regression">
 <meta property="og:url" content="http://www.liyaolife.com/ng_ml/ng_ml6/index.html">
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="在这一章和上一章中间还有一章是讲 MATLAB 编程的，跳过，不做笔记了，这个没什么好笔记的。 这一章开始讲逻辑回归分析 Logistic Regression。 6.1 Classification and Repressentation6.1.1 Classification从这一节开始讨论分类问题，并介绍一种新的算法——逻辑回归，这也是目前最受欢迎和广泛使用的学习算法之一。 刚开始是二分类(">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/03/04/4PQK9wnZSRfW85b.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/04/s6FvqnYz7gkpjE8.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/04/Prg7bLjCJmElAyR.png">
@@ -74,10 +73,12 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/10/Yad7munV34MQCIl.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/10/5EWTpLO1dvbsmfZ.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/10/FHfw9iVpeSQGLNn.png">
-<meta property="og:updated_time" content="2020-03-10T13:32:12.396Z">
+<meta property="article:published_time" content="2020-03-03T15:58:30.000Z">
+<meta property="article:modified_time" content="2020-03-10T15:55:44.484Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Andrew Ng Machine Learning">
+<meta property="article:tag" content="MOOC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andrew Ng Machine Learning - 6 Logistic Regression">
-<meta name="twitter:description" content="在这一章和上一章中间还有一章是讲 MATLAB 编程的，跳过，不做笔记了，这个没什么好笔记的。 这一章开始讲逻辑回归分析 Logistic Regression。 6.1 Classification and Repressentation6.1.1 Classification从这一节开始讨论分类问题，并介绍一种新的算法——逻辑回归，这也是目前最受欢迎和广泛使用的学习算法之一。 刚开始是二分类(">
 <meta name="twitter:image" content="https://i.loli.net/2020/03/04/4PQK9wnZSRfW85b.png">
 
 <link rel="canonical" href="http://www.liyaolife.com/ng_ml/ng_ml6/">
@@ -261,7 +262,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-10 21:32:12" itemprop="dateModified" datetime="2020-03-10T21:32:12+08:00">2020-03-10</time>
+                <time title="修改时间：2020-03-10 23:55:44" itemprop="dateModified" datetime="2020-03-10T23:55:44+08:00">2020-03-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,7 +309,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.1k</span>
+              <span>5.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -342,38 +343,87 @@
 </ul>
 <p>总结，逻辑回归算法就是对于 y 是固定值场合。</p>
 <h3 id="6-1-2-Hypothesis-Representation"><a href="#6-1-2-Hypothesis-Representation" class="headerlink" title="6.1.2 Hypothesis Representation"></a>6.1.2 Hypothesis Representation</h3><p>那么用线性回归无法表示分类问题，分类问题的数学表示，开始引入 Sigmoid Function 或 Logistic Function</p>
-<p>$$h_\theta(x)=g(\theta^T x)$$<br>$$z = \theta^Tx$$<br>$$g(z)=\frac{1}{1+e^{-z}}$$</p>
-<p>$g(z)$的函数图像为<br><img src="https://i.loli.net/2020/03/04/4PQK9wnZSRfW85b.png" alt><br>完成了从实数域到 0-1 的映射，同时这个函数给出了结果为1的概率，比如 $h_\theta(x)=0.7$ 就意味着分类结果有 70% 的可能性是 1，而结果是 0 的概率即为 30%。</p>
+<script type="math/tex; mode=display">h_\theta(x)=g(\theta^T x)</script><script type="math/tex; mode=display">z = \theta^Tx</script><script type="math/tex; mode=display">g(z)=\frac{1}{1+e^{-z}}</script><p>$g(z)$的函数图像为<br><img src="https://i.loli.net/2020/03/04/4PQK9wnZSRfW85b.png" alt=""><br>完成了从实数域到 0-1 的映射，同时这个函数给出了结果为1的概率，比如 $h_\theta(x)=0.7$ 就意味着分类结果有 70% 的可能性是 1，而结果是 0 的概率即为 30%。</p>
 <h3 id="6-2-1-Decision-Boundary"><a href="#6-2-1-Decision-Boundary" class="headerlink" title="6.2.1 Decision Boundary"></a>6.2.1 Decision Boundary</h3><blockquote>
 <p>recap 记录</p>
 </blockquote>
-<p>决策边界<br>$h_\theta(x)$ 的值虽然被映射到 0-1 之间，但是它依然不是 0 或者 1，而是0-1之间的连续数，我们需要指定值，当其大于0.5时，认为分类为1，当其小于0.5时，认为分类值为0。<strong>对于$h_\theta(x) = g(\theta^Tx)$其大于或小于0.5，就是 $\theta^Tx$ 大于或小于0。</strong><br><img src="https://i.loli.net/2020/03/04/s6FvqnYz7gkpjE8.png" alt></p>
-<p>有一些决策边界是非线性边界，比如圆。对于多项式决策方程，其对应的决策边界可能是各种奇奇怪怪的形状。<br><img src="https://i.loli.net/2020/03/04/Prg7bLjCJmElAyR.png" alt></p>
+<p>决策边界<br>$h<em>\theta(x)$ 的值虽然被映射到 0-1 之间，但是它依然不是 0 或者 1，而是0-1之间的连续数，我们需要指定值，当其大于0.5时，认为分类为1，当其小于0.5时，认为分类值为0。**对于$h</em>\theta(x) = g(\theta^Tx)$其大于或小于0.5，就是 $\theta^Tx$ 大于或小于0。**<br><img src="https://i.loli.net/2020/03/04/s6FvqnYz7gkpjE8.png" alt=""></p>
+<p>有一些决策边界是非线性边界，比如圆。对于多项式决策方程，其对应的决策边界可能是各种奇奇怪怪的形状。<br><img src="https://i.loli.net/2020/03/04/Prg7bLjCJmElAyR.png" alt=""></p>
 <h2 id="6-2-Logistic-Regression-Model"><a href="#6-2-Logistic-Regression-Model" class="headerlink" title="6.2 Logistic Regression Model"></a>6.2 Logistic Regression Model</h2><h3 id="6-2-1-Cost-Function"><a href="#6-2-1-Cost-Function" class="headerlink" title="6.2.1 Cost Function"></a>6.2.1 Cost Function</h3><blockquote>
 <p>convex function 凸函数<br>non-convex function 非凸函数<br>nonlinear 非线性<br>approach to 趋近于</p>
 </blockquote>
 <p>下面开始介绍Logistic Regression 的损失函数</p>
-<p>训练集: ${ (x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),…,(x^{(m)},y^{(m)}) }$<br>m个样本<br>$$x \in \left[ \begin{array}{ccc}x_0 \\ x_1 \\ … \\ x_n \end{array}\right] x_0=1, y \in { 0,1 }$$</p>
-<p>$$h_\theta(x) = \frac{1}{1+e^{-\theta^Tx}}$$<br>该如何选择参数向量 $\theta$<br>复习一下线性回归的损失函数:<br>$$J(\theta) =  \frac{1}{2m}\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2$$<br>如果我们将这个损失函数直接运用在 Logistic Regression 上，则这个损失函数将是一个非凸函数，而梯度下降法要求损失函数一定要是一个凸函数。<br><img src="https://i.loli.net/2020/03/04/lBKFPu8qoE2WSkj.png" alt><br>所以我们需要找到一个损失函数，使其为一个凸函数。</p>
-<p>注意这不是分段函数!n<br>$$<br>Cost(h_\theta(x),y) = \left{<br>\begin{aligned}<br>-log(h_\theta(x)) \quad if \quad y = 1 \<br>-log(1-h_\theta(x)) \quad if \quad y = 0 \<br>\end{aligned}<br>\right.<br>$$</p>
-<p><img src="https://i.loli.net/2020/03/04/gdarWysE8BOS6mx.png" alt><br>当 y = 1 且 $h_\theta(x)=1$时，这时候损失为0。<br>而当 $h_\theta(x) \rightarrow 0$ 的时候，$x \downarrow$,$h_\theta(x)\downarrow$，$Cost \uparrow$ 损失函数趋近于无穷大。<br>而当 y = 0 且 $h_\theta(x)=0$的时候，损失值也是0。<br>注意 $log(x)$ 和 $log(1-x)$是关于将$log(x)$ 先对称再平移。<br>当$h_\theta(x) \rightarrow 0$，这时候随着$h_\theta(x) \rightarrow 1$，$x\uparrow$，$h_\theta(x)\uparrow$，$Cost\uparrow$。</p>
+<p>训练集: ${ (x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),…,(x^{(m)},y^{(m)}) }$<br>m个样本</p>
+<script type="math/tex; mode=display">x \in \left[ \begin{array}{ccc}x_0 \\\ x_1 \\\ ... \\\ x_n \end{array}\right] x_0=1, y \in \{ 0,1 \}</script><script type="math/tex; mode=display">h_\theta(x) = \frac{1}{1+e^{-\theta^Tx}}</script><p>该如何选择参数向量 $\theta$<br>复习一下线性回归的损失函数:</p>
+<script type="math/tex; mode=display">J(\theta) =  \frac{1}{2m}\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2</script><p>如果我们将这个损失函数直接运用在 Logistic Regression 上，则这个损失函数将是一个非凸函数，而梯度下降法要求损失函数一定要是一个凸函数。<br><img src="https://i.loli.net/2020/03/04/lBKFPu8qoE2WSkj.png" alt=""><br>所以我们需要找到一个损失函数，使其为一个凸函数。</p>
+<p>注意这不是分段函数!n</p>
+<script type="math/tex; mode=display">
+Cost(h_\theta(x),y) = \left\{
+\begin{aligned}
+-log(h_\theta(x)) \quad if \quad y = 1 \\
+-log(1-h_\theta(x)) \quad if \quad y = 0 \\
+\end{aligned}
+\right.</script><p><img src="https://i.loli.net/2020/03/04/gdarWysE8BOS6mx.png" alt=""><br>当 y = 1 且 $h<em>\theta(x)=1$时，这时候损失为0。<br>而当 $h</em>\theta(x) \rightarrow 0$ 的时候，$x \downarrow$,$h<em>\theta(x)\downarrow$，$Cost \uparrow$ 损失函数趋近于无穷大。<br>而当 y = 0 且 $h</em>\theta(x)=0$的时候，损失值也是0。<br>注意 $log(x)$ 和 $log(1-x)$是关于将$log(x)$ 先对称再平移。<br>当$h<em>\theta(x) \rightarrow 0$，这时候随着$h</em>\theta(x) \rightarrow 1$，$x\uparrow$，$h_\theta(x)\uparrow$，$Cost\uparrow$。</p>
 <p><img src="https://i.loli.net/2020/03/04/rBh4VZHXqWUDiLl.png" alt="Cost function when y = 0"></p>
 <p><strong>quiz</strong></p>
-<p><img src="https://i.loli.net/2020/03/04/scDfvtC8FA9IYnl.png" alt><br>答案是1，2，4.损失函数值是一直大于等于零的。只有当其$y$为 1 或者 0 的时候不是。</p>
-<h3 id="6-2-2-Simplified-Cost-Function-and-Gradient-Descent"><a href="#6-2-2-Simplified-Cost-Function-and-Gradient-Descent" class="headerlink" title="6.2.2 Simplified Cost Function and Gradient Descent"></a>6.2.2 Simplified Cost Function and Gradient Descent</h3><p>这节开始尝试简化损失函数的写法。<br>之前损失函数写法：<br>$$J(\theta) =  \frac{1}{m}\sum^m_{i=1}Cost(h_\theta(x^{(i)}),y^{(i)})$$<br>$$<br>Cost(h_\theta(x),y) = \left{<br>\begin{aligned}<br>-log(h_\theta(x)) \quad if \quad y = 1 \<br>-log(1-h_\theta(x)) \quad if \quad y = 0 \<br>\end{aligned}<br>\right.<br>$$<br>Note: y = 0 or 1 always</p>
-<p>是否存在一种方法，将损失函数写成一行。答案是存在的，因为 y 始终等于 0 或者 1，所以可以构造多<br>$$<br>Cost(h_\theta(x),y) =<br>-y logh_\theta(x)<br>-(1-y)log(1-h_\theta(x))<br>$$</p>
-<p>所以<br>$$<br>J(\theta) =  -\frac{1}{m}\sum^m_{i=1}[y^{(i)} logh_\theta(x^{(i)})+<br>(1-y^{(i)})log(1-h_\theta(x^{(i)}))]<br>$$<br>那么接下来按照梯度下降法，该求偏导数了，<code>这个非常重要的偏导数求导过程ng居然给省略了...</code>，可能是如果有这个推导这个课程难度会增加一个 level 吧。</p>
+<p><img src="https://i.loli.net/2020/03/04/scDfvtC8FA9IYnl.png" alt=""><br>答案是1，2，4.损失函数值是一直大于等于零的。只有当其$y$为 1 或者 0 的时候不是。</p>
+<h3 id="6-2-2-Simplified-Cost-Function-and-Gradient-Descent"><a href="#6-2-2-Simplified-Cost-Function-and-Gradient-Descent" class="headerlink" title="6.2.2 Simplified Cost Function and Gradient Descent"></a>6.2.2 Simplified Cost Function and Gradient Descent</h3><p>这节开始尝试简化损失函数的写法。<br>之前损失函数写法：</p>
+<script type="math/tex; mode=display">J(\theta) =  \frac{1}{m}\sum^m_{i=1}Cost(h_\theta(x^{(i)}),y^{(i)})</script><script type="math/tex; mode=display">
+Cost(h_\theta(x),y) =
+\begin{cases}
+-log(h_\theta(x)) \quad if \quad y = 1 \\
+-log(1-h_\theta(x)) \quad if \quad y = 0
+\end{cases}</script><p>Note: y = 0 or 1 always</p>
+<p>是否存在一种方法，将损失函数写成一行。答案是存在的，因为 y 始终等于 0 或者 1，所以可以构造多</p>
+<script type="math/tex; mode=display">
+Cost(h_\theta(x),y) =
+-y logh_\theta(x)
+-(1-y)log(1-h_\theta(x))</script><p>所以</p>
+<script type="math/tex; mode=display">
+J(\theta) =  -\frac{1}{m}\sum^m_{i=1}[y^{(i)} logh_\theta(x^{(i)})+
+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]</script><p>那么接下来按照梯度下降法，该求偏导数了，<code>这个非常重要的偏导数求导过程ng居然给省略了...</code>，可能是如果有这个推导这个课程难度会增加一个 level 吧。</p>
 <blockquote>
 <p>identical 相同的</p>
 </blockquote>
-<p><strong>我还是决定来推导一下这个公式</strong><br>首先复习两个公式：<br>$$\frac{d}{d_x}log_a f(x) = \frac{1}{a \ln f(x)}f’(x)$$<br>$$(e^{ax})’=ae^{ax}$$<br>故<br>$$\frac{\partial}{\partial \theta}J(\theta)=<br>-\frac{1}{m}\sum^m_{i=1}<br>[y^{(i)} \frac{\partial}{\partial \theta}logh_\theta(x^{(i)})+<br>(1-y^{(i)})\frac{\partial}{\partial \theta}log(1-h_\theta(x^{(i)}))]$$</p>
-<p>先计算<br>$$<br>\begin{aligned}<br>\frac{\partial}{\partial \theta}logh_\theta(x^{(i)}) &amp;= \frac{\partial}{\partial \theta}log({\frac{1}{1+e^{-\theta^Tx}}}) \<br>&amp;= \frac{\partial}{\partial \theta}[log(1)-log(1+e^{-\theta^Tx})] \<br>&amp;= -\frac{\partial}{\partial \theta}log(1+e^{-\theta^Tx}) \<br>&amp;=  -\frac{1}{1+e^{-\theta^Tx}} \frac{\partial}{\partial \theta}(1+e^{-\theta^Tx}) \<br>&amp;= \frac{x}{1+e^{-\theta^Tx}}e^{-\theta^Tx}  \<br>&amp;= （1-\frac{1}{1+e^{-\theta^tx}})x_j  \<br>&amp;=  (1-h_\theta(x^{(i)}))x^{(i)}_j<br>\end{aligned}<br>$$</p>
-<p>再计算</p>
-<p>$$ \begin{aligned}<br>\frac{\partial}{\partial \theta}log(1-h_\theta(x^{(i)})) &amp;= \frac{\partial}{\partial \theta}log({1- \frac{1}{1+e^{-\theta^Tx}}}) \<br>&amp;= \frac{\partial}{\partial \theta}log({\frac{e^{-\theta^Tx}}{1+e^{-\theta^Tx}}})\<br>&amp;= \frac{\partial}{\partial \theta}[log(e^{-\theta^Tx})-log(1+e^{-\theta^Tx})] \<br>&amp;= \frac{\partial}{\partial \theta}log(e^{-\theta^Tx})-\frac{\partial}{\partial \theta}log(1+e^{-\theta^Tx}) \<br>&amp;= \frac{\partial}{\partial \theta}({-\theta^Tx})   -\frac{1}{1+e^{-\theta^Tx}} \frac{\partial}{\partial \theta}(1+e^{-\theta^Tx}) \<br>&amp;= -x<br>+\frac{x}{1+e^{-\theta^Tx}}e^{-\theta^Tx} \<br>&amp;= -\frac{1}{1+e^{-\theta^tx}}x_j \<br>&amp;= -h_\theta(x^{(i)})x^{(i)}_j<br>\end{aligned}$$</p>
-<p>代入源式子：</p>
-<p>$$<br>\begin{aligned}<br>\frac{\partial}{\partial \theta}J(\theta) &amp;=<br>-\frac{1}{m}\sum^m_{i=1}<br>[y^{(i)} \frac{\partial}{\partial \theta}logh_\theta(x^{(i)})+<br>(1-y^{(i)})\frac{\partial}{\partial \theta}log(1-h_\theta(x^{(i)}))] \<br>&amp;= -\frac{1}{m}\sum^m_{i=1}[[y^{(i)} (1-h_\theta(x^{(i)}))x^{(i)}<em>j - (1-y^{(i)})h</em>\theta(x^{(i)})x^{(i)}<em>j ] \<br>&amp;= -\frac{1}{m}\sum^m</em>{i=1}[y^{(i)}x^{(i)}<em>j - h</em>\theta(x^{(i)})x^{(i)}<em>j] \<br>&amp;= \frac{1}{m}\sum^m</em>{i=1}(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j<br>\end{aligned}<br>$$</p>
-<p><strong>推导结束！</strong><br>即可知，梯度下降法的更新方程是：<br>$$\theta_j = \theta_j -  \frac{\alpha}{m}\sum^m_{i=1}(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j$$<br>会发现这个迭代公式和线性回归的迭代公式竟然是一致的！<br>向量化实现：<br>$$\theta = \theta - \frac{\alpha}{m}X^T(g(X\theta)- \vec{y})$$</p>
-<p><img src="https://i.loli.net/2020/03/10/zZCgrEK9UmbTkpj.png" alt></p>
+<p><strong>我还是决定来推导一下这个公式</strong><br>首先复习两个公式：</p>
+<script type="math/tex; mode=display">\frac{d}{d_x}log_a f(x) = \frac{1}{a \ln f(x)}f'(x)</script><script type="math/tex; mode=display">(e^{ax})'=ae^{ax}</script><p>故</p>
+<script type="math/tex; mode=display">\frac{\partial}{\partial \theta}J(\theta)=
+-\frac{1}{m}\sum^m_{i=1}
+[y^{(i)} \frac{\partial}{\partial \theta}logh_\theta(x^{(i)})+
+(1-y^{(i)})\frac{\partial}{\partial \theta}log(1-h_\theta(x^{(i)}))]</script><p>先计算</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\partial}{\partial \theta}logh_\theta(x^{(i)}) &= \frac{\partial}{\partial \theta}log({\frac{1}{1+e^{-\theta^Tx}}}) \\
+&= \frac{\partial}{\partial \theta}[log(1)-log(1+e^{-\theta^Tx})] \\
+&= -\frac{\partial}{\partial \theta}log(1+e^{-\theta^Tx}) \\
+&=  -\frac{1}{1+e^{-\theta^Tx}} \frac{\partial}{\partial \theta}(1+e^{-\theta^Tx}) \\
+&= \frac{x}{1+e^{-\theta^Tx}}e^{-\theta^Tx}  \\
+&= （1-\frac{1}{1+e^{-\theta^tx}})x_j  \\
+&=  (1-h_\theta(x^{(i)}))x^{(i)}_j
+\end{aligned}</script><p>再计算</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\frac{\partial}{\partial \theta}log(1-h_\theta(x^{(i)})) &= \frac{\partial}{\partial \theta}log({1- \frac{1}{1+e^{-\theta^Tx}}}) \\
+&= \frac{\partial}{\partial \theta}log({\frac{e^{-\theta^Tx}}{1+e^{-\theta^Tx}}})\\
+&= \frac{\partial}{\partial \theta}[log(e^{-\theta^Tx})-log(1+e^{-\theta^Tx})] \\
+&= \frac{\partial}{\partial \theta}log(e^{-\theta^Tx})-\frac{\partial}{\partial \theta}log(1+e^{-\theta^Tx}) \\
+&= \frac{\partial}{\partial \theta}({-\theta^Tx})   -\frac{1}{1+e^{-\theta^Tx}} \frac{\partial}{\partial \theta}(1+e^{-\theta^Tx}) \\
+&= -x
++\frac{x}{1+e^{-\theta^Tx}}e^{-\theta^Tx} \\
+&= -\frac{1}{1+e^{-\theta^tx}}x_j \\
+&= -h_\theta(x^{(i)})x^{(i)}_j
+\end{aligned}</script><p>代入源式子：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\partial}{\partial \theta}J(\theta) &=
+-\frac{1}{m}\sum^m_{i=1}
+[y^{(i)} \frac{\partial}{\partial \theta}logh_\theta(x^{(i)})+
+(1-y^{(i)})\frac{\partial}{\partial \theta}log(1-h_\theta(x^{(i)}))] \\
+&= -\frac{1}{m}\sum^m_{i=1}[[y^{(i)} (1-h_\theta(x^{(i)}))x^{(i)}_j - (1-y^{(i)})h_\theta(x^{(i)})x^{(i)}_j ] \\
+&= -\frac{1}{m}\sum^m_{i=1}[y^{(i)}x^{(i)}_j - h_\theta(x^{(i)})x^{(i)}_j] \\
+&= \frac{1}{m}\sum^m_{i=1}(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j
+\end{aligned}</script><p><strong>推导结束！</strong><br>即可知，梯度下降法的更新方程是：</p>
+<script type="math/tex; mode=display">\theta_j = \theta_j -  \frac{\alpha}{m}\sum^m_{i=1}(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j</script><p>会发现这个迭代公式和线性回归的迭代公式竟然是一致的！<br>向量化实现：</p>
+<script type="math/tex; mode=display">\theta = \theta - \frac{\alpha}{m}X^T(g(X\theta)- \vec{y})</script><p><img src="https://i.loli.net/2020/03/10/zZCgrEK9UmbTkpj.png" alt=""></p>
 <h3 id="6-2-3-Advanced-Optimization"><a href="#6-2-3-Advanced-Optimization" class="headerlink" title="6.2.3 Advanced Optimization"></a>6.2.3 Advanced Optimization</h3><p>这一节探讨一些优化的方法。在计算完损失函数与偏导数之后，可以使用梯度下降法，也有其他方法。</p>
 <ul>
 <li>Gradient 梯度下降法</li>
@@ -388,14 +438,14 @@
 </blockquote>
 <h2 id="6-3-Muticlass-Classification"><a href="#6-3-Muticlass-Classification" class="headerlink" title="6.3 Muticlass Classification"></a>6.3 Muticlass Classification</h2><p>这一节讲如何将逻辑回归算法应用到多分类问题上，也即 one-vs-all question。<br>比如一个自动分类邮件到 工作、朋友、家庭、爱好的程序。</p>
 <p>one-vs-rest，对于一个分三类的问题，将其分解成3个二分类问题。分别得出三个判别边界。</p>
-<p><img src="https://i.loli.net/2020/03/10/Y2oRwWNJMebZA3t.png" alt></p>
-<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p><img src="https://i.loli.net/2020/03/10/PgA2F8lrSevT7IX.png" alt><br><strong>Answer:第一项和第四项</strong></p>
+<p><img src="https://i.loli.net/2020/03/10/Y2oRwWNJMebZA3t.png" alt=""></p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p><img src="https://i.loli.net/2020/03/10/PgA2F8lrSevT7IX.png" alt=""><br><strong>Answer:第一项和第四项</strong></p>
 <ol>
 <li>Suppose you have the following training set, and fit a logistic regression classifier $h_\theta(x) +g(\theta_0+\theta_1x_1+\theta_2x2)$.</li>
 </ol>
-<p><img src="https://i.loli.net/2020/03/10/QGISbJOPox94hlA.png" alt><br><strong>Answer:第一项和第二项</strong>，这个例子里面线性回归显然是不适合，需要多项式回归，损失函数不可能达到零，一定会有一定大小。而这是一个二分类问题，h(x)必定介于1和0之间。</p>
-<p><img src="https://i.loli.net/2020/03/10/dFayDtIo5uhw8SH.png" alt><br><strong>Answer:第一项和第三项</strong>，考察逻辑回归的梯度下降公式里的一些细节，h(x)等于什么很重要。</p>
-<p><img src="https://i.loli.net/2020/03/10/Yad7munV34MQCIl.png" alt><br><strong>Answer:第二项和第三项</strong>，对于第一项，这些高级方法的优点在于学习率$\alpha$不用再自己选择，第四项在逻辑回归的开头引出的时候讲了，线性回归的缺陷就在那里。<br><img src="https://i.loli.net/2020/03/10/5EWTpLO1dvbsmfZ.png" alt><br><img src="https://i.loli.net/2020/03/10/FHfw9iVpeSQGLNn.png" alt><br><strong>Answer:第三项</strong>，这个比较好看出来，当x2小于等于6的时候，h(x)是大于0的，对应y=1。</p>
+<p><img src="https://i.loli.net/2020/03/10/QGISbJOPox94hlA.png" alt=""><br><strong>Answer:第一项和第二项</strong>，这个例子里面线性回归显然是不适合，需要多项式回归，损失函数不可能达到零，一定会有一定大小。而这是一个二分类问题，h(x)必定介于1和0之间。</p>
+<p><img src="https://i.loli.net/2020/03/10/dFayDtIo5uhw8SH.png" alt=""><br><strong>Answer:第一项和第三项</strong>，考察逻辑回归的梯度下降公式里的一些细节，h(x)等于什么很重要。</p>
+<p><img src="https://i.loli.net/2020/03/10/Yad7munV34MQCIl.png" alt=""><br><strong>Answer:第二项和第三项</strong>，对于第一项，这些高级方法的优点在于学习率$\alpha$不用再自己选择，第四项在逻辑回归的开头引出的时候讲了，线性回归的缺陷就在那里。<br><img src="https://i.loli.net/2020/03/10/5EWTpLO1dvbsmfZ.png" alt=""><br><img src="https://i.loli.net/2020/03/10/FHfw9iVpeSQGLNn.png" alt=""><br><strong>Answer:第三项</strong>，这个比较好看出来，当x2小于等于6的时候，h(x)是大于0的，对应y=1。</p>
 
     </div>
 
@@ -551,13 +601,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -587,9 +637,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

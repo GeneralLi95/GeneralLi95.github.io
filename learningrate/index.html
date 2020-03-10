@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,13 +52,12 @@
 </script>
 
   <meta name="description" content="声明：本文主要是以翻译Suki Lau的在Media博文 Learning Rate Schedules and Adaptive Learning Rate Methods for Deep Learning 为基础，增加了个人的理解。  学习率 learning rate 是深度中最重要的超参数之一，学习率大小决定了神经网络收敛的速度，学习率太大，可能导致收敛速度过快而震荡，学习率太小则可能导">
-<meta name="keywords" content="Deep Learning,Learning Rate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习中的学习率变化和自适应学习率方法">
 <meta property="og:url" content="http://www.liyaolife.com/learningrate/index.html">
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="声明：本文主要是以翻译Suki Lau的在Media博文 Learning Rate Schedules and Adaptive Learning Rate Methods for Deep Learning 为基础，增加了个人的理解。  学习率 learning rate 是深度中最重要的超参数之一，学习率大小决定了神经网络收敛的速度，学习率太大，可能导致收敛速度过快而震荡，学习率太小则可能导">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/11/20/jpqVeSfFwrgkBO5.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/21/k2CWzNHb3vnlQoV.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/26/XRicvsu5gEfJwm6.png">
@@ -68,10 +67,12 @@
 <meta property="og:image" content="https://i.loli.net/2019/11/26/dzaVuJ9sirMDUgm.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/26/PMzyi2NuXE5TrR9.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/26/itTkIjezbpqcdRD.png">
-<meta property="og:updated_time" content="2020-02-18T08:05:23.847Z">
+<meta property="article:published_time" content="2019-11-20T02:30:29.000Z">
+<meta property="article:modified_time" content="2020-02-18T08:05:23.847Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="Learning Rate">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习中的学习率变化和自适应学习率方法">
-<meta name="twitter:description" content="声明：本文主要是以翻译Suki Lau的在Media博文 Learning Rate Schedules and Adaptive Learning Rate Methods for Deep Learning 为基础，增加了个人的理解。  学习率 learning rate 是深度中最重要的超参数之一，学习率大小决定了神经网络收敛的速度，学习率太大，可能导致收敛速度过快而震荡，学习率太小则可能导">
 <meta name="twitter:image" content="https://i.loli.net/2019/11/20/jpqVeSfFwrgkBO5.png">
 
 <link rel="canonical" href="http://www.liyaolife.com/learningrate/">
@@ -324,7 +325,7 @@
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keras.optimizers.SGD(<span class="attribute">lr</span>=0.1, <span class="attribute">momentum</span>=0.0, <span class="attribute">decay</span>=0.0, <span class="attribute">nesterov</span>=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/11/21/k2CWzNHb3vnlQoV.png" alt="固定学习率"></p>
 <h3 id="1-2-时序衰减学习率"><a href="#1-2-时序衰减学习率" class="headerlink" title="1.2 时序衰减学习率"></a>1.2 时序衰减学习率</h3><p>时序衰减学习率的数学公式是 $lr=lr_0/(1 + k_t)$ 这里 $lr$，和 $k$ 都是一个高参数，$t$ 是一个迭代次数。如果看 Keras 的源码，会发现 SGD optimizer 把衰减和学习率的更新通过在每个周期递减一个参数数值来更新。</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr *= (<span class="number">1</span>. / (<span class="number">1</span>. + <span class="keyword">self</span>.decay * <span class="keyword">self</span>.iterations))</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr *= (<span class="number">1.</span> / (<span class="number">1.</span> + self.decay * self.iterations))</span><br></pre></td></tr></table></figure>
 <p>动量是 SGD optimizer 里的另外一个参数，我们可以通过调整它来获得更快的收敛速度。不像经典的 SGD 方法，动动量法可帮助参数矢量以恒定的梯度下降沿任意方向建立速度，从而防止振荡。一般动量选择的值是0.5-0.9之间。</p>
 <p>SGD optimizer 还有一个参数叫做 nesterov，默认情况下它的值是 false. Nesterov 动量是动量方法的一种变形，对凸函数具有更强的理论收敛保证。在实际操作中，它的效果比标准动量方法稍好。</p>
 <p>在 Keras 里我们可以实现时序衰减学习率通过在SGD optimizer 中设置初始学习率，衰减率和动量。</p>
@@ -340,20 +341,20 @@
 <p><img src="https://i.loli.net/2019/11/26/XRicvsu5gEfJwm6.png" alt="按步衰减模型精度"></p>
 <p><img src="https://i.loli.net/2019/11/26/lPLmMX1Jxfipy68.png" alt="按步衰减的学习率"></p>
 <h3 id="1-4-指数衰减"><a href="#1-4-指数衰减" class="headerlink" title="1.4 指数衰减"></a>1.4 指数衰减</h3><p>指数衰减也是常用的学习率下降模式。数学公式是 <code>lr = lr0 * e^(−kt)</code>，这里<code>lr</code>,<code>k</code>都是超参数，<code>t</code>是循环次数。同样，我们可以通过定义指数衰减函数并将其传递给<code>LearningRateScheduler</code>来实现。 实际上，可以使用此方法在Keras中实现任何自定义衰减时间表。 唯一的区别是定义了不同的自定义衰减函数。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exp_decay</span><span class="params">(epoch)</span></span><span class="symbol">:</span></span><br><span class="line">   initial_lrate = <span class="number">0</span>.<span class="number">1</span></span><br><span class="line">   k = <span class="number">0</span>.<span class="number">1</span></span><br><span class="line">   lrate = initial_lrate * exp(-k*t)</span><br><span class="line">   <span class="keyword">return</span> lrate</span><br><span class="line">lrate = LearningRateScheduler(exp_decay)</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/11/26/5v24fC6RodxQXlb.png" alt></p>
-<p><img src="https://i.loli.net/2019/11/26/vnHbEkyPfSlG1jL.png" alt></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">def</span> <span class="string">exp_decay(epoch):</span></span><br><span class="line">   <span class="attr">initial_lrate</span> = <span class="string">0.1</span></span><br><span class="line">   <span class="attr">k</span> = <span class="string">0.1</span></span><br><span class="line">   <span class="attr">lrate</span> = <span class="string">initial_lrate * exp(-k*t)</span></span><br><span class="line">   <span class="attr">return</span> <span class="string">lrate</span></span><br><span class="line"><span class="attr">lrate</span> = <span class="string">LearningRateScheduler(exp_decay)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/11/26/5v24fC6RodxQXlb.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/11/26/vnHbEkyPfSlG1jL.png" alt=""></p>
 <p>现在让我们在示例中使用不同的学习率时间表来比较模型的准确性。</p>
-<p><img src="https://i.loli.net/2019/11/26/dzaVuJ9sirMDUgm.png" alt></p>
+<p><img src="https://i.loli.net/2019/11/26/dzaVuJ9sirMDUgm.png" alt=""></p>
 <h2 id="2-自适应学习率方法"><a href="#2-自适应学习率方法" class="headerlink" title="2 自适应学习率方法"></a>2 自适应学习率方法</h2><p>使用学习速率计划的挑战在于，必须提前定义其超参数，并且它们在很大程度上取决于模型和问题的类型。另一个问题是，将相同的学习率应用于所有参数更新。如果数据稀疏，则可能需要在不同程度上更新参数。</p>
 <p>诸如Adagrad，Adadelta，RMSprop，Adam之类的自适应梯度下降算法提供了经典SGD的替代方法。这些按参数学习速率的方法提供了启发式方法，而无需为手动调整学习速率时间表的超参数而进行昂贵的工作。</p>
 <p>简而言之，Adagrad对较大的稀疏参数执行较大的更新，对较小的稀疏参数执行较小的更新。它在稀疏数据和训练大规模神经网络方面表现良好。但是，当训练深度神经网络时，其单调学习率通常证明过于激进，并且过早停止学习。 Adadelta是Adagrad的扩展，旨在降低其激进的，单调降低的学习率。 RMSprop以非常简单的方式调整Adagrad方法，以尝试降低其激进的，单调降低的学习率。亚当是对RMSProp优化器的更新，类似于具有动力的RMSprop。</p>
 <p>在Keras中，我们可以使用相应的优化器轻松实现这些自适应学习算法。通常建议将这些优化器的超参数保留为默认值（有时除外lr）。</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">keras.optimizers.Adagrad(<span class="attribute">lr</span>=0.01, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br><span class="line">keras.optimizers.Adadelta(<span class="attribute">lr</span>=1.0, <span class="attribute">rho</span>=0.95, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br><span class="line">keras.optimizers.RMSprop(<span class="attribute">lr</span>=0.001, <span class="attribute">rho</span>=0.9, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br><span class="line">keras.optimizers.Adam(<span class="attribute">lr</span>=0.001, <span class="attribute">beta_1</span>=0.9, <span class="attribute">beta_2</span>=0.999, <span class="attribute">epsilon</span>=1e-08, <span class="attribute">decay</span>=0.0)</span><br></pre></td></tr></table></figure>
 <p>现在让我们看看使用不同的自适应学习率方法的模型性能。 在我们的示例中，Adadelta提供了其他自适应学习率方法中最佳的模型精度。</p>
-<p><img src="https://i.loli.net/2019/11/26/PMzyi2NuXE5TrR9.png" alt></p>
+<p><img src="https://i.loli.net/2019/11/26/PMzyi2NuXE5TrR9.png" alt=""></p>
 <p>最后，我们比较了我们讨论过的所有学习率计划和自适应学习率方法的性能。</p>
-<p><img src="https://i.loli.net/2019/11/26/itTkIjezbpqcdRD.png" alt></p>
+<p><img src="https://i.loli.net/2019/11/26/itTkIjezbpqcdRD.png" alt=""></p>
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在我研究过的许多示例中，自适应学习率方法比学习率表显示出更好的性能，并且在超参数设置中需要更少的精力。 我们还可以使用Keras中的LearningRateScheduler创建针对我们数据问题的自定义学习率计划。</p>
 <p>为了进一步阅读，Yoshua Bengio的论文为调整深度学习的学习速率提供了非常好的实用建议，例如如何设置初始学习速率，最小批量大小，时期数以及使用早期停止和动量。</p>
 <p><a href="https://github.com/sukilau/Ziff-deep-learning/blob/master/3-CIFAR10-lrate/CIFAR10-lrate.ipynb" target="_blank" rel="noopener">源代码</a></p>
@@ -520,13 +521,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -556,9 +557,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

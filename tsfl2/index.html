@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,18 +52,20 @@
 </script>
 
   <meta name="description" content="为了更方便TensorFlow程序的理解、调试与优化，Google发布了一套叫做TensorBoard的可视化工具，可以用TensorBoard来展现TensorFlow的图像，绘制图像生成的定量指标图以及附加数据。 TensorBoard设置完成之后的样子应该如下图： 其基本原理见TensorBoard中文手册，内有详细的介绍。 本文参考了放羊的水瓶的博文。 下面通过三个例程，来讲解其使用： 例">
-<meta name="keywords" content="TensorFlow,Machine Learing,TensorBoard">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorBoard使用示例">
 <meta property="og:url" content="http://www.liyaolife.com/tsfl2/index.html">
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="为了更方便TensorFlow程序的理解、调试与优化，Google发布了一套叫做TensorBoard的可视化工具，可以用TensorBoard来展现TensorFlow的图像，绘制图像生成的定量指标图以及附加数据。 TensorBoard设置完成之后的样子应该如下图： 其基本原理见TensorBoard中文手册，内有详细的介绍。 本文参考了放羊的水瓶的博文。 下面通过三个例程，来讲解其使用： 例">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist_tensorboard.png">
-<meta property="og:updated_time" content="2020-02-18T07:45:15.269Z">
+<meta property="article:published_time" content="2018-07-25T03:28:01.000Z">
+<meta property="article:modified_time" content="2020-02-18T07:45:15.269Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="TensorFlow">
+<meta property="article:tag" content="Machine Learing">
+<meta property="article:tag" content="TensorBoard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TensorBoard使用示例">
-<meta name="twitter:description" content="为了更方便TensorFlow程序的理解、调试与优化，Google发布了一套叫做TensorBoard的可视化工具，可以用TensorBoard来展现TensorFlow的图像，绘制图像生成的定量指标图以及附加数据。 TensorBoard设置完成之后的样子应该如下图： 其基本原理见TensorBoard中文手册，内有详细的介绍。 本文参考了放羊的水瓶的博文。 下面通过三个例程，来讲解其使用： 例">
 <meta name="twitter:image" content="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist_tensorboard.png">
 
 <link rel="canonical" href="http://www.liyaolife.com/tsfl2/">
@@ -314,7 +316,7 @@
 
       
         <p>为了更方便TensorFlow程序的理解、调试与优化，Google发布了一套叫做TensorBoard的可视化工具，可以用TensorBoard来展现TensorFlow的图像，绘制图像生成的定量指标图以及附加数据。</p>
-<p>TensorBoard设置完成之后的样子应该如下图：<br><img src="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist_tensorboard.png" alt></p>
+<p>TensorBoard设置完成之后的样子应该如下图：<br><img src="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist_tensorboard.png" alt=""></p>
 <p>其基本原理见<a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/how_tos/summaries_and_tensorboard.html" target="_blank" rel="noopener">TensorBoard中文手册</a>，内有详细的介绍。</p>
 <p>本文参考了<a href="https://www.cnblogs.com/fydeblog/p/7429344.html" target="_blank" rel="noopener">放羊的水瓶的博文</a>。</p>
 <p>下面通过三个例程，来讲解其使用：</p>
@@ -488,13 +490,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -524,9 +526,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

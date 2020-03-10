@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,19 +52,22 @@
 </script>
 
   <meta name="description" content="VGG Net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
-<meta name="keywords" content="Machine Learning,Deep Learning,PyTorch,Nerual Network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VGG 笔记">
 <meta property="og:url" content="http://www.liyaolife.com/netmodels/vgg/index.html">
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="VGG Net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png">
-<meta property="og:updated_time" content="2020-02-18T04:23:02.347Z">
+<meta property="article:published_time" content="2019-12-12T09:24:16.000Z">
+<meta property="article:modified_time" content="2020-02-18T04:23:02.347Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="PyTorch">
+<meta property="article:tag" content="Nerual Network">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VGG 笔记">
-<meta name="twitter:description" content="VGG Net论文提出 Oxford Visual Geometry Group 2014年 Very Deep Convolutional Networks for Large-Scale Image Recognition VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的">
 <meta name="twitter:image" content="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png">
 
 <link rel="canonical" href="http://www.liyaolife.com/netmodels/vgg/">
@@ -317,8 +320,9 @@
         <h2 id="VGG-Net"><a href="#VGG-Net" class="headerlink" title="VGG Net"></a>VGG Net</h2><p>论文提出 Oxford Visual Geometry Group 2014年</p>
 <p><a href="https://arxiv.org/pdf/1409.1556.pdf%20http://arxiv.org/abs/1409.1556.pdf" target="_blank" rel="noopener">Very Deep Convolutional Networks for Large-Scale Image Recognition</a><br><img src="https://i.loli.net/2019/12/12/ovMdYrGBi5Kf8UP.png" alt="VGG16"></p>
 <p>VGG 相比AlexNet的一个改进是采用连续的几个 3x3 的卷积核代替 AlexNet 中的较大卷积核(11x11，7x7， 5x5)。对于给定的感受野(与输输出有关的输入图片的局部大小)，采用堆积的小卷积核是由于采用大的卷积核，因为多层非线性层可以增加网络深度来保证学习更复杂的模式，而且代价还更小(参数更少)。</p>
-<p>下面这张图解释了为什么使用2个3x3的卷积核可以代替5x5的卷积核。<br><img src="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png" alt></p>
-<h3 id="VGG-模型大小"><a href="#VGG-模型大小" class="headerlink" title="VGG 模型大小"></a>VGG 模型大小</h3><table>
+<p>下面这张图解释了为什么使用2个3x3的卷积核可以代替5x5的卷积核。<br><img src="https://i.loli.net/2019/12/15/5DX4at7R18HwAJ2.png" alt=""></p>
+<h3 id="VGG-模型大小"><a href="#VGG-模型大小" class="headerlink" title="VGG 模型大小"></a>VGG 模型大小</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>模型</th>
@@ -340,6 +344,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="VGG优缺点"><a href="#VGG优缺点" class="headerlink" title="VGG优缺点"></a>VGG优缺点</h2><h3 id="VGG优点"><a href="#VGG优点" class="headerlink" title="VGG优点"></a>VGG优点</h3><ul>
 <li>VGGNet 的结构非常简洁，整个网络都使用了同样大小的卷积核尺寸(3x3)和最大池化尺寸(2x2)</li>
 <li>几个小滤波器(3x3)卷积层的组合比一个大滤波器(5x5)或(7x7)卷积层更好</li>
@@ -362,8 +367,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
               <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
               <a href="/tags/PyTorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
               <a href="/tags/Nerual-Network/" rel="tag"><i class="fa fa-tag"></i> Nerual Network</a>
           </div>
@@ -512,13 +517,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -548,9 +553,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

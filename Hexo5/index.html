@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,20 +52,20 @@
 </script>
 
   <meta name="description" content="与GitHub仓库互联直到目前，我们的blog还只是一个本地的小家伙，像一个没有出过门的孩子，只能在localhost:4000里面查看。别人是看不到的。那么如何把它部署到线上？ 一般建网站的都需要租服务器，买VPS，亚马逊，阿里云等等，还要花一笔小钱。 好在我们有GitHub。 GitHub提供里代码托管服务，作为全世界最大的程序员社区，自然不缺乏脑洞清奇的人，很多人在上面做各种各样的事情，这是">
-<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo博客搭建（五）SEO优化">
 <meta property="og:url" content="http://www.liyaolife.com/Hexo5/index.html">
 <meta property="og:site_name" content="Yao Blog">
 <meta property="og:description" content="与GitHub仓库互联直到目前，我们的blog还只是一个本地的小家伙，像一个没有出过门的孩子，只能在localhost:4000里面查看。别人是看不到的。那么如何把它部署到线上？ 一般建网站的都需要租服务器，买VPS，亚马逊，阿里云等等，还要花一笔小钱。 好在我们有GitHub。 GitHub提供里代码托管服务，作为全世界最大的程序员社区，自然不缺乏脑洞清奇的人，很多人在上面做各种各样的事情，这是">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11400909-2489f8b1cadd7dc0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11400909-4bab54cc5b099520.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11400909-1c39056181935b67.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-11-28T02:38:17.834Z">
+<meta property="article:published_time" content="2018-04-02T12:29:45.000Z">
+<meta property="article:modified_time" content="2019-11-28T02:38:17.834Z">
+<meta property="article:author" content="Li Yao">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客搭建（五）SEO优化">
-<meta name="twitter:description" content="与GitHub仓库互联直到目前，我们的blog还只是一个本地的小家伙，像一个没有出过门的孩子，只能在localhost:4000里面查看。别人是看不到的。那么如何把它部署到线上？ 一般建网站的都需要租服务器，买VPS，亚马逊，阿里云等等，还要花一笔小钱。 好在我们有GitHub。 GitHub提供里代码托管服务，作为全世界最大的程序员社区，自然不缺乏脑洞清奇的人，很多人在上面做各种各样的事情，这是">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/11400909-2489f8b1cadd7dc0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 <link rel="canonical" href="http://www.liyaolife.com/Hexo5/">
@@ -318,17 +318,16 @@
 <p>在GitHub上面新建一个repo，注意项目名称为  “用户名.github.io”否则之后是无法访问的，一个账户只能建一个github pages。之后将之前的public文件夹里的内容都同步到这个项目的master分支，之后浏览器访问用户名.github.io就能看到hexo的博客界面了。</p>
 <p>比如我的repo 名字是<br><img src="http://upload-images.jianshu.io/upload_images/11400909-2489f8b1cadd7dc0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br>那我在浏览器地址栏输入 generalli95.github.io就可以访问我的网页了！</p>
 <p>使用git 命令去push需要先hexo generate，还是略显麻烦，hexo提供了一个插件hexo-deployer-git可以打包git命令。</p>
-<p>插件安装,命令行先cd到blog，然后输入下面命令。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure></p>
-<p>然后在博客的配置文件_config.yml，添加<br><img src="http://upload-images.jianshu.io/upload_images/11400909-4bab54cc5b099520.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<font color="red">注意：把repo:后面换成自己的repo名字！</font>
+<p>插件安装,命令行先cd到blog，然后输入下面命令。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure><br>然后在博客的配置文件_config.yml，添加<br><img src="http://upload-images.jianshu.io/upload_images/11400909-4bab54cc5b099520.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<font color=red>注意：把repo:后面换成自己的repo名字！</font>
 
 <p>然后hexo generate之后，再hexo deploy就可以自动部署了，支持短命令，hexo g -d,相当于前两个命令的合体！</p>
 <h1 id="换上自己的域名"><a href="#换上自己的域名" class="headerlink" title="换上自己的域名"></a>换上自己的域名</h1><p>得益于当年的中二岁月……申请github的时候非要起个什么英文名字，然后……自己都打不对自己的网页全名，因为实在是太长了？</p>
 <p>所以，要不自己注册个域名，这样显得很酷炫，而且说不定哪天域名还能卖个好价钱，想想还真得好激动呢（白日梦）。</p>
 <h2 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h2><p>购买域名的具体操作。推荐先看一下这篇文章： <a href="https://zhuanlan.zhihu.com/p/27349039" target="_blank" rel="noopener">推荐几家域名注册服务商</a>。<br>我是在Godaddy上注册的域名，网站有中文版支持支付宝支付还是很友好的。域名前两年有活动，前两年109块，后面每年100多一点，价格不贵。并且这可能也是我们这个博客搭建过程中唯一需要花钱的地方。</p>
 <h2 id="设置DNS解析"><a href="#设置DNS解析" class="headerlink" title="设置DNS解析"></a>设置DNS解析</h2><p>实际上这也不是一个必须的服务，但是由于Godaddy是一个国外厂商，直接使用它的DNS速度有影响，所以为了保证域名在国内的解析速度。推荐使用DNSPod的DNS解析服务。</p>
-<p><font color="red">DNSPod</font>已经被腾讯云收购，所以用微信可以直接登录。<br>登录DNSPod之后按照提示，再到Godaddy里面把DNS修改一下。<br><img src="http://upload-images.jianshu.io/upload_images/11400909-1c39056181935b67.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p>然后为了使GitHub接收这个域名，还需要博客的根目录下添加一个名为CNAME的文件（不要加.txt）。<br>这个文件放到主题文件夹的source里面，文件里面放你的域名（去掉www），比如我的网站，文件里面就放一句话：liyaolife.com<br>然后在如上图所示界面里面，添加两条记录，一个主机记录写@，另一个写www，这样无论用户输入<a href="http://www.liyaolife.com">www.liyaolife.com</a> 还是只输入 liyaolife.com 都可以直接定位到我的网站了，记录值放自己的GitHub Pages地址。</p>
+<p><font color=red>DNSPod</font>已经被腾讯云收购，所以用微信可以直接登录。<br>登录DNSPod之后按照提示，再到Godaddy里面把DNS修改一下。<br><img src="http://upload-images.jianshu.io/upload_images/11400909-1c39056181935b67.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>然后为了使GitHub接收这个域名，还需要博客的根目录下添加一个名为CNAME的文件（不要加.txt）。<br>这个文件放到主题文件夹的source里面，文件里面放你的域名（去掉www），比如我的网站，文件里面就放一句话：liyaolife.com<br>然后在如上图所示界面里面，添加两条记录，一个主机记录写@，另一个写www，这样无论用户输入www.liyaolife.com 还是只输入 liyaolife.com 都可以直接定位到我的网站了，记录值放自己的GitHub Pages地址。</p>
 <p>OK，现在可以把这个URL转到微信群里面跟爸爸妈妈还有小伙伴们炫耀一番了。</p>
 <hr>
 <p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
@@ -489,13 +488,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
@@ -525,9 +524,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
