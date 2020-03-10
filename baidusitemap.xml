@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://liyaolife.comng_ml/ng_ml6/</loc>
+    <lastmod>2020-03-10T13:32:12.396Z</lastmod>
+    <data>
+        <display>
+        <title>Andrew Ng Machine Learning - 6 Logistic Regression</title>
+        <pubTime>2020-03-03T15:58:30.000Z</pubTime>
+        
+        <tag>Andrew Ng Machine Learning</tag>
+         
+        <tag>MOOC</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://www.liyaolife.com/categories/Machine-Learning/"/>
+          
+             
+              <breadCrumb title="Stanford Andrew Ng Machine Learning Course" url="http://www.liyaolife.com/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>http://liyaolife.comng_ml/ng_ml_code/</loc>
     <lastmod>2020-03-03T15:56:05.628Z</lastmod>
     <data>
@@ -151,7 +177,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://liyaolife.comHexo6/</loc>
@@ -352,9 +377,9 @@
         <title>物体检测TensorFlow Object Detection API （二）使用 Jupyter Notebooks 学习官方 demo</title>
         <pubTime>2018-08-10T06:55:41.000Z</pubTime>
         
-        <tag>Deep Learning</tag>
-         
         <tag>TensorFlow</tag>
+         
+        <tag>Deep Learning</tag>
          
         <tag>Computer Vision</tag>
          
@@ -381,9 +406,9 @@
         <title>物体检测TensorFlow Object Detection API （一）安装</title>
         <pubTime>2018-08-10T06:55:35.000Z</pubTime>
         
-        <tag>Deep Learning</tag>
-         
         <tag>TensorFlow</tag>
+         
+        <tag>Deep Learning</tag>
          
         <tag>Computer Vision</tag>
          
@@ -867,13 +892,13 @@
         <title>DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记</title>
         <pubTime>2019-11-19T10:37:27.000Z</pubTime>
         
-        <tag>Deep Learning</tag>
-         
         <tag>Machine Learning</tag>
          
         <tag>Image Segmentation</tag>
          
         <tag>TensorFlow</tag>
+         
+        <tag>Deep Learning</tag>
          
         <tag>Computer Vision</tag>
          
@@ -898,9 +923,9 @@
         <title>深度学习常用数据集总结</title>
         <pubTime>2019-11-20T03:07:06.000Z</pubTime>
         
-        <tag>Dataset</tag>
-         
         <tag>Deep Learning</tag>
+         
+        <tag>Dataset</tag>
          
          
            
@@ -923,9 +948,9 @@
         <title>VGG 笔记</title>
         <pubTime>2019-12-12T09:24:16.000Z</pubTime>
         
-        <tag>Deep Learning</tag>
-         
         <tag>Machine Learning</tag>
+         
+        <tag>Deep Learning</tag>
          
         <tag>PyTorch</tag>
          
@@ -952,9 +977,9 @@
         <title>ResNet 笔记</title>
         <pubTime>2019-12-17T00:57:34.000Z</pubTime>
         
-        <tag>Deep Learning</tag>
-         
         <tag>Machine Learning</tag>
+         
+        <tag>Deep Learning</tag>
          
         <tag>PyTorch</tag>
          
@@ -981,9 +1006,9 @@
         <title>LeNet 笔记</title>
         <pubTime>2019-12-10T11:19:26.000Z</pubTime>
         
-        <tag>Deep Learning</tag>
-         
         <tag>Machine Learning</tag>
+         
+        <tag>Deep Learning</tag>
          
         <tag>PyTorch</tag>
          
