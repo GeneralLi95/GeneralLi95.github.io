@@ -101,13 +101,13 @@ $$
 这节开始尝试简化损失函数的写法。
 之前损失函数写法：
 $$J(\theta) =  \frac{1}{m}\sum^m_{i=1}Cost(h_\theta(x^{(i)}),y^{(i)})$$
+
 $$
-Cost(h_\theta(x),y) = \left\{
-\begin{aligned}
+Cost(h_\theta(x),y) =
+\begin{cases}
 -log(h_\theta(x)) \quad if \quad y = 1 \\
--log(1-h_\theta(x)) \quad if \quad y = 0 \\
-\end{aligned}
-\right.
+-log(1-h_\theta(x)) \quad if \quad y = 0
+\end{cases}
 $$
 Note: y = 0 or 1 always
 
@@ -138,6 +138,7 @@ $$\frac{\partial}{\partial \theta}J(\theta)=
 (1-y^{(i)})\frac{\partial}{\partial \theta}log(1-h_\theta(x^{(i)}))]$$
 
 先计算
+
 $$
 \begin{aligned}
 \frac{\partial}{\partial \theta}logh_\theta(x^{(i)}) &= \frac{\partial}{\partial \theta}log({\frac{1}{1+e^{-\theta^Tx}}}) \\
@@ -149,6 +150,7 @@ $$
 &=  (1-h_\theta(x^{(i)}))x^{(i)}_j
 \end{aligned}
 $$
+
 
 再计算
 
