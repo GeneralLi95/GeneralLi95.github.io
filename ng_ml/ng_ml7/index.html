@@ -51,22 +51,35 @@
   };
 </script>
 
-  <meta name="description" content="MAC Java环境配置1. 安装JDKJDK全称Java Development Kit，Java开发工具包，是Java开发的核心。之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。终端输入 1Java -version 显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。 2. 配置环境变量配置环境变量前先得到JAVA_HOME">
+  <meta name="description" content="这一章开始介绍过拟合问题，和解决过拟合问题的 Regularization 方法。 7.1 The Problem of Overfitting Regularization 正则化Normalization 归一化  欠拟合 underfit -&gt; 较大误差 high bias过拟合 overfit -&gt; 较大方差 high variance 过拟合曲线会经过所有训练数据点，但是对于">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac Java环境配置">
-<meta property="og:url" content="http://www.liyaolife.com/java1/index.html">
+<meta property="og:title" content="Andrew Ng Machine Learning - 7 Regularization">
+<meta property="og:url" content="http://www.liyaolife.com/ng_ml/ng_ml7/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="MAC Java环境配置1. 安装JDKJDK全称Java Development Kit，Java开发工具包，是Java开发的核心。之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。终端输入 1Java -version 显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。 2. 配置环境变量配置环境变量前先得到JAVA_HOME">
+<meta property="og:description" content="这一章开始介绍过拟合问题，和解决过拟合问题的 Regularization 方法。 7.1 The Problem of Overfitting Regularization 正则化Normalization 归一化  欠拟合 underfit -&gt; 较大误差 high bias过拟合 overfit -&gt; 较大方差 high variance 过拟合曲线会经过所有训练数据点，但是对于">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11400909-e41bcc47495420eb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="article:published_time" content="2018-05-19T05:42:32.000Z">
-<meta property="article:modified_time" content="2020-02-18T07:55:35.617Z">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/XgbPYaKpdJmnF79.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/OZoLUVxzftjcrSX.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/IBoYRbVSF6DWdCx.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/QJKcWEiN2lBUPkt.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/S95l17VzheGLFjc.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/Jnk1seHYMINWjvd.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/i4fRGoBL1qlskw7.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/Qwfkm1ePutaABvh.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/vZ2PpBNnOhkqfTw.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/anEj6YVwFGHJ4cP.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/TdZExSWoQ7Vrn2U.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/2oKeaI3WsxZGjlN.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/11/ztUo1cdVCJH9mlK.png">
+<meta property="article:published_time" content="2020-03-10T16:15:23.000Z">
+<meta property="article:modified_time" content="2020-03-11T15:15:47.228Z">
 <meta property="article:author" content="Li Yao">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Andrew Ng Machine Learning">
+<meta property="article:tag" content="MOOC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/11400909-e41bcc47495420eb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="https://i.loli.net/2020/03/11/XgbPYaKpdJmnF79.png">
 
-<link rel="canonical" href="http://www.liyaolife.com/java1/">
+<link rel="canonical" href="http://www.liyaolife.com/ng_ml/ng_ml7/">
 
 
 <script id="page-configurations">
@@ -80,7 +93,7 @@
   };
 </script>
 
-  <title>Mac Java环境配置 | Yao Blog</title>
+  <title>Andrew Ng Machine Learning - 7 Regularization | Yao Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116714676-1"></script>
     <script>
@@ -217,7 +230,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/java1/">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ng_ml/ng_ml7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -230,7 +243,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Mac Java环境配置
+          Andrew Ng Machine Learning - 7 Regularization
         </h1>
 
         <div class="post-meta">
@@ -239,36 +252,30 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2018-05-19 13:42:32" itemprop="dateCreated datePublished" datetime="2018-05-19T13:42:32+08:00">2018-05-19</time>
+              <time title="创建时间：2020-03-11 00:15:23 / 修改时间：23:15:47" itemprop="dateCreated datePublished" datetime="2020-03-11T00:15:23+08:00">2020-03-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 15:55:35" itemprop="dateModified" datetime="2020-02-18T15:55:35+08:00">2020-02-18</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming-Lauguage/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming Lauguage</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming-Lauguage/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/" itemprop="url" rel="index">
+                    <span itemprop="name">Stanford Andrew Ng Machine Learning Course</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/java1/" class="post-meta-item leancloud_visitors" data-flag-title="Mac Java环境配置" title="阅读次数">
+            <span id="/ng_ml/ng_ml7/" class="post-meta-item leancloud_visitors" data-flag-title="Andrew Ng Machine Learning - 7 Regularization" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -283,8 +290,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/java1/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java1/" itemprop="commentCount"></span>
+    <a title="valine" href="/ng_ml/ng_ml7/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ng_ml/ng_ml7/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -313,38 +320,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="MAC-Java环境配置"><a href="#MAC-Java环境配置" class="headerlink" title="MAC Java环境配置"></a>MAC Java环境配置</h1><h2 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK"></a>1. 安装JDK</h2><p>JDK全称Java Development Kit，Java开发工具包，是Java开发的核心。<br>之前学Oracle装过JDK。所以这次只在终端查看一下是否装过。<br>终端输入</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java -<span class="built_in">version</span></span><br></pre></td></tr></table></figure>
-<p>显示如下画面，既是安装成功，如果没有安装，到Oracle官网下载对应的包，一路下一步安装即可，比较容易。<br><img src="http://upload-images.jianshu.io/upload_images/11400909-e41bcc47495420eb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<h2 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2. 配置环境变量"></a>2. 配置环境变量</h2><p>配置环境变量前先得到JAVA_HOME的位置。<br>依旧：终端输入：</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/jav<span class="built_in">a_home</span></span><br></pre></td></tr></table></figure>
-<p>可返回JAVA_HOME的位置路径，把这个路径记下来，马上要用</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1.<span class="number">8.0</span>_151.jdk<span class="regexp">/Contents/</span>Home</span><br></pre></td></tr></table></figure>
-<p>环境变量一共有三个东西需要配置：<br>JAVA_HOME<br>CLASS_PATH<br>PATH<br>在windows 系统里是在我的电脑属性高级设置里分别设置，macOS里依然是通过命令行设置。<br>终端输入：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">vim</span> /etc/<span class="keyword">profile</span></span><br></pre></td></tr></table></figure>
-<p>然后后需要输入密码。接下来按i，显示insert，进入输入模式。然后输入下面配置：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">JAVA_HOME</span>=<span class="string">"/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"</span></span><br><span class="line"><span class="builtin-name">export</span> JAVA_HOME</span><br><span class="line"><span class="attribute">CLASS_PATH</span>=i"$JAVA_HOME/lib"</span><br><span class="line"><span class="attribute">PATH</span>=<span class="string">".<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin"</span></span><br></pre></td></tr></table></figure>
-<p>然后按esc，进入保存。<br>输入<code>:wq!</code> 保存</p>
-<font color=red>
-这里注意一下，JAVA_HOME的路径不要照着网上教程全抄了，把自己刚刚存下来的路径copy过来，毕竟安装的JDK版本不一致的时候，路径当中有的文件的名字是不一致的。
-</font>
-
-<p>接下来 输入</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="regexp">/etc/</span>profile</span><br></pre></td></tr></table></figure>
-<p>运行profile配置文件</p>
-<p>检查环境<br>输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></span><br></pre></td></tr></table></figure>
-<p>得到配置的路径，说明配置完毕。</p>
-<blockquote>
-<p>5.14 日更新：<br>发现该环境变量配置之后，终端许多命令无法执行，比如python3,pip以及hexo命令，这是无法忍受的。所以又强行把它改了回去，得以恢复。<br>后发现IntelliJ IDEA会自带Java环境，在不设置这个环境变量的情况下，Java的hello world还是跑起来了。<br>所以真的是<strong>生命在与折腾！</strong></p>
+        <p>这一章开始介绍过拟合问题，和解决过拟合问题的 Regularization 方法。</p>
+<h2 id="7-1-The-Problem-of-Overfitting"><a href="#7-1-The-Problem-of-Overfitting" class="headerlink" title="7.1 The Problem of Overfitting"></a>7.1 The Problem of Overfitting</h2><blockquote>
+<p>Regularization 正则化<br>Normalization 归一化</p>
 </blockquote>
-<h2 id="选择IDE"><a href="#选择IDE" class="headerlink" title="选择IDE"></a>选择IDE</h2><p>有些人可能建议初学者用记事本写代码，我感觉初学者最重要的应该是马上跑起来一个程序得到及时的反馈，所以我还是习惯用IDE。</p>
-<p>Java的IDE也挺多的，比较有名的是Eclipse和IntelliJ IDEA两款，作为一个初学者，当然一个也没用过，前者开源后者付费。考虑到后者是JetBrains的产品，他们公司的Pycharm和Webstorm我是用过并且非常喜欢的，所以上手IntelliJ IDEA可能会比较容易的，另外JetBrains也向学生提供了免费的序列号。所以不需要考虑付费的问题。</p>
-<p>综上所述、采用IntelliJ IDEA。</p>
-<blockquote>
-<p>5.18日更新，观看了浙江大学翁凯教授的Java教程，方知Eclipse软件本身就是用Java编写的，所以要配置好Java环境才能运行这个IDE。这也是为什么网上那么多教程起手就是配环境了。</p>
+<p>欠拟合 underfit -&gt; 较大误差 high bias<br>过拟合 overfit -&gt; 较大方差 high variance</p>
+<p>过拟合曲线会经过所有训练数据点，但是对于新的数据却不一定拟合的好。</p>
+<p><strong>quiz</strong><br><img src="https://i.loli.net/2020/03/11/XgbPYaKpdJmnF79.png" alt=""><br><strong>Answer: 第三项</strong></p>
+<p>为什么存在过拟合？ A lot of features with little training data.<br>解决方法：</p>
+<ol>
+<li>减少 feature 数量<ul>
+<li>手动选择</li>
+<li>设计算法自动选择feature（Model selection algorithm后面会讲）</li>
+</ul>
+</li>
+<li>正则化 Regularization<ul>
+<li>保留所有 feature，但是减少每个 $\theta_j$的 magnitude 值</li>
+<li>对于有很多 feature，每一个也都有一点点作用的情况很管用</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-2-Cost-Function"><a href="#7-2-Cost-Function" class="headerlink" title="7.2 Cost Function"></a>7.2 Cost Function</h2><blockquote>
+<p>penalize 惩罚<br>prone  倾向</p>
 </blockquote>
-<p>本文首发于个人网页<a href="http://liyaolife.com" target="_blank" rel="noopener">Yao Blog</a>，知乎专栏<a href="https://zhuanlan.zhihu.com/c_175317330" target="_blank" rel="noopener">谈技术 不能潦草</a>，CSDN博客：<a href="https://blog.csdn.net/GeneralLi95" target="_blank" rel="noopener">手握灵珠常奋笔</a>，简书：<a href="https://www.jianshu.com/u/2ad44a001d34" target="_blank" rel="noopener">且自小尧没谁管</a>。</p>
+<p>这一节开始介绍 Regularization 是怎样介绍的，然后讲一下 Regularization 时候的损失函数是什么。</p>
+<p>基本思路是在损失函数后面加一个<code>惩罚项</code>，以期来降低特定的特征feature的$\theta$的系数，起到使曲线更加平滑的作用。<br><img src="https://i.loli.net/2020/03/11/OZoLUVxzftjcrSX.png" alt=""></p>
+<script type="math/tex; mode=display">J(\theta) = \frac{1}{2m}[\sum^m_{i=1}(h_{\theta_0}(x^{(i)})-y^{(i)})^2 + \lambda\sum^n_{j=1}\theta_j^2]</script><p>优化目标 $minJ(\theta)$<br><strong>quiz</strong><br><img src="https://i.loli.net/2020/03/11/IBoYRbVSF6DWdCx.png" alt=""><br><strong>Answe: 第三项</strong> ，会出现欠拟合了，$\lambda$ 要大但是也不能太大，太大的话会产生太多惩罚，而$\theta_0$的重要性就会大大增加，曲线会逼近于直线。</p>
+<h2 id="7-3-Regularized-Linear-Regression"><a href="#7-3-Regularized-Linear-Regression" class="headerlink" title="7.3 Regularized Linear Regression"></a>7.3 Regularized Linear Regression</h2><p>线性回归目前，我们有两种解法，一种是梯度下降，一种是数学公式方法。现在开始介绍正则化线性回归方法。<br>两种方法都可以正则化。<br>对于梯度下降法。<br>梯度迭代公式变为：</p>
+<p><img src="https://i.loli.net/2020/03/11/QJKcWEiN2lBUPkt.png" alt=""></p>
+<p>变为<br>对于公式方法<br><img src="https://i.loli.net/2020/03/11/S95l17VzheGLFjc.png" alt=""></p>
+<h2 id="7-4-Regularized-Logistic-Regression"><a href="#7-4-Regularized-Logistic-Regression" class="headerlink" title="7.4 Regularized Logistic Regression"></a>7.4 Regularized Logistic Regression</h2><p>对于逻辑回归方法，之前讨论了梯度下降法，也提到了集中高级的优化方法。<br>损失函数将由：</p>
+<script type="math/tex; mode=display">J(\theta) =  -\frac{1}{m}\sum^m_{i=1}[y^{(i)} logh_\theta(x^{(i)})+
+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]</script><p>变为</p>
+<script type="math/tex; mode=display">J(\theta) =  -\frac{1}{m}\sum^m_{i=1}[y^{(i)} logh_\theta(x^{(i)})+
+(1-y^{(i)})log(1-h_\theta(x^{(i)}))] Z + \frac{\lambda}{2m}\sum^n_{j=1}\theta_j^2</script><p>其梯度的迭代公式变化和梯度下降的一样。</p>
+<p><strong>quiz</strong><br><img src="https://i.loli.net/2020/03/11/Jnk1seHYMINWjvd.png" alt=""><br><strong>Answe:第三项</strong></p>
+<p>最后 Ng 说了，当你学到这的时候你就比硅谷很多赚了很多钱机器学习工程师懂的还多了。哈哈哈</p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p><img src="https://i.loli.net/2020/03/11/i4fRGoBL1qlskw7.png" alt=""><br><strong>Answe:第二项</strong>，第一项如果$\lambda$太大也有可能造成欠拟合，而对于训练集一般是效果会差一点。<br><img src="https://i.loli.net/2020/03/11/Qwfkm1ePutaABvh.png" alt=""><br><strong>Answe:第二项</strong> $\lambda=1$的时候$\theta_0$的重要性会上升。<br><img src="https://i.loli.net/2020/03/11/vZ2PpBNnOhkqfTw.png" alt=""><br><strong>Answe:第四项</strong> 过大的$\lambda$会造成欠拟合而不是过拟合<br><img src="https://i.loli.net/2020/03/11/anEj6YVwFGHJ4cP.png" alt=""><br><img src="https://i.loli.net/2020/03/11/TdZExSWoQ7Vrn2U.png" alt=""><br><strong>Answe:第一项</strong> 找过拟合的显然第一个。<br><img src="https://i.loli.net/2020/03/11/2oKeaI3WsxZGjlN.png" alt=""><br><img src="https://i.loli.net/2020/03/11/ztUo1cdVCJH9mlK.png" alt=""><br><strong>Answe:第一项</strong> 找欠拟合的第一个</p>
 
     </div>
 
@@ -355,24 +367,22 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/Andrew-Ng-Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Andrew Ng Machine Learning</a>
+              <a href="/tags/MOOC/" rel="tag"><i class="fa fa-tag"></i> MOOC</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/54-run/" rel="next" title="年度最强制作背后两三事">
-                  <i class="fa fa-chevron-left"></i> 年度最强制作背后两三事
+                <a href="/ng_ml/ng_ml6/" rel="next" title="Andrew Ng Machine Learning - 6 Logistic Regression">
+                  <i class="fa fa-chevron-left"></i> Andrew Ng Machine Learning - 6 Logistic Regression
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/java2/" rel="prev" title="Java HelloWorld项目创建">
-                  Java HelloWorld项目创建 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -412,7 +422,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC-Java环境配置"><span class="nav-text">MAC Java环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装JDK"><span class="nav-text">1. 安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-配置环境变量"><span class="nav-text">2. 配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择IDE"><span class="nav-text">选择IDE</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-The-Problem-of-Overfitting"><span class="nav-text">7.1 The Problem of Overfitting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-Cost-Function"><span class="nav-text">7.2 Cost Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-Regularized-Linear-Regression"><span class="nav-text">7.3 Regularized Linear Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-Regularized-Logistic-Regression"><span class="nav-text">7.4 Regularized Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test"><span class="nav-text">Test</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -572,6 +582,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
