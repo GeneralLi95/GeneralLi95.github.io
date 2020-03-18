@@ -1,5 +1,5 @@
 ---
-title: Andrew Ng Machine Learning - 8 Neural Networks: Representation
+title: Andrew Ng Machine Learning - 8 Neural Networks Representation
 date: 2020-03-11 17:28:21
 tags:
   - Andrew Ng Machine Learning
