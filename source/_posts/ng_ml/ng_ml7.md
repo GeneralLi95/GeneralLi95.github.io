@@ -65,7 +65,7 @@ $$J(\theta) =  -\frac{1}{m}\sum^m_{i=1}[y^{(i)} logh_\theta(x^{(i)})+
 
 变为
 $$J(\theta) =  -\frac{1}{m}\sum^m_{i=1}[y^{(i)} logh_\theta(x^{(i)})+
-(1-y^{(i)})log(1-h_\theta(x^{(i)}))] Z + \frac{\lambda}{2m}\sum^n_{j=1}\theta_j^2$$
+(1-y^{(i)})log(1-h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum^n_{j=1}\theta_j^2$$
 
 其梯度的迭代公式变化和梯度下降的一样。
 
