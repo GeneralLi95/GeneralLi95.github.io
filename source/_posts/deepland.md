@@ -42,8 +42,8 @@ mathjax:
 
    代码中
    ```python
-   one_channel_label_path = 'dataset/land_train'
-   test_mask_path = 'dataset/onechannel_label'
+   rgb_label_path = 'dataset/land_train'
+   onechannel_path = 'dataset/onechannel_label'
    ```
    这两行指定了输入输出路径。
 
