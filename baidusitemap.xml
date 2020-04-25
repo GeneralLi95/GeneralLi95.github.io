@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.liyaolife.com/deepland/</loc>
+    <lastmod>2020-04-20</lastmod>
+  </url>  <url>
     <loc>http://www.liyaolife.com/ng_ml/ng_ml_code2/</loc>
     <lastmod>2020-03-19</lastmod>
   </url>  <url>
@@ -125,9 +128,6 @@
     <lastmod>2020-02-18</lastmod>
   </url>  <url>
     <loc>http://www.liyaolife.com/tsfl1/</loc>
-    <lastmod>2020-02-18</lastmod>
-  </url>  <url>
-    <loc>http://www.liyaolife.com/deepland/</loc>
     <lastmod>2020-02-18</lastmod>
   </url>  <url>
     <loc>http://www.liyaolife.com/dataset/</loc>

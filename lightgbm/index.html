@@ -260,23 +260,16 @@
             </span>
 
           
-            <span id="/lightgbm/" class="post-meta-item leancloud_visitors" data-flag-title="lightgbm笔记" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/lightgbm/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/lightgbm/" itemprop="commentCount"></span>
+    <a title="disqus" href="/lightgbm/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="lightgbm/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -350,7 +343,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -538,31 +537,36 @@
 
   
 
-
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: 'UDBji4Ik1sNs3spfpNN5hLtl-gzGzoHsz',
-    appKey: 'xXJt7xKWhDQTL58y0eTxw7uA',
-    placeholder: "Just go go",
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://liyaolife-com.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "http://www.liyaolife.com/lightgbm/",
+            identifier: "lightgbm/",
+            title: "lightgbm笔记"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://liyaolife-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
 </script>
 
 </body>
