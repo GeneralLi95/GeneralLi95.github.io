@@ -2,16 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.liyaolife.com/Hexo7/</loc>
+    <loc>http://www.liyaolife.com/Hexo/Hexo1/</loc>
     
-    <lastmod>2020-04-25T03:46:48.232Z</lastmod>
+    <lastmod>2020-05-03T08:40:07.513Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/Hexo/Hexo7/</loc>
+    
+    <lastmod>2020-05-03T08:40:06.833Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/Hexo/Hexo6/</loc>
+    
+    <lastmod>2020-05-03T08:40:06.113Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/Hexo/Hexo5/</loc>
+    
+    <lastmod>2020-05-03T08:40:05.102Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/Hexo/Hexo3/</loc>
+    
+    <lastmod>2020-05-03T08:40:04.277Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/Hexo/Hexo2/</loc>
+    
+    <lastmod>2020-05-03T08:40:03.381Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/aliyun/</loc>
+    
+    <lastmod>2020-05-03T08:40:01.162Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.liyaolife.com/deepland/</loc>
     
-    <lastmod>2020-04-20T13:14:54.349Z</lastmod>
+    <lastmod>2020-05-03T08:37:06.076Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/ng_ml/ng_ml8/</loc>
+    
+    <lastmod>2020-04-25T03:59:25.068Z</lastmod>
     
   </url>
   
@@ -47,13 +96,6 @@
     <loc>http://www.liyaolife.com/baidumap/</loc>
     
     <lastmod>2020-03-18T08:39:50.971Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyaolife.com/ng_ml/ng_ml8/</loc>
-    
-    <lastmod>2020-03-11T15:17:30.398Z</lastmod>
     
   </url>
   
@@ -96,13 +138,6 @@
     <loc>http://www.liyaolife.com/ng_ml/ng_ml/</loc>
     
     <lastmod>2020-02-21T10:02:51.548Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyaolife.com/Hexo6/</loc>
-    
-    <lastmod>2020-02-21T03:02:35.913Z</lastmod>
     
   </url>
   
@@ -373,13 +408,6 @@
   </url>
   
   <url>
-    <loc>http://www.liyaolife.com/Hexo5/</loc>
-    
-    <lastmod>2019-11-28T02:38:17.834Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.liyaolife.com/54-run/</loc>
     
     <lastmod>2019-11-19T09:11:09.162Z</lastmod>
@@ -401,13 +429,6 @@
   </url>
   
   <url>
-    <loc>http://www.liyaolife.com/Hexo3/</loc>
-    
-    <lastmod>2019-11-15T04:52:34.083Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.liyaolife.com/leaflet1/</loc>
     
     <lastmod>2019-11-14T11:18:57.707Z</lastmod>
@@ -415,21 +436,7 @@
   </url>
   
   <url>
-    <loc>http://www.liyaolife.com/Hexo1/</loc>
-    
-    <lastmod>2019-11-14T08:21:13.851Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyaolife.com/Hexo2/</loc>
-    
-    <lastmod>2019-11-14T08:21:03.590Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyaolife.com/Hexo4/</loc>
+    <loc>http://www.liyaolife.com/Hexo/Hexo4/</loc>
     
     <lastmod>2019-11-14T08:19:30.364Z</lastmod>
     
