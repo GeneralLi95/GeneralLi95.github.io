@@ -125,3 +125,12 @@ mathjax:
 - [rishizek's repo tensorflow-deeplab-v3-plus](https://github.com/rishizek/tensorflow-deeplab-v3-plus)
 - [DeepGlobe_2018_A_CVPR_2018_paper](http://openaccess.thecvf.com/content_cvpr_2018_workshops/w4/html/Demir_DeepGlobe_2018_A_CVPR_2018_paper.html)
 - [deepglobe](http://deepglobe.org/).
+
+## 实验记录
+$$train\_epoch = iteration * batch\_size / number\_of\_trainset$$
+$$iteration = train\_epoch * number\_of\_trainset / batch_size $$
+
+序号|batch_size|train_epoch|epoch_per_eval|bfs|训练时间|分数
+---|---|---|---|---|---|---
+1|10|26|1|no|-|0.34979|
+2|8|332|10|no|-|
