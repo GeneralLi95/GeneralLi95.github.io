@@ -38,7 +38,7 @@ mathjax:
 
 ### 代码执行顺序与注意事项
 
-1. **reg2label.py** 数据标注文件 id_mask.png 是 RGB 三通道图像，输入训练集的时候必须首先转为单通道图像，故该代码用于执行，图像到单通道图像的转换，此处原始卫星图像 id_sat.jpg, 标注图像 id_mask.png，单通道标注图像 id_label.png 。  **这段代码可以作为一段工具代码在其他地方使用。**
+1. **rgb2label.py** 数据标注文件 id_mask.png 是 RGB 三通道图像，输入训练集的时候必须首先转为单通道图像，故该代码用于执行，图像到单通道图像的转换，此处原始卫星图像 id_sat.jpg, 标注图像 id_mask.png，单通道标注图像 id_label.png 。  **这段代码可以作为一段工具代码在其他地方使用。**
 
    代码中
    ```python
@@ -96,8 +96,7 @@ mathjax:
     学习率函数，可选参数为 poly(polynomial function 多项式函数), piece wise
 
 
-
-
+4. **inference.py** 将模型结果应用到新的图片上，实现分割。
 
 ### 支撑代码
 1. **utils** 自定义的 package，包含两个工具文件
@@ -111,6 +110,14 @@ mathjax:
 
     函数 **deeplabv3_plus_model_fn** 模型方程
 
+3. tensorboard 可视化
+
+    ```
+    tensorboard --logdir MODEL_DIR
+    ```
+    如果在服务器上运行，需要在本地浏览器查看的话，可以在 ssh 链接的时候将服务器的一个端口和本地端口绑定。
+
+    [参考 Stack Overflow](https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server)
 
 
 ---
