@@ -13,7 +13,7 @@ Pandas
 
 df dataframe 的简写
 
-## 采坑记录
+## 踩坑记录
 
 pandas-lzma-error
 
