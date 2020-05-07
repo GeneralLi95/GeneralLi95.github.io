@@ -130,7 +130,11 @@ mathjax:
 $$train\_epoch = iteration * batch\_size / number\_of\_trainset$$
 $$iteration = train\_epoch * number\_of\_trainset / batch_size $$
 
-序号|batch_size|train_epoch|epoch_per_eval|bfs|训练时间|分数
----|---|---|---|---|---|---
-1|10|26|1|no|-|0.34979|
-2|8|332|10|no|-|
+序号|batch_size|train_epoch|epoch_per_eval|bfs|backbone|训练时间|分数
+---|---|---|---|---|---|---|---
+1|10|26|1|no|ResNet101|-|0.3497|
+2|10|26|1|yes|ResNet101|-|0.3514|
+3|8|332|10|no|ResNet101|-|0.4264|
+4|8|332|10|yes|ResNet101|-|0.4261|
+5|8|332|8|no|ResNet50|-|0.4274|
+5|8|332|8|yes|ResNet50|-|0.4272|
