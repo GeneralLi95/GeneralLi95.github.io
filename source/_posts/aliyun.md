@@ -60,3 +60,5 @@ tensorboard --logdir MODEL_DIR
 ## Pycharm remote development
 使用 PyCharm
 上传：
+
+删除： 在本地删除的内容，远程会保持自动删除

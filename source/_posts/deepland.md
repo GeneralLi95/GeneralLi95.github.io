@@ -128,7 +128,7 @@ mathjax:
 
 ## 实验记录
 $$train\_epoch = iteration * batch\_size / number\_of\_trainset$$
-$$iteration = train\_epoch * number\_of\_trainset / batch_size $$
+$$iteration = train\_epoch * number\_of\_trainset / batch\_size $$
 
 序号|batch_size|train_epoch|epoch_per_eval|bfs|backbone|训练时间|分数
 ---|---|---|---|---|---|---|---
@@ -137,4 +137,8 @@ $$iteration = train\_epoch * number\_of\_trainset / batch_size $$
 3|8|332|10|no|ResNet101|-|0.4264|
 4|8|332|10|yes|ResNet101|-|0.4261|
 5|8|332|8|no|ResNet50|-|0.4274|
-5|8|332|8|yes|ResNet50|-|0.4272|
+6|8|332|8|yes|ResNet50|-|0.4272|
+7|8|332|4|no|ResNet50|-|-|0.4604|
+
+
+发现 bfs 的效果似乎比较一般。
