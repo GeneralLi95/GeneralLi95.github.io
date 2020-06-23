@@ -102,9 +102,8 @@ mathjax:
 1. **utils** 自定义的 package，包含两个工具文件
 
 
-2. **deeplab_model.py**  deeplab模型基本不用动
-    函数 **atrous_spatial_pyramid_pooling**:空洞卷积空间金字塔池化
-    atrous_rate 空洞卷积膨胀率，空洞卷积的核心指标。
+2. **deeplab_model.py**  deeplab模型基本不用动 函数
+**atrous_spatial_pyramid_pooling**:空洞卷积空间金字塔池化 atrous_rate 空洞卷积膨胀率，空洞卷积的核心指标。
 
     函数 **deeplab_v3_plus_generator** deeplabv3+ 网络生成器
 
@@ -126,10 +125,11 @@ mathjax:
 - [DeepGlobe_2018_A_CVPR_2018_paper](http://openaccess.thecvf.com/content_cvpr_2018_workshops/w4/html/Demir_DeepGlobe_2018_A_CVPR_2018_paper.html)
 - [deepglobe](http://deepglobe.org/).
 
-## 实验记录
-$$train\_epoch = iteration * batch\_size / number\_of\_trainset$$
-$$iteration = train\_epoch * number\_of\_trainset / batch\_size $$
+## 实验记录 $$train\_epoch = iteration * batch\_size / number\_of\_trainset$$
+#$$iteration = train\_epoch * number\_of\_trainset / batch\_size $$
 
+
+硬件条件:Tesla V100  32GB
 序号|batch_size|train_epoch|epoch_per_eval|bfs|backbone|训练时间|分数
 ---|---|---|---|---|---|---|---
 1|10|26|1|no|ResNet101|-|0.3497|
@@ -138,7 +138,9 @@ $$iteration = train\_epoch * number\_of\_trainset / batch\_size $$
 4|8|332|10|yes|ResNet101|-|0.4261|
 5|8|332|8|no|ResNet50|-|0.4274|
 6|8|332|8|yes|ResNet50|-|0.4272|
-7|8|332|4|no|ResNet50|-|-|0.4604|
+7|8|332|4|no|ResNet50|11h21m|0.4684|
+8|4|166|4|no|ResNet50|5h33m|0.4126
+9|8|332|4|no|ResNet101|11h26m|0.3930|
 
 
 发现 bfs 的效果似乎比较一般。

@@ -51,9 +51,13 @@ class Net(nn.Module):
 
 `__init__` 定义操作，`forward` 里是网络流程，拆分看就是
 
+
+
 conv1 -> relu -> pool -> conv2 ->relu -> pool -> fc1 -> relu -> fc2 -> relu -> fc3
 
 最初用于手写体字母识别，后被证明适合于图像分类。
+
+conv2d 的三个参数分别是 输入 channel，输出channel，和核的大小。
 
 **view的作用**
 
