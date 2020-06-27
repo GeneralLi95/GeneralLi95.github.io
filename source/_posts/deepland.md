@@ -129,8 +129,11 @@ mathjax:
 - [DeepGlobe_2018_A_CVPR_2018_paper](http://openaccess.thecvf.com/content_cvpr_2018_workshops/w4/html/Demir_DeepGlobe_2018_A_CVPR_2018_paper.html)
 - [deepglobe](http://deepglobe.org/).
 
-## 实验记录 $$train\_epoch = iteration * batch\_size / number\_of\_trainset$$
-#$$iteration = train\_epoch * number\_of\_trainset / batch\_size $$
+## 实验记录 
+
+$$train\_epoch = iteration * batch\_size / number\_of\_trainset$$
+
+$$iteration = train\_epoch * number\_of\_trainset / batch\_size $$
 
 
 硬件条件:Tesla V100  32GB
