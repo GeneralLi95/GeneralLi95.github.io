@@ -118,6 +118,10 @@ mathjax:
 
     [参考 Stack Overflow](https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server)
 
+    ```
+    ssh -L 16006:127.0.0.1:6006 username@my_server_ip
+    ```
+
 
 ---
 ## 致谢
