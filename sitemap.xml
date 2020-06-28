@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.liyaolife.com/ng_ml/ng_ml6/</loc>
+    
+    <lastmod>2020-06-28T00:37:16.719Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/deepland/</loc>
+    
+    <lastmod>2020-06-27T13:17:29.167Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/netmodels/lenet/</loc>
+    
+    <lastmod>2020-06-06T10:26:46.413Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/aliyun/</loc>
+    
+    <lastmod>2020-05-16T15:01:53.912Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/pandas/</loc>
+    
+    <lastmod>2020-05-03T14:13:51.035Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.liyaolife.com/Hexo/Hexo1/</loc>
     
     <lastmod>2020-05-03T08:40:07.513Z</lastmod>
@@ -44,20 +79,6 @@
   </url>
   
   <url>
-    <loc>http://www.liyaolife.com/aliyun/</loc>
-    
-    <lastmod>2020-05-03T08:40:01.162Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyaolife.com/deepland/</loc>
-    
-    <lastmod>2020-05-03T08:37:06.076Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.liyaolife.com/ng_ml/ng_ml8/</loc>
     
     <lastmod>2020-04-25T03:59:25.068Z</lastmod>
@@ -96,13 +117,6 @@
     <loc>http://www.liyaolife.com/baidumap/</loc>
     
     <lastmod>2020-03-18T08:39:50.971Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyaolife.com/ng_ml/ng_ml6/</loc>
-    
-    <lastmod>2020-03-10T16:14:24.166Z</lastmod>
     
   </url>
   
@@ -268,13 +282,6 @@
   </url>
   
   <url>
-    <loc>http://www.liyaolife.com/pandas/</loc>
-    
-    <lastmod>2020-02-18T07:52:25.550Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.liyaolife.com/pytorch_error/</loc>
     
     <lastmod>2020-02-18T07:52:22.677Z</lastmod>
@@ -369,13 +376,6 @@
     <loc>http://www.liyaolife.com/netmodels/resnet/</loc>
     
     <lastmod>2020-02-18T04:22:48.863Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyaolife.com/netmodels/lenet/</loc>
-    
-    <lastmod>2020-02-18T04:22:19.165Z</lastmod>
     
   </url>
   
