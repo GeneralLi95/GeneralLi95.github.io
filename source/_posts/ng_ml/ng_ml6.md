@@ -129,7 +129,7 @@ $$
 
 **我还是决定来推导一下这个公式**
 首先复习两个公式：
-$$\frac{d}{d_x}log_a f(x) = \frac{1}{a \ln f(x)}f'(x)$$
+$$\frac{d}{d_x}log_a f(x) = \frac{1}{f(x) \ln a}f'(x)$$
 $$(e^{ax})'=ae^{ax}$$
 故
 $$\frac{\partial}{\partial \theta}J(\theta)=

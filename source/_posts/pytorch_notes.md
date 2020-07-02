@@ -20,7 +20,7 @@ torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dil
 * **padding**(int or tuple,optional) - Zero-padding added to both sides of the input. Default: 0，输入两侧填充的0的个数
 * **dilation**(int or tuple, optional) - Spacing between kernel elements. Default: 1，内核元素之间的间距，默认1
 * **groups** (int,optional) – Number of blocked connections from input channels to output channels. Default: 1 从输入通道到输出通道的阻塞连接数，默认1
-* **bias** (bool,optional) – If True, adds a learnable bias to the output. Default: True 向输出添加可学习的偏见，默认 True
+* **bias** (bool,optional) – If True, adds a learnable bias to the output. Default: True 向输出添加可学习的偏置，默认 True
 
 ### 全连接层参数解释
 
@@ -63,6 +63,59 @@ $$input[channel1] = \frac{input[channel1] - mean[channel1]}{std[channel1]}$$
     * mean(sequence)，每个channel的均值
     * std(sequence)，每个channel的标准差
 
+
+## 预训练模型下载地址
+
+```
+ 1 Resnet:
+ 2 
+ 3 model_urls = {
+ 4     'resnet18': 'https://download.pytorch.org/models/resnet18-5c106cde.pth',
+ 5     'resnet34': 'https://download.pytorch.org/models/resnet34-333f7ec4.pth',
+ 6     'resnet50': 'https://download.pytorch.org/models/resnet50-19c8e357.pth',
+ 7     'resnet101': 'https://download.pytorch.org/models/resnet101-5d3b4d8f.pth',
+ 8     'resnet152': 'https://download.pytorch.org/models/resnet152-b121ed2d.pth',
+ 9 }
+10 
+11 inception:
+12 
+13 model_urls = {
+14     # Inception v3 ported from TensorFlow
+15     'inception_v3_google': 'https://download.pytorch.org/models/inception_v3_google-1a9a5a14.pth',
+16 }
+17 
+18 Densenet:
+19 
+20 model_urls = {
+21     'densenet121': 'https://download.pytorch.org/models/densenet121-a639ec97.pth',
+22     'densenet169': 'https://download.pytorch.org/models/densenet169-b2777c0a.pth',
+23     'densenet201': 'https://download.pytorch.org/models/densenet201-c1103571.pth',
+24     'densenet161': 'https://download.pytorch.org/models/densenet161-8d451a50.pth',
+25 }
+26 
+27 
+28 
+29 Alexnet:
+30 
+31 model_urls = {
+32     'alexnet': 'https://download.pytorch.org/models/alexnet-owt-4df8aa71.pth',
+33 }
+34 
+35 vggnet:
+36 
+37 model_urls = {
+38     'vgg11': 'https://download.pytorch.org/models/vgg11-bbd30ac9.pth',
+39     'vgg13': 'https://download.pytorch.org/models/vgg13-c768596a.pth',
+40     'vgg16': 'https://download.pytorch.org/models/vgg16-397923af.pth',
+41     'vgg19': 'https://download.pytorch.org/models/vgg19-dcbb9e9d.pth',
+42     'vgg11_bn': 'https://download.pytorch.org/models/vgg11_bn-6002323d.pth',
+43     'vgg13_bn': 'https://download.pytorch.org/models/vgg13_bn-abd245e5.pth',
+44     'vgg16_bn': 'https://download.pytorch.org/models/vgg16_bn-6c64b313.pth',
+45     'vgg19_bn': 'https://download.pytorch.org/models/vgg19_bn-c79401a0.pth',
+46 }
+
+
+```
 
 ## 参考
 
