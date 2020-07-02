@@ -59,7 +59,7 @@
 <meta property="og:description" content="1. 网络层参数理解卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride&#x3D;1, padding&#x3D;0, dilation&#x3D;1, groups&#x3D;1, bias&#x3D;True, padding_mode&#x3D;&#39;zeros&#39;)  in_channel(int) - Number of channels in the input">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-19T07:03:17.000Z">
-<meta property="article:modified_time" content="2020-02-18T08:01:54.509Z">
+<meta property="article:modified_time" content="2020-06-28T13:24:07.845Z">
 <meta property="article:author" content="Li Yao">
 <meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
@@ -245,7 +245,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 16:01:54" itemprop="dateModified" datetime="2020-02-18T16:01:54+08:00">2020-02-18</time>
+                <time title="修改时间：2020-06-28 21:24:07" itemprop="dateModified" datetime="2020-06-28T21:24:07+08:00">2020-06-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,14 +285,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
+              <span>4.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -313,7 +313,7 @@
 <li><strong>padding</strong>(int or tuple,optional) - Zero-padding added to both sides of the input. Default: 0，输入两侧填充的0的个数</li>
 <li><strong>dilation</strong>(int or tuple, optional) - Spacing between kernel elements. Default: 1，内核元素之间的间距，默认1</li>
 <li><strong>groups</strong> (int,optional) – Number of blocked connections from input channels to output channels. Default: 1 从输入通道到输出通道的阻塞连接数，默认1</li>
-<li><strong>bias</strong> (bool,optional) – If True, adds a learnable bias to the output. Default: True 向输出添加可学习的偏见，默认 True</li>
+<li><strong>bias</strong> (bool,optional) – If True, adds a learnable bias to the output. Default: True 向输出添加可学习的偏置，默认 True</li>
 </ul>
 <h3 id="全连接层参数解释"><a href="#全连接层参数解释" class="headerlink" title="全连接层参数解释"></a>全连接层参数解释</h3><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.<span class="constructor">Linear(<span class="params">in_features</span>, <span class="params">out_features</span>, <span class="params">bias</span>=True)</span></span><br></pre></td></tr></table></figure>
 <p>对应公式：</p>
@@ -342,6 +342,7 @@
 </ul>
 </li>
 </ul>
+<h2 id="预训练模型下载地址"><a href="#预训练模型下载地址" class="headerlink" title="预训练模型下载地址"></a>预训练模型下载地址</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attr">1 Resnet:</span></span><br><span class="line"> <span class="number">2</span> </span><br><span class="line"> <span class="number">3</span> <span class="string">model_urls</span> <span class="string">=</span> <span class="string">&#123;</span></span><br><span class="line"> <span class="number">4</span>     <span class="attr">'resnet18':</span> <span class="string">'https://download.pytorch.org/models/resnet18-5c106cde.pth'</span><span class="string">,</span></span><br><span class="line"> <span class="number">5</span>     <span class="attr">'resnet34':</span> <span class="string">'https://download.pytorch.org/models/resnet34-333f7ec4.pth'</span><span class="string">,</span></span><br><span class="line"> <span class="number">6</span>     <span class="attr">'resnet50':</span> <span class="string">'https://download.pytorch.org/models/resnet50-19c8e357.pth'</span><span class="string">,</span></span><br><span class="line"> <span class="number">7</span>     <span class="attr">'resnet101':</span> <span class="string">'https://download.pytorch.org/models/resnet101-5d3b4d8f.pth'</span><span class="string">,</span></span><br><span class="line"> <span class="number">8</span>     <span class="attr">'resnet152':</span> <span class="string">'https://download.pytorch.org/models/resnet152-b121ed2d.pth'</span><span class="string">,</span></span><br><span class="line"> <span class="number">9</span> <span class="string">&#125;</span></span><br><span class="line"><span class="number">10</span> </span><br><span class="line"><span class="attr">11 inception:</span></span><br><span class="line"><span class="number">12</span> </span><br><span class="line"><span class="number">13</span> <span class="string">model_urls</span> <span class="string">=</span> <span class="string">&#123;</span></span><br><span class="line"><span class="number">14</span>     <span class="comment"># Inception v3 ported from TensorFlow</span></span><br><span class="line"><span class="number">15</span>     <span class="attr">'inception_v3_google':</span> <span class="string">'https://download.pytorch.org/models/inception_v3_google-1a9a5a14.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">16</span> <span class="string">&#125;</span></span><br><span class="line"><span class="number">17</span> </span><br><span class="line"><span class="attr">18 Densenet:</span></span><br><span class="line"><span class="number">19</span> </span><br><span class="line"><span class="number">20</span> <span class="string">model_urls</span> <span class="string">=</span> <span class="string">&#123;</span></span><br><span class="line"><span class="number">21</span>     <span class="attr">'densenet121':</span> <span class="string">'https://download.pytorch.org/models/densenet121-a639ec97.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">22</span>     <span class="attr">'densenet169':</span> <span class="string">'https://download.pytorch.org/models/densenet169-b2777c0a.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">23</span>     <span class="attr">'densenet201':</span> <span class="string">'https://download.pytorch.org/models/densenet201-c1103571.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">24</span>     <span class="attr">'densenet161':</span> <span class="string">'https://download.pytorch.org/models/densenet161-8d451a50.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">25</span> <span class="string">&#125;</span></span><br><span class="line"><span class="number">26</span> </span><br><span class="line"><span class="number">27</span> </span><br><span class="line"><span class="number">28</span> </span><br><span class="line"><span class="attr">29 Alexnet:</span></span><br><span class="line"><span class="number">30</span> </span><br><span class="line"><span class="number">31</span> <span class="string">model_urls</span> <span class="string">=</span> <span class="string">&#123;</span></span><br><span class="line"><span class="number">32</span>     <span class="attr">'alexnet':</span> <span class="string">'https://download.pytorch.org/models/alexnet-owt-4df8aa71.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">33</span> <span class="string">&#125;</span></span><br><span class="line"><span class="number">34</span> </span><br><span class="line"><span class="attr">35 vggnet:</span></span><br><span class="line"><span class="number">36</span> </span><br><span class="line"><span class="number">37</span> <span class="string">model_urls</span> <span class="string">=</span> <span class="string">&#123;</span></span><br><span class="line"><span class="number">38</span>     <span class="attr">'vgg11':</span> <span class="string">'https://download.pytorch.org/models/vgg11-bbd30ac9.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">39</span>     <span class="attr">'vgg13':</span> <span class="string">'https://download.pytorch.org/models/vgg13-c768596a.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">40</span>     <span class="attr">'vgg16':</span> <span class="string">'https://download.pytorch.org/models/vgg16-397923af.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">41</span>     <span class="attr">'vgg19':</span> <span class="string">'https://download.pytorch.org/models/vgg19-dcbb9e9d.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">42</span>     <span class="attr">'vgg11_bn':</span> <span class="string">'https://download.pytorch.org/models/vgg11_bn-6002323d.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">43</span>     <span class="attr">'vgg13_bn':</span> <span class="string">'https://download.pytorch.org/models/vgg13_bn-abd245e5.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">44</span>     <span class="attr">'vgg16_bn':</span> <span class="string">'https://download.pytorch.org/models/vgg16_bn-6c64b313.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">45</span>     <span class="attr">'vgg19_bn':</span> <span class="string">'https://download.pytorch.org/models/vgg19_bn-c79401a0.pth'</span><span class="string">,</span></span><br><span class="line"><span class="number">46</span> <span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://stackoverflow.com/questions/56675943/what-is-the-meaning-of-parameters-involved-in-torch-nn-conv2d" target="_blank" rel="noopener">stackoverflow: what is the what is the meaning of parameters involved in torch.nn.conv2d
 </a></li>
@@ -422,7 +423,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-网络层参数理解"><span class="nav-text">1. 网络层参数理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层参数解释"><span class="nav-text">卷积层参数解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层参数解释"><span class="nav-text">全连接层参数解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Transforms-in-pytorch-手册阅读"><span class="nav-text">2. Transforms in pytorch 手册阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#裁剪-Crop"><span class="nav-text">裁剪 Crop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻转和旋转-Flip-and-Rotation"><span class="nav-text">翻转和旋转 Flip and Rotation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标准化-Normalize"><span class="nav-text">标准化 Normalize</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-网络层参数理解"><span class="nav-text">1. 网络层参数理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层参数解释"><span class="nav-text">卷积层参数解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层参数解释"><span class="nav-text">全连接层参数解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Transforms-in-pytorch-手册阅读"><span class="nav-text">2. Transforms in pytorch 手册阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#裁剪-Crop"><span class="nav-text">裁剪 Crop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻转和旋转-Flip-and-Rotation"><span class="nav-text">翻转和旋转 Flip and Rotation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标准化-Normalize"><span class="nav-text">标准化 Normalize</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预训练模型下载地址"><span class="nav-text">预训练模型下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -512,13 +513,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">107k</span>
+    <span title="站点总字数">109k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:58</span>
+    <span title="站点阅读时长">3:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
