@@ -8,6 +8,12 @@ categories:
   - Deep Learning 
 mathjax: True
 ---
+这篇文章主要是读手册记录。
+
+中文手册地址：[PyTorch中文手册](https://pytorch-cn.readthedocs.io/zh/latest/)
+
+## 0. 数据载入
+
 ## 1. 网络层参数理解
 ###  卷积层参数解释
 ```
