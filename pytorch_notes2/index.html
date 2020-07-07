@@ -51,26 +51,20 @@
   };
 </script>
 
-  <meta name="description" content="如何复现此工作文件结构组织 deepglobe_land dataset land_train  (存放下载下来的原始数据 ) onechannel_label (内部数据通过运行 rgb2label.py 生成) voc_train_all.record (通过运行 create_tf_record_all.py 生成 )   ini_checkpoints resnet_v2_101  (re">
+  <meta name="description" content="读一下 PyTorch 的数据导入部分的源码，因为自己如果做自己的数据集，这部分是必须的。 参考： PyTorch中文手册 DataSet 类1class torch.utils.data.Dataset 源码部分 12345678910111213141516class Dataset(object):    &quot;&quot;&quot;An abstract class representing a Dataset">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记">
-<meta property="og:url" content="http://www.liyaolife.com/deepland/index.html">
+<meta property="og:title" content="PyTorch DataSet 与 DataLoader">
+<meta property="og:url" content="http://www.liyaolife.com/pytorch_notes2/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="如何复现此工作文件结构组织 deepglobe_land dataset land_train  (存放下载下来的原始数据 ) onechannel_label (内部数据通过运行 rgb2label.py 生成) voc_train_all.record (通过运行 create_tf_record_all.py 生成 )   ini_checkpoints resnet_v2_101  (re">
+<meta property="og:description" content="读一下 PyTorch 的数据导入部分的源码，因为自己如果做自己的数据集，这部分是必须的。 参考： PyTorch中文手册 DataSet 类1class torch.utils.data.Dataset 源码部分 12345678910111213141516class Dataset(object):    &quot;&quot;&quot;An abstract class representing a Dataset">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2019/11/20/jpqVeSfFwrgkBO5.png">
-<meta property="article:published_time" content="2019-11-19T10:37:27.000Z">
-<meta property="article:modified_time" content="2020-06-27T13:17:29.167Z">
+<meta property="article:published_time" content="2020-07-06T08:25:53.000Z">
+<meta property="article:modified_time" content="2020-07-07T07:25:04.966Z">
 <meta property="article:author" content="Li Yao">
-<meta property="article:tag" content="Deep Learning">
-<meta property="article:tag" content="Machine Learning">
-<meta property="article:tag" content="Image Segmentation">
-<meta property="article:tag" content="TensorFlow">
-<meta property="article:tag" content="Computer Vision">
+<meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2019/11/20/jpqVeSfFwrgkBO5.png">
 
-<link rel="canonical" href="http://www.liyaolife.com/deepland/">
+<link rel="canonical" href="http://www.liyaolife.com/pytorch_notes2/">
 
 
 <script id="page-configurations">
@@ -84,7 +78,7 @@
   };
 </script>
 
-  <title>DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记 | Yao Blog</title>
+  <title>PyTorch DataSet 与 DataLoader | Yao Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116714676-1"></script>
     <script>
@@ -221,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/deepland/">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/pytorch_notes2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -234,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记
+          PyTorch DataSet 与 DataLoader
         </h1>
 
         <div class="post-meta">
@@ -244,14 +238,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-19 18:37:27" itemprop="dateCreated datePublished" datetime="2019-11-19T18:37:27+08:00">2019-11-19</time>
+              <time title="创建时间：2020-07-06 16:25:53" itemprop="dateCreated datePublished" datetime="2020-07-06T16:25:53+08:00">2020-07-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-27 21:17:29" itemprop="dateModified" datetime="2020-06-27T21:17:29+08:00">2020-06-27</time>
+                <time title="修改时间：2020-07-07 15:25:04" itemprop="dateModified" datetime="2020-07-07T15:25:04+08:00">2020-07-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,8 +274,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/deepland/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="deepland/" itemprop="commentCount"></span>
+    <a title="disqus" href="/pytorch_notes2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="pytorch_notes2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -291,14 +285,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.4k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -310,96 +304,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="如何复现此工作"><a href="#如何复现此工作" class="headerlink" title="如何复现此工作"></a>如何复现此工作</h2><h3 id="文件结构组织"><a href="#文件结构组织" class="headerlink" title="文件结构组织"></a>文件结构组织</h3><ul>
-<li>deepglobe_land<ul>
-<li>dataset<ul>
-<li>land_train  (存放下载下来的原始数据 )</li>
-<li>onechannel_label (内部数据通过运行 rgb2label.py 生成)</li>
-<li>voc_train_all.record (通过运行 create_tf_record_all.py 生成 )</li>
-</ul>
-</li>
-<li>ini_checkpoints<ul>
-<li>resnet_v2_101  (resnet_v2_101.ckpt and train.graph)</li>
-</ul>
-</li>
-<li>utils (工具包)</li>
-<li>rgb2label.py</li>
-<li>create_tf_record_all.py</li>
-<li>deeplab_model.py</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><p><strong>create_tf_record_all.py</strong>  建立 tfrecord 文件，该代码执行后，直接将 land_train文件夹里的所有 id_sat.jpg 文件与 onechannel_label 里的 id_label 文件打包生成一个 voc_train_all.record文件，该文件中包含了数据集和验证集，不需要手动区分数据集验证集，训练过程中会随机选择一部分作为数据集，另一部分作为验证集。</p>
-</li>
-<li><p><strong>deeplab_model.py</strong>  deeplab模型基本不用动</p>
-</li>
-<li><p><strong>train.py</strong> 需要在里面进行一些参数设置，类别，训练集合验证集的数据比，这里我们设置训练集723张图片，验证集80张。</p>
-</li>
-</ol>
-<h3 id="代码执行顺序与注意事项"><a href="#代码执行顺序与注意事项" class="headerlink" title="代码执行顺序与注意事项"></a>代码执行顺序与注意事项</h3><ol>
-<li><p><strong>rgb2label.py</strong> 数据标注文件 id_mask.png 是 RGB 三通道图像，输入训练集的时候必须首先转为单通道图像，故该代码用于执行，图像到单通道图像的转换，此处原始卫星图像 id_sat.jpg, 标注图像 id_mask.png，单通道标注图像 id_label.png 。  <strong>这段代码可以作为一段工具代码在其他地方使用。</strong></p>
-<p>代码中</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rgb_label_path = <span class="string">'dataset/land_train'</span></span><br><span class="line">onechannel_path = <span class="string">'dataset/onechannel_label'</span></span><br></pre></td></tr></table></figure>
-<p>这两行指定了输入输出路径。</p>
-</li>
-</ol>
-<ol>
-<li><p><strong>create_tf_record_all.py</strong>  建立 tfrecord 文件，该代码执行后，直接将 land_train文件夹里的所有 id_sat.jpg 文件与 onechannel_label 里的 id_label 文件打包生成一个 voc_train_all.record文件，该文件中包含了数据集和验证集，不需要手动区分数据集验证集，训练过程中会随机选择一部分作为数据集，另一部分作为验证集。</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">'--data_dir'</span>, type=str, default=<span class="string">'./dataset/'</span>,</span><br><span class="line">                    help=<span class="string">'Path to the directory containing the PASCAL VOC data.'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'--output_path'</span>, type=str, default=<span class="string">'./dataset'</span>,</span><br><span class="line">                    help=<span class="string">'Path to the directory to create TFRecords outputs.'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'--image_data_dir'</span>, type=str, default=<span class="string">'land_train'</span>,</span><br><span class="line">                    help=<span class="string">'The directory containing the image data.'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'--label_data_dir'</span>, type=str, default=<span class="string">'onechannel_label'</span>,</span><br><span class="line">                    help=<span class="string">'The directory containing the augmented label data.'</span>)</span><br></pre></td></tr></table></figure>
-<p> 这一段设置了默认的输入输出路径，如需修改可直接改源代码，或在命令行指定参数。</p>
-</li>
-</ol>
-<ol>
-<li><p><strong>train.py</strong> 需要在里面进行一些参数设置，类别，训练集合验证集的数据比，这里我们设置训练集723张图片，验证集80张。<br> <strong>参数解释</strong><br> <strong>epoch</strong>:</p>
-<blockquote>
-<p>In Deep Learning, an epoch is a hyperparameter which is defined before training a model. One epoch is when an entire dataset is passed both forward and backward through the neural network only once.</p>
-</blockquote>
-<p> 1个 epoch 意味着所有数据通过神经网络一遍<br> <strong>batch_size</strong>:</p>
-<blockquote>
-<p>A batch is the total number of training examples present in a single batch and an iteration is the number of batches needed to complete one epoch.</p>
-</blockquote>
-<p> 训练数据不可能一次性全部通过神经网络，所以需要分为不同的 batch。batch_size 大小将影响占用内存的数量。<br> <strong>iteration</strong>:</p>
-<blockquote>
-<p>If we divide a dataset of 2000 training examples into 500 batches, then 4 iterations will complete 1 epoch</p>
-</blockquote>
-<p> 迭代几个循环</p>
-<p> <strong>max_iter</strong>:</p>
-<p> 最大迭代次数，也是训练停止的条件。</p>
-<p> <strong>learning rate</strong>:</p>
-<blockquote>
-<p>Learning rate might be the most important hyper parameter in deep learning, as learning rate decides how much gradient to be back propagated.</p>
-</blockquote>
-<p> 学习率，决定模型收敛速度的一个重要超参数，学习率大，下降快，但可能陷入震荡，学习率小，下降慢，却容易获得收敛。<br> <img src="https://i.loli.net/2019/11/20/jpqVeSfFwrgkBO5.png" alt="学习率"></p>
-<p> <strong>learning_rate_policy</strong>:<br> 学习率函数，可选参数为 poly(polynomial function 多项式函数), piece wise</p>
-</li>
-</ol>
-<ol>
-<li><strong>inference.py</strong> 将模型结果应用到新的图片上，实现分割。</li>
-</ol>
-<h3 id="支撑代码"><a href="#支撑代码" class="headerlink" title="支撑代码"></a>支撑代码</h3><ol>
-<li><strong>utils</strong> 自定义的 package，包含两个工具文件</li>
-</ol>
-<ol>
-<li><p><strong>deeplab_model.py</strong>  deeplab模型基本不用动 函数<br><strong>atrous_spatial_pyramid_pooling</strong>:空洞卷积空间金字塔池化 atrous_rate 空洞卷积膨胀率，空洞卷积的核心指标。</p>
-<p> 函数 <strong>deeplab_v3_plus_generator</strong> deeplabv3+ 网络生成器</p>
-<p> 函数 <strong>deeplabv3_plus_model_fn</strong> 模型方程</p>
-</li>
-<li><p>tensorboard 可视化</p>
- <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard <span class="comment">--logdir MODEL_DIR</span></span><br></pre></td></tr></table></figure>
-<p> 如果在服务器上运行，需要在本地浏览器查看的话，可以在 ssh 链接的时候将服务器的一个端口和本地端口绑定。</p>
-<p> <a href="https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server" target="_blank" rel="noopener">参考 Stack Overflow</a></p>
- <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L <span class="number">16006</span>:<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6006</span> <span class="symbol">username@</span>my_server_ip</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><ul>
-<li><a href="https://github.com/rishizek/tensorflow-deeplab-v3-plus" target="_blank" rel="noopener">rishizek’s repo tensorflow-deeplab-v3-plus</a></li>
-<li><a href="http://openaccess.thecvf.com/content_cvpr_2018_workshops/w4/html/Demir_DeepGlobe_2018_A_CVPR_2018_paper.html" target="_blank" rel="noopener">DeepGlobe_2018_A_CVPR_2018_paper</a></li>
-<li><a href="http://deepglobe.org/" target="_blank" rel="noopener">deepglobe</a>.</li>
-</ul>
-<h2 id="实验记录"><a href="#实验记录" class="headerlink" title="实验记录"></a>实验记录</h2><script type="math/tex; mode=display">train\_epoch = iteration * batch\_size / number\_of\_trainset</script><script type="math/tex; mode=display">iteration = train\_epoch * number\_of\_trainset / batch\_size</script><p>硬件条件:Tesla V100  32GB<br>序号|batch_size|train_epoch|epoch_per_eval|bfs|backbone|训练时间|分数<br>—-|—-|—-|—-|—-|—-|—-|—-<br>1|10|26|1|no|ResNet101|-|0.3497|<br>2|10|26|1|yes|ResNet101|-|0.3514|<br>3|8|332|10|no|ResNet101|-|0.4264|<br>4|8|332|10|yes|ResNet101|-|0.4261|<br>5|8|332|8|no|ResNet50|-|0.4274|<br>6|8|332|8|yes|ResNet50|-|0.4272|<br>7|8|332|4|no|ResNet50|11h21m|0.4684|<br>8|4|166|4|no|ResNet50|5h33m|0.4126<br>9|8|332|4|no|ResNet101|11h26m|0.3930|</p>
-<p>发现 bfs 的效果似乎比较一般。</p>
+        <p>读一下 PyTorch 的数据导入部分的源码，因为自己如果做自己的数据集，这部分是必须的。</p>
+<p>参考： <a href="https://pytorch-cn.readthedocs.io/zh/latest/" target="_blank" rel="noopener">PyTorch中文手册</a></p>
+<h2 id="DataSet-类"><a href="#DataSet-类" class="headerlink" title="DataSet 类"></a>DataSet 类</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torch</span>.<span class="title">utils</span>.<span class="title">data</span>.<span class="title">Dataset</span></span></span><br></pre></td></tr></table></figure>
+<p>源码部分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dataset</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""An abstract class representing a Dataset.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    All other datasets should subclass it. All subclasses should override</span></span><br><span class="line"><span class="string">    ``__len__``, that provides the size of the dataset, and ``__getitem__``,</span></span><br><span class="line"><span class="string">    supporting integer indexing in range from 0 to len(self) exclusive.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, index)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__add__</span><span class="params">(self, other)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> ConcatDataset([self, other])</span><br></pre></td></tr></table></figure>
+<p>这是所有数据集的父类，所有其他数据集都应该进行子类化，所有子类都需要自定义(override) <code>__len__</code>和<code>__getitem__</code>，前者提供数据集大小，后者支持整数索引。在最新版的PyTorch里<code>__len__</code>变成了选做。</p>
+<p>以DeepGlobe数据集构建DataSet为例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DeepGlobe</span><span class="params">(data.Dataset)</span>:</span> <span class="comment"># 声明类为DataSet类子类</span></span><br><span class="line">    <span class="string">"""input and label image dataset"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, root, ids, label=False, transform=False)</span>:</span></span><br><span class="line">        super(DeepGlobe, self).__init__()</span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">        root:  directory with all the input images.</span></span><br><span class="line"><span class="string">        transform(callable, optional): Optional transform to be applied on a sample</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.root = root</span><br><span class="line">        self.label = label</span><br><span class="line">        self.transform = transform</span><br><span class="line">        self.ids = ids</span><br><span class="line">        self.classdict = &#123;<span class="number">1</span>: <span class="string">"urban"</span>, <span class="number">2</span>: <span class="string">"agriculture"</span>, <span class="number">3</span>: <span class="string">"rangeland"</span>, <span class="number">4</span>: <span class="string">"forest"</span>, <span class="number">5</span>: <span class="string">"water"</span>, <span class="number">6</span>: <span class="string">"barren"</span>,</span><br><span class="line">                          <span class="number">0</span>: <span class="string">"unknown"</span>&#125;</span><br><span class="line"></span><br><span class="line">        self.color_jitter = transforms.ColorJitter(brightness=<span class="number">0.3</span>, contrast=<span class="number">0.3</span>, saturation=<span class="number">0.3</span>, hue=<span class="number">0.04</span>)</span><br><span class="line">        self.resizer = transforms.Resize((<span class="number">2448</span>, <span class="number">2448</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, index)</span>:</span>   <span class="comment"># 获取数据集中的某对图片或者NLP中的某个片段</span></span><br><span class="line">        sample = &#123;&#125;   <span class="comment"># 字典，包含三对  id, image, label </span></span><br><span class="line">        sample[<span class="string">'id'</span>] = self.ids[index][:<span class="number">-8</span>]</span><br><span class="line">        image = Image.open(os.path.join(self.root, <span class="string">"Sat/"</span> + self.ids[index]))  <span class="comment"># w, h</span></span><br><span class="line">        sample[<span class="string">'image'</span>] = image</span><br><span class="line">        <span class="comment"># sample['image'] = transforms.functional.adjust_contrast(image, 1.4)</span></span><br><span class="line">        <span class="keyword">if</span> self.label:</span><br><span class="line">            label = Image.open(os.path.join(self.root, <span class="string">'Label/'</span> + self.ids[index].replace(<span class="string">'_sat.jpg'</span>, <span class="string">'_mask.png'</span>)))</span><br><span class="line">            sample[<span class="string">'label'</span>] = label</span><br><span class="line">        <span class="keyword">if</span> self.transform <span class="keyword">and</span> self.label:</span><br><span class="line">            image, label = self._transform(image, label)</span><br><span class="line">            sample[<span class="string">'image'</span>] = image</span><br><span class="line">            sample[<span class="string">'label'</span>] = label</span><br><span class="line">        <span class="comment"># return &#123;'image': image.astype(np.float32), 'label': label.astype(np.int64)&#125;</span></span><br><span class="line">        <span class="keyword">return</span> sample</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_transform</span><span class="params">(self, image, label)</span>:</span> <span class="comment"># 定义一个数据增强方法</span></span><br><span class="line">        <span class="keyword">if</span> np.random.random() &gt; <span class="number">0.5</span>:</span><br><span class="line">            image = transforms.functional.hflip(image)</span><br><span class="line">            label = transforms.functional.hflip(label)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> np.random.random() &gt; <span class="number">0.5</span>:</span><br><span class="line">            degree = random.choice([<span class="number">90</span>, <span class="number">180</span>, <span class="number">270</span>])</span><br><span class="line">            image = transforms.functional.rotate(image, degree)</span><br><span class="line">            label = transforms.functional.rotate(label, degree)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> image, label</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span>    <span class="comment"># 返回长度</span></span><br><span class="line">        <span class="keyword">return</span> len(self.ids)</span><br></pre></td></tr></table></figure>
+<h2 id="DataLoader-类"><a href="#DataLoader-类" class="headerlink" title="DataLoader 类"></a>DataLoader 类</h2><p>DataLoader 导入数据集，源码太长不放源码了，看一下定义<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CLASS torch.utils.data.DataLoader(dataset, batch_size=<span class="number">1</span>, shuffle=<span class="literal">False</span>, </span><br><span class="line">sampler=<span class="literal">None</span>, batch_sampler=<span class="literal">None</span>, num_workers=<span class="number">0</span>, collate_fn=<span class="literal">None</span>, pin_memory=<span class="literal">False</span>, drop_last=<span class="literal">False</span>, </span><br><span class="line">timeout=<span class="number">0</span>, worker_init_fn=<span class="literal">None</span>, multiprocessing_context=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure></p>
+<p><code>dataset</code> 为之前自定义的 DataSet 类实例化之后数据接口<br><code>batch_size</code>，批训练量<br><code>shuffle(bool, optional)</code> 是否打乱数据<br><code>sampler(Sampler, optional)</code> 从数据集中提取样本的策略，如果指定，<code>shuffle</code>必须为False，一般默认不指定。<br><code>batch_sampler(Sampler, optional)</code>和batch_size\shuffle等参数互斥，一般不指定，采用默认<br><code>num_wokers</code>这个参数必须大于0，表示通过多个进程来导入数据<br><code>collate_fn(callable, optional)</code>合并样本清单以形成小批量，用来处理不同情况下的输入dataset的封装，一般采用默认即可<br><code>pin_memory(bool,optional)</code>： 数据加载器将张量复制到CUDA内存中，然后返回它们，也就是一个数据拷贝问题。<br><code>drop_last(bool, optional)</code>: 如果数据集数目不是batch_size的整数倍，那么最后一个batch不是一个完整的batch，是否把最后一个batch删掉，默认false<br><code>timeout(numeric, optional)</code>设置数据读取超时，如果超过这个时间还没有找到数据的话就会报错。一般不用。<br><code>worker_init_fn(callable, optional)</code>每个worker的初始化函数，默认为<code>None</code>，一般也用<code>None</code><br><code>multiprocessing_context</code>基于进程的并行，新出的功能，目前资料不多，一般也用<code>None</code>。</p>
 
     </div>
 
@@ -410,28 +324,21 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
-              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
-              <a href="/tags/Image-Segmentation/" rel="tag"><i class="fa fa-tag"></i> Image Segmentation</a>
-              <a href="/tags/TensorFlow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
-              <a href="/tags/Computer-Vision/" rel="tag"><i class="fa fa-tag"></i> Computer Vision</a>
+              <a href="/tags/PyTorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/sqlite1/" rel="next" title="SQLite基础">
-                  <i class="fa fa-chevron-left"></i> SQLite基础
+                <a href="/aliyun/" rel="next" title="阿里云远程深度学习服务器使用记录">
+                  <i class="fa fa-chevron-left"></i> 阿里云远程深度学习服务器使用记录
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/learningrate/" rel="prev" title="深度学习中的学习率变化和自适应学习率方法">
-                  深度学习中的学习率变化和自适应学习率方法 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -477,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何复现此工作"><span class="nav-text">如何复现此工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件结构组织"><span class="nav-text">文件结构组织</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码执行顺序与注意事项"><span class="nav-text">代码执行顺序与注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支撑代码"><span class="nav-text">支撑代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#致谢"><span class="nav-text">致谢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验记录"><span class="nav-text">实验记录</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataSet-类"><span class="nav-text">DataSet 类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataLoader-类"><span class="nav-text">DataLoader 类</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -656,9 +563,9 @@
       DISQUS.reset({
         reload: true,
         config: {page: {
-            url: "http://www.liyaolife.com/deepland/",
-            identifier: "deepland/",
-            title: "DeepGlobe Land Cover Classification Challenge 土地利用分类竞赛笔记"
+            url: "http://www.liyaolife.com/pytorch_notes2/",
+            identifier: "pytorch_notes2/",
+            title: "PyTorch DataSet 与 DataLoader"
           }
         }
       });

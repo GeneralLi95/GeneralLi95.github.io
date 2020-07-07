@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.liyaolife.com/pytorch_notes2/</loc>
+    
+    <lastmod>2020-07-07T07:25:04.966Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.liyaolife.com/pytorch_notes/</loc>
     
-    <lastmod>2020-06-28T13:24:07.845Z</lastmod>
+    <lastmod>2020-07-06T09:29:14.085Z</lastmod>
     
   </url>
   

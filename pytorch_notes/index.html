@@ -51,15 +51,15 @@
   };
 </script>
 
-  <meta name="description" content="1. 网络层参数理解卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride&#x3D;1, padding&#x3D;0, dilation&#x3D;1, groups&#x3D;1, bias&#x3D;True, padding_mode&#x3D;&#39;zeros&#39;)  in_channel(int) - Number of channels in the input">
+  <meta name="description" content="这篇文章主要是读手册记录。 中文手册地址：PyTorch中文手册 0. 数据载入1. 网络层参数理解卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride&#x3D;1, padding&#x3D;0, dilation&#x3D;1, groups&#x3D;1, bias&#x3D;True, padding_mode&#x3D;&#39;zeros&#39;)  in_channe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyTorch 笔记">
 <meta property="og:url" content="http://www.liyaolife.com/pytorch_notes/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="1. 网络层参数理解卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride&#x3D;1, padding&#x3D;0, dilation&#x3D;1, groups&#x3D;1, bias&#x3D;True, padding_mode&#x3D;&#39;zeros&#39;)  in_channel(int) - Number of channels in the input">
+<meta property="og:description" content="这篇文章主要是读手册记录。 中文手册地址：PyTorch中文手册 0. 数据载入1. 网络层参数理解卷积层参数解释1torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride&#x3D;1, padding&#x3D;0, dilation&#x3D;1, groups&#x3D;1, bias&#x3D;True, padding_mode&#x3D;&#39;zeros&#39;)  in_channe">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-19T07:03:17.000Z">
-<meta property="article:modified_time" content="2020-06-28T13:24:07.845Z">
+<meta property="article:modified_time" content="2020-07-06T09:29:14.085Z">
 <meta property="article:author" content="Li Yao">
 <meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
@@ -245,7 +245,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-28 21:24:07" itemprop="dateModified" datetime="2020-06-28T21:24:07+08:00">2020-06-28</time>
+                <time title="修改时间：2020-07-06 17:29:14" itemprop="dateModified" datetime="2020-07-06T17:29:14+08:00">2020-07-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.7k</span>
+              <span>4.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -304,7 +304,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-网络层参数理解"><a href="#1-网络层参数理解" class="headerlink" title="1. 网络层参数理解"></a>1. 网络层参数理解</h2><h3 id="卷积层参数解释"><a href="#卷积层参数解释" class="headerlink" title="卷积层参数解释"></a>卷积层参数解释</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Conv2d(in_channels, out_channels, kernel_size, <span class="attribute">stride</span>=1, <span class="attribute">padding</span>=0, <span class="attribute">dilation</span>=1, <span class="attribute">groups</span>=1, <span class="attribute">bias</span>=<span class="literal">True</span>, <span class="attribute">padding_mode</span>=<span class="string">'zeros'</span>)</span><br></pre></td></tr></table></figure>
+        <p>这篇文章主要是读手册记录。</p>
+<p>中文手册地址：<a href="https://pytorch-cn.readthedocs.io/zh/latest/" target="_blank" rel="noopener">PyTorch中文手册</a></p>
+<h2 id="0-数据载入"><a href="#0-数据载入" class="headerlink" title="0. 数据载入"></a>0. 数据载入</h2><h2 id="1-网络层参数理解"><a href="#1-网络层参数理解" class="headerlink" title="1. 网络层参数理解"></a>1. 网络层参数理解</h2><h3 id="卷积层参数解释"><a href="#卷积层参数解释" class="headerlink" title="卷积层参数解释"></a>卷积层参数解释</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Conv2d(in_channels, out_channels, kernel_size, <span class="attribute">stride</span>=1, <span class="attribute">padding</span>=0, <span class="attribute">dilation</span>=1, <span class="attribute">groups</span>=1, <span class="attribute">bias</span>=<span class="literal">True</span>, <span class="attribute">padding_mode</span>=<span class="string">'zeros'</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>in_channel</strong>(int) - Number of channels in the input image，输入图片通道，RGB图片3通道</li>
 <li><strong>out_channels</strong> (int) – Number of channels produced by the convolution, 卷积的输出通道，表示有多少个 filter 对输入进行滤波，同时输出N个结果</li>
@@ -423,7 +425,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-网络层参数理解"><span class="nav-text">1. 网络层参数理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层参数解释"><span class="nav-text">卷积层参数解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层参数解释"><span class="nav-text">全连接层参数解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Transforms-in-pytorch-手册阅读"><span class="nav-text">2. Transforms in pytorch 手册阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#裁剪-Crop"><span class="nav-text">裁剪 Crop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻转和旋转-Flip-and-Rotation"><span class="nav-text">翻转和旋转 Flip and Rotation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标准化-Normalize"><span class="nav-text">标准化 Normalize</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预训练模型下载地址"><span class="nav-text">预训练模型下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-数据载入"><span class="nav-text">0. 数据载入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-网络层参数理解"><span class="nav-text">1. 网络层参数理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层参数解释"><span class="nav-text">卷积层参数解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层参数解释"><span class="nav-text">全连接层参数解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Transforms-in-pytorch-手册阅读"><span class="nav-text">2. Transforms in pytorch 手册阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#裁剪-Crop"><span class="nav-text">裁剪 Crop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻转和旋转-Flip-and-Rotation"><span class="nav-text">翻转和旋转 Flip and Rotation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标准化-Normalize"><span class="nav-text">标准化 Normalize</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预训练模型下载地址"><span class="nav-text">预训练模型下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -438,7 +440,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -513,13 +515,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">109k</span>
+    <span title="站点总字数">112k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:01</span>
+    <span title="站点阅读时长">3:07</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
