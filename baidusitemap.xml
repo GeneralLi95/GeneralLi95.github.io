@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.liyaolife.com/life/qps/</loc>
+    <lastmod>2021-02-15</lastmod>
+  </url>  <url>
+    <loc>http://www.liyaolife.com/life/54-run/</loc>
+    <lastmod>2021-02-15</lastmod>
+  </url>  <url>
     <loc>http://www.liyaolife.com/pytorch_notes2/</loc>
     <lastmod>2020-07-07</lastmod>
   </url>  <url>
@@ -174,9 +180,6 @@
   </url>  <url>
     <loc>http://www.liyaolife.com/hyjz_iccc/</loc>
     <lastmod>2019-12-07</lastmod>
-  </url>  <url>
-    <loc>http://www.liyaolife.com/54-run/</loc>
-    <lastmod>2019-11-19</lastmod>
   </url>  <url>
     <loc>http://www.liyaolife.com/ybrj2/</loc>
     <lastmod>2019-11-19</lastmod>

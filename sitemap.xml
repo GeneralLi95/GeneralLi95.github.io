@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.liyaolife.com/life/qps/</loc>
+    
+    <lastmod>2021-02-15T05:27:08.008Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/life/54-run/</loc>
+    
+    <lastmod>2021-02-15T03:59:31.461Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.liyaolife.com/pytorch_notes2/</loc>
     
     <lastmod>2020-07-07T07:25:04.966Z</lastmod>
@@ -411,13 +425,6 @@
     <loc>http://www.liyaolife.com/hyjz_iccc/</loc>
     
     <lastmod>2019-12-07T07:46:04.377Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyaolife.com/54-run/</loc>
-    
-    <lastmod>2019-11-19T09:11:09.162Z</lastmod>
     
   </url>
   
