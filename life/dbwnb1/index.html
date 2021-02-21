@@ -51,35 +51,20 @@
   };
 </script>
 
-  <meta name="description" content="这一章开始介绍过拟合问题，和解决过拟合问题的 Regularization 方法。 7.1 The Problem of Overfitting Regularization 正则化Normalization 归一化  欠拟合 underfit -&gt; 较大误差 high bias过拟合 overfit -&gt; 较大方差 high variance 过拟合曲线会经过所有训练数据点，但是对于">
+  <meta name="description" content="来到新单位有段时间了，在这期间我一直谨记母校教诲，到了单位千万别狂，别总觉着自己NUDT毕业的就牛逼轰轰，夹起尾巴做人。我也一直是这么做的，谨小慎微，注册了新的微信号，工作与生活分开，避免不必要的社交，尽量树立nerd形象。但是同龄同事们对待人都很真诚，有时候让我觉得挺不好意思的。昨天一个师弟（六院14级软件工程，我们且称之为师弟A），准备带女朋友来请几个好朋友吃饭，竟然也叫上了我，我提前并不知道">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Andrew Ng Machine Learning - 7 Regularization">
-<meta property="og:url" content="http://www.liyaolife.com/ng_ml/ng_ml7/index.html">
+<meta property="og:title" content="我在东北玩泥巴——关于婚姻">
+<meta property="og:url" content="http://www.liyaolife.com/life/dbwnb1/index.html">
 <meta property="og:site_name" content="Yao Blog">
-<meta property="og:description" content="这一章开始介绍过拟合问题，和解决过拟合问题的 Regularization 方法。 7.1 The Problem of Overfitting Regularization 正则化Normalization 归一化  欠拟合 underfit -&gt; 较大误差 high bias过拟合 overfit -&gt; 较大方差 high variance 过拟合曲线会经过所有训练数据点，但是对于">
+<meta property="og:description" content="来到新单位有段时间了，在这期间我一直谨记母校教诲，到了单位千万别狂，别总觉着自己NUDT毕业的就牛逼轰轰，夹起尾巴做人。我也一直是这么做的，谨小慎微，注册了新的微信号，工作与生活分开，避免不必要的社交，尽量树立nerd形象。但是同龄同事们对待人都很真诚，有时候让我觉得挺不好意思的。昨天一个师弟（六院14级软件工程，我们且称之为师弟A），准备带女朋友来请几个好朋友吃饭，竟然也叫上了我，我提前并不知道">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/XgbPYaKpdJmnF79.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/OZoLUVxzftjcrSX.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/IBoYRbVSF6DWdCx.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/QJKcWEiN2lBUPkt.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/S95l17VzheGLFjc.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/Jnk1seHYMINWjvd.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/i4fRGoBL1qlskw7.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/Qwfkm1ePutaABvh.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/vZ2PpBNnOhkqfTw.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/anEj6YVwFGHJ4cP.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/TdZExSWoQ7Vrn2U.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/2oKeaI3WsxZGjlN.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/11/ztUo1cdVCJH9mlK.png">
-<meta property="article:published_time" content="2020-03-10T16:15:23.000Z">
-<meta property="article:modified_time" content="2020-03-19T12:23:35.630Z">
+<meta property="article:published_time" content="2021-02-21T08:01:23.000Z">
+<meta property="article:modified_time" content="2021-02-21T09:53:21.973Z">
 <meta property="article:author" content="Li Yao">
-<meta property="article:tag" content="Andrew Ng Machine Learning">
-<meta property="article:tag" content="MOOC">
+<meta property="article:tag" content="生活杂记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/03/11/XgbPYaKpdJmnF79.png">
 
-<link rel="canonical" href="http://www.liyaolife.com/ng_ml/ng_ml7/">
+<link rel="canonical" href="http://www.liyaolife.com/life/dbwnb1/">
 
 
 <script id="page-configurations">
@@ -93,7 +78,7 @@
   };
 </script>
 
-  <title>Andrew Ng Machine Learning - 7 Regularization | Yao Blog</title>
+  <title>我在东北玩泥巴——关于婚姻 | Yao Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116714676-1"></script>
     <script>
@@ -230,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/ng_ml/ng_ml7/">
+    <link itemprop="mainEntityOfPage" href="http://www.liyaolife.com/life/dbwnb1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -243,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Andrew Ng Machine Learning - 7 Regularization
+          我在东北玩泥巴——关于婚姻
         </h1>
 
         <div class="post-meta">
@@ -252,30 +237,18 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-11 00:15:23" itemprop="dateCreated datePublished" datetime="2020-03-11T00:15:23+08:00">2020-03-11</time>
+              <time title="创建时间：2021-02-21 16:01:23 / 修改时间：17:53:21" itemprop="dateCreated datePublished" datetime="2021-02-21T16:01:23+08:00">2021-02-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-19 20:23:35" itemprop="dateModified" datetime="2020-03-19T20:23:35+08:00">2020-03-19</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Stanford-Andrew-Ng-Machine-Learning-Course/" itemprop="url" rel="index">
-                    <span itemprop="name">Stanford Andrew Ng Machine Learning Course</span>
+                  <a href="/categories/%E7%94%9F%E6%B4%BB%E6%9D%82%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">生活杂记</span>
                   </a>
                 </span>
             </span>
@@ -289,8 +262,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/ng_ml/ng_ml7/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="ng_ml/ng_ml7/" itemprop="commentCount"></span>
+    <a title="disqus" href="/life/dbwnb1/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="life/dbwnb1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -300,14 +273,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -319,43 +292,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这一章开始介绍过拟合问题，和解决过拟合问题的 Regularization 方法。</p>
-<h2 id="7-1-The-Problem-of-Overfitting"><a href="#7-1-The-Problem-of-Overfitting" class="headerlink" title="7.1 The Problem of Overfitting"></a>7.1 The Problem of Overfitting</h2><blockquote>
-<p>Regularization 正则化<br>Normalization 归一化</p>
-</blockquote>
-<p>欠拟合 underfit -&gt; 较大误差 high bias<br>过拟合 overfit -&gt; 较大方差 high variance</p>
-<p>过拟合曲线会经过所有训练数据点，但是对于新的数据却不一定拟合的好。</p>
-<p><strong>quiz</strong><br><img src="https://i.loli.net/2020/03/11/XgbPYaKpdJmnF79.png" alt=""><br><strong>Answer: 第三项</strong></p>
-<p>为什么存在过拟合？ A lot of features with little training data.<br>解决方法：</p>
-<ol>
-<li>减少 feature 数量<ul>
-<li>手动选择</li>
-<li>设计算法自动选择feature（Model selection algorithm后面会讲）</li>
-</ul>
-</li>
-<li>正则化 Regularization<ul>
-<li>保留所有 feature，但是减少每个 $\theta_j$的 magnitude 值</li>
-<li>对于有很多 feature，每一个也都有一点点作用的情况很管用</li>
-</ul>
-</li>
-</ol>
-<h2 id="7-2-Cost-Function"><a href="#7-2-Cost-Function" class="headerlink" title="7.2 Cost Function"></a>7.2 Cost Function</h2><blockquote>
-<p>penalize 惩罚<br>prone  倾向</p>
-</blockquote>
-<p>这一节开始介绍 Regularization 是怎样介绍的，然后讲一下 Regularization 时候的损失函数是什么。</p>
-<p>基本思路是在损失函数后面加一个<code>惩罚项</code>，以期来降低特定的特征feature的$\theta$的系数，起到使曲线更加平滑的作用。<br><img src="https://i.loli.net/2020/03/11/OZoLUVxzftjcrSX.png" alt=""></p>
-<script type="math/tex; mode=display">J(\theta) = \frac{1}{2m}[\sum^m_{i=1}(h_{\theta_0}(x^{(i)})-y^{(i)})^2 + \lambda\sum^n_{j=1}\theta_j^2]</script><p>优化目标 $minJ(\theta)$<br><strong>quiz</strong><br><img src="https://i.loli.net/2020/03/11/IBoYRbVSF6DWdCx.png" alt=""><br><strong>Answe: 第三项</strong> ，会出现欠拟合了，$\lambda$ 要大但是也不能太大，太大的话会产生太多惩罚，而$\theta_0$的重要性就会大大增加，曲线会逼近于直线。</p>
-<h2 id="7-3-Regularized-Linear-Regression"><a href="#7-3-Regularized-Linear-Regression" class="headerlink" title="7.3 Regularized Linear Regression"></a>7.3 Regularized Linear Regression</h2><p>线性回归目前，我们有两种解法，一种是梯度下降，一种是数学公式方法。现在开始介绍正则化线性回归方法。<br>两种方法都可以正则化。<br>对于梯度下降法。<br>梯度迭代公式变为：</p>
-<p><img src="https://i.loli.net/2020/03/11/QJKcWEiN2lBUPkt.png" alt=""></p>
-<p>变为<br>对于公式方法<br><img src="https://i.loli.net/2020/03/11/S95l17VzheGLFjc.png" alt=""></p>
-<h2 id="7-4-Regularized-Logistic-Regression"><a href="#7-4-Regularized-Logistic-Regression" class="headerlink" title="7.4 Regularized Logistic Regression"></a>7.4 Regularized Logistic Regression</h2><p>对于逻辑回归方法，之前讨论了梯度下降法，也提到了集中高级的优化方法。<br>损失函数将由：</p>
-<script type="math/tex; mode=display">J(\theta) =  -\frac{1}{m}\sum^m_{i=1}[y^{(i)} logh_\theta(x^{(i)})+
-(1-y^{(i)})log(1-h_\theta(x^{(i)}))]</script><p>变为</p>
-<script type="math/tex; mode=display">J(\theta) =  -\frac{1}{m}\sum^m_{i=1}[y^{(i)} logh_\theta(x^{(i)})+
-(1-y^{(i)})log(1-h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum^n_{j=1}\theta_j^2</script><p>其梯度的迭代公式变化和梯度下降的一样。</p>
-<p><strong>quiz</strong><br><img src="https://i.loli.net/2020/03/11/Jnk1seHYMINWjvd.png" alt=""><br><strong>Answe:第三项</strong></p>
-<p>最后 Ng 说了，当你学到这的时候你就比硅谷很多赚了很多钱机器学习工程师懂的还多了。哈哈哈</p>
-<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p><img src="https://i.loli.net/2020/03/11/i4fRGoBL1qlskw7.png" alt=""><br><strong>Answe:第二项</strong>，第一项如果$\lambda$太大也有可能造成欠拟合，而对于训练集一般是效果会差一点。<br><img src="https://i.loli.net/2020/03/11/Qwfkm1ePutaABvh.png" alt=""><br><strong>Answe:第二项</strong> $\lambda=1$的时候$\theta_0$的重要性会上升。<br><img src="https://i.loli.net/2020/03/11/vZ2PpBNnOhkqfTw.png" alt=""><br><strong>Answe:第四项</strong> 过大的$\lambda$会造成欠拟合而不是过拟合<br><img src="https://i.loli.net/2020/03/11/anEj6YVwFGHJ4cP.png" alt=""><br><img src="https://i.loli.net/2020/03/11/TdZExSWoQ7Vrn2U.png" alt=""><br><strong>Answe:第一项</strong> 找过拟合的显然第一个。<br><img src="https://i.loli.net/2020/03/11/2oKeaI3WsxZGjlN.png" alt=""><br><img src="https://i.loli.net/2020/03/11/ztUo1cdVCJH9mlK.png" alt=""><br><strong>Answe:第一项</strong> 找欠拟合的第一个</p>
+        <p>来到新单位有段时间了，在这期间我一直谨记母校教诲，到了单位千万别狂，别总觉着自己NUDT毕业的就牛逼轰轰，夹起尾巴做人。我也一直是这么做的，谨小慎微，注册了新的微信号，工作与生活分开，避免不必要的社交，尽量树立nerd形象。但是同龄同事们对待人都很真诚，有时候让我觉得挺不好意思的。昨天一个师弟（六院14级软件工程，我们且称之为师弟A），准备带女朋友来请几个好朋友吃饭，竟然也叫上了我，我提前并不知道，没有请假，所以就拒绝了，但是没想到他们帮我请好了假，盛情难却，今天一起去吃了个还不错的火锅。</p>
+<p>说说饭桌话题和一些杂想。</p>
+<p>一行5人，我，师弟A（补充一下信息，95年，河北人），师弟B（黑龙江大学14级国防生，大连人，96年，已转改文职），师兄C（六院12级软件工程，19年硕士毕业，湖南人），师弟A的女朋友（白城本地人，97年，镇赉县公务员）。</p>
+<p>饭桌话题无非是聊点八卦，师弟B没有女朋友，总是被调侃，他先诉苦，他与师弟A一起到单位，领导为什么给A介绍了对象，不给他介绍呢，难道他不配，我们哈哈大笑。但是还是要想办法安慰他一下，确实他与师弟A一起来单位，各方面条件都差不多，都归一个领导管，领导这时候有一个合适的女孩可以介绍，为什么选择了A而不是他？这是一个很有意思的话题，我想了一下，可能他是大连人，一到单位就马上买车买房，摆明了就是准备一直干的。但是师弟A是河北石家庄人，能不能在东北扎根是个问题，所以领导把女孩介绍给他，从某种意义上讲，可以通过婚姻将他绑定在此。仿佛也确实起到了作用，现在两人到了谈婚论嫁的程度，师弟今年在白城买了房，下个月开始还房贷，可能也是因为这一点所以这时候带女朋友来和我们见面。</p>
+<p>这么安慰师弟B，他听了也觉得有点道理，然后他又说起办公室别的大哥给他介绍的对象，一般都是大哥小孩的钢琴老师，画画老师，数学老师等等。他讲了一个例子，一天大哥给他介绍一个对象，大哥小孩的xx老师，93年的，他说不接受比自己大3岁的，然后大哥说年薪25万，他说那也不接受。哈哈哈哈哈……然后还有的人给他介绍对象，但是人家女孩只要现役，不要文职干部。(⊙o⊙)… interesting……</p>
+<p>然后又说起了办公室另外一个大哥，坐在我对面，82年的，离异。离婚原因是因为被骗婚，原来也是院里人给介绍的，说是白城的公务员，但是结了婚有了小孩之后发现是个假公务员，只是个临时工，全家就准备靠大哥工资养着了，大哥受不了了，就离婚了。这位大哥是大连理工毕业的，按理说不是傻子，但是居然被这么骗了（这时候学弟A的女朋友很幽默，对学弟A说「那你可小心了，说不定我也是」）。</p>
+<p>军人团体里面确实存在这两种情况，一种就是像这样的「老实人接盘」。真正的nerd，久居大院之内，与社会接触太少，把人际关系想的太简单，信息不对称的在某种程度上成了弱势群体，后面大哥的妻子还是院里人介绍的，院里人不知道真实情况么？怎么能坑自己人。</p>
+<p>回过来说师弟B说的那种情况就是女孩只要现役，不要文职。「军人情节」，有人品不善的，靠着这身衣服游弋乱花丛中。说说我身边的一个例子，19年我们的阅兵方队叫院校科研方队，有一部人是来自国防大学军事文化学院，就是以前的解放军艺术学院，士官学员，年纪不大，长得都挺帅。阅兵结束后，他们在微博上互相串联，一个个拥有了上万女粉丝，和我一个排面的一个兄弟甚至一天早上一个女朋友，下午一个女朋友，晚上一个女朋友，在微信群里不停的晒，今天是北大的女朋友，明天是人大的女朋友（声明本人对北大人大没有任何恶意），后来我把微信群退了，不知道他最后到底有多少个女朋友。</p>
+<p>惨的真惨，渣的真渣。</p>
+<p>我不想评论「军人情节」的对错，但是希望女孩子们还是擦亮眼睛，千万别让军人情节盖住了大男子主义，不讲卫生，甚至家暴倾向……</p>
+<p>还是别操别人的心了，对自己的反思就是要时刻反省自己今天别人对自己的态度，或者自己的成绩，有多少是身处的平台和身份带来的，别人和你交朋友有多少是认同你这个人，又有多少是因为你的平台和身份。</p>
+<p>That’s all. 提前祝大家元宵节愉快。</p>
 
     </div>
 
@@ -366,25 +314,21 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Andrew-Ng-Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Andrew Ng Machine Learning</a>
-              <a href="/tags/MOOC/" rel="tag"><i class="fa fa-tag"></i> MOOC</a>
+              <a href="/tags/%E7%94%9F%E6%B4%BB%E6%9D%82%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 生活杂记</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/ng_ml/ng_ml6/" rel="next" title="Andrew Ng Machine Learning - 6 Logistic Regression">
-                  <i class="fa fa-chevron-left"></i> Andrew Ng Machine Learning - 6 Logistic Regression
+                <a href="/life/qps/" rel="next" title="人们可以自由买卖生命时间，你支持么？">
+                  <i class="fa fa-chevron-left"></i> 人们可以自由买卖生命时间，你支持么？
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/ng_ml/ng_ml8/" rel="prev" title="Andrew Ng Machine Learning - 8 Neural Networks Representation">
-                  Andrew Ng Machine Learning - 8 Neural Networks Representation <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -430,7 +374,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-The-Problem-of-Overfitting"><span class="nav-text">7.1 The Problem of Overfitting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-Cost-Function"><span class="nav-text">7.2 Cost Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-Regularized-Linear-Regression"><span class="nav-text">7.3 Regularized Linear Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-Regularized-Logistic-Regression"><span class="nav-text">7.4 Regularized Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test"><span class="nav-text">Test</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -590,54 +533,6 @@
   
 
   
-      
-<script type="text/x-mathjax-config">
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') {
-          next = next.nextSibling;
-        }
-        if (next && next.nodeName.toLowerCase() === 'br') {
-          next.parentNode.removeChild(next);
-        }
-      }
-    });
-  });
-
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
-      if (element.nodeName.toLowerCase() == 'li') {
-        element = element.parentNode;
-      }
-      element.classList.add('has-jax');
-    }
-  });
-</script>
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
-    MathJax.Hub.Typeset();
-  }, window.MathJax);
-</script>
-
-    
 
   
 
@@ -657,9 +552,9 @@
       DISQUS.reset({
         reload: true,
         config: {page: {
-            url: "http://www.liyaolife.com/ng_ml/ng_ml7/",
-            identifier: "ng_ml/ng_ml7/",
-            title: "Andrew Ng Machine Learning - 7 Regularization"
+            url: "http://www.liyaolife.com/life/dbwnb1/",
+            identifier: "life/dbwnb1/",
+            title: "我在东北玩泥巴——关于婚姻"
           }
         }
       });
