@@ -59,7 +59,7 @@
 <meta property="og:description" content="1 绪论机器学习分类   监督学习 无监督学习训练集无人为标注结果  强化学习  半监督学习 深度学习当下最火的机器学习应用   Python Scikit-Learn库 scikit-learn常用算法的调用方法      应用 算法     分类(classfication) 异常检测、图像识别等 KNN，SVM，etc   聚类(clustering) 图像分割、群体划分等 K-Means，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-11-24T08:34:05.000Z">
-<meta property="article:modified_time" content="2020-02-18T07:47:53.636Z">
+<meta property="article:modified_time" content="2022-03-19T01:28:09.783Z">
 <meta property="article:author" content="Li Yao">
 <meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
@@ -245,7 +245,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 15:47:53" itemprop="dateModified" datetime="2020-02-18T15:47:53+08:00">2020-02-18</time>
+                <time title="修改时间：2022-03-19 09:28:09" itemprop="dateModified" datetime="2022-03-19T09:28:09+08:00">2022-03-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -357,6 +357,7 @@
 <table>
 <thead>
 <tr>
+<th>-</th>
 <th>数据集名称</th>
 <th>调用方式</th>
 <th>适用算法</th>
@@ -365,12 +366,64 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
+<td>小数据集</td>
+<td>波士顿房价数据集</td>
+<td>load_boston()</td>
+<td>回归</td>
+<td>506*13</td>
+</tr>
+<tr>
+<td>-</td>
+<td>鸢尾花数据集</td>
+<td>load_iris()</td>
+<td>分类</td>
+<td>150*4</td>
+</tr>
+<tr>
+<td>-</td>
+<td>糖尿病数据集</td>
+<td>load_diabetes()</td>
+<td>回归</td>
+<td>442*10</td>
+</tr>
+<tr>
+<td>-</td>
+<td>手写数字数据集</td>
+<td>load_digits()</td>
+<td>分类</td>
+<td>5620*64</td>
+</tr>
+<tr>
+<td>大数据集</td>
+<td>Olivetti脸部图像数据集</td>
+<td>fetch_olivetti_faces()</td>
+<td>降维</td>
+<td>400 <em> 64 </em> 64</td>
+</tr>
+<tr>
+<td>-</td>
+<td>新闻分类数据集</td>
+<td>fetch——20newsgroups（）</td>
+<td>分类</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>带标签的人脸数据集</td>
+<td>fetch_lfw_people()</td>
+<td>分类；降维</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>路透社新闻语料数据集</td>
+<td>fetch_revl()</td>
+<td>分类</td>
+<td>804414*47236</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>小数据集|波士顿房价数据集|load_boston()|回归|506<em>13<br> |鸢尾花数据集|load_iris()|分类|150</em>4<br> |糖尿病数据集|load_diabetes()|回归|442<em>10<br> |手写数字数据集|load_digits()|分类|5620</em>64<br>大数据集|Olivetti脸部图像数据集|fetch_olivetti_faces()|降维|400 <em> 64 </em> 64<br> | 新闻分类数据集|fetch——20newsgroups（）|分类|-<br> |带标签的人脸数据集|fetch_lfw_people()|分类；降维|-<br>  |路透社新闻语料数据集|fetch_revl()|分类|804414*47236</p>
 <p><em>注：小数据集可以直接使用，大数据集要在调用程序时自动下载（一次即可）</em></p>
 <p>波士顿房价数据集：<br>包含506组数据，每条数据包含房屋以及房屋周围的详细信息。其中包括城镇犯罪率、一氧化碳浓度、住宅平均房间数、到中心去域的加权距离以及自主房平均房价等。因此，波士顿房价数据集能够应用到回归问题上。</p>
 <p>例如<br>使用<br><code>sklearn.datasets.load_bosten</code>即可加载相关数据集<br>重要参数<br><code>return_X_y</code>:表示是否返回target(即价格），默认为FALSE，只返回data(即属性）</p>
@@ -765,7 +818,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -830,7 +883,7 @@
 <div class="copyright">
   
   &copy; 2017 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -846,7 +899,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:14</span>
+    <span title="站点阅读时长">3:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>

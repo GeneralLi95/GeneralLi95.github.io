@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.liyaolife.com/ml-bl/</loc>
+    
+    <lastmod>2022-03-19T01:28:09.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/mysql3/</loc>
+    
+    <lastmod>2022-02-12T12:59:13.014Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.liyaolife.com/mysql1/</loc>
+    
+    <lastmod>2022-02-08T15:59:50.822Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.liyaolife.com/life/dbwnb1/</loc>
     
     <lastmod>2021-10-13T06:14:07.595Z</lastmod>
@@ -303,13 +324,6 @@
   </url>
   
   <url>
-    <loc>http://www.liyaolife.com/mysql1/</loc>
-    
-    <lastmod>2020-02-18T07:52:49.236Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.liyaolife.com/pytorch_error/</loc>
     
     <lastmod>2020-02-18T07:52:22.677Z</lastmod>
@@ -355,13 +369,6 @@
     <loc>http://www.liyaolife.com/mkdocs/</loc>
     
     <lastmod>2020-02-18T07:48:26.501Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyaolife.com/ml-bl/</loc>
-    
-    <lastmod>2020-02-18T07:47:53.636Z</lastmod>
     
   </url>
   
