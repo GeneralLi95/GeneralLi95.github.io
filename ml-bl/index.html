@@ -59,7 +59,7 @@
 <meta property="og:description" content="1 绪论机器学习分类   监督学习 无监督学习训练集无人为标注结果  强化学习  半监督学习 深度学习当下最火的机器学习应用   Python Scikit-Learn库 scikit-learn常用算法的调用方法      应用 算法     分类(classfication) 异常检测、图像识别等 KNN，SVM，etc   聚类(clustering) 图像分割、群体划分等 K-Means，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-11-24T08:34:05.000Z">
-<meta property="article:modified_time" content="2022-03-19T01:28:09.783Z">
+<meta property="article:modified_time" content="2022-03-19T01:41:44.588Z">
 <meta property="article:author" content="Li Yao">
 <meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
@@ -245,7 +245,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-19 09:28:09" itemprop="dateModified" datetime="2022-03-19T09:28:09+08:00">2022-03-19</time>
+                <time title="修改时间：2022-03-19 09:41:44" itemprop="dateModified" datetime="2022-03-19T09:41:44+08:00">2022-03-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -433,7 +433,8 @@
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">data</span>,<span class="keyword">target</span> = load_boston(return_X_y=True)</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="keyword">data</span>.<span class="built_in">shape</span>)</span><br><span class="line">(<span class="number">506</span>,<span class="number">13</span>)</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="keyword">target</span>.<span class="built_in">shape</span>)</span><br><span class="line"><span class="number">506</span></span><br></pre></td></tr></table></figure>
 <p>手写数字数据集<br>包括1797个0-9的手写数字数据，每个数字由8*8大小的矩阵构成，矩阵中值得范围是0-16，代表颜色的深度。</p>
 <p>示例</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; from sklearn.datasets import load_digits</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; digits = load_digits()</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(digits.data.shape)</span><br><span class="line">(<span class="number">1797</span>,<span class="number">64</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(digits.target.shape)</span><br><span class="line">(<span class="number">1797</span>,)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(digits.images.shape)</span><br><span class="line">(<span class="number">1797.8</span>.<span class="number">8</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; import matplotlib.pyplot as plt</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; plt.matshow(digits.images[<span class="number">0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; plt.show()</span><br></pre></td></tr></table></figure></h2><h3 id="sklearn库的基本功能"><a href="#sklearn库的基本功能" class="headerlink" title="sklearn库的基本功能"></a>sklearn库的基本功能</h3><p>sklearn库的功能分为6大部分，分别用于完成分类任务、回归任务、聚类任务、降维任务、模型选择以及数据的预处理。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; from sklearn.datasets import load_digits</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; digits = load_digits()</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(digits.data.shape)</span><br><span class="line">(<span class="number">1797</span>,<span class="number">64</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(digits.target.shape)</span><br><span class="line">(<span class="number">1797</span>,)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; print(digits.images.shape)</span><br><span class="line">(<span class="number">1797.8</span>.<span class="number">8</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; import matplotlib.pyplot as plt</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; plt.matshow(digits.images[<span class="number">0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; plt.show()</span><br></pre></td></tr></table></figure>
+<h3 id="sklearn库的基本功能"><a href="#sklearn库的基本功能" class="headerlink" title="sklearn库的基本功能"></a>sklearn库的基本功能</h3><p>sklearn库的功能分为6大部分，分别用于完成分类任务、回归任务、聚类任务、降维任务、模型选择以及数据的预处理。</p>
 <p>分类任务</p>
 <div class="table-container">
 <table>
@@ -781,29 +782,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-绪论"><span class="nav-text">1 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-sklearn-安装"><span class="nav-text">2 sklearn 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-sklearn库中的标准数据集及基本功能"><span class="nav-text">3 sklearn库中的标准数据集及基本功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-text">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-&gt;&gt;&gt; from sklearn.datasets import load_digits
-&gt;&gt;&gt; digits &#x3D; load_digits()
-&gt;&gt;&gt; print(digits.data.shape)
-(1797,64)
-&gt;&gt;&gt; print(digits.target.shape)
-(1797,)
-&gt;&gt;&gt; print(digits.images.shape)
-(1797.8.8)
-&gt;&gt;&gt; import matplotlib.pyplot as plt
-&gt;&gt;&gt; plt.matshow(digits.images[0])
-&gt;&gt;&gt; plt.show()
-</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sklearn库的基本功能"><span class="nav-text">sklearn库的基本功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-无监督学习"><span class="nav-text">4 无监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-K-means-聚类算法"><span class="nav-text">5 K-means 聚类算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-DBSCAN-密度聚类算法"><span class="nav-text">6 DBSCAN 密度聚类算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-主成成分分析（PCA）降维算法"><span class="nav-text">7 主成成分分析（PCA）降维算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-非负矩阵分解（NMF）-降维方法"><span class="nav-text">8 非负矩阵分解（NMF） 降维方法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-绪论"><span class="nav-text">1 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-sklearn-安装"><span class="nav-text">2 sklearn 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-sklearn库中的标准数据集及基本功能"><span class="nav-text">3 sklearn库中的标准数据集及基本功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sklearn库的基本功能"><span class="nav-text">sklearn库的基本功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-无监督学习"><span class="nav-text">4 无监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-K-means-聚类算法"><span class="nav-text">5 K-means 聚类算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-DBSCAN-密度聚类算法"><span class="nav-text">6 DBSCAN 密度聚类算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-主成成分分析（PCA）降维算法"><span class="nav-text">7 主成成分分析（PCA）降维算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-非负矩阵分解（NMF）-降维方法"><span class="nav-text">8 非负矩阵分解（NMF） 降维方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
