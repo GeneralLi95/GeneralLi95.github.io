@@ -133,7 +133,7 @@ pip3 install sklearn  #安装sklearn包
 >>> plt.matshow(digits.images[0])
 >>> plt.show()
 ```
----
+
 ### sklearn库的基本功能
 sklearn库的功能分为6大部分，分别用于完成分类任务、回归任务、聚类任务、降维任务、模型选择以及数据的预处理。
 
