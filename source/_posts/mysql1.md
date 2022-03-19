@@ -9,15 +9,35 @@ categories:
 catalog: true
 ---
 
-## 安装
+## 1 使用 brew 安装
 
-使用brew进行安装
+### 1.1 使用brew进行安装
 
 ```
 brew install mysql
 ```
 
+安装好之后显示：
+```
+We've installed your MySQL database without a root password. To secure it run:
+    mysql_secure_installation
+
+MySQL is configured to only allow connections from localhost by default
+
+To connect run:
+    mysql -uroot
+
+To restart mysql after an upgrade:
+  brew services restart mysql
+Or, if you don't want/need a background service you can just run:
+  /usr/local/opt/mysql/bin/mysqld_safe --datadir=/usr/local/var/mysql
+```
+先不用操作。
+
+### 1.2 
+
 安装好之后通常会没有linked
+
 然后
 
 ```
@@ -25,7 +45,22 @@ sudo chown R ‘usrname’ usr/local
 
 ```
 
+在本机就是 
+
+```
+sudo chown R ‘yaoli’ usr/local
+```
+由加了一个
+
+```
+sudo chown R ‘root’ usr/local
+```
+
 通常会执行成功，但是macOS比较新的版本里面会没有拒绝这一操作。即Operation not permitted。这是由于Mac的rootless机制。
+> 2018年也许没有执行成功
+>
+>2022年重装mysql执行成功
+
 
 解决方案：
 
@@ -47,14 +82,16 @@ sudo chown R ‘usrname’ usr/local
 4. 要想重新开启，参照步骤1，2
 
 
-## 设置root密码
+## 2 设置root密码
 
-终端输入
+按照1后的提示终端输入
 
 ```
-mysqladmin -u root password 123456
+mysql_secure_installation
 ```
+然后会提示你设置密码和一些其他设置，按照提示设置即可。
 就已经把密码设置成123456了。
+
 然后登陆
 
 ```
@@ -84,6 +121,10 @@ mysqladmin -u root -p shutdown
 mysql.server start
 ```
 
+关闭MySQL服务器
+```
+mysql.server start
+```
 
 ## 管理MySQL的命令
 列出数据库列表:
